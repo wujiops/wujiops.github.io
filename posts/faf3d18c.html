@@ -1,0 +1,1463 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Elasticsearch, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>Elasticsearch | 波亚斯</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Elasticsearch</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/elk/">
+                                <span class="chip bg-color">elk</span>
+                            </a>
+                        
+                            <a href="/tags/elasticsearch/">
+                                <span class="chip bg-color">elasticsearch</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Server/" class="post-category">
+                                Server
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-09-09
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-07-06
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p>Elasticsearch集群搭建文中有两种方式：单机版修改成集群配置、新建新的集群将单机版数据导入集群。</p>
+</blockquote>
+<h1 id="单机安装"><a href="#单机安装" class="headerlink" title="单机安装"></a>单机安装</h1><p>下载软件包</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装JDK略</span>
+<span class="token function">wget</span> https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.4.tar.gz
+<span class="token function">useradd</span> elasticsearch
+<span class="token function">tar</span> xf elasticsearch-6.5.4.tar.gz <span class="token parameter variable">-C</span> /home/
+<span class="token function">chown</span> <span class="token parameter variable">-R</span> elasticsearch. /home/elasticsearch-6.5.4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>编辑配置文件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sed</span> <span class="token parameter variable">-i</span> <span class="token string">'55cnetwork.host: 0.0.0.0'</span> /home/elasticsearch-6.5.4/config/elasticsearch.yml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>jvm调整及系统参数调整</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">vm</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$((</span>$<span class="token punctuation">(</span>free <span class="token operator">-</span>g <span class="token operator">|</span> grep Mem <span class="token operator">|</span> awk '&#123;print $<span class="token number">2</span>&#125;'<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token variable">))</span></span>
+<span class="token function">sed</span> <span class="token parameter variable">-i</span> <span class="token parameter variable">-e</span> <span class="token string">"/^-Xms/c -Xms<span class="token variable">$&#123;vm&#125;</span>g"</span> <span class="token parameter variable">-e</span> <span class="token string">"/^-Xmx/c -Xmx<span class="token variable">$&#123;vm&#125;</span>g"</span>  /home/elasticsearch-6.5.4/config/jvm.options
+<span class="token function">sed</span> <span class="token parameter variable">-i</span> <span class="token parameter variable">-e</span>  <span class="token string">"s/4096/40960/g"</span> /etc/security/limits.d/20-nproc.conf
+<span class="token builtin class-name">echo</span> <span class="token parameter variable">-e</span> <span class="token string">"*  soft  nofile  65536 <span class="token entity" title="\n">\n</span>*  hard  nofile  131072"</span><span class="token operator">>></span>/etc/security/limits.conf
+<span class="token builtin class-name">echo</span> <span class="token string">"vm.max_map_count = 655360"</span><span class="token operator">>></span> /etc/sysctl.conf
+<span class="token function">sysctl</span> <span class="token parameter variable">-p</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>安装ik</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 初次安装es没有ik插件，需要到官网下载ik插件，全称analysis-ik，放在安装elasticsearch目录的plugins下面</span>
+<span class="token function">wget</span> https://github.91chifun.workers.dev/https://github.com//medcl/elasticsearch-analysis-ik/releases/download/v6.8.18/elasticsearch-analysis-ik-6.8.18.zip
+<span class="token comment"># 或者直接使用随文档一起的压缩文件ik.tgz，注意plugins/目录只能放插件，不要把压缩包拷贝进去，否则启动es报错*ik.tgz*。</span>
+/home/elasticsearch-6.5.4/plugins/analysis-ik<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>启动服务</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">su</span> - elasticsearch <span class="token parameter variable">-c</span> <span class="token string">"/home/elasticsearch-6.5.4/bin/elasticsearch -d"</span> 启动
+<span class="token comment"># 设置开机自启</span>
+<span class="token builtin class-name">echo</span> <span class="token parameter variable">-e</span> <span class="token string">'source /etc/profile \nsu elasticsearch -c "/home/elasticsearch-6.5.4/bin/elasticsearch -d"'</span> <span class="token operator">>></span>/etc/rc.local<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>运行状态监控</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 通过进程状态来查看运行状态：</span>
+<span class="token function">ps</span> <span class="token parameter variable">-ef</span> <span class="token operator">|</span> <span class="token function">grep</span> elasticsearch
+<span class="token comment"># 通过端口状态来查看运行状态：</span>
+<span class="token function">netstat</span> <span class="token parameter variable">-ntplua</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token number">9200</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="单机Elasticsearch备份恢复"><a href="#单机Elasticsearch备份恢复" class="headerlink" title="单机Elasticsearch备份恢复"></a>单机Elasticsearch备份恢复</h1><h2 id="安装elasticdump"><a href="#安装elasticdump" class="headerlink" title="安装elasticdump"></a>安装elasticdump</h2><h3 id="方法一-NPM安装"><a href="#方法一-NPM安装" class="headerlink" title="方法一 NPM安装"></a>方法一 NPM安装</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装npm并升级，否则执行elasticdump报错*loop*</span>
+<span class="token function">curl</span> <span class="token parameter variable">--silent</span> <span class="token parameter variable">--location</span> https://rpm.nodesource.com/setup_10.x <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">bash</span>
+yum <span class="token function">install</span> <span class="token parameter variable">-y</span> nodejs
+<span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> n
+n latest
+<span class="token comment"># 安装elasticdump</span>
+<span class="token function">npm</span> <span class="token function">install</span> elasticdump <span class="token parameter variable">-g</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="方法二-离线安装"><a href="#方法二-离线安装" class="headerlink" title="方法二 离线安装"></a>方法二 离线安装</h3><blockquote>
+<p>去官网下载nodejs的tar包，在互联网利用npm下载elasticdump<br>copy到离线环境，配置环境变量</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span>:/home/node/node-v16.7.0-linux-x64/bin:/home/node/elasticdump/bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>导入/出模板，注意同一个索引需要导入/出mapping和data两个类型数据。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">elasticdump <span class="token parameter variable">--input</span><span class="token operator">=</span>http://IP:PORT/索引名 <span class="token parameter variable">--output</span><span class="token operator">=</span>./索引名_mapping.json <span class="token parameter variable">--type</span><span class="token operator">=</span>mapping
+elasticdump <span class="token parameter variable">--input</span><span class="token operator">=</span>http://IP:PORT/索引名 <span class="token parameter variable">--output</span><span class="token operator">=</span>./索引名_data.json <span class="token parameter variable">--type</span><span class="token operator">=</span>data
+elasticdump <span class="token parameter variable">--output</span><span class="token operator">=</span>http://IP:PORT/索引名 <span class="token parameter variable">--input</span><span class="token operator">=</span>/home/索引名_mapping.json <span class="token parameter variable">--type</span><span class="token operator">=</span>mapping
+elasticdump <span class="token parameter variable">--output</span><span class="token operator">=</span>http://IP:PORT/索引名 <span class="token parameter variable">--input</span><span class="token operator">=</span>/home/索引名_data.json <span class="token parameter variable">--type</span><span class="token operator">=</span>data<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="旧机器导出数据"><a href="#旧机器导出数据" class="headerlink" title="旧机器导出数据"></a>旧机器导出数据</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看所有索引</span>
+<span class="token function">curl</span> <span class="token parameter variable">-XGET</span> <span class="token string">'localhost:9200/_cat/indices?v&amp;pretty'</span>
+<span class="token comment"># 导出数据，一条索引，分别导出mapping和data</span>
+elasticdump <span class="token parameter variable">--input</span><span class="token operator">=</span>http://localhost:9200/avm_index <span class="token parameter variable">--output</span><span class="token operator">=</span>./avm_index_mapping.json <span class="token parameter variable">--type</span><span class="token operator">=</span>mapping 
+elasticdump <span class="token parameter variable">--input</span><span class="token operator">=</span>http://localhost:9200/avm_index <span class="token parameter variable">--output</span><span class="token operator">=</span>./avm_index_data.json <span class="token parameter variable">--type</span><span class="token operator">=</span>data<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="新机器导入数据"><a href="#新机器导入数据" class="headerlink" title="新机器导入数据"></a>新机器导入数据</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 导入数据，一条索引，分别导入mapping和data</span>
+<span class="token function">su</span> - elasticsearch <span class="token parameter variable">-c</span> <span class="token string">"elasticdump --output=http://localhost:9200/avm_index --input=/home/wangj-pdmi/avm_index_mapping.json --type=mapping"</span>
+<span class="token function">su</span> - elasticsearch <span class="token parameter variable">-c</span> <span class="token string">"elasticdump --output=http://localhost:9200/avm_index --input=/home/wangj-pdmi/avm_index_data.json --type=data"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看所有索引</span>
+<span class="token function">curl</span> <span class="token parameter variable">-XGET</span> <span class="token string">'localhost:9200/_cat/indices?v&amp;pretty'</span>
+<span class="token comment"># 获取索引信息*/索引名?pretty</span>
+<span class="token function">curl</span> <span class="token parameter variable">-XGET</span> <span class="token string">"localhost:9200/索引名?pretty"</span>
+<span class="token comment"># 查看索引的统计信息*/索引名/_stats?pretty</span>
+<span class="token function">curl</span> <span class="token parameter variable">-XGET</span> <span class="token string">"localhost:9200/索引名/_stats?pretty"</span>
+<span class="token comment"># 获取索引的mappings</span>
+<span class="token function">curl</span> <span class="token parameter variable">-XGET</span> <span class="token string">"localhost:9200/索引名/_mappings?pretty"</span>
+<span class="token comment"># 删除索引</span>
+<span class="token function">curl</span> <span class="token parameter variable">-XDELETE</span> <span class="token string">"localhost:9200/索引名"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="集群搭建"><a href="#集群搭建" class="headerlink" title="集群搭建"></a>集群搭建</h1><p>以上述搭建好的单机为例，在此基础上搭建Elasticsearch集群。记得修改系统配置、安装JDK。</p>
+<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p><code>vi elasticsearch.yml</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">cluster.name: elasticsearch   <span class="token comment"># 集群名3台机器保持一致</span>
+node.name: node-1   <span class="token comment"># 集群中节点名，3台机器保持不同</span>
+path.data: /home/elasticsearch/es_data
+path.logs: /home/elasticsearch/es_logs
+bootstrap.memory_lock: <span class="token boolean">true</span>
+network.host: <span class="token number">192.168</span>.0.130   <span class="token comment"># 绑定主机的IP</span>
+discovery.zen.ping.unicast.hosts: <span class="token punctuation">[</span><span class="token string">"192.168.0.132"</span>, <span class="token string">"192.168.0.130"</span>, <span class="token string">"192.168.0.131"</span><span class="token punctuation">]</span>
+node.master: <span class="token boolean">true</span>
+http.cors.enabled: <span class="token boolean">true</span>
+http.cors.allow-origin: <span class="token string">"*"</span>
+http.max_content_length: 500mb<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="附录（一）"><a href="#附录（一）" class="headerlink" title="附录（一）"></a>附录（一）</h1><p>安装kibana</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://artifacts.elastic.co/downloads/kibana/kibana-6.5.4-linux-x86_64.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h1 id="ELK"><a href="#ELK" class="headerlink" title="ELK"></a>ELK</h1><p>这里比较几个东西：</p>
+<ol>
+<li><p><code>kafka</code>，应用在消息、行为跟踪、日志收集方面（吞吐量巨大，内置分区，冗余和容错性）</p>
+</li>
+<li><p><code>mqtt</code>，在物联网系统应用广泛（工作在低宽带，不可靠的网络远程通讯系统中）</p>
+</li>
+<li><p><code>redis</code>，key-value的nosql数据库，可作为队列使用（小数据入队性能要优于rabbitmq，rabbitmq的出队性能则远低于redis）</p>
+</li>
+<li><p><code>rabbitmq</code>，吞吐量不如kafka，可用性优于kafka（rabbitmq支持miror的queue，主queue失效，miror queue接管）</p>
+</li>
+</ol>
+<p>这里总结一下：</p>
+<p><code>kafka</code>：可用于峰值数亿级的日志收集，常用于分布式架构，对性能要求高的可以考虑kafka</p>
+<p><code>RocketMQ</code>：思路来源于KAFKA，改成了主从结构，在事务性可靠性方面做了优化，广泛来说，电商、金融等对事务性要求很高，可以考虑RabbitMQ和RocketMQ；</p>
+<p><code>mqtt</code>：在物联网中任然是不可取代的存在。遥感数据，汽车，智能家居，智慧城市，医疗医护等；</p>
+<p><code>redis</code>：key-value的nosql数据库，还是做数据库、缓存使用吧；</p>
+<p><code>rabbitmq</code>：消息队列，在对数据完整性要求高的场景使用吧，增加集群装机量来弥补吞吐量的不足。</p>
+<h1 id="一些ELK的架构图"><a href="#一些ELK的架构图" class="headerlink" title="一些ELK的架构图"></a>一些ELK的架构图</h1><p><img src="/medias/img/elk/0.jpg"><br><img src="/medias/img/elk/0.png"><br><img src="/medias/img/elk/1.jpg"><br><img src="/medias/img/elk/1.png"></p>
+<p>这里展示了4张包含kafka日志收集的ELK架构，我的理解是：</p>
+<p><code>filebeat(web logs)</code> –&gt; <code>[+logstash]kafka</code> –&gt; <code>logstash</code> –&gt; <code>elasticsearch</code> –&gt; <code>kibana</code> –&gt; <code>nginx</code></p>
+<p>解释：</p>
+<p>Q1：filebeat和logstash为什么分离？</p>
+<p>Q2：为什么两层logstash？</p>
+<p>Q3：kafka有什么用？why kafka？</p>
+<p>A1：原因很简单，资源消耗比较大。</p>
+<p>由于 Logstash 是跑在 JVM 上面，资源消耗比较大，后来作者用 GO 写了一个功能较少但是资源消耗也小的轻量级的 Agent 叫 Logstash-forwarder。</p>
+<p>后来作者加入 elastic.co 公司， Logstash-forwarder 的开发工作给公司内部 GO 团队来搞，最后命名为 Filebeat。</p>
+<p>Filebeat 需要部署在每台应用服务器上，可以通过 Salt 来推送并安装配置。</p>
+<p>A2：你可以在kafka前面增加0-多台logstash，因为在大量的日志数据写入时，容易导致数据的丢失和混乱，为了解决这一问题，增加logstash通过类型进行汇总分类，降低数据传输的臃肿。在elasticsearch前增加一层logstash仅作转发处理，既可以通过kibana监控实时数据流，又能将kafka数据源源不断的存储到elasticsearch磁盘中。</p>
+<p>当然你可以配置将filebeat收集到的日志直接导入到kafka集群中。</p>
+<p>A3：Kafka主要特点是基于Pull的模式来处理消息消费，追求高吞吐量，一开始的目的就是用于日志收集和传输。0.8版本开始支持复制，不支持事务，对消息的重复、丢失、错误没有严格要求，适合产生大量数据的互联网服务的数据收集业务。</p>
+<p>你也可以使用别的日志收集工具，甚至是只用ELK。</p>
+<p>你必须要知道这是根据你的业务场景来决定的，如果你在金融部门，Kafka并不是你的第一选择。</p>
+<p>补充：</p>
+<p>整个架构加入Kafka，是为了让整个系统更好的分层，Kafka作为一个消息流处理与持久化存储软件，能够帮助我们在主节点上屏蔽掉多个从节点之间不同日志文件的差异，负责管理日志端（从节点）的人可以专注于向 Kafka里生产数据，而负责数据分析聚合端的人则可以专注于从 Kafka内消费数据。所以部署时要把Kafka加进去。</p>
+<p>而且使用Kafka进行日志传输的原因还在于其有数据缓存的能力，并且它的数据可重复消费，Kafka本身具有高可用性，能够很好的防止数据丢失，它的吞吐量相对来说比较好并且使用广泛。可以有效防止日志丢失和防止logsthash挂掉。综合来说：它均衡了网络传输，从而降低了网络闭塞，尤其是丢失数据的可能性。</p>
+<p>这里为什么要在Kafka前面增加二台logstash呢？</p>
+<p>如果只有一层的Logstash，它将处理来自不同客户端Filebeat收集的日志信息汇总，并且进行处理分析，在一定程度上会造成在大规模日志数据下信息的处理混乱，并严重加深负载，所以有二层的结构进行负载均衡处理，并且职责分工，一层汇聚简单分流，一层分析过滤处理信息，并且内层都有二台Logstash来保障服务的高可用性，以此提升整个架构的稳定性。</p>
+<h1 id="安装ELK"><a href="#安装ELK" class="headerlink" title="安装ELK"></a>安装ELK</h1><p>采用kafka+ELK采集log。</p>
+<h2 id="服务器和角色"><a href="#服务器和角色" class="headerlink" title="服务器和角色"></a>服务器和角色</h2><table>
+<thead>
+<tr>
+<th align="left">IP</th>
+<th align="left">主机名</th>
+<th align="left">角色</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">192.168.1.90</td>
+<td align="left">node0</td>
+<td align="left">web log+filebeat</td>
+</tr>
+<tr>
+<td align="left">192.168.1.91</td>
+<td align="left">node1</td>
+<td align="left">kafka+zookeeper</td>
+</tr>
+<tr>
+<td align="left">192.168.1.92</td>
+<td align="left">node2</td>
+<td align="left">kafka+zookeeper</td>
+</tr>
+<tr>
+<td align="left">192.168.1.93</td>
+<td align="left">node3</td>
+<td align="left">kafka+zookeeper</td>
+</tr>
+<tr>
+<td align="left">192.168.1.94</td>
+<td align="left">node4</td>
+<td align="left">logstash</td>
+</tr>
+<tr>
+<td align="left">192.168.1.95</td>
+<td align="left">node5</td>
+<td align="left">elasticsearch kibana nginx</td>
+</tr>
+</tbody></table>
+<h2 id="导入密钥"><a href="#导入密钥" class="headerlink" title="导入密钥"></a>导入密钥</h2><p><code>rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch</code></p>
+<h2 id="配置yum仓库安装"><a href="#配置yum仓库安装" class="headerlink" title="配置yum仓库安装"></a>配置yum仓库安装</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>elasticsearch<span class="token punctuation">]</span>
+<span class="token assign-left variable">name</span><span class="token operator">=</span>Elasticsearch repository <span class="token keyword">for</span> <span class="token number">7</span>.x packages
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span>https://artifacts.elastic.co/packages/7.x/yum
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">gpgkey</span><span class="token operator">=</span>https://artifacts.elastic.co/GPG-KEY-elasticsearch
+<span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token assign-left variable">autorefresh</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">type</span><span class="token operator">=</span>rpm-md<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="直接下载rpm包安装"><a href="#直接下载rpm包安装" class="headerlink" title="直接下载rpm包安装"></a>直接下载rpm包安装</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># https://elasticsearch.cn/download/   # 中文社区下载地址，建议使用迅雷等工具下载。</span>
+<span class="token function">wget</span> https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.8.0-x86_64.rpm
+<span class="token function">wget</span> https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.8.0-x86_64.rpm.sha512
+shasum <span class="token parameter variable">-a</span> <span class="token number">512</span> <span class="token parameter variable">-c</span> elasticsearch-7.8.0-x86_64.rpm.sha512 
+<span class="token function">rpm</span> <span class="token parameter variable">--install</span> elasticsearch-7.8.0-x86_64.rpm
+<span class="token function">wget</span> https://artifacts.elastic.co/downloads/kibana/kibana-7.8.0-x86_64.rpm
+<span class="token function">wget</span> https://artifacts.elastic.co/downloads/logstash/logstash-7.8.0.rpm
+<span class="token function">wget</span> https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.8.0-x86_64.rpm
+<span class="token function">wget</span> https://mirrors.aliyun.com/apache/kafka/2.5.0/kafka_2.13-2.5.0.tgz
+<span class="token function">wget</span> https://mirrors.aliyun.com/apache/zookeeper/zookeeper-3.6.1/apache-zookeeper-3.6.1-bin.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># node0节点</span>
+hostnamectl set-hostname node0   <span class="token comment"># 设置主机名</span>
+systemctl stop firewalld   <span class="token comment"># 关闭防火墙</span>
+setenforce <span class="token number">0</span>   <span class="token comment"># 关闭selinux</span>
+<span class="token function">tee</span> <span class="token operator">>></span> /etc/hosts <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+192.168.1.90 node0
+192.168.1.91 node1
+192.168.1.92 node2
+192.168.1.93 node3
+192.168.1.94 node4
+192.168.1.95 node5
+EOF</span>   <span class="token comment"># 设置主机名</span>
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> nginx filebeat 
+<span class="token comment"># node123安装zookeeper+kafka</span>
+<span class="token builtin class-name">cd</span> /home
+<span class="token function">tar</span> xf apache-zookeeper-3.6.1-bin.tar.gz
+<span class="token function">mv</span> apache-zookeeper-3.6.1-bin/ zookeeper
+<span class="token builtin class-name">cd</span> zookeeper/
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> tmp/zookeeper
+<span class="token builtin class-name">echo</span> <span class="token string">"1"</span> <span class="token operator">></span> tmp/zookeeper/myid
+<span class="token comment"># node上安装配置kafka</span>
+<span class="token function">tar</span> xf kafka_2.13-2.5.0.tgz
+<span class="token function">mv</span> kafka_2.13-2.5.0/ kafka
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /tmp/kafka-logs
+<span class="token comment"># 生成zookeeper配置文件</span>
+<span class="token builtin class-name">cd</span> conf
+<span class="token function">cp</span> zoo_sample.cfg zoo.cfg
+<span class="token comment"># node4</span>
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> <span class="token function">java</span> java-devel logstash
+<span class="token comment"># node5</span>
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> elasticsearch kibana nginx httpd-tools   <span class="token comment"># epel-release</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><blockquote>
+<p>nginx</p>
+</blockquote>
+<p><code>/etc/nginx/nginx.conf</code></p>
+<p>修改Nginx配置文件添加以下内容</p>
+<pre class="line-numbers language-conf" data-language="conf"><code class="language-conf">log_format json &#39;&#123;&quot;@timestamp&quot;:&quot;$time_iso8601&quot;,&quot;@version&quot;:&quot;1&quot;,&quot;client_ip&quot;:&quot;$remote_addr&quot;,&quot;status&quot;:&quot;$status&quot;,&quot;host&quot;:&quot;$server_addr&quot;,&quot;url&quot;:&quot;$request_uri&quot;,&quot;domain&quot;:&quot;$host&quot;,&quot;size&quot;:&quot;$body_bytes_sent&quot;,&quot;responsetime&quot;:&quot;$request_time&quot;,&quot;referer&quot;:&quot;$scheme:&#x2F;&#x2F;$server_addr$request_uri&quot;,&quot;user_agent&quot;:&quot;$http_user_agent&quot;&#125;&#39;;
+access_log &#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log json;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>filebeat</p>
+</blockquote>
+<p><code>/etc/filebeat/filebeat.yml</code>详细配置在解释末</p>
+<p>filebeat支持很多种输入和输出.具体可看input,output.</p>
+<p>项目中用到的输入是log,输出的kafka.在这只讲这两种配置.</p>
+<p>输入配置log</p>
+<p>log输入是从文件中按行读取.在paths指定需要监视的文件.</p>
+<p>例子:</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">filebeat.inputs</span><span class="token punctuation">:</span>
+<span class="token punctuation">-</span> <span class="token key atrule">type</span><span class="token punctuation">:</span> log
+  <span class="token key atrule">paths</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> /var/log/nginx
+    <span class="token punctuation">-</span> /var/log/<span class="token important">*.log</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>主要有以下几个配置项.</p>
+<p><code>paths</code>：需要监视的文件路径.支持Go Glab的所有模式.例如: /var/log/*.log.这个配置将监视/var/log文件夹下所有以.log结尾的文件.可以用recursive_glob来递归子文件夹.</p>
+<p><code>recursive_glob.enabled</code>：允许扩展 * * 为递归的glob模式.启用此功能后. /foo/* * 扩展到/foo, /foo/* ,/foo/* /* ,等等,它会将单个扩展 * * 为8级深度*模式.</p>
+<p>默认情况下启用此功能.设置false禁用.</p>
+<p><code>exclude_lines</code>：正则表达式列表,用于匹配您希望Filebeat排除的行.Filebeat会删除与列表中的正则表达式匹配的所有行.默认情况下,不会删除任何行.空行被忽略.</p>
+<p>以下示例将Filebeat配置为删除任何以DBG开头的行:</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">filebeat.inputs</span><span class="token punctuation">:</span>
+<span class="token punctuation">-</span> <span class="token key atrule">type</span><span class="token punctuation">:</span> log
+  <span class="token punctuation">...</span>
+  <span class="token key atrule">exclude_lines</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'^DBG'</span><span class="token punctuation">]</span>
+include_lines<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>正则表达式列表,用于匹配您希望Filebeat包含的行.Filebeat仅导出与列表中的正则表达式匹配的行.默认情况下,将导出所有行.空行被忽略.</p>
+<p>以下示例将Filebeat配置为导出以ERR或WARN开头的所有行:</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">filebeat.inputs</span><span class="token punctuation">:</span>
+<span class="token punctuation">-</span> <span class="token key atrule">type</span><span class="token punctuation">:</span> log
+  <span class="token punctuation">...</span>
+  <span class="token key atrule">include_lines</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'^ERR'</span><span class="token punctuation">,</span> <span class="token string">'^WARN'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>PS: 如果include_lines和exclude_lines两个配置同时出现,优先执行inlcude_lines再执行exclude_lines.和配置项放的位置没有关系.</p>
+<p><code>json</code>：filebeat支持json格式的消息日志.它将逐行处理日志,因此只有每行有一个json对象时,json解码才有效.</p>
+<p>配置示例:</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">json.keys_under_root</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+<span class="token key atrule">json.add_error_key</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+<span class="token key atrule">json.message_key</span><span class="token punctuation">:</span> log
+enabled<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输入开关.默认true打开.</p>
+<p>输出配置kafka</p>
+<p>kafka将输出流发送到Apache Kafka.</p>
+<p>配置示例:</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">output.kafka</span><span class="token punctuation">:</span>
+  <span class="token comment"># initial brokers for reading cluster metadata</span>
+  <span class="token key atrule">hosts</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"kafka1:9092"</span><span class="token punctuation">,</span> <span class="token string">"kafka2:9092"</span><span class="token punctuation">,</span> <span class="token string">"kafka3:9092"</span><span class="token punctuation">]</span>
+
+  <span class="token comment"># message topic selection + partitioning</span>
+  <span class="token key atrule">topic</span><span class="token punctuation">:</span> <span class="token string">'%&#123;[fields.log_topic]&#125;'</span>
+  <span class="token key atrule">partition.round_robin</span><span class="token punctuation">:</span>
+    <span class="token key atrule">reachable_only</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+
+  <span class="token key atrule">required_acks</span><span class="token punctuation">:</span> <span class="token number">1</span>
+  <span class="token key atrule">compression</span><span class="token punctuation">:</span> gzip
+  <span class="token key atrule">max_message_bytes</span><span class="token punctuation">:</span> <span class="token number">1000000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>主要以下几个配置项<br><code>enabled</code>：是否打开输出配置项.true打开,false关闭.默认是true.</p>
+<p><code>hosts</code>：kafka的broker地址.</p>
+<p><code>topic</code>：kafka的topic.</p>
+<p><code>worker</code>：并发负载均衡Kafka输出工作线程的数量.</p>
+<p><code>timeout</code>：kafka返回应答的等待时间.默认30(秒).</p>
+<p><code>keep_alive</code>：连接的存活时间.如果为0,表示短连,发送完就关闭.默认为0秒.</p>
+<p><code>required_acks</code>：ACK的可靠等级.0=无响应,1=等待本地消息,-1=等待所有副本提交.默认1.</p>
+<p>PS：如果设为0,kafka无应答返回时,消息将丢失.</p>
+<p>配置例子</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">filebeat.inputs</span><span class="token punctuation">:</span>
+<span class="token punctuation">-</span> <span class="token key atrule">type</span><span class="token punctuation">:</span> log   <span class="token comment"># 日志类型</span>
+  <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+
+  <span class="token key atrule">json.keys_under_root</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>   <span class="token comment"># 可以让字段位于根节点</span>
+  <span class="token key atrule">json.overwrite_keys</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>   <span class="token comment"># 对于同名的key，覆盖原有key值</span>
+  <span class="token key atrule">fields_under_root</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>   <span class="token comment"># 可以让字段位于根节点</span>
+  <span class="token key atrule">paths</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> /var/log/nginx/access.log   <span class="token comment"># 日志文件路径</span>
+  <span class="token key atrule">fields</span><span class="token punctuation">:</span>
+
+    <span class="token key atrule">type</span><span class="token punctuation">:</span> log
+    <span class="token key atrule">log_topic</span><span class="token punctuation">:</span> dev<span class="token punctuation">-</span>nginx<span class="token punctuation">-</span>access   <span class="token comment"># 指定日志topic名称</span>
+<span class="token key atrule">name</span><span class="token punctuation">:</span> dev<span class="token punctuation">-</span>nginx
+<span class="token key atrule">output.kafka</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">hosts</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"192.168.1.91:9092"</span><span class="token punctuation">,</span><span class="token string">"192.168.1.92:9092"</span><span class="token punctuation">,</span><span class="token string">"192.168.1.93:9092"</span><span class="token punctuation">]</span>   <span class="token comment"># kafka集群地址</span>
+  <span class="token key atrule">topic</span><span class="token punctuation">:</span> <span class="token string">'%&#123;[log_topic]&#125;'</span>   <span class="token comment"># fileds.log_topic 定义的值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>zookeeper+kafka<br>node1编辑zookeeper配置文件zoo.cfg</p>
+</blockquote>
+<pre class="line-numbers language-conf" data-language="conf"><code class="language-conf">dataDir&#x3D;&#x2F;home&#x2F;zookeeper&#x2F;tmp&#x2F;zookeeper
+server.1&#x3D;192.168.1.91:2888:3888
+server.2&#x3D;192.168.1.92:2888:3888
+server.3&#x3D;192.168.1.93:2888:3888<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>配置node2和node3的zookeeper</p>
+<p>依照node1的配置配置node2和node3，注意下面的参数三个节点各有差异</p>
+<p>Node2：<code>echo &quot;2&quot; &gt; tmp/zookeeper/myid</code></p>
+<p>Node3：<code>echo &quot;3&quot; &gt; tmp/zookeeper/myid</code></p>
+<p>依次启动三个节点的服务<code>./bin/zkServer.sh start conf/zoo.cfg</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Using config:/usr/local/zookeeper/bin/<span class="token punctuation">..</span>/conf/zoo.cfg
+
+Starting zookeeper <span class="token punctuation">..</span>. STARTED
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<p>错误: 找不到或无法加载主类 org.apache.zookeeper.server.quorum.QuorumPeerMain<br>解决：下载apache-zookeeper-3.6.1-bin.tar.gz包运行</p>
+<p>2020-07-05 19:43:54,474 [myid:] - ERROR [main:QuorumPeerMain@98] - Invalid config, exiting abnormally<br>org.apache.zookeeper.server.quorum.QuorumPeerConfig$ConfigException: Address unresolved: 192.168.1.91:3888<br>解决：myid文件的路径不对，我的后面有两个空格删掉就好了</p>
+<hr>
+<p>查看三个节点的状态</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Node1：
+
+<span class="token comment"># ./bin/zkServer.sh status</span>
+
+<span class="token punctuation">[</span>root@localhost zookeeper<span class="token punctuation">]</span><span class="token comment"># ./bin/zkServer.sh status</span>
+/usr/bin/java
+ZooKeeper JMX enabled by default
+Using config: /home/zookeeper/bin/<span class="token punctuation">..</span>/conf/zoo.cfg
+Client port found: <span class="token number">2181</span>. Client address: localhost.
+Mode: follower
+
+Node2：
+
+<span class="token punctuation">[</span>root@localhost zookeeper<span class="token punctuation">]</span><span class="token comment"># ./bin/zkServer.sh status</span>
+/usr/bin/java
+ZooKeeper JMX enabled by default
+Using config: /home/zookeeper/bin/<span class="token punctuation">..</span>/conf/zoo.cfg
+Client port found: <span class="token number">2181</span>. Client address: localhost.
+Mode: leader
+
+Node3：
+
+<span class="token punctuation">[</span>root@localhost zookeeper<span class="token punctuation">]</span><span class="token comment"># ./bin/zkServer.sh status</span>
+/usr/bin/java
+ZooKeeper JMX enabled by default
+Using config: /home/zookeeper/bin/<span class="token punctuation">..</span>/conf/zoo.cfg
+Client port found: <span class="token number">2181</span>. Client address: localhost.
+Mode: follower<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>node1配置kafka</p>
+<p>/kafkaconfig/server.properties</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">broker.id</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token assign-left variable">port</span><span class="token operator">=</span><span class="token number">9092</span>
+<span class="token assign-left variable">host.name</span><span class="token operator">=</span>node1
+<span class="token assign-left variable">log.dirs</span><span class="token operator">=</span>/home/kafka/tmp/kafka-logs
+<span class="token assign-left variable">num.partitions</span><span class="token operator">=</span><span class="token number">2</span>
+<span class="token assign-left variable">zookeeper.connect</span><span class="token operator">=</span><span class="token number">192.168</span>.1.91:2181,192.168.1.92:2181,192.168.1.93:2181<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>配置Node2和node3的kafka</p>
+<p>依照node1的配置配置node2和node3，注意下面的参数三个节点各有差异</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Node2：
+
+<span class="token assign-left variable">broker.id</span><span class="token operator">=</span><span class="token number">1</span>
+
+<span class="token assign-left variable">host.name</span><span class="token operator">=</span>node2
+
+node3：
+
+<span class="token assign-left variable">broker.id</span><span class="token operator">=</span><span class="token number">2</span>
+
+<span class="token assign-left variable">host.name</span><span class="token operator">=</span>node3
+
+说明：
+
+host.name是节点的主机名
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>依次启动三个节点的kafka<code>./bin/kafka-server-start.sh config/server.properties</code></p>
+<p>创建topic验证集群是否正常</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># Node1上创建topic</span>
+./bin/kafka-topics.sh <span class="token parameter variable">--create</span> <span class="token parameter variable">--zookeeper</span> <span class="token number">192.168</span>.1.91:2181 --replication-factor <span class="token number">3</span> <span class="token parameter variable">--partitions</span> <span class="token number">2</span> <span class="token parameter variable">--topic</span> test1
+Created topic <span class="token string">"test1"</span><span class="token builtin class-name">.</span>
+<span class="token comment"># Node2上发送消息至kafka（2节点模拟producer）</span>
+./bin/kafka-console-producer.sh --broker-list <span class="token number">192.168</span>.1.91:9092 <span class="token parameter variable">--topic</span> test1
+hello world
+<span class="token comment"># Node3显示消息的消费（3节点模拟consumer）</span>
+./bin/kafka-console-consumer.sh <span class="token parameter variable">--zookeeper</span>  <span class="token number">192.168</span>.1.91:2181 <span class="token parameter variable">--topic</span> test1 --from-beginning
+hello world<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>可以看到在node2节点的输入的信息可以在nide3节点显示，说明集群正常使用。</p>
+<hr>
+<p>./bin/kafka-console-consumer.sh –zookeeper  192.168.1.91:2181 –topic test1 –from-beginning<br>报错：zookeeper is not a recognized option<br>这个是0.9之后的打开方式<br>/usr/java/kafka_2.12-2.2.0/bin/kafka-console-consumer.sh –bootstrap-server localhost:9092 –topic test –from-beginning<br>这个是0.9之前的打开方式<br>/usr/java/kafka_2.12-2.2.0/bin/kafka-console-consumer.sh –zookeeper localhost:2181 –topic test –from-beginning<br>解决：./bin/kafka-console-consumer.sh –bootstrap-server 192.168.1.91:9092 –topic test1 –from-beginning</p>
+<hr>
+<blockquote>
+<p>logstash<br>/etc/logstash/conf.d/kafka.conf</p>
+</blockquote>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">input <span class="token punctuation">&#123;</span>
+    kafka <span class="token punctuation">&#123;</span>
+        bootstrap_servers =<span class="token punctuation">></span> "192.168.1.91<span class="token punctuation">:</span><span class="token number">9092</span><span class="token punctuation">,</span>192.168.1.92<span class="token punctuation">:</span><span class="token number">9092</span><span class="token punctuation">,</span>192.168.1.93<span class="token punctuation">:</span>9092"   <span class="token comment"># kafka集群地址</span>
+        topics =<span class="token punctuation">></span> "dev<span class="token punctuation">-</span>nginx<span class="token punctuation">-</span>access"   <span class="token comment"># 接受topic的名称</span>
+        codec =<span class="token punctuation">></span> "json"   <span class="token comment"># 解析格式</span>
+        consumer_threads =<span class="token punctuation">></span> 5   <span class="token comment"># 最大线程</span>
+        decorate_events =<span class="token punctuation">></span> true   <span class="token comment"># 将当前topic、offset、group、partition等信息也带到message中</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+output <span class="token punctuation">&#123;</span>
+    elasticsearch <span class="token punctuation">&#123;</span>
+        hosts =<span class="token punctuation">></span> <span class="token punctuation">[</span><span class="token string">"192.168.1.95:9200"</span><span class="token punctuation">]</span>   <span class="token comment"># ES集群信息</span>
+        index =<span class="token punctuation">></span> "dev<span class="token punctuation">-</span>nginx<span class="token punctuation">-</span>access<span class="token punctuation">-</span>%<span class="token punctuation">&#123;</span>+YYYY<span class="token punctuation">-</span>MM<span class="token punctuation">-</span>dd<span class="token punctuation">&#125;</span>"   <span class="token comment"># 索引格式建议按天切割</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>/etc/logstash/logstash.yml</code></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">path.data</span><span class="token punctuation">:</span> /var/lib/logstash
+<span class="token key atrule">pipeline.ordered</span><span class="token punctuation">:</span> auto
+<span class="token key atrule">path.config</span><span class="token punctuation">:</span> /etc/logstash/conf.d/<span class="token important">*.conf</span>
+<span class="token key atrule">path.logs</span><span class="token punctuation">:</span> /var/log/logstash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>/usr/share/logstash/bin/logstash -t -f /etc/logstash/conf.d/logstash-nginx.conf</code>测试是否OK</p>
+<p>提示：Configuration OK</p>
+<blockquote>
+<p>elasticsearch<br><code>/etc/elasticsearch/elasticsearch.yml</code></p>
+</blockquote>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 允许商业功能创建索引</span>
+<span class="token key atrule">action.auto_create_index</span><span class="token punctuation">:</span> .monitoring*<span class="token punctuation">,</span>.watches<span class="token punctuation">,</span>.triggered_watches<span class="token punctuation">,</span>.watcher<span class="token punctuation">-</span>history*<span class="token punctuation">,</span>.ml*
+<span class="token comment"># 如果不确定本地的Logstash或Beats配置，可以考虑将该值设置为*，允许自动创建所有索引</span>
+<span class="token key atrule">action.auto_create_index</span><span class="token punctuation">:</span> *<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>配置样例：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 更改数据和日志文件的路径实例</span>
+<span class="token key atrule">path</span><span class="token punctuation">:</span>
+    <span class="token key atrule">data</span><span class="token punctuation">:</span> /var/lib/elasticsearch
+    <span class="token key atrule">logs</span><span class="token punctuation">:</span> /var/log/elasticsearch
+<span class="token comment"># 也可以这样并行写</span>
+<span class="token key atrule">path.data</span><span class="token punctuation">:</span> /var/lib/elasticsearch
+<span class="token key atrule">path.logs</span><span class="token punctuation">:</span> /var/log/elasticsearch
+<span class="token comment"># 以变量方式配置yml文件</span>
+<span class="token key atrule">node.name</span><span class="token punctuation">:</span>    $<span class="token punctuation">&#123;</span>HOSTNAME<span class="token punctuation">&#125;</span>
+<span class="token key atrule">network.host</span><span class="token punctuation">:</span> $<span class="token punctuation">&#123;</span>ES_NETWORK_HOST<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>环境变量的值必须是简单的字符串。使用逗号分隔的字符串提供Elasticsearch将解析为列表的值。例如，Elasticsearch将以下字符串拆分为<code>$&#123;HOSTNAME&#125;</code>环境变量的值列表：</p>
+<p><code>export HOSTNAME=&quot;host1,host2&quot;</code><br>一些配置文件</p>
+<p><code>/etc/elasticsearch</code></p>
+<ol>
+<li><p><code>elasticsearch.yml</code> 用于配置Elasticsearch</p>
+</li>
+<li><p><code>jvm.options</code> 用于配置Elasticsearch JVM设置</p>
+</li>
+<li><p><code>log4j2.properties</code> 用于配置Elasticsearch日志记录</p>
+</li>
+</ol>
+<h4 id="详细项"><a href="#详细项" class="headerlink" title="详细项"></a>详细项</h4><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 自定义路径存储数据和日志。</span>
+<span class="token key atrule">path</span><span class="token punctuation">:</span>
+  <span class="token key atrule">logs</span><span class="token punctuation">:</span> /var/log/elasticsearch
+  <span class="token key atrule">data</span><span class="token punctuation">:</span> /var/data/elasticsearch
+<span class="token comment"># 甚至你可以这样，将数据存到多个目录</span>
+<span class="token comment"># path:</span>
+<span class="token comment">#   data:</span>
+<span class="token comment">#     - /mnt/elasticsearch_1</span>
+<span class="token comment">#     - /mnt/elasticsearch_2</span>
+<span class="token comment">#     - /mnt/elasticsearch_3</span>
+<span class="token comment"># 设置集群名，node加入集群的名，多个集群名字要设置不同的，否则node可能加入错误的集群</span>
+<span class="token key atrule">cluster.name</span><span class="token punctuation">:</span> logging<span class="token punctuation">-</span>prod
+<span class="token comment"># 当前节点的主机名</span>
+<span class="token key atrule">node.name</span><span class="token punctuation">:</span> prod<span class="token punctuation">-</span>data<span class="token punctuation">-</span><span class="token number">2</span>
+<span class="token comment"># 与其它节点形成集群，默认是回环地址，单机</span>
+<span class="token key atrule">network.host</span><span class="token punctuation">:</span> 192.168.1.95
+<span class="token comment"># 默认绑定到回环地址，默认端口为9300</span>
+<span class="token key atrule">discovery.seed_hosts</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"192.168.1.95"</span><span class="token punctuation">]</span>
+<span class="token comment"># 你也可以这样使用</span>
+<span class="token comment"># discovery.seed_hosts:</span>
+<span class="token comment">#    - 192.168.1.10:9300</span>
+<span class="token comment">#    - 192.168.1.11 </span>
+<span class="token comment">#    - seeds.mydomain.com   # 绑定DNS解析的域名</span>
+<span class="token comment">#    - [0:0:0:0:0:ffff:c0a8:10c]:9301   # IPv6</span>
+<span class="token key atrule">cluster.initial_master_nodes</span><span class="token punctuation">:</span>   <span class="token comment"># 显式列出有master资格的主机节点，并在第一次选举中对其投票进行计数，生产环境建议使用此配置</span>
+  <span class="token punctuation">-</span> node5
+<span class="token comment">#    - master-node-b</span>
+<span class="token comment">#    - master-node-c</span>
+<span class="token comment"># 最少有两个节点存活才可以选举master</span>
+<span class="token comment"># discovery.zen.minimum_master_nodes: 2</span>
+<span class="token comment"># 最少两个节点存活在开始数据存活</span>
+<span class="token comment"># gateway.recover_after_nodes: 2</span>
+
+<span class="token comment"># 其它有master资格的节点，与上面不同的配置仅有以下2项</span>
+<span class="token comment"># network.host:   # 本机IP地址</span>
+<span class="token comment"># node.name:   # 分配的节点名称</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">属性名</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">cluster.name</td>
+<td align="left">配置elasticsearch的集群名称，默认是elasticsearch。建议修改成一个有意义的名称。</td>
+</tr>
+<tr>
+<td align="left">node.name</td>
+<td align="left">节点名，es会默认随机指定一个名字，建议指定一个有意义的名称，方便管理</td>
+</tr>
+<tr>
+<td align="left">path.conf</td>
+<td align="left">设置配置文件的存储路径，tar或zip包安装默认在es根目录下的config文件夹，rpm安装默认在/etc/ elasticsearch</td>
+</tr>
+<tr>
+<td align="left">path.data</td>
+<td align="left">设置索引数据的存储路径，默认是es根目录下的data文件夹，可以设置多个存储路径，用逗号隔开</td>
+</tr>
+<tr>
+<td align="left">path.logs</td>
+<td align="left">设置日志文件的存储路径，默认是es根目录下的logs文件夹</td>
+</tr>
+<tr>
+<td align="left">path.plugins</td>
+<td align="left">设置插件的存放路径，默认是es根目录下的plugins文件夹</td>
+</tr>
+<tr>
+<td align="left">bootstrap.memory_lock</td>
+<td align="left">设置为true可以锁住ES使用的内存，避免内存进行swap</td>
+</tr>
+<tr>
+<td align="left">network.host</td>
+<td align="left">设置bind_host和publish_host，设置为0.0.0.0允许外网访问</td>
+</tr>
+<tr>
+<td align="left">http.port</td>
+<td align="left">设置对外服务的http端口，默认为9200。</td>
+</tr>
+<tr>
+<td align="left">transport.tcp.port</td>
+<td align="left">集群结点之间通信端口</td>
+</tr>
+<tr>
+<td align="left">discovery.zen.ping.timeout</td>
+<td align="left">设置ES自动发现节点连接超时的时间，默认为3秒，如果网络延迟高可设置大些</td>
+</tr>
+<tr>
+<td align="left">discovery.zen.minimum_master_nodes</td>
+<td align="left">主结点数量的最少值 ,此值的公式为：(master_eligible_nodes/2) + 1 ，比如：有3个符合要求的主结点，那么这里要设置为2</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>jvm.options</p>
+</blockquote>
+<ol>
+<li><p><code>/etc/elasticsearch/jvm.options</code>直接修改配置文件</p>
+</li>
+<li><p><code>/etc/elasticsearch/jvm.options.d/</code>将配置文件放入此目录下，读取顺序按字典顺序a-z</p>
+</li>
+</ol>
+<p><code>jvm.options</code></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 独立于JVM版本的JVM选项</span>
+<span class="token punctuation">-</span>Xmx2g
+<span class="token comment"># JDK版本为8的JVM选项</span>
+<span class="token comment"># 8:-Xmx2g</span>
+<span class="token comment"># JDK版本大于8的JVM选项，如果你的JDK是11将应用这个选项</span>
+<span class="token comment"># 8-:-Xmx2g</span>
+<span class="token comment"># JDK版本大于8小于9的JVM选项</span>
+<span class="token comment"># 8-9:-Xmx2g</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>/etc/sysconfig/elasticsearch<br>| 配置项             | 解释                                                                                                                                                                                                         |<br>| :—————– | :———————————————————————————————————————————————————————————————————– |<br>| JAVA_HOME          | 设置要使用的自定义Java路径。                                                                                                                                                                                 |<br>| MAX_OPEN_FILES     | 最大打开文件数，默认为65535。                                                                                                                                                                                |<br>| MAX_LOCKED_MEMORY  | 最大锁定内存大小。如果您在elasticsearch.yml中使用bootstrap.memory_lock选项，请设置为<code>unlimited</code>。                                                                                                            |<br>| MAX_MAP_COUNT      | 一个进程可能具有的最大内存映射区域数。如果将mmapfs用作索引存储类型，请确保将其设置为较高的值。在启动Elasticsearch之前通过<code>sysctl</code>进行设置。默认为262144。                                                    |<br>| ES_PATH_CONF       | 配置文件目录（需要包含<code>elasticsearch.yml</code>，<code>jvm.options</code>和<code>log4j2.properties</code>文件）；默认为<code>/etc/elasticsearch</code>。                                                                                            |<br>| ES_JAVA_OPTS       | 您可能想要应用的任何其他JVM系统属性。                                                                                                                                                                        |<br>| RESTART_ON_UPGRADE | 配置在软件包升级时重新启动，默认为<code>false</code>。这意味着您必须在手动安装软件包后重新启动Elasticsearch实例。这样做的原因是为了确保集群中的升级不会导致连续的分片重新分配，从而导致高网络流量并减少集群的响应时间。 |</p>
+</blockquote>
+<h4 id="验证它"><a href="#验证它" class="headerlink" title="验证它"></a>验证它</h4><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">[root@localhost ~]# curl 192.168.1.95:9200
+&#123;
+  "name" : "node5",
+  "cluster_name" : "my-application",
+  "cluster_uuid" : "_na_",
+  "version" : &#123;
+    "number" : "7.8.0",
+    "build_flavor" : "default",
+    "build_type" : "rpm",
+    "build_hash" : "757314695644ea9a1dc2fecd26d1a43856725e65",
+    "build_date" : "2020-06-14T19:35:50.234439Z",
+    "build_snapshot" : false,
+    "lucene_version" : "8.5.1",
+    "minimum_wire_compatibility_version" : "6.8.0",
+    "minimum_index_compatibility_version" : "6.0.0-beta1"
+  &#125;,
+  "tagline" : "You Know, for Search"
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default Location</th>
+<th align="left">Setting</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">home</td>
+<td align="left">Elasticsearch主目录或$ES_HOME</td>
+<td align="left">/usr/share/elasticsearch</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left">bin</td>
+<td align="left">二进制脚本，包括用于启动节点的elasticsearch和用于安装插件的elasticsearch-plugin</td>
+<td align="left">usr/share/elasticsearch/bin</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left">conf</td>
+<td align="left">配置文件，包括elasticsearch.yml</td>
+<td align="left">/etc/elasticsearch</td>
+<td align="left">ES_PATH_CONF</td>
+</tr>
+<tr>
+<td align="left">conf</td>
+<td align="left">环境变量，包括堆大小，文件描述符.</td>
+<td align="left">/etc/sysconfig/elasticsearch</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left">data</td>
+<td align="left">节点上分配的每个索引/分片的数据文件的位置。可以容纳多个位置.</td>
+<td align="left">/var/lib/elasticsearch</td>
+<td align="left">path.data</td>
+</tr>
+<tr>
+<td align="left">jdk</td>
+<td align="left">捆绑的Java开发工具包，用于运行Elasticsearch。可以通过在/etc/sysconfig/elasticsearch.</td>
+<td align="left">/usr/share/elasticsearch/jdk</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left">logs</td>
+<td align="left">日志文件位置</td>
+<td align="left">/var/log/elasticsearch</td>
+<td align="left">path.logs</td>
+</tr>
+<tr>
+<td align="left">plugins</td>
+<td align="left">插件文件位置。每个插件将包含在一个子目录中。</td>
+<td align="left">/usr/share/elasticsearch/plugins</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left">repo</td>
+<td align="left">共享文件系统存储库位置。可以容纳多个位置。可以将文件系统存储库放置在此处指定的任何目录的任何子目录中。</td>
+<td align="left">Not configured</td>
+<td align="left">path.repo</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>kibana<br><code>/etc/kibana/kibana.yml</code></p>
+</blockquote>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">server.port</span><span class="token punctuation">:</span> <span class="token number">5601</span>
+<span class="token key atrule">server.host</span><span class="token punctuation">:</span> <span class="token string">"192.168.1.95"</span>
+<span class="token key atrule">elasticsearch.hosts</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"http://192.168.1.95:9200"</span><span class="token punctuation">]</span>
+<span class="token key atrule">i18n.locale</span><span class="token punctuation">:</span> <span class="token string">"zh-CN"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>nginx</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">htpasswd <span class="token parameter variable">-cm</span> /etc/nginx/kibana-user admin   <span class="token comment"># 推荐</span>
+htpasswd <span class="token parameter variable">-bcm</span> /etc/nginx/kibana-user admin admin   <span class="token comment"># 不推荐，密码明文暴露在命令行</span>
+<span class="token comment"># vi /etc/nginx/conf.d/kibana.conf </span>
+server <span class="token punctuation">&#123;</span>
+    listen <span class="token number">80</span><span class="token punctuation">;</span>
+    server_name <span class="token number">192.168</span>.1.95<span class="token punctuation">;</span>
+    auth_basic <span class="token string">"Restricted Access"</span><span class="token punctuation">;</span>
+    auth_basic_user_file /etc/nginx/kibana-user<span class="token punctuation">;</span>
+    location / <span class="token punctuation">&#123;</span>
+        proxy_pass http://192.168.1.95:5601<span class="token punctuation">;</span>
+        proxy_http_version <span class="token number">1.1</span><span class="token punctuation">;</span>
+        proxy_set_header Upgrade <span class="token variable">$http_upgrade</span><span class="token punctuation">;</span>
+        proxy_set_header Connection <span class="token string">'upgrade'</span><span class="token punctuation">;</span>
+        proxy_set_header Host <span class="token variable">$host</span><span class="token punctuation">;</span>
+        proxy_cache_bypass <span class="token variable">$http_upgrade</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="你可能需要修改一下系统参数"><a href="#你可能需要修改一下系统参数" class="headerlink" title="你可能需要修改一下系统参数"></a>你可能需要修改一下系统参数</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> /etc/security/limits.conf   <span class="token comment"># 新增或修改以下选项，重新登陆生效</span>
+* soft nofile <span class="token number">65536</span>
+* hard nofile <span class="token number">131072</span>
+* soft nproc <span class="token number">2048</span>
+* hard nproc <span class="token number">4096</span>
+* soft memlock unlimited
+* hard memlock unlimited
+<span class="token builtin class-name">echo</span> <span class="token string">"vm.max_map_count=262144"</span> <span class="token operator">>></span> /etc/sysctl.conf
+<span class="token function">sysctl</span> <span class="token parameter variable">-p</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="end"><a href="#end" class="headerlink" title="end"></a>end</h1><p>访问kibana界面，查看dev-nginx-access-*索引是否存在</p>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">160.4k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

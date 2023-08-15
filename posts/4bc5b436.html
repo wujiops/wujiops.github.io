@@ -1,0 +1,966 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="samba共享, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>samba共享 | 波亚斯</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">samba共享</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/samba/">
+                                <span class="chip bg-color">samba</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-07-10
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.6k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="samba"><a href="#samba" class="headerlink" title="samba"></a>samba</h1><p><code>samba</code>：指<code>Linux</code>系统中的一种文件共享程序</p>
+<p>在window网络环境中，主机之间进行文件和打印机共享是通过微软公司自己的SMB/CIFS网络协议实现的，是微软的私有协议，在samba项目出现之前，并不能直接与Linux/Unix系统进行通信，samba在Linux/Unix系统中实现了微软的SMB/CIFS网络协议，从而使得跨平台的文件共享变的更加容易，在部署Windows，Linux/Unix混合平台的企业环境时，选用samba可以很好地解决不同系统之间的文件互访问题。</p>
+<h2 id="samba软件构成"><a href="#samba软件构成" class="headerlink" title="samba软件构成"></a>samba软件构成</h2><ol>
+<li>samba软件包的构成</li>
+</ol>
+<p>在光盘的安装包中，可以找到与samba相关的几个软件包，主要包括服务端软件<code>samba</code>，客户端软件<code>samba-client</code>，用于提供服务端和客户端程序的公共组件<code>samba-common</code></p>
+<p><img src="/medias/img/samba/0.png"></p>
+<ol start="2">
+<li>samba服务的程序组件</li>
+</ol>
+<p><code>samba</code>服务器提供<code>smbd</code>、<code>nmbd</code>两个服务程序</p>
+<p>smbd负责为客户机提供服务器中共享资源的访问（目录文件等）</p>
+<p><code>nmbd</code>负责提供基于NetBIOS协议的名字解析、浏览服务</p>
+<p>NetBIOS协议：由IBM公司开发，使用户软件能使用局域网的资源，自从诞生，NetBIOS成为许多其他网络应用程序的基础，严格意义上，NetBIOS是接入网络服务的接口标准</p>
+<ol start="3">
+<li>使用<code>netstat</code>查看状态（<code>-atunp</code>）（-a可以查看所有连线中的socket）</li>
+</ol>
+<p><code>smbd</code>：负责监听TCP协议的139（SMB协议）和445（CIFS协议）端口</p>
+<p><code>nmbd</code>：负责监听UDP协议的137和138（NetBIOS协议）端口</p>
+<h1 id="samba服务基础"><a href="#samba服务基础" class="headerlink" title="samba服务基础"></a>samba服务基础</h1><p>启动服务</p>
+<p><code>service smb restart</code></p>
+<p>启动服务时，只要启动smbd程序就可以了，因为默认也会把nmbd程序启动起来，但是如果nmbd程序没有跟着启动起来，那就再启动一下nmbd</p>
+<p><code>service nmb restart</code></p>
+<p>samba配置</p>
+<p>日志文件<code>/var/log/samba/</code>目录中</p>
+<p>主配置文件<code>/etc/samba/smb.conf</code></p>
+<p>配置文件中<code>#</code>开头的表示注释信息，<code>;</code>开头的表示配置样例</p>
+<p>samba的主配置文件分为三个部分：</p>
+<p><code>[global]</code>全局配置，对整个samba配置文件都生效</p>
+<p><code>[homes]</code>宿主目录共享设置，设置Linux用户的默认共享，对应用户的宿主目录，这部分很少设置、默认就可以</p>
+<p><code>[printers]</code>打印机共享设置</p>
+<p>若需要在<code>smb.conf</code>文件中设置新的共享文件夹，只需要增加一段：</p>
+<p><code>[samba]</code>自定义共享名，新的共享文件夹设置可以参考<code>[homes]</code>和<code>[printers]</code>部分的内容</p>
+<p>samba服务器的常见配置项及含义说明：</p>
+<p><code>workgroup</code>：设置服务器所在的工作组名称</p>
+<p><code>service string</code>：设置服务器的说明文字，用于描述samba服务器</p>
+<p><code>security</code>：设置服务器的安全级别，可设为：share（可匿名，任何人都可以访问）；user需要本服务器验证用户名及密码；server需要指定另一台服务器来验证用户名及密码；domain由windows域控制器验证用户名及密码</p>
+<p><code>log file</code>：设置samba服务器的日志文件，默认设置为/var/log/samba/log.%m表示将日志文件保存到/var/log/samba/目录中，按每个客户机建立一个目录文件，其中”%m”变量表示客户端主机名或ip地址</p>
+<p><code>max log size</code>：日志文件的最大容量，单位为KB（默认50KB，超过会产生一个新的文件），若网络内拥有LDAP目录认证，这里可以改用ldapsam数据库文件；另外，若要兼容旧版的samba密码文件也可以将类型设为smbpasswd</p>
+<p>对某个共享目录的配置项（对这些目录控制一些特性、属性）</p>
+<p><code>comment</code>：设置对应共享目录的注释、说明信息</p>
+<p><code>path</code>：设置对应共享目录在服务器中的文件夹路径（绝对路径）</p>
+<p><code>browseable</code>：设置该共享目录在”网上邻居”中是否看的到，设置为no时相当于隐藏共享目录</p>
+<p><code>guest ok</code>：设置是否所有人都可以访问共享目录，与”public”配置项作用相同</p>
+<p><code>writable</code>：设置该共享目录是否可写，samba服务设置的读取、写入权限，优先级要低于文件系统中设置的权限</p>
+<p><code>read only</code>：设置是否只读</p>
+<p><code>valid users</code>：指定有效用户</p>
+<p><code>write list</code>：指定用户可写</p>
+<p>语法检查：<code>samba</code>服务器提供了一个配置文件检查工具</p>
+<p><code>testparm</code>程序，使用<code>testparm</code>工具可以对<code>smb.conf</code>配置文件的正确性进行检查，如果发现有错误将会进行提醒</p>
+<h1 id="设置可匿名访问共享"><a href="#设置可匿名访问共享" class="headerlink" title="设置可匿名访问共享"></a>设置可匿名访问共享</h1><p>可匿名访问的共享适用于公开的资源分享，一般只建议提供只读访问</p>
+<p>设置可匿名共享文件夹时，在主配置文件<code>samba.conf</code>中主要调整两个地方即可</p>
+<p>1.将默认安全级别修改为share</p>
+<p>2.添加一段共享目录配置</p>
+<p>例如：将本地目录<code>/testdir/dir</code>发布为共享文件夹，共享名为<code>samba</code></p>
+<ol>
+<li>修改配置文件<code>/etc/samba/smb.conf</code></li>
+</ol>
+<p>把安全级别<code>security=user</code>改为<code>security=share</code></p>
+<p><img src="/medias/img/samba/1.png"><br>添加配置</p>
+<p><img src="/medias/img/samba/2.png"><br><code>comment</code>注释，<code>path</code>共享目录的绝对路径，<code>guest ok</code>允许所有人访问，<code>read only</code>只读，<code>writable</code>写入</p>
+<ol start="2">
+<li>开启samba共享服务</li>
+</ol>
+<p><code>service smb start</code></p>
+<p><img src="/medias/img/samba/3.png"></p>
+<ol start="3">
+<li>用<code>testparm</code>工具检查一下语法</li>
+</ol>
+<p>直接执行<code>testparm</code>即可，显示<code>ok</code>字样表示没有错误</p>
+<p>也可以再回车一下查看刚添加的共享文件</p>
+<p><img src="/medias/img/samba/4.png"><br>用Windows访问共享文件</p>
+<p><img src="/medias/img/samba/5.png"><br>打开计算机，在输入框输入：<code>\\共享服务器ip地址</code></p>
+<p>用Linux访问共享文件</p>
+<p>安装<code>samba-client</code>工具</p>
+<p>匿名访问 ：<code>smbclient //IP地址/共享名</code>（一路回车）</p>
+<p><img src="/medias/img/samba/6.png"></p>
+<h1 id="设置需要用户验证的共享"><a href="#设置需要用户验证的共享" class="headerlink" title="设置需要用户验证的共享"></a>设置需要用户验证的共享</h1><p>匿名共享虽然用起来非常方便，但因为任何人都可以访问到共享的文件数据，在某些时候可能会导致信息的泄露</p>
+<p>用户验证的共享实现步骤</p>
+<ol>
+<li>建立samba用户数据库</li>
+</ol>
+<p>使用pdbedit工具可以对共享用户进行管理</p>
+<p>执行<code>pdbedit -a -u 用户名</code></p>
+<p>可以添加一个用户为<code>samba</code>共享用户</p>
+<p>选项</p>
+<p><code>-a</code>：添加</p>
+<p><code>-u</code>：指定用户名</p>
+<p><code>-L</code>：列出所有samba共享用户</p>
+<p><code>-v</code>：输出详细信息</p>
+<p><code>-x</code>：删除samba用户，指定用户名即可</p>
+<p><code>-vL user</code>：只列出某个用户的详细信息</p>
+<p><code>-xu user</code>：删除指定samba用户</p>
+<p>为了区别于Linux主机中的系统用户，通常将用于访问samba共享资源的用户称为<code>共享用户</code>samba服务器使用独立的共享账号数据库文件，其中的账号名称必须有与它同名的系统用户相对应，以便主机对共享访问的读写权限进行控制，但共享用户的密码是额外设置的，可以与系统用户的密码不一样</p>
+<p>samba共享用户的账号数据库文件默认位于<code>/var/lib/samba/private/passdb.tdb</code>是一个经过加密的文件，其中保存了samba用户的账号名称、登录密码、账号可用状态等信息。</p>
+<ol start="2">
+<li>设置用户访问授权</li>
+</ol>
+<p>若使用用户验证的samba共享，应将security安全级别提升为<code>user</code>，共享用户授权主要由<code>valid users(指定有效用户)</code>，<code>write list(指定用户可写)</code></p>
+<p>配置项指定，当需要授权多个共享用户时，以逗号或空格进行分割，如果需要授权一个用户组，可以使用<code>@组名</code>的形式，但需要为组内的每个系统用户都创建对应的samba共享用户</p>
+<p>例如：</p>
+<p>将本地目录<code>/testdir</code>发布为共享文件夹，共享名为<code>date</code>，要求只有共享用户<code>queen</code>和<code>king</code>能够访问，其中<code>queen</code>用户具有写入权限</p>
+<p>1)创建共享用户<code>queen</code>和<code>king</code></p>
+<p><code>pdbedit -a -u queen;pdbedit -a -u king</code></p>
+<p><img src="/medias/img/samba/7.png"><br><img src="/medias/img/samba/8.png"></p>
+<p>2)创建共享目录</p>
+<p><code>mkdir /testdir;chmod 777 /testdir</code></p>
+<p><img src="/medias/img/samba/9.png"></p>
+<ol start="3">
+<li>修改<code>/tec/samba/smb.conf</code>配置文件</li>
+</ol>
+<p>其中<code>security=user</code></p>
+<p><img src="/medias/img/samba/10.png"><br>添加名为<code>samba</code>的共享目录配置段</p>
+<p><img src="/medias/img/samba/11.png"></p>
+<ol start="4">
+<li>重新加载<code>/etc/samba/smb.conf</code>配置文件，或重启smb服务</li>
+</ol>
+<p><img src="/medias/img/samba/12.png"><br>（可能需要重启nmb服务）</p>
+<p>确定目录访问授权</p>
+<p>通过samba服务器共享文件夹时，用户最终是否拥有读取、写入权限除了需要设置用户授权以外，还要满足一个前提条件那就是在服务器中与共享用户同名的系统用户对发布为共享本地文件夹必须有相应的读取、写入权限</p>
+<p>另，当通过共享目录上传文档时，对于共享用户所上传的文件、创建的子目录的默认权限可以分别使用配置项<code>create mask</code> <code>directory mask</code>进行指定</p>
+<p>编辑<code>/etc/samba/smb.conf</code></p>
+<p><img src="/medias/img/samba/13.png"><br>查看是否成功</p>
+<p><img src="/medias/img/samba/14.png"><br><img src="/medias/img/samba/15.png"><br><img src="/medias/img/samba/16.png"><br><img src="/medias/img/samba/17.png"></p>
+<h1 id="用户映射及访问地址限制"><a href="#用户映射及访问地址限制" class="headerlink" title="用户映射及访问地址限制"></a>用户映射及访问地址限制</h1><p>用户映射及访问地址限制</p>
+<p>为了进一步提高samba共享服务的安全性，除了可以对指定的共享目录设置用户授权以外，可以采用用户映射、访问地址限制等措施</p>
+<p>1.共享账号映射（别名）</p>
+<p>在使用samba共享账号时，通常情况下，一个共享用户账号都有一个同名的系统用户账号，一些人可能会使用网络中泄露的共享用户账号作为samba服务的系统用户登录，对Linux主机带来了安全隐患</p>
+<p>鉴于此，samba服务为我们提供了<code>用户名称映射</code>机制，可以将一个共享用户映射为多个不同的名称（别名），这样一来，只需要通过共享用户的别名和密码就可以访问授权的资源了，而不需要知道真实的共享用户（系统用户）名称</p>
+<p>samba共享账号的映射文件默认为<code>/etc/samba/smbusers</code>，文件中的配置记录使用<code>共享用户名 = 别名1 别名2 ...</code>的格式，在该文件中默认已经添加了两条兼容Windows客户机的别名映射</p>
+<p>具体操作</p>
+<p><code>vim /etc/samba/smbusers</code></p>
+<p>添加 <code>queen = abc xyz</code> 保存退出即可</p>
+<p><img src="/medias/img/samba/18.png"><br>以后就可以使用abc或xyz用户来代替queen用户登录了，密码还是queen的密码配置文件<code>/etc/samba/smb.conf</code>添加全局配置项（global）</p>
+<p><code>username map = /etc/samba/smbusers</code></p>
+<p>然后重新加载配置使其生效</p>
+<p>2.访问地址限制</p>
+<p>针对访问samba服务的客户机，可以通过（黑 白名单，二者选其一）</p>
+<p><code>hosts allow</code>（白名单）允许访问共享客户机的ip地址</p>
+<p><code>hosts deny</code>（黑名单）拒绝访问共享客户机的ip地址</p>
+<p>访问地址限制一般用于<code>[global]</code>全局配置部分，也可以应用于某个具体的配置部分，限制的对象可以是主机名、ip地址或者网段地址（省去主机部分），多个地址之间以逗号或空格进行分割</p>
+<p>例如：<code>vim /etc/samba/smb.conf</code></p>
+<p><code>[global]</code></p>
+<p>增加<code>hosts allow = 192.168.0.  192.168.1.</code>（允须192.168的1网段和2网段访问）</p>
+<p>保存退出，重载服务即可</p>
+<p><img src="/medias/img/samba/19.png"><br>注意：添加地址显示时的格式，如果是<code>192.168.1.0/24</code>网段，要写成<code>192.168.1.</code>这种格式，<code>172.16.0.0/24</code>网段，要写成<code>173.16.</code>这种格式</p>
+<h1 id="访问共享文件夹"><a href="#访问共享文件夹" class="headerlink" title="访问共享文件夹"></a>访问共享文件夹</h1><ol>
+<li>使用<code>smbclient</code>访问共享文件夹</li>
+</ol>
+<p>安装<code>samba-client</code>这个包</p>
+<p>查询目标主机的共享资源列表</p>
+<p>使用<code>smbclient</code>命令查询</p>
+<p>选项：</p>
+<p><code>-U</code>：指定目标主机ip或主机名</p>
+<p><code>-L</code>：指定以某用户账号列表查看</p>
+<p>格式：<code>smbclient -L ip/主机名 -U 用户名/别名</code></p>
+<p>查询共享资源时，一般不需要用户验证，提示输入密码时直接回车即可。</p>
+<p>例如：匿名查询samba服务器<code>192.168.0.123</code>中提供共享资源列表，使用queen用户</p>
+<p><code>smbclient -L 192.168.0.123 -U queen</code></p>
+<p><img src="/medias/img/samba/20.png"></p>
+<ol start="2">
+<li>登录并访问共享文件夹</li>
+</ol>
+<p>匿名访问共享文件夹时提示输入密码时直接回车即可</p>
+<p>匿名登录访问格式</p>
+<p><code>smbclient //主机地址/共享名</code></p>
+<p>例如：以下操作可以连接到samba服务器192.168.0.123中名为test的匿名共享目录</p>
+<p><code>smbclient //192.168.0.123/test</code></p>
+<p>若访问需要用户验证的共享文件夹，则必须结合-U选项指定经过授权的共享用户名称（或映射的别名）并输入正确的密码进行验证</p>
+<p>用户验证登录格式</p>
+<p><code>smbclient -U 用户名/别名 //主机地址/共享名 [-U 用户名/别名]</code></p>
+<p>例如：对于上面讲到的date共享，使用queen或其别名都可以进行访问</p>
+<p><code>smbclient -U queen //192.168.0.123/date</code></p>
+<p>通过<code>smbclient</code>工具成功登录samba服务器以后，会出现<code>smb:\&gt;</code>提示符，提供了一个命令程序的环境，在<code>smb:\&gt;</code>环境中使用特定的命令可以对共享目录进行列表、上传、下载等操作</p>
+<p>例如：<code>ls</code>、<code>cd</code>、<code>pwd</code>、</p>
+<p><code>get</code>、<code>wget</code>：下载文件</p>
+<p><code>put</code>、<code>mput</code>：用于上传文件</p>
+<p><code>？</code>、<code>help</code>：查看帮助信息</p>
+<p><code>exit</code>、<code>quit</code>：退出共享目录</p>
+<ol start="3">
+<li>使用mount挂载共享文件夹</li>
+</ol>
+<p>smbclient客户端工具可以非常方便地登录到samba服务器中，但只有将文件下载到本地以后才能查看文件内容，若使用mount命令将共享文件夹挂载到本地，则通过本地的挂载点目录即可直接使用共享文件夹的内容，使文件共享更加方便。</p>
+<p>使用mount命令挂载共享资源时，只需要通过”//主机地址/共享名”的形式指定共享文件夹的位置（视为设备资源），并指定本地的挂载点即可，如果要以某个共享用户进行验证，就要用到-o选项指定”username=用户名”的形式指定</p>
+<p>格式：</p>
+<p><code>mount -o username=共享用户名 //主机地址/共享名 /挂载点</code></p>
+<p>如果不能挂载查看<code>cifs-utils</code>工具是否安装</p>
+<p>例如：（对客户端来说）</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> /media/date
+<span class="token function">mount</span> <span class="token parameter variable">-o</span> <span class="token assign-left variable">username</span><span class="token operator">=</span>queen //192.168.0.123/test /media/date
+<span class="token function">mount</span>   <span class="token comment"># 查看结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>挂载成功后可以对samba服务器设置权限进行测试（mkdir;touch）</p>
+<p><img src="/medias/img/samba/21.png"></p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="../linux-command-1.16.0/smbclient">smbclient交互访问</a><br><a href="../linux-command-1.16.0/smbpasswd">smbpasswd用户管理</a></p>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">160.4k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

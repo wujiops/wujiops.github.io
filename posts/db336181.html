@@ -1,0 +1,749 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="WSS, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>WSS | 波亚斯</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">WSS</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/wss/">
+                                <span class="chip bg-color">wss</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Notes/" class="post-category">
+                                Notes
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-05-24
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.4k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>Workerman如何创建一个wss服务，使得客户端可以用过wss协来连接通讯，比如在微信小程序中连接服务端。</p>
+<p>wss协议实际是websocket+SSL，就是在websocket协议上加入SSL层，类似https(http+SSL)。 所以只需要在websocket协议的基础上开启SSL即可支持wss协议。</p>
+<p>方法一 ，直接用Workerman开启SSL</p>
+<p>准备工作：</p>
+<p>1、Workerman版本不小于3.3.7</p>
+<p>2、PHP安装了openssl扩展</p>
+<p>3、已经申请了证书（pem/crt文件及key文件）放在磁盘任意目录</p>
+<p>代码：</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">require_once</span> <span class="token constant">__DIR__</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'/Workerman/Autoloader.php'</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Workerman<span class="token punctuation">\</span>Worker</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 证书最好是申请的证书</span>
+<span class="token variable">$context</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+    <span class="token comment">// 更多ssl选项请参考手册 http://php.net/manual/zh/context.ssl.php</span>
+    <span class="token string single-quoted-string">'ssl'</span> <span class="token operator">=></span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+        <span class="token comment">// 请使用绝对路径</span>
+        <span class="token string single-quoted-string">'local_cert'</span>                 <span class="token operator">=></span> <span class="token string single-quoted-string">'磁盘路径/server.pem'</span><span class="token punctuation">,</span> <span class="token comment">// 也可以是crt文件</span>
+        <span class="token string single-quoted-string">'local_pk'</span>                   <span class="token operator">=></span> <span class="token string single-quoted-string">'磁盘路径/server.key'</span><span class="token punctuation">,</span>
+        <span class="token string single-quoted-string">'verify_peer'</span>                <span class="token operator">=></span> <span class="token constant boolean">false</span><span class="token punctuation">,</span>
+        <span class="token comment">// 'allow_self_signed' => true, //如果是自签名证书需要开启此选项</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 这里设置的是websocket协议（端口任意，但是需要保证没被其它程序占用）</span>
+<span class="token variable">$worker</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Worker</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'websocket://0.0.0.0:443'</span><span class="token punctuation">,</span> <span class="token variable">$context</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 设置transport开启ssl，websocket+ssl即wss</span>
+<span class="token variable">$worker</span><span class="token operator">-></span><span class="token property">transport</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'ssl'</span><span class="token punctuation">;</span>
+<span class="token variable">$worker</span><span class="token operator">-></span><span class="token property">onMessage</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$con</span><span class="token punctuation">,</span> <span class="token variable">$msg</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token variable">$con</span><span class="token operator">-></span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'ok'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token class-name static-context">Worker</span><span class="token operator">::</span><span class="token function">runAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>通过以上的代码，Workerman就监听了wss协议，客户端就可以通过wss协议来连接workerman实现安全即时通讯了。</p>
+<p>测试</p>
+<p>打开chrome浏览器，按F12打开调试控制台，在Console一栏输入(或者把下面代码放入到html页面用js运行)</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 证书是会检查域名的，请使用域名连接</span>
+ws <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebSocket</span><span class="token punctuation">(</span><span class="token string">"wss://域名"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ws<span class="token punctuation">.</span><span class="token function-variable function">onopen</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"连接成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ws<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'tom'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"给服务端发送一个字符串：tom"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+ws<span class="token punctuation">.</span><span class="token function-variable function">onmessage</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"收到服务端的消息："</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>注意：</p>
+<p>1、如果无法启动，则一般是443端口被占用，请改成其它端口，注意改成其它端口后客户端连接时需要带上端口号，客户端连接时地址类似wss://domain.com:xxx ，xxx为端口号。如果必须使用443端口请使用方法二代理的方式实现wss。</p>
+<p>2、wss端口只能通过wss协议访问，ws无法访问wss端口。</p>
+<p>3、证书一般是与域名绑定的，所以测试的时候客户端请使用域名连接，不要使用ip去连。</p>
+<p>4、如果出现无法访问的情况，请检查服务器防火墙。</p>
+<p>5、此方法要求PHP版本&gt;=5.6，因为微信小程序要求tls1.2，而PHP5.6以下版本不支持tls1.2。</p>
+<p>方法二、利用nginx/apache代理wss</p>
+<p>除了用Workerman自身的SSL，也可以利用nginx/apache作为wss代理转发给workerman（注意此方法workerman部分千万不要设置ssl，否则将无法连接）。</p>
+<p>通讯原理及流程是：</p>
+<p>1、客户端发起wss连接连到nginx/apache</p>
+<p>2、nginx/apache将wss协议的数据转换成ws协议数据并转发到Workerman的websocket协议端口</p>
+<p>3、Workerman收到数据后做业务逻辑处理</p>
+<p>4、Workerman给客户端发送消息时，则是相反的过程，数据经过nginx/apache转换成wss协议然后发给客户端</p>
+<p>前提条件及准备工作：</p>
+<p>1、已经安装nginx，版本不低于1.3</p>
+<p>2、假设Workerman监听的是8282端口(websocket协议)</p>
+<p>3、已经申请了证书（pem/crt文件及key文件）放在了/etc/nginx/conf.d/ssl下</p>
+<p>4、打算利用nginx开启443端口对外提供wss代理服务（端口可以根据需要修改）</p>
+<p>5、nginx一般作为网站服务器运行着其它服务，为了不影响原来的站点使用，这里使用地址 域名/wss 作为wss的代理入口。也就是客户端连接地址为 <code>wss://域名/wss</code></p>
+<p>nginx配置类似如下：</p>
+<pre class="line-numbers language-conf" data-language="conf"><code class="language-conf">server &#123;
+  listen 443;
+
+  ssl on;
+  ssl_certificate &#x2F;etc&#x2F;ssl&#x2F;server.pem;
+  ssl_certificate_key &#x2F;etc&#x2F;ssl&#x2F;server.key;
+  ssl_session_timeout 5m;
+  ssl_session_cache shared:SSL:50m;
+  ssl_protocols SSLv3 SSLv2 TLSv1 TLSv1.1 TLSv1.2;
+  ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;
+
+  location &#x2F;wss
+  &#123;
+    proxy_pass http:&#x2F;&#x2F;127.0.0.1:8282;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection &quot;Upgrade&quot;;
+    proxy_set_header X-Real-IP $remote_addr;
+  &#125;
+
+  # location &#x2F; &#123;&#125; 站点的其它配置...
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>测试</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">// 证书是会检查域名的，请使用域名连接
+ws = new WebSocket("wss://域名/wss");
+
+ws.onopen = function() &#123;
+    alert("连接成功");
+    ws.send('tom');
+    alert("给服务端发送一个字符串：tom");
+&#125;;
+ws.onmessage = function(e) &#123;
+    alert("收到服务端的消息：" + e.data);
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>利用apache代理wss</p>
+<p>也可以利用apache作为wss代理转发给workerman（注意如使用apache代理SSL，则workerman部分千万不要设置ssl，否则将无法连接）。</p>
+<p>准备工作：</p>
+<p>1、GatewayWorker 监听 8282 端口(websocket协议)</p>
+<p>2、已经申请了ssl证书, 放在了/server/httpd/cert/ 下</p>
+<p>3、利用apache转发443端口至指定端口8282</p>
+<p>4、httpd-ssl.conf 已加载</p>
+<p>5、openssl 已安装</p>
+<p>启用 proxy_wstunnel_module 模块</p>
+<pre class="line-numbers language-conf" data-language="conf"><code class="language-conf">LoadModule proxy_module modules&#x2F;mod_proxy.so
+LoadModule proxy_wstunnel_module modules&#x2F;mod_proxy_wstunnel.so<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>配置SSL及代理</p>
+<pre class="line-numbers language-conf" data-language="conf"><code class="language-conf">#extra&#x2F;httpd-ssl.conf
+DocumentRoot &quot;&#x2F;网站&#x2F;目录&quot;
+ServerName 域名
+
+# Proxy Config
+SSLProxyEngine on
+
+ProxyRequests Off
+ProxyPass &#x2F;wss ws:&#x2F;&#x2F;127.0.0.1:8282&#x2F;wss
+ProxyPassReverse &#x2F;wss ws:&#x2F;&#x2F;127.0.0.1:8282&#x2F;wss
+
+# 添加 SSL 协议支持协议,去掉不安全的协议
+SSLProtocol all -SSLv2 -SSLv3
+# 修改加密套件如下
+SSLCipherSuite HIGH:!RC4:!MD5:!aNULL:!eNULL:!NULL:!DH:!EDH:!EXP:+MEDIUM
+SSLHonorCipherOrder on
+# 证书公钥配置
+SSLCertificateFile &#x2F;server&#x2F;httpd&#x2F;cert&#x2F;your.pem
+# 证书私钥配置
+SSLCertificateKeyFile &#x2F;server&#x2F;httpd&#x2F;cert&#x2F;your.key
+# 证书链配置,
+SSLCertificateChainFile &#x2F;server&#x2F;httpd&#x2F;cert&#x2F;chain.pem<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>测试</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">// 证书是会检查域名的，请使用域名连接
+ws = new WebSocket("wss://域名/wss");
+
+ws.onopen = function() &#123;
+    alert("连接成功");
+    ws.send('tom');
+    alert("给服务端发送一个字符串：tom");
+&#125;;
+ws.onmessage = function(e) &#123;
+    alert("收到服务端的消息：" + e.data);
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><a target="_blank" rel="noopener" href="http://doc.workerman.net/faq/secure-websocket-server.html">参考链接</a>（此方法未验证）</p>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">160.4k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

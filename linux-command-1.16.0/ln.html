@@ -1,0 +1,895 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="ln命令, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>ln命令 | 波亚斯</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">ln命令</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/">
+                                <span class="chip bg-color"></span>
+                            </a>
+                        
+                            <a href="/">
+                                <span class="chip bg-color"></span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/" class="post-category">
+                                
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-06-29
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-07-06
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.3k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h2><p><strong>ln命令</strong> 用来为文件创建链接，链接类型分为硬链接和符号链接两种，默认的链接类型是硬链接。如果要创建符号链接必须使用”-s”选项。</p>
+<p>注意：符号链接文件不是一个独立的文件，它的许多属性依赖于源文件，所以给符号链接文件设置存取权限是没有意义的。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ln</span> <span class="token punctuation">[</span>选项<span class="token punctuation">]</span><span class="token punctuation">..</span>. <span class="token punctuation">[</span>-T<span class="token punctuation">]</span> 目标 链接名    <span class="token punctuation">(</span>第一种格式<span class="token punctuation">)</span>
+　或：ln <span class="token punctuation">[</span>选项<span class="token punctuation">]</span><span class="token punctuation">..</span>. 目标        <span class="token punctuation">(</span>第二种格式<span class="token punctuation">)</span>
+　或：ln <span class="token punctuation">[</span>选项<span class="token punctuation">]</span><span class="token punctuation">..</span>. 目标<span class="token punctuation">..</span>. 目录    <span class="token punctuation">(</span>第三种格式<span class="token punctuation">)</span>
+　或：ln <span class="token punctuation">[</span>选项<span class="token punctuation">]</span><span class="token punctuation">..</span>. <span class="token parameter variable">-t</span> 目录 目标<span class="token punctuation">..</span>.    <span class="token punctuation">(</span>第四种格式<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">--backup<span class="token punctuation">[</span><span class="token operator">=</span>CONTROL<span class="token punctuation">]</span>      <span class="token comment"># 为每个已存在的目标文件创建备份文件</span>
+<span class="token parameter variable">-b</span>                      <span class="token comment"># 类似--backup，但不接受任何参数</span>
+-d, -F, <span class="token parameter variable">--directory</span>         <span class="token comment"># 创建指向目录的硬链接(只适用于超级用户)</span>
+-f, <span class="token parameter variable">--force</span>                 <span class="token comment"># 强行删除任何已存在的目标文件</span>
+-i, <span class="token parameter variable">--interactive</span>           <span class="token comment"># 覆盖既有文件之前先询问用户</span>
+-L, <span class="token parameter variable">--logical</span>               <span class="token comment"># 取消引用作为符号链接的目标</span>
+-n, --no-dereference        <span class="token comment"># 把符号链接的目的目录视为一般文件</span>
+-P, <span class="token parameter variable">--physical</span>              <span class="token comment"># 直接将硬链接到符号链接</span>
+-r, <span class="token parameter variable">--relative</span>              <span class="token comment"># 创建相对于链接位置的符号链接</span>
+-s, <span class="token parameter variable">--symbolic</span>              <span class="token comment"># 对源文件建立符号链接，而非硬链接</span>
+-S, <span class="token parameter variable">--suffix</span><span class="token operator">=</span>SUFFIX         <span class="token comment"># 用"-b"参数备份目标文件后，备份文件的字尾会被加上一个备份字符串，预设的备份字符串是符号“~”，用户可通过“-S”参数来改变它</span>
+-t, --target-directory<span class="token operator">=</span>DIRECTORY <span class="token comment"># 指定要在其中创建链接的DIRECTORY</span>
+-T, --no-target-directory   <span class="token comment"># 将“LINK_NAME”视为常规文件</span>
+-v, <span class="token parameter variable">--verbose</span>               <span class="token comment"># 打印每个链接文件的名称</span>
+<span class="token parameter variable">--help</span>      <span class="token comment"># 显示此帮助信息并退出</span>
+<span class="token parameter variable">--version</span>   <span class="token comment"># 显示版本信息并退出</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ul>
+<li>  源文件：指定链接的源文件。如果使用<code>-s</code>选项创建符号链接，则“源文件”可以是文件或者目录。创建硬链接时，则“源文件”参数只能是文件。</li>
+<li>  目标文件：指定源文件的目标链接文件。</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">none, off       <span class="token comment"># 不进行备份(即使使用了--backup 选项)</span>
+numbered, t     <span class="token comment"># 备份文件加上数字进行排序</span>
+existing, nil   <span class="token comment"># 若有数字的备份文件已经存在则使用数字，否则使用普通方式备份</span>
+simple, never   <span class="token comment"># 永远使用普通方式备份</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>将目录<code>/usr/mengqc/mub1</code> 下的文件 m2.c 链接到目录 <code>/usr/liu</code> 下的文件 a2.c</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /usr/mengqc
+<span class="token function">ln</span> mub1/m2.c /usr/liu/a2.c<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>在执行ln命令之前，目录<code>/usr/liu</code>中不存在a2.c文件。执行ln之后，在<code>/usr/liu</code>目录中才有a2.c这一项，表明m2.c和a2.c链接起来（注意，二者在物理上是同一文件），利用<code>ls -l</code>命令可以看到链接数的变化。</p>
+<p><strong>创建软链接</strong></p>
+<p>在目录<code>/usr/liu</code>下建立一个符号链接文件abc，使它指向目录<code>/usr/mengqc/mub1</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ln</span> <span class="token parameter variable">-s</span> /usr/mengqc/mub1 /usr/liu/abc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>执行该命令后，<code>/usr/mengqc/mub1</code>代表的路径将存放在名为<code>/usr/liu/abc</code>的文件中。</p>
+<p><strong>创建硬链接</strong></p>
+<p>给文件创建硬链接，为 <code>log2022.log</code> 创建硬链接 <code>ln2022</code>，<code>log2022.log</code> 与 <code>ln2022</code> 的各项属性相同</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ln</span> log2022.log ln2022<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>输出：</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@localhost test]# ll
+lrwxrwxrwx 1 root root     11 12-07 16:01 link2013 -&gt; log2022.log
+-rw-r--r-- 1 root bin      61 11-13 06:03 log2022.log
+[root@localhost test]# ln log2022.log ln2022
+[root@localhost test]# ll
+lrwxrwxrwx 1 root root     11 12-07 16:01 link2013 -&gt; log2022.log
+-rw-r--r-- 2 root bin      61 11-13 06:03 ln2022
+-rw-r--r-- 2 root bin      61 11-13 06:03 log2022.log<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="扩展知识"><a href="#扩展知识" class="headerlink" title="扩展知识"></a>扩展知识</h2><p>Linux具有为一个文件起多个名字的功能，称为链接。被链接的文件可以存放在相同的目录下，但是必须有不同的文件名，而不用在硬盘上为同样的数据重复备份。另外，被链接的文件也可以有相同的文件名，但是存放在不同的目录下，这样只要对一个目录下的该文件进行修改，就可以完成对所有目录下同名链接文件的修改。对于某个文件的各链接文件，我们可以给它们指定不同的存取权限，以控制对信息的共享和增强安全性。</p>
+<p>文件链接有两种形式，即硬链接和符号链接。</p>
+<p>ln功能说明：是为某一个文件在另外一个位置建立一个同步的链接，当我们需要在不同的目录，用到相同的文件时，我们不需要在每一个需要的目录下都放一个必须相同的文件，我们只要在某个固定的目录，放上该文件，然后在其它的目录下用ln命令链接（link）它就可以，不必重复的占用磁盘空间。</p>
+<blockquote>
+<p>:warning: ln命令会保持每一处链接文件的同步性，也就是说，不论你改动了哪一处，其它的文件都会发生相同的变化。</p>
+</blockquote>
+<h3 id="软链接："><a href="#软链接：" class="headerlink" title="软链接："></a>软链接：</h3><ol>
+<li>软链接，以路径的形式存在。类似于Windows操作系统中的快捷方式</li>
+<li>软链接可以 跨文件系统 ，硬链接不可以</li>
+<li>软链接可以对一个不存在的文件名进行链接</li>
+<li>软链接可以对目录进行链接</li>
+</ol>
+<h3 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h3><p>建立硬链接时，在另外的目录或本目录中增加目标文件的一个目录项，这样，一个文件就登记在多个目录中。如下所示的m2.c文件就在目录mub1和liu中都建立了目录项。</p>
+<ol>
+<li>硬链接，以文件副本的形式存在。但不占用实际空间。</li>
+<li>不允许给目录创建硬链接</li>
+<li>硬链接只有在同一个文件系统中才能创建</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ls</span> <span class="token parameter variable">-ailR</span>
+.:
+total <span class="token number">16</span>
+<span class="token number">922730</span> drwxr-xr-x  <span class="token number">4</span> root root <span class="token number">4096</span> Jun <span class="token number">17</span> <span class="token number">11</span>:18 <span class="token builtin class-name">.</span>
+<span class="token number">393217</span> drwxrwxrwt. <span class="token number">9</span> root root <span class="token number">4096</span> Jun <span class="token number">17</span> <span class="token number">11</span>:19 <span class="token punctuation">..</span>
+<span class="token number">922733</span> drwxr-xr-x  <span class="token number">2</span> root root <span class="token number">4096</span> Jun <span class="token number">17</span> <span class="token number">11</span>:18 liu
+<span class="token number">922731</span> -rw-r--r--  <span class="token number">3</span> root root    <span class="token number">0</span> Jun <span class="token number">17</span> <span class="token number">11</span>:18 m2.c
+<span class="token number">922732</span> drwxr-xr-x  <span class="token number">2</span> root root <span class="token number">4096</span> Jun <span class="token number">17</span> <span class="token number">11</span>:18 mub1
+
+./liu:
+total <span class="token number">8</span>
+<span class="token number">922733</span> drwxr-xr-x <span class="token number">2</span> root root <span class="token number">4096</span> Jun <span class="token number">17</span> <span class="token number">11</span>:18 <span class="token builtin class-name">.</span>
+<span class="token number">922730</span> drwxr-xr-x <span class="token number">4</span> root root <span class="token number">4096</span> Jun <span class="token number">17</span> <span class="token number">11</span>:18 <span class="token punctuation">..</span>
+<span class="token number">922731</span> -rw-r--r-- <span class="token number">3</span> root root    <span class="token number">0</span> Jun <span class="token number">17</span> <span class="token number">11</span>:18 m2.c
+
+./mub1:
+total <span class="token number">8</span>
+<span class="token number">922732</span> drwxr-xr-x <span class="token number">2</span> root root <span class="token number">4096</span> Jun <span class="token number">17</span> <span class="token number">11</span>:18 <span class="token builtin class-name">.</span>
+<span class="token number">922730</span> drwxr-xr-x <span class="token number">4</span> root root <span class="token number">4096</span> Jun <span class="token number">17</span> <span class="token number">11</span>:18 <span class="token punctuation">..</span>
+<span class="token number">922731</span> -rw-r--r-- <span class="token number">3</span> root root    <span class="token number">0</span> Jun <span class="token number">17</span> <span class="token number">11</span>:18 m2.c<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>创建硬链接后，己经存在的文件的索引节点号（inode）会被多个目录文件项使用。一个文件的硬链接数可以在目录的长列表格式的第二列中看到，无额外链接的文件的链接数为1。</p>
+<p>在默认情况下，ln命令创建硬链接。ln命令会增加链接数，rm命令会减少链接数。一个文件除非链接数为0，否则不会从文件系统中被物理地删除。</p>
+<p>对硬链接有如下限制：</p>
+<ul>
+<li>  不能对目录文件做硬链接。</li>
+<li>  不能在不同的文件系统之间做硬链接。就是说，链接文件和被链接文件必须位于同一个文件系统中。</li>
+</ul>
+<h3 id="符号链接-软连接"><a href="#符号链接-软连接" class="headerlink" title="符号链接(软连接)"></a>符号链接(软连接)</h3><p>符号链接也称为软链接，是将一个路径名链接到一个文件。这些文件是一种特别类型的文件。事实上，它只是一个文本文件（如下所示的abc文件），其中包含它提供链接的另一个文件的路径名，如虚线箭头所示。另一个文件是实际包含所有数据的文件。所有读、写文件内容的命令被用于符号链接时，将沿着链接方向前进来访问实际的文件。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">ls</span> <span class="token parameter variable">-il</span>
+total <span class="token number">0</span>
+<span class="token number">922736</span> lrwxrwxrwx <span class="token number">1</span> root root <span class="token number">5</span> Jun <span class="token number">17</span> <span class="token number">11</span>:27 abc -<span class="token operator">></span> a.txt
+<span class="token number">922735</span> -rw-r--r-- <span class="token number">1</span> root root <span class="token number">0</span> Jun <span class="token number">17</span> <span class="token number">11</span>:27 a.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>与硬链接不同的是，符号链接确实是一个新文件，当然它具有不同的索引节点号；而硬链接并没有建立新文件。</p>
+<p>符号链接没有硬链接的限制，可以对目录文件做符号链接，也可以在不同文件系统之间做符号链接。</p>
+<p>用<code>ln -s</code>命令建立符号链接时，源文件最好用绝对路径名。这样可以在任何工作目录下进行符号链接。而当源文件用相对路径时，如果当前的工作路径与要创建的符号链接文件所在路径不同，就不能进行链接。</p>
+<p>符号链接保持了链接与源文件或目录之间的区别：</p>
+<ul>
+<li>  删除源文件或目录，只删除了数据，不会删除链接。一旦以同样文件名创建了源文件，链接将继续指向该文件的新数据。</li>
+<li>  在目录长列表中，符号链接作为一种特殊的文件类型显示出来，其第一个字母是l。</li>
+<li>  符号链接的大小是其链接文件的路径名中的字节数。</li>
+<li>  当用<code>ls -l</code>命令列出文件时，可以看到符号链接名后有一个箭头指向源文件或目录，例如<code>lrwxrwxrwx … 14 jun 20 10:20 /etc/motd-&gt;/original_file</code>其中，表示“文件大小”的数字“14”恰好说明源文件名<code>original_file</code>由14个字符构成。</li>
+</ul>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">160.4k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

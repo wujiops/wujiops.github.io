@@ -1,0 +1,1037 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="fdisk命令, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>fdisk命令 | 波亚斯</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">fdisk命令</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/">
+                                <span class="chip bg-color"></span>
+                            </a>
+                        
+                            <a href="/">
+                                <span class="chip bg-color"></span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/" class="post-category">
+                                
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-06-29
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-07-06
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.8k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h2><p><strong>fdisk命令</strong> 用于观察硬盘实体使用情况，也可对硬盘分区。它采用传统的问答式界面，而非类似DOS fdisk的cfdisk互动式操作界面，因此在使用上较为不便，但功能却丝毫不打折扣。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">fdisk</span> <span class="token punctuation">[</span>选项<span class="token punctuation">]</span> <span class="token operator">&lt;</span>磁盘<span class="token operator">></span>           更改分区表
+<span class="token function">fdisk</span> <span class="token punctuation">[</span>选项<span class="token punctuation">]</span> <span class="token parameter variable">-l</span> <span class="token punctuation">[</span><span class="token operator">&lt;</span>磁盘<span class="token operator">></span><span class="token punctuation">..</span>.<span class="token punctuation">]</span>   列出分区表<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+选项：
+ -b, --sectors-size <span class="token operator">&lt;</span>大小<span class="token operator">></span>     显示扇区计数和大小
+ -B, --protect-boot            创建新标签时不要擦除 bootbits
+ -c, --compatibility<span class="token punctuation">[</span><span class="token operator">=</span><span class="token operator">&lt;</span>模式<span class="token operator">></span><span class="token punctuation">]</span>  模式，为“dos”或“nondos”<span class="token punctuation">(</span>默认<span class="token punctuation">)</span>
+ -L, --color<span class="token punctuation">[</span><span class="token operator">=</span><span class="token operator">&lt;</span>时机<span class="token operator">></span><span class="token punctuation">]</span>          彩色输出（auto, always 或 never）默认启用颜色
+ -l, <span class="token parameter variable">--list</span>                    显示分区并退出
+ -x, --list-details            类似 <span class="token parameter variable">--list</span> 但提供更多细节
+ -n, --noauto-pt               不要在空设备上创建默认分区表
+ -o, <span class="token parameter variable">--output</span> <span class="token operator">&lt;</span>列表<span class="token operator">></span>           输出列
+ -t, <span class="token parameter variable">--type</span> <span class="token operator">&lt;</span>类型<span class="token operator">></span>             只识别指定的分区表类型
+ -u, --units<span class="token punctuation">[</span><span class="token operator">=</span><span class="token operator">&lt;</span>单位<span class="token operator">></span><span class="token punctuation">]</span>          显示单位，“cylinders”柱面或“sectors”扇区<span class="token punctuation">(</span>默认<span class="token punctuation">)</span>
+ -s, <span class="token parameter variable">--getsz</span>                   以 <span class="token number">512</span>-字节扇区显示设备大小<span class="token punctuation">[</span>已废弃<span class="token punctuation">]</span>
+      -b, <span class="token parameter variable">--bytes</span>                   以字节为单位而非易读的格式来打印 SIZE
+      --lock<span class="token punctuation">[</span><span class="token operator">=</span><span class="token operator">&lt;</span>模式<span class="token operator">></span><span class="token punctuation">]</span>           使用独占设备锁（yes、no 或 nonblock）
+ -w, <span class="token parameter variable">--wipe</span> <span class="token operator">&lt;</span>模式<span class="token operator">></span>             擦除签名（auto, always 或 never）
+ -W, --wipe-partitions <span class="token operator">&lt;</span>模式<span class="token operator">></span>  擦除新分区的签名<span class="token punctuation">(</span>auto, always 或 never<span class="token punctuation">)</span>
+
+ -C, <span class="token parameter variable">--cylinders</span> <span class="token operator">&lt;</span>数字<span class="token operator">></span>        指定柱面数
+ -H, <span class="token parameter variable">--heads</span> <span class="token operator">&lt;</span>数字<span class="token operator">></span>            指定磁头数
+ -S, <span class="token parameter variable">--sectors</span> <span class="token operator">&lt;</span>数字<span class="token operator">></span>          指定每条磁道的扇区数
+
+ -h, <span class="token parameter variable">--help</span>                    显示此帮助
+ -V, <span class="token parameter variable">--version</span>                 显示版本<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>设备文件：指定要进行分区或者显示分区的硬盘设备文件。</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>首先选择要进行操作的磁盘：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># fdisk /dev/sdb</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>输入<code>m</code>列出可以执行的命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">command</span> <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: m
+Command action
+   a   toggle a bootable flag
+   b   edit bsd disklabel
+   c   toggle the dos compatibility flag
+   d   delete a partition
+   l   list known partition types
+   m   print this menu
+   n   <span class="token function">add</span> a new partition
+   o   create a new empty DOS partition table
+   p   print the partition table
+   q   quit without saving changes
+   s   create a new empty Sun disklabel
+   t   change a partition's system <span class="token function">id</span>
+   u   change display/entry <span class="token function">units</span>
+   <span class="token function">v</span>   verify the partition table
+   w   <span class="token function">write</span> table to disk and <span class="token builtin class-name">exit</span>
+   x   extra functionality <span class="token punctuation">(</span>experts only<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输入<code>p</code>列出磁盘目前的分区情况：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: p
+
+Disk /dev/sdb: <span class="token number">3221</span> MB, <span class="token number">3221225472</span> bytes
+<span class="token number">255</span> heads, <span class="token number">63</span> sectors/track, <span class="token number">391</span> cylinders
+Units <span class="token operator">=</span> cylinders of <span class="token number">16065</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">8225280</span> bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdb1               <span class="token number">1</span>           <span class="token number">1</span>        <span class="token number">8001</span>   8e  Linux LVM
+/dev/sdb2               <span class="token number">2</span>          <span class="token number">26</span>      <span class="token number">200812</span>+  <span class="token number">83</span>  Linux<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输入<code>d</code>然后选择分区，删除现有分区：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: d
+Partition number <span class="token punctuation">(</span><span class="token number">1</span>-4<span class="token punctuation">)</span>: <span class="token number">1</span>
+
+Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: d
+Selected partition <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>查看分区情况，确认分区已经删除：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: print
+
+Disk /dev/sdb: <span class="token number">3221</span> MB, <span class="token number">3221225472</span> bytes
+<span class="token number">255</span> heads, <span class="token number">63</span> sectors/track, <span class="token number">391</span> cylinders
+Units <span class="token operator">=</span> cylinders of <span class="token number">16065</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">8225280</span> bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+
+Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输入<code>n</code>建立新的磁盘分区，首先建立两个主磁盘分区：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: n
+Command action
+   e   extended
+   p   primary partition <span class="token punctuation">(</span><span class="token number">1</span>-4<span class="token punctuation">)</span>
+p    //建立主分区
+Partition number <span class="token punctuation">(</span><span class="token number">1</span>-4<span class="token punctuation">)</span>: <span class="token number">1</span>  //分区号
+First cylinder <span class="token punctuation">(</span><span class="token number">1</span>-391, default <span class="token number">1</span><span class="token punctuation">)</span>:  //分区起始位置
+Using default value <span class="token number">1</span>
+last cylinder or +size or +sizeM or +sizeK <span class="token punctuation">(</span><span class="token number">1</span>-391, default <span class="token number">391</span><span class="token punctuation">)</span>: <span class="token number">100</span>  //分区结束位置，单位为扇区
+
+Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: n  //再建立一个分区
+Command action
+   e   extended
+   p   primary partition <span class="token punctuation">(</span><span class="token number">1</span>-4<span class="token punctuation">)</span>
+p 
+Partition number <span class="token punctuation">(</span><span class="token number">1</span>-4<span class="token punctuation">)</span>: <span class="token number">2</span>  //分区号为2
+First cylinder <span class="token punctuation">(</span><span class="token number">101</span>-391, default <span class="token number">101</span><span class="token punctuation">)</span>:
+Using default value <span class="token number">101</span>
+Last cylinder or +size or +sizeM or +sizeK <span class="token punctuation">(</span><span class="token number">101</span>-391, default <span class="token number">391</span><span class="token punctuation">)</span>: +200M  //分区结束位置，单位为M<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>确认分区建立成功：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: p
+
+Disk /dev/sdb: <span class="token number">3221</span> MB, <span class="token number">3221225472</span> bytes
+<span class="token number">255</span> heads, <span class="token number">63</span> sectors/track, <span class="token number">391</span> cylinders
+Units <span class="token operator">=</span> cylinders of <span class="token number">16065</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">8225280</span> bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdb1               <span class="token number">1</span>         <span class="token number">100</span>      <span class="token number">803218</span>+  <span class="token number">83</span>  Linux
+/dev/sdb2             <span class="token number">101</span>         <span class="token number">125</span>      <span class="token number">200812</span>+  <span class="token number">83</span>  Linux<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>再建立一个逻辑分区：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: n
+Command action
+   e   extended
+   p   primary partition <span class="token punctuation">(</span><span class="token number">1</span>-4<span class="token punctuation">)</span>
+e  //选择扩展分区
+Partition number <span class="token punctuation">(</span><span class="token number">1</span>-4<span class="token punctuation">)</span>: <span class="token number">3</span>
+First cylinder <span class="token punctuation">(</span><span class="token number">126</span>-391, default <span class="token number">126</span><span class="token punctuation">)</span>:
+Using default value <span class="token number">126</span>
+Last cylinder or +size or +sizeM or +sizeK <span class="token punctuation">(</span><span class="token number">126</span>-391, default <span class="token number">391</span><span class="token punctuation">)</span>:
+Using default value <span class="token number">391</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>确认扩展分区建立成功：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: p
+
+Disk /dev/sdb: <span class="token number">3221</span> MB, <span class="token number">3221225472</span> bytes
+<span class="token number">255</span> heads, <span class="token number">63</span> sectors/track, <span class="token number">391</span> cylinders
+Units <span class="token operator">=</span> cylinders of <span class="token number">16065</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">8225280</span> bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdb1               <span class="token number">1</span>         <span class="token number">100</span>      <span class="token number">803218</span>+  <span class="token number">83</span>  Linux
+/dev/sdb2             <span class="token number">101</span>         <span class="token number">125</span>      <span class="token number">200812</span>+  <span class="token number">83</span>  Linux
+/dev/sdb3             <span class="token number">126</span>         <span class="token number">391</span>     <span class="token number">2136645</span>    <span class="token number">5</span>  Extended<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在扩展分区上建立两个逻辑分区：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: n
+Command action
+   l   logical <span class="token punctuation">(</span><span class="token number">5</span> or over<span class="token punctuation">)</span>
+   p   primary partition <span class="token punctuation">(</span><span class="token number">1</span>-4<span class="token punctuation">)</span>
+l //选择逻辑分区
+First cylinder <span class="token punctuation">(</span><span class="token number">126</span>-391, default <span class="token number">126</span><span class="token punctuation">)</span>:
+Using default value <span class="token number">126</span>
+Last cylinder or +size or +sizeM or +sizeK <span class="token punctuation">(</span><span class="token number">126</span>-391, default <span class="token number">391</span><span class="token punctuation">)</span>: +400M    
+
+Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: n
+Command action
+   l   logical <span class="token punctuation">(</span><span class="token number">5</span> or over<span class="token punctuation">)</span>
+   p   primary partition <span class="token punctuation">(</span><span class="token number">1</span>-4<span class="token punctuation">)</span>
+l
+First cylinder <span class="token punctuation">(</span><span class="token number">176</span>-391, default <span class="token number">176</span><span class="token punctuation">)</span>:
+Using default value <span class="token number">176</span>
+Last cylinder or +size or +sizeM or +sizeK <span class="token punctuation">(</span><span class="token number">176</span>-391, default <span class="token number">391</span><span class="token punctuation">)</span>:
+Using default value <span class="token number">391</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>确认逻辑分区建立成功：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: p
+
+Disk /dev/sdb: <span class="token number">3221</span> MB, <span class="token number">3221225472</span> bytes
+<span class="token number">255</span> heads, <span class="token number">63</span> sectors/track, <span class="token number">391</span> cylinders
+Units <span class="token operator">=</span> cylinders of <span class="token number">16065</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">8225280</span> bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdb1               <span class="token number">1</span>         <span class="token number">100</span>      <span class="token number">803218</span>+  <span class="token number">83</span>  Linux
+/dev/sdb2             <span class="token number">101</span>         <span class="token number">125</span>      <span class="token number">200812</span>+  <span class="token number">83</span>  Linux
+/dev/sdb3             <span class="token number">126</span>         <span class="token number">391</span>     <span class="token number">2136645</span>    <span class="token number">5</span>  Extended
+/dev/sdb5             <span class="token number">126</span>         <span class="token number">175</span>      <span class="token number">401593</span>+  <span class="token number">83</span>  Linux
+/dev/sdb6             <span class="token number">176</span>         <span class="token number">391</span>     <span class="token number">1734988</span>+  <span class="token number">83</span>  Linux
+
+Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>从上面的结果我们可以看到，在硬盘sdb我们建立了2个主分区（sdb1，sdb2），1个扩展分区（sdb3），2个逻辑分区（sdb5，sdb6）</p>
+<p>注意：主分区和扩展分区的磁盘号位1-4，也就是说最多有4个主分区或者扩展分区，逻辑分区开始的磁盘号为5，因此在这个实验中试没有sdb4的。</p>
+<p>最后对分区操作进行保存：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: w
+The partition table has been altered<span class="token operator">!</span>
+
+Calling ioctl<span class="token punctuation">(</span><span class="token punctuation">)</span> to re-read partition table.
+Syncing disks.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>建立好分区之后我们还需要对分区进行格式化才能在系统中使用磁盘。</p>
+<p>在sdb1上建立ext2分区：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mkfs.ext2 /dev/sdb1</span>
+<span class="token function">mke2fs</span> <span class="token number">1.39</span> <span class="token punctuation">(</span><span class="token number">29</span>-May-2006<span class="token punctuation">)</span>
+Filesystem <span class="token assign-left variable">label</span><span class="token operator">=</span>
+OS type: Linux
+Block <span class="token assign-left variable">size</span><span class="token operator">=</span><span class="token number">4096</span> <span class="token punctuation">(</span>log<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+Fragment <span class="token assign-left variable">size</span><span class="token operator">=</span><span class="token number">4096</span> <span class="token punctuation">(</span>log<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token number">100576</span> inodes, <span class="token number">200804</span> blocks
+<span class="token number">10040</span> blocks <span class="token punctuation">(</span><span class="token number">5.00</span>%<span class="token punctuation">)</span> reserved <span class="token keyword">for</span> the super user
+First data <span class="token assign-left variable">block</span><span class="token operator">=</span><span class="token number">0</span>
+Maximum filesystem <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">209715200</span>
+<span class="token number">7</span> block <span class="token function">groups</span>
+<span class="token number">32768</span> blocks per group, <span class="token number">32768</span> fragments per group
+<span class="token number">14368</span> inodes per group
+Superblock backups stored on blocks:
+        <span class="token number">32768</span>, <span class="token number">98304</span>, <span class="token number">163840</span>
+
+Writing inode tables: <span class="token keyword">done</span>                           
+Writing superblocks and filesystem accounting information: <span class="token keyword">done</span>
+
+This filesystem will be automatically checked every <span class="token number">32</span> mounts or
+<span class="token number">180</span> days, whichever comes first.  Use tune2fs <span class="token parameter variable">-c</span> or <span class="token parameter variable">-i</span> to override.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在sdb6上建立ext3分区：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mkfs.ext3 /dev/sdb6</span>
+<span class="token function">mke2fs</span> <span class="token number">1.39</span> <span class="token punctuation">(</span><span class="token number">29</span>-May-2006<span class="token punctuation">)</span>
+Filesystem <span class="token assign-left variable">label</span><span class="token operator">=</span>
+OS type: Linux
+Block <span class="token assign-left variable">size</span><span class="token operator">=</span><span class="token number">4096</span> <span class="token punctuation">(</span>log<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+Fragment <span class="token assign-left variable">size</span><span class="token operator">=</span><span class="token number">4096</span> <span class="token punctuation">(</span>log<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token number">217280</span> inodes, <span class="token number">433747</span> blocks
+<span class="token number">21687</span> blocks <span class="token punctuation">(</span><span class="token number">5.00</span>%<span class="token punctuation">)</span> reserved <span class="token keyword">for</span> the super user
+First data <span class="token assign-left variable">block</span><span class="token operator">=</span><span class="token number">0</span>
+Maximum filesystem <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">444596224</span>
+<span class="token number">14</span> block <span class="token function">groups</span>
+<span class="token number">32768</span> blocks per group, <span class="token number">32768</span> fragments per group
+<span class="token number">15520</span> inodes per group
+Superblock backups stored on blocks:
+        <span class="token number">32768</span>, <span class="token number">98304</span>, <span class="token number">163840</span>, <span class="token number">229376</span>, <span class="token number">294912</span>
+
+Writing inode tables: <span class="token keyword">done</span>                           
+Creating journal <span class="token punctuation">(</span><span class="token number">8192</span> blocks<span class="token punctuation">)</span>: <span class="token keyword">done</span>
+Writing superblocks and filesystem accounting information: <span class="token keyword">done</span>
+
+This filesystem will be automatically checked every <span class="token number">32</span> mounts or
+<span class="token number">180</span> days, whichever comes first.  Use tune2fs <span class="token parameter variable">-c</span> or <span class="token parameter variable">-i</span> to override.
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>建立两个目录<code>/oracle</code>和<code>/web</code>，将新建好的两个分区挂载到系统：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mkdir /oracle</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mkdir /web</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mount /dev/sdb1 /oracle</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mount /dev/sdb6 /web</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>查看分区挂载情况：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># df -h</span>
+文件系统              容量  已用 可用 已用% 挂载点
+/dev/mapper/VolGroup00-LogVol00
+                      <span class="token number">6</span>.7G  <span class="token number">2</span>.8G  <span class="token number">3</span>.6G  <span class="token number">44</span>% /
+/dev/sda1              99M   12M   82M  <span class="token number">13</span>% /boot
+tmpfs                 125M     <span class="token number">0</span>  125M   <span class="token number">0</span>% /dev/shm
+/dev/sdb1             773M  808K  733M   <span class="token number">1</span>% /oracle
+/dev/sdb6             <span class="token number">1</span>.7G   35M  <span class="token number">1</span>.6G   <span class="token number">3</span>% /web<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果需要每次开机自动挂载则需要修改<code>/etc/fstab</code>文件，加入两行配置：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># vim /etc/fstab</span>
+
+/dev/VolGroup00/LogVol00 /                       ext3    defaults        <span class="token number">1</span> <span class="token number">1</span>
+<span class="token assign-left variable">LABEL</span><span class="token operator">=</span>/boot             /boot                   ext3    defaults        <span class="token number">1</span> <span class="token number">2</span>
+tmpfs                   /dev/shm                tmpfs   defaults        <span class="token number">0</span> <span class="token number">0</span>
+devpts                  /dev/pts                devpts  <span class="token assign-left variable">gid</span><span class="token operator">=</span><span class="token number">5</span>,mode<span class="token operator">=</span><span class="token number">620</span>  <span class="token number">0</span> <span class="token number">0</span>
+sysfs                   /sys                    sysfs   defaults        <span class="token number">0</span> <span class="token number">0</span>
+proc                    /proc                   proc    defaults        <span class="token number">0</span> <span class="token number">0</span>
+/dev/VolGroup00/LogVol01 swap                    swap    defaults        <span class="token number">0</span> <span class="token number">0</span>
+/dev/sdb1               /oracle                 ext2    defaults        <span class="token number">0</span> <span class="token number">0</span>
+/dev/sdb6               /web                    ext3    defaults        <span class="token number">0</span> <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">160.4k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

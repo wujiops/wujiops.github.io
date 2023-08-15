@@ -1,0 +1,1008 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Error(Ⅳ), Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>Error(Ⅳ) | 波亚斯</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Error(Ⅳ)</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/error/">
+                                <span class="chip bg-color">error</span>
+                            </a>
+                        
+                            <a href="/tags/notes/">
+                                <span class="chip bg-color">notes</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Notes/" class="post-category">
+                                Notes
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-07-05
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.2k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="CentOS8重启Network新的配置不生效"><a href="#CentOS8重启Network新的配置不生效" class="headerlink" title="CentOS8重启Network新的配置不生效"></a>CentOS8重启Network新的配置不生效</h1><p>开始涉及到以下命令不生效</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nmcli c reload ens160
+systemctl restart network<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="网卡配置如下"><a href="#网卡配置如下" class="headerlink" title="网卡配置如下"></a>网卡配置如下</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">"Ethernet"</span>
+<span class="token assign-left variable">PROXY_METHOD</span><span class="token operator">=</span><span class="token string">"none"</span>
+<span class="token assign-left variable">BROWSER_ONLY</span><span class="token operator">=</span><span class="token string">"no"</span>
+<span class="token assign-left variable">BOOTPROTO</span><span class="token operator">=</span><span class="token string">"none"</span>
+<span class="token assign-left variable">DEFROUTE</span><span class="token operator">=</span><span class="token string">"yes"</span>
+<span class="token assign-left variable">IPV4_FAILURE_FATAL</span><span class="token operator">=</span><span class="token string">"yes"</span>
+<span class="token assign-left variable">IPV6INIT</span><span class="token operator">=</span><span class="token string">"yes"</span>
+<span class="token assign-left variable">IPV6_AUTOCONF</span><span class="token operator">=</span><span class="token string">"yes"</span>
+<span class="token assign-left variable">IPV6_DEFROUTE</span><span class="token operator">=</span><span class="token string">"yes"</span>
+<span class="token assign-left variable">IPV6_FAILURE_FATAL</span><span class="token operator">=</span><span class="token string">"no"</span>
+<span class="token assign-left variable">IPV6_ADDR_GEN_MODE</span><span class="token operator">=</span><span class="token string">"stable-privacy"</span>
+<span class="token assign-left variable">NAME</span><span class="token operator">=</span><span class="token string">"ens160"</span>
+<span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">"1f22ea44-481f-410e-b062-7b05fa7a8375"</span>
+<span class="token assign-left variable">DEVICE</span><span class="token operator">=</span><span class="token string">"ens160"</span>
+<span class="token assign-left variable">ONBOOT</span><span class="token operator">=</span><span class="token string">"yes"</span>
+<span class="token assign-left variable">HWADDR</span><span class="token operator">=</span><span class="token string">"00:0C:29:D5:D6:DE"</span>
+<span class="token assign-left variable">IPADDR</span><span class="token operator">=</span><span class="token string">"192.168.1.223"</span>
+<span class="token assign-left variable">PREFIX</span><span class="token operator">=</span><span class="token string">"24"</span>
+<span class="token assign-left variable">GATEWAY</span><span class="token operator">=</span><span class="token string">"192.168.1.1"</span>
+<span class="token assign-left variable">DNS1</span><span class="token operator">=</span><span class="token string">"114.114.114.114"</span>
+<span class="token assign-left variable">IPV6_PRIVACY</span><span class="token operator">=</span><span class="token string">"no"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="解决-reload-配置不生效BUG"><a href="#解决-reload-配置不生效BUG" class="headerlink" title="解决 reload 配置不生效BUG"></a>解决 reload 配置不生效BUG</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 测试可用</span>
+<span class="token function">ifdown</span> ens160 <span class="token operator">&amp;&amp;</span> <span class="token function">ifup</span> ens160
+<span class="token comment"># 测试可用</span>
+nmcli c reload <span class="token operator">&amp;&amp;</span> nmcli d reapply ens160
+<span class="token comment"># 测试可用</span>
+nmcli c reload <span class="token operator">&amp;&amp;</span> nmcli networking off <span class="token operator">&amp;&amp;</span> nmcli networking on<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>总结：以上设置完IP后使用上面的命令可以使新配置生效，涉及到down和off等，一定要一条命令行执行！</p>
+<p>养成好习惯，否则只能去服务器执行up和on了。</p>
+<h2 id="centos8安装ntpdate报错"><a href="#centos8安装ntpdate报错" class="headerlink" title="centos8安装ntpdate报错"></a>centos8安装ntpdate报错</h2><p><code>yum -y install ntpdate</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">未找到匹配的参数： ntpdate
+错误：没有任何匹配: ntpdate<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="解决思路："><a href="#解决思路：" class="headerlink" title="解决思路："></a>解决思路：</h2><ol>
+<li><p>配置epel源，阿里云Base源（测试不行）</p>
+</li>
+<li><p>安装centos7的ntpdate（原因centos8安装的docker版本是centos7系统版本的）（未测试）</p>
+</li>
+<li><p>更改/etc/chrony.conf授时地址210.72.145.44（中国国家授时中心服务器）（测试通过）</p>
+</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl restart chronyd.service
+systemctl <span class="token builtin class-name">enable</span> chronyd.service<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>然后通过date查询时间</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hwclock <span class="token parameter variable">-s</span>   <span class="token comment"># 从硬件时钟设置系统时间</span>
+hwclock <span class="token parameter variable">-w</span>   <span class="token comment"># 从当前系统时间设置硬件时钟</span>
+hwclock <span class="token parameter variable">--systz</span>   <span class="token comment"># 基于当前时区设置系统时间</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="python-TCP服务"><a href="#python-TCP服务" class="headerlink" title="python TCP服务"></a>python TCP服务</h1><p>客户端连接超时自动断开，并不会向TCP server发送断开请求，导致server端一直处于连接状态，客户端重连失败。</p>
+<h2 id="分析原因"><a href="#分析原因" class="headerlink" title="分析原因"></a>分析原因</h2><ol>
+<li>复现问题</li>
+</ol>
+<p>用tcpdump抓包<code>tcpdump tcp port 10000</code>（结果展示如下：）</p>
+<p>可以看到客户端<code>106.202.127.124</code>主动断开TCP server<code>www.tcpserver.com</code>是正常的（三次握手四次断开）</p>
+<p>当客户端是因为超时断开（处于注二状态，TCPserver未得到回复），或者断网（处于注一状态，未发生挥手）</p>
+<ol start="2">
+<li>解决问题</li>
+</ol>
+<p>在TCP server设置socket 30s超时，客户端发送消息后，30s没有动作TCP server处于等待连接的状态</p>
+<p>这时候需要客户端主动断开重连即可</p>
+<pre class="line-numbers language-none"><code class="language-none">Timeout.
+Server is running. Waiting client...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>附录tcpdump抓包内容：</p>
+<pre class="line-numbers language-none"><code class="language-none">①
+16:59:58.751349 IP 106.202.127.124.broad.bj.bj.static.163data.com.cn.40780 &gt; www.tcpserver.com.ndmp: Flags [S], seq 642708694, win 29200, options [mss 1440,sackOK,TS val 3136578883 ecr 0,nop,wscale 7], length 0
+②
+16:59:58.751428 IP www.tcpserver.com.ndmp &gt; 106.202.127.124.broad.bj.bj.static.163data.com.cn.40780: Flags [S.], seq 2548085368, ack 642708695, win 28960, options [mss 1460,sackOK,TS val 750917687 ecr 3136578883,nop,wscale 7], length 0
+③
+16:59:58.765865 IP 106.202.127.124.broad.bj.bj.static.163data.com.cn.40780 &gt; www.tcpserver.com.ndmp: Flags [.], ack 1, win 229, options [nop,nop,TS val 3136578896 ecr 750917687], length 0
+---分割线---
+①注一
+17:00:04.932512 IP 106.202.127.124.broad.bj.bj.static.163data.com.cn.40780 &gt; www.tcpserver.com.ndmp: Flags [F.], seq 1, ack 1, win 229, options [nop,nop,TS val 3136585065 ecr 750917687], length 0
+②③注二
+17:00:04.932669 IP www.tcpserver.com.ndmp &gt; 106.202.127.124.broad.bj.bj.static.163data.com.cn.40780: Flags [F.], seq 1, ack 2, win 227, options [nop,nop,TS val 750923869 ecr 3136585065], length 0
+④
+17:00:04.944759 IP 106.202.127.124.broad.bj.bj.static.163data.com.cn.40780 &gt; www.tcpserver.com.ndmp: Flags [.], ack 2, win 229, options [nop,nop,TS val 3136585075 ecr 750923869], length 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>附录三个脚本：</p>
+</blockquote>
+<h2 id="TCP-server端"><a href="#TCP-server端" class="headerlink" title="TCP server端"></a>TCP server端</h2><p>开启端口，绑定到主机</p>
+<p><code>tcp_update.py</code></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># TCP server</span>
+<span class="token keyword">from</span> socket <span class="token keyword">import</span> <span class="token operator">*</span>
+<span class="token keyword">import</span> pymysql
+<span class="token keyword">import</span> time
+<span class="token keyword">import</span> _thread
+<span class="token keyword">import</span> socket
+
+socket<span class="token punctuation">.</span>setdefaulttimeout<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Manual Data</span>
+db_2 <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'$IP'</span><span class="token punctuation">,</span> port<span class="token operator">=</span>$PORT<span class="token punctuation">,</span>
+                       user<span class="token operator">=</span><span class="token string">'$NAME'</span><span class="token punctuation">,</span> passwd<span class="token operator">=</span><span class="token string">'$PASSWORD'</span><span class="token punctuation">,</span> db<span class="token operator">=</span><span class="token string">"$DATABASE"</span><span class="token punctuation">)</span>
+cursor_2 <span class="token operator">=</span> db_2<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">process</span><span class="token punctuation">(</span>string<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    temp_str <span class="token operator">=</span> string<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> temp_str<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token builtin">float</span><span class="token punctuation">(</span>temp_str<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">database_update</span><span class="token punctuation">(</span>attribute<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    sql <span class="token operator">=</span> <span class="token string">"UPDATE dataTestUDP SET value = "</span> <span class="token operator">+</span> \
+        <span class="token builtin">str</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" WHERE attribute = \""</span> <span class="token operator">+</span> attribute <span class="token operator">+</span> <span class="token string">"\""</span>
+
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        db_2<span class="token punctuation">.</span>ping<span class="token punctuation">(</span>reconnect<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+        cursor_2<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+        db_2<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        <span class="token comment"># 如果发生错误则回滚</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Database Error'</span><span class="token punctuation">)</span>
+        db_2<span class="token punctuation">.</span>rollback<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment"># 关闭数据库连接</span>
+        db_2<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">tcp_listener</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    HOST <span class="token operator">=</span> <span class="token string">'192.168.1.2'</span>
+    PORT <span class="token operator">=</span> <span class="token number">10000</span>
+    BUFSIZ <span class="token operator">=</span> <span class="token number">1024</span>
+    ADDRESS <span class="token operator">=</span> <span class="token punctuation">(</span>HOST<span class="token punctuation">,</span> PORT<span class="token punctuation">)</span>
+
+    tcpServerSocket <span class="token operator">=</span> socket<span class="token punctuation">(</span>AF_INET<span class="token punctuation">,</span> SOCK_STREAM<span class="token punctuation">)</span>
+
+    tcpServerSocket<span class="token punctuation">.</span>bind<span class="token punctuation">(</span>ADDRESS<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Server starts，listening port &#123;&#125;..."</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>ADDRESS<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    tcpServerSocket<span class="token punctuation">.</span>listen<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+            client_socket <span class="token operator">=</span> <span class="token boolean">None</span>
+            <span class="token keyword">try</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Server is running. Waiting client...'</span><span class="token punctuation">)</span>
+                client_socket<span class="token punctuation">,</span> client_address <span class="token operator">=</span> tcpServerSocket<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Client &#123;&#125; Connected！'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>client_address<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+                <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+                    <span class="token keyword">try</span><span class="token punctuation">:</span>
+                        data <span class="token operator">=</span> client_socket<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">2048</span><span class="token punctuation">)</span>
+                        <span class="token keyword">if</span> data<span class="token punctuation">:</span>
+                            <span class="token keyword">print</span><span class="token punctuation">(</span>
+                                <span class="token string">'Received Message &#123;&#125;(&#123;&#125; bytes) from &#123;&#125;'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'gb2312'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                                                                               client_address<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                            <span class="token keyword">try</span><span class="token punctuation">:</span>
+                                a<span class="token punctuation">,</span> v <span class="token operator">=</span> process<span class="token punctuation">(</span>data<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'gb2312'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                                database_update<span class="token punctuation">(</span>a<span class="token punctuation">,</span> v<span class="token punctuation">)</span>
+                            <span class="token keyword">except</span><span class="token punctuation">:</span>
+                                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Data Error'</span><span class="token punctuation">)</span>
+                        <span class="token keyword">else</span><span class="token punctuation">:</span>
+                            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Client &#123;&#125; disconnects!'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>client_address<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                            <span class="token keyword">break</span>
+                    <span class="token keyword">except</span><span class="token punctuation">:</span>
+                        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Connenction Reset by &#123;&#125;!'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>client_address<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                        <span class="token keyword">break</span>
+            <span class="token keyword">except</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Timeout.'</span><span class="token punctuation">)</span>
+                <span class="token keyword">pass</span>
+            <span class="token keyword">finally</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> client_socket <span class="token keyword">is</span> <span class="token keyword">not</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+                    client_socket<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">finally</span><span class="token punctuation">:</span>
+        tcpServerSocket<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    tcp_listener<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="数据微调"><a href="#数据微调" class="headerlink" title="数据微调"></a>数据微调</h2><p><code>auto_update.py</code></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># auto update</span>
+<span class="token keyword">import</span> pymysql
+<span class="token keyword">import</span> time
+
+<span class="token comment"># Auto Data</span>
+db_1 <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'$IP'</span><span class="token punctuation">,</span> port<span class="token operator">=</span>$PORT<span class="token punctuation">,</span>
+                       user<span class="token operator">=</span><span class="token string">'$NAME'</span><span class="token punctuation">,</span> passwd<span class="token operator">=</span><span class="token string">'$PASSWORD'</span><span class="token punctuation">,</span> db<span class="token operator">=</span><span class="token string">"$DATABASE"</span><span class="token punctuation">)</span>
+cursor_1 <span class="token operator">=</span> db_1<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Update fake data automatically</span>
+<span class="token keyword">def</span> <span class="token function">database_auto_update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    sql_1 <span class="token operator">=</span> <span class="token triple-quoted-string string">"""UPDATE dataTestFake SET id = 0 WHERE id = 10"""</span>
+    sql_2 <span class="token operator">=</span> <span class="token triple-quoted-string string">"""UPDATE dataTestFake SET id = id + 1 WHERE id &lt; 10"""</span>
+
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            <span class="token comment"># 执行sql语句</span>
+            db_1<span class="token punctuation">.</span>ping<span class="token punctuation">(</span>reconnect<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+            cursor_1<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql_1<span class="token punctuation">)</span>
+            cursor_1<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql_2<span class="token punctuation">)</span>
+
+            <span class="token comment"># 提交到数据库执行</span>
+            db_1<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">except</span><span class="token punctuation">:</span>
+            <span class="token comment"># 如果发生错误则回滚</span>
+            db_1<span class="token punctuation">.</span>rollback<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token comment"># 关闭数据库连接</span>
+            db_1<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    database_auto_update<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="客户端发送数据"><a href="#客户端发送数据" class="headerlink" title="客户端发送数据"></a>客户端发送数据</h1><p><code>test.py</code></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># test py</span>
+<span class="token keyword">from</span> socket <span class="token keyword">import</span> <span class="token operator">*</span>
+
+HOST <span class="token operator">=</span> <span class="token string">'192.168.1.2'</span>
+PORT <span class="token operator">=</span> <span class="token number">10000</span>
+BUFSIZ <span class="token operator">=</span> <span class="token number">1024</span>
+ADDRESS <span class="token operator">=</span> <span class="token punctuation">(</span>HOST<span class="token punctuation">,</span> PORT<span class="token punctuation">)</span>
+
+tcpClientSocket <span class="token operator">=</span> socket<span class="token punctuation">(</span>AF_INET<span class="token punctuation">,</span> SOCK_STREAM<span class="token punctuation">)</span>
+tcpClientSocket<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>ADDRESS<span class="token punctuation">)</span>
+
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    data <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">'>'</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token keyword">not</span> data<span class="token punctuation">:</span>
+        <span class="token keyword">break</span>
+
+    tcpClientSocket<span class="token punctuation">.</span>send<span class="token punctuation">(</span>data<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'gb2312'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Disconnect!"</span><span class="token punctuation">)</span>
+tcpClientSocket<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">160.4k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1027 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="firewall-cmd命令, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>firewall-cmd命令 | 波亚斯</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">firewall-cmd命令</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/">
+                                <span class="chip bg-color"></span>
+                            </a>
+                        
+                            <a href="/">
+                                <span class="chip bg-color"></span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/" class="post-category">
+                                
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-06-29
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-07-06
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.6k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h2><p>firewall-cmd 是 firewalld的字符界面管理工具，firewalld是centos7的一大特性，最大的好处有两个：支持动态更新，不用重启服务；第二个就是加入了防火墙的“zone”概念。</p>
+<p>firewalld跟iptables比起来至少有两大好处：</p>
+<ol>
+<li>firewalld可以动态修改单条规则，而不需要像iptables那样，在修改了规则后必须得全部刷新才可以生效。</li>
+<li>firewalld在使用上要比iptables人性化很多，即使不明白“五张表五条链”而且对TCP/IP协议也不理解也可以实现大部分功能。</li>
+</ol>
+<p>firewalld自身并不具备防火墙的功能，而是和iptables一样需要通过内核的netfilter来实现，也就是说firewalld和 iptables一样，他们的作用都是用于维护规则，而真正使用规则干活的是内核的netfilter，只不过firewalld和iptables的结 构以及使用方法不一样罢了。</p>
+<p><strong>命令格式</strong> </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd <span class="token punctuation">[</span>选项 <span class="token punctuation">..</span>. <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h3><p>通用选项</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-h, <span class="token parameter variable">--help</span>    <span class="token comment"># 显示帮助信息；</span>
+-V, <span class="token parameter variable">--version</span> <span class="token comment"># 显示版本信息. （这个选项不能与其他选项组合）；</span>
+-q, <span class="token parameter variable">--quiet</span>   <span class="token comment"># 不打印状态消息；</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>状态选项</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">--state</span>                <span class="token comment"># 显示firewalld的状态；</span>
+<span class="token parameter variable">--reload</span>               <span class="token comment"># 不中断服务的重新加载；</span>
+--complete-reload      <span class="token comment"># 中断所有连接的重新加载；</span>
+--runtime-to-permanent <span class="token comment"># 将当前防火墙的规则永久保存；</span>
+--check-config         <span class="token comment"># 检查配置正确性；</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>日志选项</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">--get-log-denied         <span class="token comment"># 获取记录被拒绝的日志；</span>
+--set-log-denied<span class="token operator">=</span><span class="token operator">&lt;</span>value<span class="token operator">></span> <span class="token comment"># 设置记录被拒绝的日志，只能为 'all','unicast','broadcast','multicast','off' 其中的一个；</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装firewalld</span>
+yum <span class="token function">install</span> firewalld firewall-config
+
+systemctl start  firewalld <span class="token comment"># 启动</span>
+systemctl stop firewalld  <span class="token comment"># 停止</span>
+systemctl <span class="token builtin class-name">enable</span> firewalld <span class="token comment"># 启用自动启动</span>
+systemctl disable firewalld <span class="token comment"># 禁用自动启动</span>
+systemctl status firewalld <span class="token comment"># 或者 firewall-cmd --state 查看状态</span>
+
+<span class="token comment"># 关闭服务的方法</span>
+<span class="token comment"># 你也可以关闭目前还不熟悉的FirewallD防火墙，而使用iptables，命令如下：</span>
+
+systemctl stop firewalld
+systemctl disable firewalld
+yum <span class="token function">install</span> iptables-services
+systemctl start iptables
+systemctl <span class="token builtin class-name">enable</span> iptables<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>配置firewalld</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd <span class="token parameter variable">--version</span>  <span class="token comment"># 查看版本</span>
+firewall-cmd <span class="token parameter variable">--help</span>     <span class="token comment"># 查看帮助</span>
+
+<span class="token comment"># 查看设置：</span>
+firewall-cmd <span class="token parameter variable">--state</span>  <span class="token comment"># 显示状态</span>
+firewall-cmd --get-active-zones  <span class="token comment"># 查看区域信息</span>
+firewall-cmd --get-zone-of-interface<span class="token operator">=</span>eth0  <span class="token comment"># 查看指定接口所属区域</span>
+firewall-cmd --panic-on  <span class="token comment"># 拒绝所有包</span>
+firewall-cmd --panic-off  <span class="token comment"># 取消拒绝状态</span>
+firewall-cmd --query-panic  <span class="token comment"># 查看是否拒绝</span>
+
+firewall-cmd <span class="token parameter variable">--reload</span> <span class="token comment"># 更新防火墙规则</span>
+firewall-cmd --complete-reload
+<span class="token comment"># 两者的区别就是第一个无需断开连接，就是firewalld特性之一动态添加规则，第二个需要断开连接，类似重启服务</span>
+
+<span class="token comment"># 将接口添加到区域，默认接口都在public</span>
+firewall-cmd <span class="token parameter variable">--zone</span><span class="token operator">=</span>public --add-interface<span class="token operator">=</span>eth0
+<span class="token comment"># 永久生效再加上 --permanent 然后reload防火墙</span>
+ 
+<span class="token comment"># 设置默认接口区域，立即生效无需重启</span>
+firewall-cmd --set-default-zone<span class="token operator">=</span>public
+
+<span class="token comment"># 查看所有打开的端口：</span>
+firewall-cmd <span class="token parameter variable">--zone</span><span class="token operator">=</span>dmz --list-ports
+
+<span class="token comment"># 加入一个端口到区域：</span>
+firewall-cmd <span class="token parameter variable">--zone</span><span class="token operator">=</span>dmz --add-port<span class="token operator">=</span><span class="token number">8080</span>/tcp
+<span class="token comment"># 若要永久生效方法同上</span>
+ 
+<span class="token comment"># 打开一个服务，类似于将端口可视化，服务需要在配置文件中添加，/etc/firewalld 目录下有services文件夹，这个不详细说了，详情参考文档</span>
+firewall-cmd <span class="token parameter variable">--zone</span><span class="token operator">=</span>work --add-service<span class="token operator">=</span>smtp
+ 
+<span class="token comment"># 移除服务</span>
+firewall-cmd <span class="token parameter variable">--zone</span><span class="token operator">=</span>work --remove-service<span class="token operator">=</span>smtp
+
+<span class="token comment"># 显示支持的区域列表</span>
+firewall-cmd --get-zones
+
+<span class="token comment"># 设置为家庭区域</span>
+firewall-cmd --set-default-zone<span class="token operator">=</span>home
+
+<span class="token comment"># 查看当前区域</span>
+firewall-cmd --get-active-zones
+
+<span class="token comment"># 设置当前区域的接口</span>
+firewall-cmd --get-zone-of-interface<span class="token operator">=</span>enp03s
+
+<span class="token comment"># 显示所有公共区域（public）</span>
+firewall-cmd <span class="token parameter variable">--zone</span><span class="token operator">=</span>public --list-all
+
+<span class="token comment"># 临时修改网络接口（enp0s3）为内部区域（internal）</span>
+firewall-cmd <span class="token parameter variable">--zone</span><span class="token operator">=</span>internal --change-interface<span class="token operator">=</span>enp03s
+
+<span class="token comment"># 永久修改网络接口enp03s为内部区域（internal）</span>
+firewall-cmd <span class="token parameter variable">--permanent</span> <span class="token parameter variable">--zone</span><span class="token operator">=</span>internal --change-interface<span class="token operator">=</span>enp03s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>服务管理</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 显示服务列表  </span>
+Amanda, FTP, Samba和TFTP等最重要的服务已经被FirewallD提供相应的服务，可以使用如下命令查看：
+
+firewall-cmd --get-services
+
+<span class="token comment"># 允许SSH服务通过</span>
+firewall-cmd --new-service<span class="token operator">=</span>ssh
+
+<span class="token comment"># 禁止SSH服务通过</span>
+firewall-cmd --delete-service<span class="token operator">=</span>ssh
+
+<span class="token comment"># 打开TCP的8080端口</span>
+firewall-cmd <span class="token parameter variable">--enable</span> <span class="token assign-left variable">ports</span><span class="token operator">=</span><span class="token number">8080</span>/tcp
+
+<span class="token comment"># 临时允许Samba服务通过600秒</span>
+firewall-cmd <span class="token parameter variable">--enable</span> <span class="token assign-left variable">service</span><span class="token operator">=</span>samba <span class="token parameter variable">--timeout</span><span class="token operator">=</span><span class="token number">600</span>
+
+<span class="token comment"># 显示当前服务</span>
+firewall-cmd --list-services
+
+<span class="token comment"># 添加HTTP服务到内部区域（internal）</span>
+firewall-cmd <span class="token parameter variable">--permanent</span> <span class="token parameter variable">--zone</span><span class="token operator">=</span>internal --add-service<span class="token operator">=</span>http
+firewall-cmd <span class="token parameter variable">--reload</span>     <span class="token comment"># 在不改变状态的条件下重新加载防火墙</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>端口管理</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 打开443/TCP端口</span>
+firewall-cmd --add-port<span class="token operator">=</span><span class="token number">443</span>/tcp
+
+<span class="token comment"># 永久打开3690/TCP端口</span>
+firewall-cmd <span class="token parameter variable">--permanent</span> --add-port<span class="token operator">=</span><span class="token number">3690</span>/tcp
+
+<span class="token comment"># 永久打开端口好像需要reload一下，临时打开好像不用，如果用了reload临时打开的端口就失效了</span>
+<span class="token comment"># 其它服务也可能是这样的，这个没有测试</span>
+firewall-cmd <span class="token parameter variable">--reload</span>
+
+<span class="token comment"># 查看防火墙，添加的端口也可以看到</span>
+firewall-cmd --list-all<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>直接模式</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># FirewallD包括一种直接模式，使用它可以完成一些工作，例如打开TCP协议的9999端口</span>
+
+firewall-cmd <span class="token parameter variable">--direct</span> -add-rule ipv4 filter INPUT <span class="token number">0</span> <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">--dport</span> <span class="token number">9000</span> <span class="token parameter variable">-j</span> ACCEPT
+firewall-cmd <span class="token parameter variable">--reload</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>自定义服务管理</strong></p>
+<p>选项</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">（末尾带有 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span> 的话表示该选项除了与（--permanent）之外，不能与其他选项一同使用！）
+--new-service<span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> 新建一个自定义服务 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+--new-service-from-file<span class="token operator">=</span><span class="token operator">&lt;</span>文件名<span class="token operator">></span> <span class="token punctuation">[</span>--name<span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span><span class="token punctuation">]</span>
+                      从文件中读取配置用以新建一个自定义服务 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+--delete-service<span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span>
+                      删除一个已存在的服务 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+--load-service-defaults<span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span>
+                      Load icmptype default settings <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+--info-service<span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span>
+                      显示该服务的相关信息
+--path-service<span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span>
+                      显示该服务的文件的相关路径 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --set-description<span class="token operator">=</span><span class="token operator">&lt;</span>描述<span class="token operator">></span>
+                      给该服务设置描述信息 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --get-description
+                      显示该服务的描述信息 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --set-short<span class="token operator">=</span><span class="token operator">&lt;</span>描述<span class="token operator">></span>
+                      给该服务设置一个简短的描述 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --get-short
+                      显示该服务的简短描述 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+                      
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --add-port<span class="token operator">=</span><span class="token operator">&lt;</span>端口号<span class="token operator">></span><span class="token punctuation">[</span>-<span class="token operator">&lt;</span>端口号<span class="token operator">></span><span class="token punctuation">]</span>/<span class="token operator">&lt;</span>protocol<span class="token operator">></span>
+                      给该服务添加一个新的端口<span class="token punctuation">(</span>端口段<span class="token punctuation">)</span> <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+                      
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --remove-port<span class="token operator">=</span><span class="token operator">&lt;</span>端口号<span class="token operator">></span><span class="token punctuation">[</span>-<span class="token operator">&lt;</span>端口号<span class="token operator">></span><span class="token punctuation">]</span>/<span class="token operator">&lt;</span>protocol<span class="token operator">></span>
+                      从该服务上移除一个端口<span class="token punctuation">(</span>端口段<span class="token punctuation">)</span> <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+                      
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --query-port<span class="token operator">=</span><span class="token operator">&lt;</span>端口号<span class="token operator">></span><span class="token punctuation">[</span>-<span class="token operator">&lt;</span>端口号<span class="token operator">></span><span class="token punctuation">]</span>/<span class="token operator">&lt;</span>protocol<span class="token operator">></span>
+                      查询该服务是否添加了某个端口<span class="token punctuation">(</span>端口段<span class="token punctuation">)</span> <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+                      
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --get-ports
+                      显示该服务添加的所有端口 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+                      
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --add-protocol<span class="token operator">=</span><span class="token operator">&lt;</span>protocol<span class="token operator">></span>
+                      为该服务添加一个协议 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+                      
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --remove-protocol<span class="token operator">=</span><span class="token operator">&lt;</span>protocol<span class="token operator">></span>
+                      从该服务上移除一个协议 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+                      
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --query-protocol<span class="token operator">=</span><span class="token operator">&lt;</span>protocol<span class="token operator">></span>
+                      查询该服务是否添加了某个协议 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+                      
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --get-protocols
+                      显示该服务添加的所有协议 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+                      
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --add-source-port<span class="token operator">=</span><span class="token operator">&lt;</span>端口号<span class="token operator">></span><span class="token punctuation">[</span>-<span class="token operator">&lt;</span>端口号<span class="token operator">></span><span class="token punctuation">]</span>/<span class="token operator">&lt;</span>protocol<span class="token operator">></span>
+                      添加新的源端口<span class="token punctuation">(</span>端口段<span class="token punctuation">)</span>到该服务 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+                      
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --remove-source-port<span class="token operator">=</span><span class="token operator">&lt;</span>端口号<span class="token operator">></span><span class="token punctuation">[</span>-<span class="token operator">&lt;</span>端口号<span class="token operator">></span><span class="token punctuation">]</span>/<span class="token operator">&lt;</span>protocol<span class="token operator">></span>
+                      从该服务中删除源端口<span class="token punctuation">(</span>端口段<span class="token punctuation">)</span> <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+                      
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --query-source-port<span class="token operator">=</span><span class="token operator">&lt;</span>端口号<span class="token operator">></span><span class="token punctuation">[</span>-<span class="token operator">&lt;</span>端口号<span class="token operator">></span><span class="token punctuation">]</span>/<span class="token operator">&lt;</span>protocol<span class="token operator">></span>
+                      查询该服务是否添加了某个源端口<span class="token punctuation">(</span>端口段<span class="token punctuation">)</span> <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+                      
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --get-source-ports
+                      显示该服务所有源端口 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+                      
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --add-module<span class="token operator">=</span><span class="token operator">&lt;</span>module<span class="token operator">></span>
+                      为该服务添加一个模块 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --remove-module<span class="token operator">=</span><span class="token operator">&lt;</span>module<span class="token operator">></span>
+                      为该服务移除一个模块 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --query-module<span class="token operator">=</span><span class="token operator">&lt;</span>module<span class="token operator">></span>
+                      查询该服务是否添加了某个模块 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --get-modules
+                      显示该服务添加的所有模块 <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --set-destination<span class="token operator">=</span><span class="token operator">&lt;</span>ipv<span class="token operator">></span>:<span class="token operator">&lt;</span>address<span class="token operator">></span><span class="token punctuation">[</span>/<span class="token operator">&lt;</span>mask<span class="token operator">></span><span class="token punctuation">]</span>
+                      Set destination <span class="token keyword">for</span> ipv to address <span class="token keyword">in</span> <span class="token function">service</span> <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --remove-destination<span class="token operator">=</span><span class="token operator">&lt;</span>ipv<span class="token operator">></span>
+                      Disable destination <span class="token keyword">for</span> ipv i <span class="token function">service</span> <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --query-destination<span class="token operator">=</span><span class="token operator">&lt;</span>ipv<span class="token operator">></span>:<span class="token operator">&lt;</span>address<span class="token operator">></span><span class="token punctuation">[</span>/<span class="token operator">&lt;</span>mask<span class="token operator">></span><span class="token punctuation">]</span>
+                      Return whether destination ipv is <span class="token builtin class-name">set</span> <span class="token keyword">for</span> <span class="token function">service</span> <span class="token punctuation">[</span>P only<span class="token punctuation">]</span>
+<span class="token parameter variable">--service</span><span class="token operator">=</span><span class="token operator">&lt;</span>服务名<span class="token operator">></span> --get-destinations
+                      List destinations <span class="token keyword">in</span> <span class="token function">service</span> <span class="token punctuation">[</span>P only<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>控制端口 / 服务</strong></p>
+<p>可以通过两种方式控制端口的开放，一种是指定端口号另一种是指定服务名。虽然开放 http 服务就是开放了 80 端口，但是还是不能通过端口号来关闭，也就是说通过指定服务名开放的就要通过指定服务名关闭；通过指定端口号开放的就要通过指定端口号关闭。还有一个要注意的就是指定端口的时候一定要指定是什么协议，tcp 还是 udp。知道这个之后以后就不用每次先关防火墙了，可以让防火墙真正的生效。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --add-service<span class="token operator">=</span>mysql        <span class="token comment"># 开放mysql端口</span>
+firewall-cmd --remove-service<span class="token operator">=</span>http      <span class="token comment"># 阻止http端口</span>
+firewall-cmd --list-services            <span class="token comment"># 查看开放的服务</span>
+firewall-cmd --add-port<span class="token operator">=</span><span class="token number">3306</span>/tcp        <span class="token comment"># 开放通过tcp访问3306</span>
+firewall-cmd --remove-port<span class="token operator">=</span>80tcp        <span class="token comment"># 阻止通过tcp访问3306</span>
+firewall-cmd --add-port<span class="token operator">=</span><span class="token number">233</span>/udp         <span class="token comment"># 开放通过udp访问233</span>
+firewall-cmd --list-ports               <span class="token comment"># 查看开放的端口</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>伪装 IP</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --query-masquerade <span class="token comment"># 检查是否允许伪装IP</span>
+firewall-cmd --add-masquerade   <span class="token comment"># 允许防火墙伪装IP</span>
+firewall-cmd --remove-masquerade<span class="token comment"># 禁止防火墙伪装IP</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>端口转发</strong></p>
+<p>端口转发可以将指定地址访问指定的端口时，将流量转发至指定地址的指定端口。转发的目的如果不指定 ip 的话就默认为本机，如果指定了 ip 却没指定端口，则默认使用来源端口。<br>如果配置好端口转发之后不能用，可以检查下面两个问题：</p>
+<ol>
+<li>比如我将 80 端口转发至 8080 端口，首先检查本地的 80 端口和目标的 8080 端口是否开放监听了</li>
+<li>其次检查是否允许伪装 IP，没允许的话要开启伪装 IP</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --add-forward-port<span class="token operator">=</span>port<span class="token operator">=</span><span class="token number">80</span>:proto<span class="token operator">=</span>tcp:toport<span class="token operator">=</span><span class="token number">8080</span>   <span class="token comment"># 将80端口的流量转发至8080</span>
+firewall-cmd --add-forward-port<span class="token operator">=</span>port<span class="token operator">=</span><span class="token number">80</span>:proto<span class="token operator">=</span>tcp:toaddr<span class="token operator">=</span><span class="token number">192.168</span>.0.1 <span class="token comment"># 将80端口的流量转发至192.168.0.1</span>
+firewall-cmd --add-forward-port<span class="token operator">=</span>port<span class="token operator">=</span><span class="token number">80</span>:proto<span class="token operator">=</span>tcp:toaddr<span class="token operator">=</span><span class="token number">192.168</span>.0.1:toport<span class="token operator">=</span><span class="token number">8080</span> <span class="token comment"># 将80端口的流量转发至192.168.0.1的8080端口</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ol>
+<li>当我们想把某个端口隐藏起来的时候，就可以在防火墙上阻止那个端口访问，然后再开一个不规则的端口，之后配置防火墙的端口转发，将流量转发过去。</li>
+<li>端口转发还可以做流量分发，一个防火墙拖着好多台运行着不同服务的机器，然后用防火墙将不同端口的流量转发至不同机器。</li>
+</ol>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">160.4k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

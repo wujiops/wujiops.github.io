@@ -1,0 +1,969 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="mycat使用, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>mycat使用 | 波亚斯</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">mycat使用</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/mysql/">
+                                <span class="chip bg-color">mysql</span>
+                            </a>
+                        
+                            <a href="/tags/mycat/">
+                                <span class="chip bg-color">mycat</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-08-03
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.7k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Mycat安装测试使用"><a href="#Mycat安装测试使用" class="headerlink" title="Mycat安装测试使用"></a>Mycat安装测试使用</h1><h2 id="Mycat简介："><a href="#Mycat简介：" class="headerlink" title="Mycat简介："></a>Mycat简介：</h2><p><code>MyCAT</code> 是一款开源的<code>Mysql</code>企业级集群应用，它是基于阿里的开源产品<code>Cobar</code>发展出来的。<code>MyCAT</code>提供了类似<code>Mysql</code>的接口，可以平滑的将单机<code>Mysql</code>迁移到<code>Mysql</code>集群上，解决数据存储和业务规模迅速增长情况下的数据瓶颈问题。</p>
+<h2 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h2><p>环境需要JDK1.8，mysql5.5-5.7版本之间（稳定版）</p>
+<p><img src="/medias/img/mycat/0.png"></p>
+<p>下载安装mycat安装包</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Mycat-server-1.6-RELEASE-20161028204710-linux.tar.gz
+<span class="token function">wget</span>  http://dl.mycat.io/1.6-RELEASE/Mycat-server-1.6-RELEASE-20161028204710-linux.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>tar 解压mycat安装包</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> xvf Mycat-server-1.6-RELEASE-20161028204710-linux.tar.gz <span class="token parameter variable">-C</span> /usr/local/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/medias/img/mycat/1.png"><br><img src="/medias/img/mycat/2.png"></p>
+<p>安装完成</p>
+<h1 id="测试修改配置文件"><a href="#测试修改配置文件" class="headerlink" title="测试修改配置文件"></a>测试修改配置文件</h1><h2 id="主要配置文件："><a href="#主要配置文件：" class="headerlink" title="主要配置文件："></a>主要配置文件：</h2><p><code>schema.xml</code>中定义逻辑库，表、分片节点等内容；</p>
+<p><code>rule.xml</code>中定义分片规则；</p>
+<p><code>server.xml</code>中定义用户以及系统相关变量，如端口等</p>
+<p><img src="/medias/img/mycat/3.png"></p>
+<p><code>wrapper.conf</code>是控制mycat jvm的一些启动参数。</p>
+<p><code>server.xml</code>是Mycat服务器参数调整和用户授权的配置文件。</p>
+<p><code>schema.xml</code>是逻辑库定义和表以及分片定义的配置文件。</p>
+<p><code>rule.xml</code>是分片规则的配置文件，分片规则的具体一些参数信息单独存放为文件，也在这个目录下，配置文件修改需要重启Mycat。</p>
+<p><code>server.xml</code>是MyCAT对外的”虚拟数据库”配置文件。所谓的”虚拟数据库”是说，MyCAT将多个Mysql集群整合起来对外提供服务，提供服务的接口仍然采用Mysql的形式，因此，通过仿造Mysql接口，让调用程序以为自己是在访问Mysql数据库，就是所谓的”虚拟数据库”。</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
+<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">mycat:server</span> <span class="token name">SYSTEM</span> <span class="token string">"server.dtd"</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">mycat:</span>server</span> <span class="token attr-name"><span class="token namespace">xmlns:</span>mycat</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://io.mycat/<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>system</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>useSqlStat<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>  <span class="token comment">&lt;!-- 1为开启实时统计、0为关闭 --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>useGlobleTableCheck<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>  <span class="token comment">&lt;!-- 1为开启全加班一致性检测、0为关闭 --></span>
+    <span class="token comment">&lt;!--配置id(序列)的生成方式--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sequnceHandlerType<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!--  &lt;property name="useCompression">1&lt;/property>--></span> <span class="token comment">&lt;!--1为开启mysql压缩协议--></span>
+    <span class="token comment">&lt;!-- &lt;property name="fakeMySQLVersion">5.6.20&lt;/property>--></span> <span class="token comment">&lt;!--设置模拟的MySQL版本号--></span>
+    <span class="token comment">&lt;!-- &lt;property name="processorBufferChunk">40960&lt;/property> --></span>
+    <span class="token comment">&lt;!-- &lt;property name="processors">1&lt;/property> --></span>
+    <span class="token comment">&lt;!--&lt;property name="processorExecutor">32&lt;/property>  --></span>
+    <span class="token comment">&lt;!--默认为type 0: DirectByteBufferPool | type 1 ByteBufferArena--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>processorBufferPoolType<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!--默认是65535 64K 用于sql解析时最大文本长度 --></span>
+    <span class="token comment">&lt;!--&lt;property name="maxStringLiteralLength">65535&lt;/property>--></span>
+    <span class="token comment">&lt;!--&lt;property name="sequnceHandlerType">0&lt;/property>--></span>
+    <span class="token comment">&lt;!--&lt;property name="backSocketNoDelay">1&lt;/property>--></span>
+    <span class="token comment">&lt;!--&lt;property name="frontSocketNoDelay">1&lt;/property>--></span>
+    <span class="token comment">&lt;!--&lt;property name="processorExecutor">16&lt;/property>--></span>
+    <span class="token comment">&lt;!--&lt;property name="serverPort">8066&lt;/property> &lt;property name="managerPort">9066&lt;/property> --></span>
+    <span class="token comment">&lt;!--&lt;property name="idleTimeout">300000&lt;/property> &lt;property name="bindIp">0.0.0.0&lt;/property> --></span>
+    <span class="token comment">&lt;!--&lt;property name="frontWriteQueueSize">4096&lt;/property> &lt;property name="processors">32&lt;/property> --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>handleDistributedTransactions<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>useOffHeapForMerge<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!--单位为m--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>memoryPageSize<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>1m<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!--单位为k--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>spillsFileBufferSize<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>1k<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>useStreamOutput<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+
+    <span class="token comment">&lt;!--单位为m--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>systemReserveMemorySize<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>384m<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!--是否采用zookeeper协调切换  --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>useZKSwitch<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>system</span><span class="token punctuation">></span></span>
+
+  <span class="token comment">&lt;!-- 全局SQL防火墙设置 --></span>
+  <span class="token comment">&lt;!-- 
+    &lt;firewall> 
+    &lt;whitehost>
+        &lt;host host="127.0.0.1" user="mycat"/>
+        &lt;host host="127.0.0.2" user="mycat"/>
+    &lt;/whitehost>
+    &lt;blacklist check="false">
+    &lt;/blacklist>
+    &lt;/firewall>
+  --></span>
+
+  <span class="token comment">&lt;!-- 配置mycat服务连接用户名密码 ,在项目中的数据源的用户名密码则使用这个，不再直连mysql--></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>user</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>root<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>123456<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>schemas<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>TESTDB<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+
+    <span class="token comment">&lt;!-- 表级 DML 权限设置 --></span>
+    <span class="token comment">&lt;!--
+    &lt;privileges check="false">
+      &lt;schema name="TESTDB" dml="0110" >
+        &lt;table name="tb01" dml="0000">&lt;/table>
+        &lt;table name="tb02" dml="1111">&lt;/table>
+      &lt;/schema>
+    &lt;/privileges>   
+
+    --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>user</span><span class="token punctuation">></span></span>
+
+<span class="token comment">&lt;!--
+  &lt;user name="user">
+    &lt;property name="password">user&lt;/property>
+    &lt;property name="schemas">TESTDB&lt;/property>
+    &lt;property name="readOnly">true&lt;/property>
+  &lt;/user>
+--></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">mycat:</span>server</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>表明该虚拟数据库有一个<code>schema</code>，<code>TESTDB</code>；</p>
+<p>有2个用户<code>test</code>和<code>user</code>，密码分别是<code>root</code>和<code>user</code>，</p>
+<p><code>user</code>用户是只读的，<code>root</code>用户未设置只读,有增删改查权限；</p>
+<p>默认的SQL解析器是<code>druidparser</code>。</p>
+<p><code>schema.xml</code>逻辑库定义和表以及分片定义的配置文件</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0"?></span>
+<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">mycat:schema</span> <span class="token name">SYSTEM</span> <span class="token string">"schema.dtd"</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">mycat:</span>schema</span> <span class="token attr-name"><span class="token namespace">xmlns:</span>mycat</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://io.mycat/<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!-- TESTDB为mycat的逻辑表,在server.xml中的指定,并与mycat的登录账户绑定在一起 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>schema</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>TESTDB<span class="token punctuation">"</span></span> <span class="token attr-name">checkSQLschema</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span> <span class="token attr-name">sqlMaxLimit</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!--
+    配置物理表在mycat中的逻辑关系,这里指定了mycat中有一张逻辑表名为user,这张表的实际数据分散在dn1,dn2,dn3中对应的不同数>据库里面,且分片规则采用了mod-long，当然可以指定不同的分片规则，分片规则在rile.xml配置
+    --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>users<span class="token punctuation">"</span></span> <span class="token attr-name">dataNode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dn1,dn2,dn3<span class="token punctuation">"</span></span> <span class="token attr-name">rule</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>rule1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!--
+    userInfo表是user表的关联表,用于关联查询的情况下,mycat的分片采用er模型,joinKey="userId"为userInfo表的字段，联user表的id,当然也不定非得是id,通过parentKey="xx"可以指定关联user表的字段
+    --></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>childTable</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>userInfo<span class="token punctuation">"</span></span>  <span class="token attr-name">joinKey</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>userId<span class="token punctuation">"</span></span> <span class="token attr-name">parentKey</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>id<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>schema</span><span class="token punctuation">></span></span>
+  <span class="token comment">&lt;!-- 配置3个节点，该节点的三个属性依次为:节点的名称,服务器ip,数据库实例(MySQL真正的实例) --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dataNode</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dn1<span class="token punctuation">"</span></span> <span class="token attr-name">dataHost</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bogon<span class="token punctuation">"</span></span> <span class="token attr-name">database</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>db0<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dataNode</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dn2<span class="token punctuation">"</span></span> <span class="token attr-name">dataHost</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bogon<span class="token punctuation">"</span></span> <span class="token attr-name">database</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>db1<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dataNode</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dn3<span class="token punctuation">"</span></span> <span class="token attr-name">dataHost</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bogon<span class="token punctuation">"</span></span> <span class="token attr-name">database</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>db2<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+  <span class="token comment">&lt;!-- 配置连接的数据库,需配置好连接数据库的用户名和密码及ip,这个可以配置多个地址,且可分为读数据库和写数据库 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dataHost</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bogon<span class="token punctuation">"</span></span> <span class="token attr-name">maxCon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1000<span class="token punctuation">"</span></span> <span class="token attr-name">minCon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span> <span class="token attr-name">balance</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">writeType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">dbType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mysql<span class="token punctuation">"</span></span> <span class="token attr-name">dbDriver</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>native<span class="token punctuation">"</span></span> <span class="token attr-name">switchType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span>  <span class="token attr-name">slaveThreshold</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!-- 心跳,mycat服务每隔一段时间会发出该sql语句,验证该服务器是否被停掉 --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>heartbeat</span><span class="token punctuation">></span></span>select user()<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>heartbeat</span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!-- 指定自己mysql的地址及用户名密码 --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>writeHost</span> <span class="token attr-name">host</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bogon<span class="token punctuation">"</span></span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>192.168.10.142:3306<span class="token punctuation">"</span></span> <span class="token attr-name">user</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>root<span class="token punctuation">"</span></span> <span class="token attr-name">password</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>123456<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>writeHost</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dataHost</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">mycat:</span>schema</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>Schema</code>中主要配置<code>Mycat数据库</code>，<code>MySQL表</code>，<code>分片规则</code>，<code>分片类型</code>。</p>
+<h2 id="schema"><a href="#schema" class="headerlink" title="schema"></a>schema</h2><p>第1块是<code>schema</code>块，主要描述了虚拟数据库的<code>schemaTESTDB</code>中有哪些表，每个表分布在哪些数据节点上，分布的方法采用哪种算法。例如<code>&lt;table name=&quot;users&quot; dataNode=&quot;dn1,dn2,dn3&quot; rule=&quot;rule1&quot; /&gt;</code>，表示<code>user</code>表分布在<code>dn1</code>,<code>dn2</code>,<code>dn3</code>这3个节点上，分布的方法采用<code>rule1</code>算法（<code>rule.xml</code>文件中的配置）。</p>
+<h2 id="dataNode"><a href="#dataNode" class="headerlink" title="dataNode"></a>dataNode</h2><p>第2块是<code>dataNode</code>，表示该数据库有哪些数据节点，以及这些数据节点实际对应的数据服务器和数据库名，这里配置了3个节点<code>dn1</code>,<code>dn2</code>,<code>dn3</code>，都是在<code>bogon</code>服务器上，数据库名分别是<code>db0</code>,<code>db1</code>,<code>db2</code>，其实，这也正是前面<code>schema</code>块中用到的。</p>
+<h2 id="dataHost"><a href="#dataHost" class="headerlink" title="dataHost"></a>dataHost</h2><p>第3块是<code>dataHost</code>，这部分是实际的数据库服务器配置，这里测试配置了本地<code>Mysql</code>数据库，地址在<code>192.168.10.142:3306</code>，用户名都是<code>root</code>，密码是<code>123456</code>，并且指定了心跳是<code>select user()</code>。</p>
+<p>这里面有两个参数需要注意，<code>balance</code>和<code>switchType</code>。</p>
+<p><code>balance</code>指的负载均衡类型，目前的取值有4种：</p>
+<p><code>balance=&quot;0&quot;</code>, 不开启读写分离机制，所有读操作都发送到当前可用的<code>writeHost</code>上。</p>
+<p><code>balance=&quot;1&quot;</code>，全部的<code>readHost</code>与<code>stand by writeHost</code>参与<code>select</code>语句的负载均衡，简单的说，当双主双从模式<code>(M1-&gt;S1，M2-&gt;S2，并且M1与 M2互为主备)</code>，正常情况下，<code>M2</code>,<code>S1</code>,<code>S2</code>都参与<code>select</code>语句的负载均衡。</p>
+<p><code>balance=&quot;2&quot;</code>，所有读操作都随机的在<code>writeHost</code>、<code>readhost</code>上分发。</p>
+<p><code>balance=&quot;3&quot;</code>，所有读请求随机的分发到<code>wiriterHost</code>对应的<code>readhost</code>执行，<code>writerHost</code>不负担读压力</p>
+<p><code>switchType</code>指的是切换的模式，目前的取值也有4种：</p>
+<p><code>switchType=&#39;-1&#39;</code> 表示不自动切换</p>
+<p><code>switchType=&#39;1&#39;</code> 默认值，表示自动切换</p>
+<p><code>switchType=&#39;2&#39;</code> 基于<code>MySQL主从同步</code>的状态决定是否切换,心跳语句为<code>show slave status</code></p>
+<p><code>switchType=&#39;3&#39;</code> 基于<code>MySQL galary cluster</code>的切换机制（适合集群）（1.4.1），心跳语句为<code>show status like &#39;wsrep%&#39;</code>。</p>
+<p><code>rule.xml</code>定义分片规则的配置文件，分片规则的具体一些参数信息单独存放为文件。</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
+<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">mycat:rule</span> <span class="token name">SYSTEM</span> <span class="token string">"rule.dtd"</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">mycat:</span>rule</span> <span class="token attr-name"><span class="token namespace">xmlns:</span>mycat</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://io.mycat/<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tableRule</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>rule1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rule</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>columns</span><span class="token punctuation">></span></span>id<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>columns</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>algorithm</span><span class="token punctuation">></span></span>mod-long<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>algorithm</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rule</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tableRule</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>function</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mod-long<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>io.mycat.route.function.PartitionByMod<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token comment">&lt;!-- how many data nodes --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>count<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>function</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">mycat:</span>rule</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>数据切分中作为表切分规则中最重要的配置，表的切分方式决定了数据切分后的性能好坏，因此也是最重要的配置。</p>
+<p>如上面例子配置了一个切分规则，名为<code>rule1</code>对应的切分方式（<code>function</code>）是按日期切分，该配置中： </p>
+<h2 id="tableRule"><a href="#tableRule" class="headerlink" title="tableRule"></a>tableRule</h2><p><code>name</code> 为<code>schema.xml</code>中<code>table</code>标签中对应的<code>rule=&quot;rule1&quot;</code>,也就是配置表的分片规则，<br><code>columns</code> 是表的切分字段：<code>id</code>。</p>
+<p><code>algorithm</code> 是规则对应的切分规则：<code>映射到function的name</code>。 </p>
+<h2 id="function"><a href="#function" class="headerlink" title="function"></a>function</h2><p><code>function</code> 配置是分片规则的配置。<br><code>name</code> 为切分规则的名称，名字人员取，但是需要与<code>tableRule</code>中匹配。<br><code>class</code> 是切分规则对应的切分类，写死，需要哪种规则则配置哪种，例如本例是求模法：<code>io.mycat.route.function.PartitionByMod</code></p>
+<p>（上面<code>columns</code>标识将要分片的表字段，<code>algorithm</code>分片函数，</p>
+<p>此种配置非常明确即根据<code>id</code>与<code>count</code>（你的结点数）进行求模预算，相比方式1，此种在批量插入时需要切换数据源，<code>id不连续</code>）。</p>
+<p><code>property</code> 标签是切分规则对应的不同属性，不同的切分规则配置不同。 </p>
+<h1 id="登录演示mycat"><a href="#登录演示mycat" class="headerlink" title="登录演示mycat"></a>登录演示mycat</h1><p>登录方式类似于<code>mysql</code>的服务端登陆，目前<code>mycat</code>有两个端口，<code>8066</code>数据端口，<code>9066</code>管理端口。</p>
+<p><code>mysql -h192.168.10.142 -uroot -p -P8066</code></p>
+<p><code>-h</code> 后面是主机，即当前<code>mycat</code>按照的主机地址，本地可用<code>127.0.0.1</code>远程需要远程<code>ip</code></p>
+<p><code>-u</code> <code>Mycat server.xml</code>中配置的逻辑库用户</p>
+<p><code>-p</code> <code>Mycat server.xml</code>中配置的逻辑库密码</p>
+<p><code>-P</code> 后面是端口默认<code>9066</code>，注意<code>P</code>是大写</p>
+<p><code>-d</code> <code>Mycat server.xml</code>中配置的逻辑库</p>
+<p>数据端口与管理端口的配置端口修改：</p>
+<p>数据端口默认<code>8066</code>，管理端口默认<code>9066</code>，如果需要修改需要配置<code>serve.xml</code><br><img src="/medias/img/mycat/4.png"><br><img src="/medias/img/mycat/5.png"><br><img src="/medias/img/mycat/6.png"></p>
+<p>登录查看真实数据库查看内容是否在<code>db0</code>,<code>db1</code>,<code>db2</code>库的<code>users</code>表中</p>
+<p><img src="/medias/img/mycat/7.png"><br><img src="/medias/img/mycat/8.png"><br>成功！！！</p>
+<h1 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h1><p>启动<code>MyCAT</code>之前，需要先检查一些配置： </p>
+<ol>
+<li><p><code>java</code>的版本需要是<code>1.7</code>或以上；</p>
+</li>
+<li><p><code>Mysql</code>的配置文件需要加一行<code>lower_case_table_names = 1</code>在<code>[mysqld]</code>栏目中，这个设置为<code>Mysql</code>大小写不敏感，否则可能会发生表找不到的问题； </p>
+</li>
+<li><p><code>ERROR 3009 (HY000): java.lang.IllegalArgumentException: Invalid DataSource:1</code><br>这个有可能是<code>Mycat</code>和<code>MySQL</code>部署在同一台机器上，而在<code>schema.xml</code>是使用了<code>IP</code>的，但是账号只能使用<code>localhost</code>登陆，所以会出现本地的<code>Mycat</code>无法连接<code>MySQL</code> </p>
+</li>
+<li><p>添加<code>MYCAT_HOME</code>环境变量指向解压的<code>mycat</code>目录，主要是为了一些<code>bin</code>目录下的脚本的使用。 </p>
+</li>
+</ol>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">160.4k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

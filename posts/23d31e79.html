@@ -1,0 +1,876 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Vmware磁盘扩容, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>Vmware磁盘扩容 | 波亚斯</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/26.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Vmware磁盘扩容</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/vmware/">
+                                <span class="chip bg-color">vmware</span>
+                            </a>
+                        
+                            <a href="/tags/disk/">
+                                <span class="chip bg-color">disk</span>
+                            </a>
+                        
+                            <a href="/tags/parted/">
+                                <span class="chip bg-color">parted</span>
+                            </a>
+                        
+                            <a href="/tags/lvm/">
+                                <span class="chip bg-color">lvm</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Notes/" class="post-category">
+                                Notes
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-04-14
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    851
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><strong><font color=red>更正：虚拟机安装的时候磁盘分区是默认未配置，或者选择lvm逻辑卷管理才可使用本方法，遇到BUG和ERR欢迎留言或+Q</font></strong></p>
+<p>前言：编写lamp编译安装文档的时候，MySQL8.0 cmake完成，make编译的时候磁盘空间不足（原/有17G，一共20G，swap2G，boot1G）</p>
+<p>故有此次扩容文档，适用于服务器系统盘扩容（不建议这样做，应当提前规划好各系统目录的作用，做好逻辑卷等等）</p>
+<p>不涉及到关机操作，应急使用，操作步骤：</p>
+<ol>
+<li>打开要扩容的虚拟机设置–&gt;选中磁盘–&gt;点击扩展，输入扩容后的大小，等待扩容完成。</li>
+</ol>
+<h1 id="VMware-磁盘扩容"><a href="#VMware-磁盘扩容" class="headerlink" title="VMware 磁盘扩容"></a>VMware 磁盘扩容</h1><p>进入虚拟机经行命令操作</p>
+<p>命令下是执行此命令打印的信息，删除了大部分，留下的是关键信息部分</p>
+<h2 id="查看可用磁盘大小，我的是20G扩容到40G"><a href="#查看可用磁盘大小，我的是20G扩容到40G" class="headerlink" title="查看可用磁盘大小，我的是20G扩容到40G"></a>查看可用磁盘大小，我的是20G扩容到40G</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">fdisk</span> <span class="token parameter variable">-l</span>
+<span class="token comment"># Disk /dev/nvme0n1：40 GiB，42949672960 字节，83886080 个扇区</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="仍然显示17G"><a href="#仍然显示17G" class="headerlink" title="仍然显示17G"></a>仍然显示17G</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">df</span> <span class="token parameter variable">-h</span>
+<span class="token comment"># 文件系统             容量  已用  可用 已用% 挂载点</span>
+<span class="token comment"># /dev/mapper/cl-root   17G  1.8G   16G   11% /</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="对其进行新的分区"><a href="#对其进行新的分区" class="headerlink" title="对其进行新的分区"></a>对其进行新的分区</h2><p>由fdisk -l得到的信息，对其进行新的分区，除了第一次输入n，最后一次输入w，其它可以直接回车</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">fdisk</span> /dev/nvme0n1
+<span class="token comment"># 命令(输入 m 获取帮助)：n</span>
+<span class="token comment"># 选择 (默认 p)：</span>
+<span class="token comment"># 分区号 (3,4, 默认  3): </span>
+<span class="token comment"># 第一个扇区 (41943040-83886079, 默认 41943040): </span>
+<span class="token comment"># 上个扇区，+sectors 或 +size&#123;K,M,G,T,P&#125; (41943040-83886079, 默认 83886079): </span>
+<span class="token comment"># 创建了一个新分区 3，类型为“Linux”，大小为 20 GiB。</span>
+<span class="token comment"># 命令(输入 m 获取帮助)：w</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="查看新建的分区"><a href="#查看新建的分区" class="headerlink" title="查看新建的分区"></a>查看新建的分区</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">lsblk <span class="token parameter variable">-l</span>
+<span class="token comment"># nvme0n1p3 259:3    0  20G  0 part </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="对新分区做物理卷"><a href="#对新分区做物理卷" class="headerlink" title="对新分区做物理卷"></a>对新分区做物理卷</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pvcreate /dev/nvme0n1p3
+<span class="token comment"># Physical volume "/dev/nvme0n1p3" successfully created.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="查询root分区所在的卷组"><a href="#查询root分区所在的卷组" class="headerlink" title="查询root分区所在的卷组"></a>查询root分区所在的卷组</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">vgdisplay <span class="token parameter variable">-v</span>
+<span class="token comment"># --- Logical volume ---</span>
+<span class="token comment"># LV Path                /dev/cl/root</span>
+<span class="token comment"># LV Name                root   # 逻辑卷名</span>
+<span class="token comment"># VG Name                cl   # 卷组名</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="扩展cl卷组"><a href="#扩展cl卷组" class="headerlink" title="扩展cl卷组"></a>扩展cl卷组</h2><p>扩展cl卷组，即把物理卷/dev/nvme0n1p3分配到cl卷组</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">vgextend cl /dev/nvme0n1p3
+<span class="token comment"># Volume group "cl" successfully extended</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="将cl卷组的剩余容量全部分给根分区"><a href="#将cl卷组的剩余容量全部分给根分区" class="headerlink" title="将cl卷组的剩余容量全部分给根分区"></a>将cl卷组的剩余容量全部分给根分区</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">lvextend <span class="token parameter variable">-l</span> +100%FREE /dev/cl/root
+<span class="token comment"># Size of logical volume cl/root changed from &lt;17.00 GiB (4351 extents) to 36.99 GiB (9470 extents).</span>
+<span class="token comment"># Logical volume cl/root successfully resized.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="同步文件系统"><a href="#同步文件系统" class="headerlink" title="同步文件系统"></a>同步文件系统</h2><p>同步文件系统，另外一种写法xfs_growfs /dev/cl/root报错，酌情使用。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">xfs_growfs  /
+<span class="token comment"># meta-data=/dev/mapper/cl-root    isize=512    agcount=4, agsize=1113856 blks</span>
+<span class="token comment">#          =                       sectsz=512   attr=2, projid32bit=1</span>
+<span class="token comment">#          =                       crc=1        finobt=1, sparse=1, rmapbt=0</span>
+<span class="token comment">#          =                       reflink=1</span>
+<span class="token comment"># data     =                       bsize=4096   blocks=4455424, imaxpct=25</span>
+<span class="token comment">#          =                       sunit=0      swidth=0 blks</span>
+<span class="token comment"># naming   =version 2              bsize=4096   ascii-ci=0, ftype=1</span>
+<span class="token comment"># log      =internal log           bsize=4096   blocks=2560, version=2</span>
+<span class="token comment">#          =                       sectsz=512   sunit=0 blks, lazy-count=1</span>
+<span class="token comment"># realtime =none                   extsz=4096   blocks=0, rtextents=0</span>
+<span class="token comment"># data blocks changed from 4455424 to 9697280</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="查看扩容后的根分区大小"><a href="#查看扩容后的根分区大小" class="headerlink" title="查看扩容后的根分区大小"></a>查看扩容后的根分区大小</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">df</span> <span class="token parameter variable">-h</span>
+<span class="token comment"># /dev/mapper/cl-root   37G  2.0G   36G    6% /</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h1 id="大磁盘扩容"><a href="#大磁盘扩容" class="headerlink" title="大磁盘扩容"></a>大磁盘扩容</h1><h2 id="使用工具分区"><a href="#使用工具分区" class="headerlink" title="使用工具分区"></a>使用工具分区</h2><p>查看新增加的磁盘信息</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">fdisk</span> <span class="token parameter variable">-l</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/medias/img/disk-1/0.png"><br>新建分区（fdisk最大支持2T磁盘）</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">parted</span> /dev/vdd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>mklabel gpt<br>mkpart primary 0% 100%<br>quit</p>
+</blockquote>
+<p><img src="/medias/img/disk-1/1.png"><br>再次查看磁盘信息</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">fdisk</span> <span class="token parameter variable">-l</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/medias/img/disk-1/2.png"></p>
+<h2 id="LVM扩容"><a href="#LVM扩容" class="headerlink" title="LVM扩容"></a>LVM扩容</h2><p>创建PV</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pvcreate /dev/vdd1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/medias/img/disk-1/3.png"><br>查看VG信息</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">df</span> <span class="token parameter variable">-h</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/medias/img/disk-1/10.png"></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">vgdisplay<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/medias/img/disk-1/4.png"><br>VG扩容</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">vgextend volume-nfs /dev/vdd1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/medias/img/disk-1/5.png"><br>使用Free空间</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">lvextend <span class="token parameter variable">-l</span> +100%FREE /dev/mapper/volume--nfs-lv--nfs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/medias/img/disk-1/6.png"><br>刷新VG信息</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">xfs_growfs /dev/mapper/volume--nfs-lv--nfs
+<span class="token comment"># 报错：xfs_growfs: /dev/mapper/xxx is not a mounted XFS filesystem 使用下面的命令。</span>
+xfs_growfs /<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><img src="/medias/img/disk-1/7.png"></p>
+<h2 id="验证磁盘容量"><a href="#验证磁盘容量" class="headerlink" title="验证磁盘容量"></a>验证磁盘容量</h2><p>刷新磁盘挂载信息</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">resize2fs <span class="token parameter variable">-p</span> <span class="token parameter variable">-F</span> /dev/mapper/volume--nfs-lv--nfs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/medias/img/disk-1/8.png"><br>查看磁盘挂载信息</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">df</span> <span class="token parameter variable">-h</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/medias/img/disk-1/9.png"></p>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">160.4k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

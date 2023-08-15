@@ -1,0 +1,898 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="mkcert命令, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>mkcert命令 | 波亚斯</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">mkcert命令</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/">
+                                <span class="chip bg-color"></span>
+                            </a>
+                        
+                            <a href="/">
+                                <span class="chip bg-color"></span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/" class="post-category">
+                                
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-06-29
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-07-01
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.4k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p><code>mkcert</code> 是 GO 编写的，一个简单的<strong>零配置</strong>的用来生成自签证书的工具。</p>
+<p>下面给一个简单的示例，在本地生成自签证书，并使用让 nc 使用生成的证书。</p>
+<pre class="line-numbers language-zsh" data-language="zsh"><code class="language-zsh">~ ·········································································································································  10:46:25
+❯ mkcert -install
+The local CA is already installed in the system trust store! 👍The local CA is already installed in the Firefox and&#x2F;or Chrome&#x2F;Chromium trust store! 👍
+~ ·········································································································································  10:46:34
+❯ mkcert example.com &quot;*.example.com&quot; example.test localhost 127.0.0.1 ::1
+
+Created a new certificate valid for the following names 📜 - &quot;example.com&quot;
+ - &quot;*.example.com&quot;
+ - &quot;example.test&quot;
+ - &quot;localhost&quot;
+ - &quot;127.0.0.1&quot;
+ - &quot;::1&quot;
+
+Reminder: X.509 wildcards only go one level deep, so this won&#39;t match a.b.example.com ℹ️
+
+The certificate is at &quot;.&#x2F;example.com+5.pem&quot; and the key at &quot;.&#x2F;example.com+5-key.pem&quot; ✅
+It will expire on 30 January 2025 🗓
+
+~ ·········································································································································  10:47:37
+❯ ls             
+公共  视频  文档  音乐  aria          aria2-downloads  Dockerfile             example.com+5.pem  GOPATH  minio-binaries  nowip_hosts.txt  tech_backend.jar
+模板  图片  下载  桌面  aria2-config  cv_debug.log     example.com+5-key.pem  go                 math    navicat_reset   src
+~ ·········································································································································  10:47:55
+❯ ncat -lvp 1589 --ssl-key example.com+5-key.pem --ssl-cert example.com+5.pem 
+Ncat: Version 7.92 ( https:&#x2F;&#x2F;nmap.org&#x2F;ncat )
+Ncat: Listening on :::1589
+Ncat: Listening on 0.0.0.0:1589
+Ncat: Connection from 127.0.0.1.
+Ncat: Connection from 127.0.0.1:39156.
+Ncat: Failed SSL connection from 127.0.0.1: error:00000000:lib(0):func(0):reason(0)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>mkcert</code> 自动生成并安装一个本地 CA 到 root stores，并且生成 locally-trusted 证书。<code>mkcert</code> 不会自动使用证书来配置服务器，不过，这取决于你。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
+<p>Warning: <code>mkcert</code> 自动生成的 <code>rootCA-key.pem</code> 文件提供了完整的能力来拦截你机器上的安全请求。请不要分享它。</p>
+</blockquote>
+<h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ brew <span class="token function">install</span> mkcert
+$ brew <span class="token function">install</span> nss <span class="token comment"># 如果用 Firefox 的话</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>在 Linux 上，首先要安装 <code>certutil</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> libnss3-tools
+<span class="token comment">#    -or-</span>
+$ <span class="token function">sudo</span> yum <span class="token function">install</span> nss-tools
+<span class="token comment">#    -or-</span>
+$ <span class="token function">sudo</span> pacman <span class="token parameter variable">-S</span> nss
+<span class="token comment">#    -or-</span>
+$ <span class="token function">sudo</span> <span class="token function">zypper</span> <span class="token function">install</span> mozilla-nss-tools<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然后可以使用 <a target="_blank" rel="noopener" href="https://docs.brew.sh/Homebrew-on-Linux">Homebrew on Linux</a> 来安装。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ brew <span class="token function">install</span> mkcert<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>或者从源码构建（要求 Go 1.13+）</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/FiloSottile/mkcert <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> mkcert
+go build <span class="token parameter variable">-ldflags</span> <span class="token string">"-X main.Version=<span class="token variable"><span class="token variable">$(</span><span class="token function">git</span> describe <span class="token parameter variable">--tags</span><span class="token variable">)</span></span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>又或者使用 <a target="_blank" rel="noopener" href="https://github.com/FiloSottile/mkcert/releases">预构建的二进制文件</a>。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">curl</span> <span class="token parameter variable">-JLO</span> <span class="token string">"https://dl.filippo.io/mkcert/latest?for=linux/amd64"</span>
+$ <span class="token function">chmod</span> +x mkcert-v*-linux-amd64
+$ <span class="token function">sudo</span> <span class="token function">cp</span> mkcert-v*-linux-amd64 /usr/local/bin/mkcert<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>对于 Arch Linux 用户（比如我），<a target="_blank" rel="noopener" href="https://www.archlinux.org/packages/community/x86_64/mkcert/"><code>mkcert</code></a> 在 Arch Linux 官方仓库中可用。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">sudo</span> pacman <span class="token parameter variable">-S</span> mkcert<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>使用 <a target="_blank" rel="noopener" href="https://chocolatey.org/">Chocolatey</a></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ choco <span class="token function">install</span> mkcert<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>或者使用 Scoop</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ scoop bucket <span class="token function">add</span> extras
+$ scoop <span class="token function">install</span> mkcert<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>或者从源码构建（要求 Go 1.10+） ，或者使用 <a target="_blank" rel="noopener" href="https://github.com/FiloSottile/mkcert/releases">预构建的二进制文件</a>。</p>
+<p>如果遇到权限问题，请使用管理员运行 <code>mkcert</code></p>
+<h2 id="支持的-root-stores"><a href="#支持的-root-stores" class="headerlink" title="支持的 root stores"></a>支持的 root stores</h2><p><code>mkcert</code> 支持以下 root stores：</p>
+<ul>
+<li>macOS system store</li>
+<li>Windows system store</li>
+<li>Linux 发行版提供<ul>
+<li><code>update-ca-trust</code> （Fedora，RHEL，CentOS）或者</li>
+<li><code>update-ca-certificates</code> （Ubuntu，Debian，OpenSUSE，SLES）或者</li>
+<li><code>trust</code> （Arch）</li>
+</ul>
+</li>
+<li>Firefox （仅 macOS 和 Linux）</li>
+<li>Chrome 和 Chromium</li>
+<li>Java（当 <code>JAVA_HOME</code> 被设置时）</li>
+</ul>
+<p>为了把 local root CA 装到这些 root stores 中，你可以设置 <code>TRUST_STORES</code> 环境变量到一个逗号分隔的 list。有这些选项：”system”,”java” 和 “nss”（包括了 Firefox）。</p>
+<h2 id="高级-topics"><a href="#高级-topics" class="headerlink" title="高级 topics"></a>高级 topics</h2><h3 id="高级选项"><a href="#高级选项" class="headerlink" title="高级选项"></a>高级选项</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-cert-file FILE, -key-file FILE, -p12-file FILE
+    <span class="token comment"># 自定义输出路径.</span>
+<span class="token parameter variable">-client</span> <span class="token comment"># 生成供客户端认证使用的证书.</span>
+<span class="token parameter variable">-ecdsa</span>  <span class="token comment"># 生成使用一个 ECDSA （一种椭圆曲线签名算法）key 来生成证书.</span>
+<span class="token parameter variable">-pkcs12</span> <span class="token comment"># 生成一个 ".p12" PKCS #12 文件，也可以被识别为 ".pfx" 文件,</span>
+        <span class="token comment"># 包含 cert 和 key for legacy applications.</span>
+<span class="token parameter variable">-csr</span> CSR <span class="token comment"># 生成一个给予 CSR（证书签名申请） 的证书。</span>
+         <span class="token comment"># 与除了 -install 和 -cert-file 以外的其它所以 flag 和参数冲突！</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/document/product/400/5367">SSL 证书 什么是CSR？-常见问题-文档中心-腾讯云</a></p>
+<blockquote>
+<p><strong>请注意！</strong> 你必须把这些选项放在域名列表之前。</p>
+</blockquote>
+<h3 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mkcert -key-file key.pem -cert-file cert.pem example.com *.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="S-MIME-（邮件安全证书）"><a href="#S-MIME-（邮件安全证书）" class="headerlink" title="S/MIME （邮件安全证书）"></a>S/MIME （邮件安全证书）</h3><p>用下面这种方式 <code>mkcert</code> 会生成一个 S/MIME 证书：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mkcert filippo@example.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="移动设备"><a href="#移动设备" class="headerlink" title="移动设备"></a>移动设备</h3><p>对于要让移动设备信任证书的情况，你得安装 root CA。就是 <code>rootCA.pem</code> 这个文件，可以通过 <code>mkcert -CAROOT</code> 打印出这个文件所在的目录。</p>
+<p>在 iOS 上，你也可以使用 AirDrop，把 CA 邮件发给你自己，或者通过一个 HTTP server 提供它。在打开它之后，你需要  <a target="_blank" rel="noopener" href="https://github.com/FiloSottile/mkcert/issues/233#issuecomment-690110809">install the profile in Settings &gt; Profile Downloaded</a> and then <a target="_blank" rel="noopener" href="https://support.apple.com/en-nz/HT204477">enable full trust in it</a> 。</p>
+<p>对于 Android ，你得安装这个 CA 然后在应用程序的开发版本中启用 user roots。可以看一看这个 <a target="_blank" rel="noopener" href="https://stackoverflow.com/a/22040887/749014">StackOverflow 回答</a> 。</p>
+<h3 id="用-Node-js-来使用这个-root"><a href="#用-Node-js-来使用这个-root" class="headerlink" title="用 Node.js 来使用这个 root"></a>用 Node.js 来使用这个 root</h3><p>Node 不使用 system root store，所以它不会自动接受 <code>mkcert</code> 证书。相反，你得设置 <a target="_blank" rel="noopener" href="https://nodejs.org/api/cli.html#cli_node_extra_ca_certs_file"><code>NODE_EXTRA_CA_CERTS</code></a> 环境变量。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">NODE_EXTRA_CA_CERTS</span><span class="token operator">=</span><span class="token string">"<span class="token variable"><span class="token variable">$(</span>mkcert <span class="token parameter variable">-CAROOT</span><span class="token variable">)</span></span>/rootCA.pem"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="改变-CA-文件的位置"><a href="#改变-CA-文件的位置" class="headerlink" title="改变 CA 文件的位置"></a>改变 CA 文件的位置</h3><p>CA 证书和它的 key 被存储在用户家目录的一个文件夹中。一般来说你不会想去关注它的位置，因为它会被自动装载。但是你可以通过 <code>mkcert -CAROOT</code> 来打印这个目录位置。</p>
+<p>如果你想要管理单独的 CA 们，你可以使用 <code>\$CAROOT</code> 环境变量来设置 mkcert 放置和寻找 CA files 的路径。</p>
+<h3 id="在其它系统上安装-CA"><a href="#在其它系统上安装-CA" class="headerlink" title="在其它系统上安装 CA"></a>在其它系统上安装 CA</h3><p>安装 trust store 不需要 CA key（只要 CA），所以你可以导出 CA，并且使用 <code>mkcert</code> 来安装到其它机器上。</p>
+<ul>
+<li>找到 <code>rootCA.pem</code> 文件，可以用 <code>mkcert -CAROOT</code> 找到对应目录。</li>
+<li>把它 copy 到别的机器上。</li>
+<li>设置 <code>\$CAROOT</code> 为 <code>rootCA.pem</code> 所在目录。</li>
+<li>运行 <code>mkcert -install</code>(arch linux 可以 <code>sudo trust anchor --store rootCA.pem</code>，其它发行版可以用自带的命令手动添加来信任 CA)</li>
+</ul>
+<p>请千万记住 <code>mkcert</code> 是用于开发目的的，不建议用于生产，所以它不应该被用到用户终端上，并且你不应该导出或者共享 <code>rootCA-key.pem</code> 。</p>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">160.4k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

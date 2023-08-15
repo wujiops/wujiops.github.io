@@ -1,0 +1,1379 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Nginx, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>Nginx | 波亚斯</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/27.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Nginx</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/nginx/">
+                                <span class="chip bg-color">nginx</span>
+                            </a>
+                        
+                            <a href="/tags/nginxha/">
+                                <span class="chip bg-color">nginxha</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Server/" class="post-category">
+                                Server
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-09-17
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-13
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.3k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h3><p><a target="_blank" rel="noopener" href="http://nginx.org/en/download.html">官网</a>下载tar包编译安装</p>
+<p><a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html">yum源安装</a></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">dnf <span class="token parameter variable">-y</span> <span class="token function">install</span> yum-utils
+<span class="token function">tee</span> /etc/yum.repos.d/nginx-stable.repo <span class="token operator">&lt;&lt;-</span><span class="token string">"EOF"<span class="token bash punctuation">   <span class="token comment"># 使用引号可以将变量识别为文本传递</span></span>
+[nginx-stable]
+name=nginx stable repo
+baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
+gpgcheck=1
+enabled=1
+gpgkey=https://nginx.org/keys/nginx_signing.key
+module_hotfixes=true
+
+[nginx-mainline]
+name=nginx mainline repo
+baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=https://nginx.org/keys/nginx_signing.key
+module_hotfixes=true
+EOF</span>
+yum-config-manager <span class="token parameter variable">--enable</span> nginx-mainline   <span class="token comment"># 是否开启主线版本安装，不执行默认安装稳定版</span>
+dnf <span class="token parameter variable">-y</span> <span class="token function">install</span> nginx
+nginx <span class="token parameter variable">-c</span> nginx.conf   <span class="token comment"># 指定主配置文件启动</span>
+nginx <span class="token parameter variable">-s</span> quit   <span class="token comment"># 优雅退出</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="nginx配置文件优化"><a href="#nginx配置文件优化" class="headerlink" title="nginx配置文件优化"></a>nginx配置文件优化</h3><blockquote>
+<p>按日期自动生成日志文件</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># http块添加以下配置</span>
+<span class="token comment"># 新增logdate日期变量</span>
+    map <span class="token variable">$time_iso8601</span> <span class="token variable">$logdate</span> <span class="token punctuation">&#123;</span>
+      <span class="token string">'~^(?&lt;ymd>\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;)'</span> <span class="token variable">$ymd</span><span class="token punctuation">;</span>
+      default    <span class="token string">'date-not-found'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token comment"># server块添加日志文件变量</span>
+        location /trackLog <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request_method</span> <span class="token operator">!</span>~* POST<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+               <span class="token builtin class-name">return</span> <span class="token number">403</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+           <span class="token comment"># 日志文件名添加日期变量</span>
+            access_log  /home/nginx/logs/access-<span class="token variable">$logdate</span>.log main<span class="token punctuation">;</span>
+            proxy_pass http://127.0.0.1/return200/<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>使用Nginx实现限流</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;&lt;</span><span class="token string">'COMMENT'
+limit_req_zone $binary_remote_addr zone=one:10m rate=1r/s;
+$binary_remote_addr 表示通过remote_addr这个标识来做限制，是限制同一客户端ip地址。
+zone=one:10m 表示生成一个大小为10M，名字定义为one的内存区域，用来存储访问的频次信息。
+rate=1r/s 表示允许相同标识的客户端的访问频次，这里限制的是每秒1次，30r/m每分钟30次。
+limit_req zone=one burst=5 nodelay;
+zone=one 设置使用哪个配置区域来做限制，与上面 limit_req_zone 里的name对应。
+burst=5，设置一个大小为5的缓冲区当有大量请求（爆发）过来时，超过了访问频次限制的请求可以先放到这个缓冲区内。
+nodelay，如果设置，超过访问频次而且缓冲区也满了的时候就会直接返回503，如果没有设置，则所有请求会等待排队。
+COMMENT</span>
+
+limit_req_zone <span class="token variable">$binary_remote_addr</span><span class="token variable">$uri</span> <span class="token assign-left variable">zone</span><span class="token operator">=</span>per_ip_and_uri:10m <span class="token assign-left variable">rate</span><span class="token operator">=</span>1r/s<span class="token punctuation">;</span>
+location /api/ <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request_method</span> <span class="token operator">=</span> POST<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        limit_req <span class="token assign-left variable">zone</span><span class="token operator">=</span>per_ip_and_uri <span class="token assign-left variable">burst</span><span class="token operator">=</span><span class="token number">1</span> nodelay<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment"># 如何返回指定错误信息呢？</span>
+location /api/ <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request_method</span> <span class="token operator">=</span> POST<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        limit_req <span class="token assign-left variable">zone</span><span class="token operator">=</span>per_ip_and_uri <span class="token assign-left variable">burst</span><span class="token operator">=</span><span class="token number">1</span> nodelay<span class="token punctuation">;</span>
+        limit_req_status <span class="token number">200</span><span class="token punctuation">;</span>
+        add_header Content-Type <span class="token string">"application/json"</span><span class="token punctuation">;</span>
+        <span class="token builtin class-name">return</span> <span class="token number">200</span> <span class="token string">'&#123;"code": 500, "msg": "请求太频繁，请稍后再试！"&#125;'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment"># 下载速度限制</span>
+limit_rate 500k<span class="token punctuation">;</span>   <span class="token comment"># 例如限制下载速度为500k</span>
+location /download <span class="token punctuation">&#123;</span>
+    root /download<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+limit_rate_after 500k<span class="token punctuation">;</span>
+limit_rate 10k<span class="token punctuation">;</span>   <span class="token comment"># 下载速度超过500k则限制为10k</span>
+location /download <span class="token punctuation">&#123;</span>
+    root /download<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>Nginx负载均衡策略</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 轮询（Round Robin）</span>
+<span class="token comment"># 这是默认的负载均衡策略，它将请求依次分配给不同的后端服务器。</span>
+upstream backend <span class="token punctuation">&#123;</span>
+    server backend1.example.com<span class="token punctuation">;</span>
+    server backend2.example.com<span class="token punctuation">;</span>
+    server backend3.example.com<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment"># IP哈希（IP Hash）</span>
+<span class="token comment"># 此策略基于客户端IP地址计算哈希值，然后将请求发送到具有该哈希值的服务器。</span>
+upstream backend <span class="token punctuation">&#123;</span>
+    ip_hash<span class="token punctuation">;</span>
+    server backend1.example.com<span class="token punctuation">;</span>
+    server backend2.example.com<span class="token punctuation">;</span>
+    server backend3.example.com<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment"># 最少连接（Least Connections）</span>
+<span class="token comment"># 此策略将请求发送到当前具有最少活动连接数的服务器。</span>
+upstream backend <span class="token punctuation">&#123;</span>
+    least_conn<span class="token punctuation">;</span>
+    server backend1.example.com<span class="token punctuation">;</span>
+    server backend2.example.com<span class="token punctuation">;</span>
+    server backend3.example.com<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment"># 加权轮询（Weighted Round Robin）</span>
+<span class="token comment"># 此策略与轮询相似，但是可以为不同的服务器分配不同的权重。</span>
+upstream backend <span class="token punctuation">&#123;</span>
+    server backend1.example.com <span class="token assign-left variable">weight</span><span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
+    server backend2.example.com <span class="token assign-left variable">weight</span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
+    server backend3.example.com <span class="token assign-left variable">weight</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment"># 加权最少连接（Weighted Least Connections）</span>
+<span class="token comment"># 此策略与最少连接策略相似，请求将被发送到当前具有最少活动连接数的服务器，当然仍然可以分配权重。</span>
+upstream backend <span class="token punctuation">&#123;</span>
+    least_conn<span class="token punctuation">;</span>
+    server backend1.example.com <span class="token assign-left variable">weight</span><span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
+    server backend2.example.com <span class="token assign-left variable">weight</span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
+    server backend3.example.com <span class="token assign-left variable">weight</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>动静分离</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 针对业务来讲，将静态资源与动态资源分离开。</span>
+<span class="token comment"># 后端开发不需要将一些图片、视频等资源暴露，通过nginx代理静态资源缓解后台服务器压力。</span>
+location ~ .*<span class="token punctuation">\</span>.<span class="token punctuation">(</span>html<span class="token operator">|</span>htm<span class="token operator">|</span>gif<span class="token operator">|</span>jpg<span class="token operator">|</span>jpeg<span class="token operator">|</span>bmp<span class="token operator">|</span>png<span class="token operator">|</span>ico<span class="token operator">|</span>txt<span class="token operator">|</span>js<span class="token operator">|</span>css<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    root   /soft/nginx/static_resources<span class="token punctuation">;</span>
+    expires 7d<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>Nginx资源压缩</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">http<span class="token punctuation">&#123;</span>
+    <span class="token comment"># 开启压缩机制</span>
+    <span class="token function">gzip</span> on<span class="token punctuation">;</span>
+    <span class="token comment"># 指定会被压缩的文件类型(也可自己配置其他类型)</span>
+    gzip_types text/plain application/javascript text/css application/xml text/javascript image/jpeg image/gif image/png<span class="token punctuation">;</span>
+    <span class="token comment"># 设置压缩级别，越高资源消耗越大，但压缩效果越好</span>
+    gzip_comp_level <span class="token number">5</span><span class="token punctuation">;</span>
+    <span class="token comment"># 在头部中添加Vary: Accept-Encoding（建议开启）</span>
+    gzip_vary on<span class="token punctuation">;</span>
+    <span class="token comment"># 处理压缩请求的缓冲区数量和大小</span>
+    gzip_buffers <span class="token number">16</span> 8k<span class="token punctuation">;</span>
+    <span class="token comment"># 对于不支持压缩功能的客户端请求不开启压缩机制</span>
+    gzip_disable <span class="token string">"MSIE [1-6]\."</span><span class="token punctuation">;</span> <span class="token comment"># 低版本的IE浏览器不支持压缩</span>
+    <span class="token comment"># 设置压缩响应所支持的HTTP最低版本</span>
+    gzip_http_version <span class="token number">1.1</span><span class="token punctuation">;</span>
+    <span class="token comment"># 设置触发压缩的最小阈值</span>
+    gzip_min_length 2k<span class="token punctuation">;</span>
+    <span class="token comment"># 关闭对后端服务器的响应结果进行压缩</span>
+    gzip_proxied off<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token operator">&lt;&lt;</span><span class="token string">'EOF'
+gzip与sendfile的冲突问题
+我们知道，开启sendfile文件高效传输模式，文件在内核空间直接传输给socket，不会经过用户程序，开启gzip之后，该模式也就失效了。我们可以通过引入
+ngx_http_gzip_static_module模块来进行解决。该模块允许发送文件扩展名为.gz的预压缩文件。
+作用域：http, server, location
+语法：gzip_static on | off | always;
+默认值：gzip_static off;
+gzip_static on;或gzip_static off;都会检测是否存在.gz预压缩文件。
+gzip_static always;会始终使用.gz预压缩文件。
+EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>nginx缓存</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">http<span class="token punctuation">&#123;</span>
+    <span class="token comment"># 设置缓存的目录，并且内存中缓存区名为hot_cache，大小为128m，</span>
+    <span class="token comment"># 三天未被访问过的缓存自动清楚，磁盘中缓存的最大容量为2GB。</span>
+    proxy_cache_path /soft/nginx/cache <span class="token assign-left variable">levels</span><span class="token operator">=</span><span class="token number">1</span>:2 <span class="token assign-left variable">keys_zone</span><span class="token operator">=</span>hot_cache:128m <span class="token assign-left variable">inactive</span><span class="token operator">=</span>3d <span class="token assign-left variable">max_size</span><span class="token operator">=</span>2g<span class="token punctuation">;</span>
+
+    server<span class="token punctuation">&#123;</span>
+        location / <span class="token punctuation">&#123;</span>
+            <span class="token comment"># 使用名为nginx_cache的缓存空间</span>
+            proxy_cache hot_cache<span class="token punctuation">;</span>
+            <span class="token comment"># 对于200、206、304、301、302状态码的数据缓存1天</span>
+            proxy_cache_valid <span class="token number">200</span> <span class="token number">206</span> <span class="token number">304</span> <span class="token number">301</span> <span class="token number">302</span> 1d<span class="token punctuation">;</span>
+            <span class="token comment"># 对于其他状态的数据缓存30分钟</span>
+            proxy_cache_valid any 30m<span class="token punctuation">;</span>
+            <span class="token comment"># 定义生成缓存键的规则（请求的url+参数作为key）</span>
+            proxy_cache_key <span class="token variable">$host</span><span class="token variable">$uri</span><span class="token variable">$is_args</span><span class="token variable">$args</span><span class="token punctuation">;</span>
+            <span class="token comment"># 资源至少被重复访问三次后再加入缓存</span>
+            proxy_cache_min_uses <span class="token number">3</span><span class="token punctuation">;</span>
+            <span class="token comment"># 出现重复请求时，只让一个去后端读数据，其他的从缓存中读取</span>
+            proxy_cache_lock on<span class="token punctuation">;</span>
+            <span class="token comment"># 上面的锁超时时间为3s，超过3s未获取数据，其他请求直接去后端</span>
+            proxy_cache_lock_timeout 3s<span class="token punctuation">;</span>
+            <span class="token comment"># 对于请求参数或cookie中声明了不缓存的数据，不再加入缓存</span>
+            proxy_no_cache <span class="token variable">$cookie_nocache</span> <span class="token variable">$arg_nocache</span> <span class="token variable">$arg_comment</span><span class="token punctuation">;</span>
+            <span class="token comment"># 在响应头中添加一个缓存是否命中的状态（便于调试）</span>
+            add_header Cache-status <span class="token variable">$upstream_cache_status</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment"># 清除缓存：①删除缓存目录</span>
+<span class="token function">rm</span> <span class="token parameter variable">-fr</span> /soft/nginx/cache/*
+<span class="token comment"># ②借助第三方模块ngx_cache_purge来实现对指定缓存的删除。</span>
+<span class="token comment"># 需要将模块编译进nginx命令</span>
+https://github.com/FRiCKLE/ngx_cache_purge
+./configure <span class="token parameter variable">--prefix</span><span class="token operator">=</span>/soft/nginx/ --add-module<span class="token operator">=</span>/soft/cache_purge/ngx_cache_purge/
+<span class="token comment"># 添加location purge字段，用于http访问清除缓存链接</span>
+location ~ /purge<span class="token punctuation">(</span>/.*<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment"># 配置可以执行清除操作的IP（线上可以配置成内网机器）</span>
+  <span class="token comment"># allow 127.0.0.1; # 代表本机</span>
+  allow all<span class="token punctuation">;</span> <span class="token comment"># 代表允许任意IP清除缓存</span>
+  proxy_cache_purge <span class="token variable">$host</span><span class="token variable">$1</span><span class="token variable">$is_args</span><span class="token variable">$args</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment"># 然后再重启Nginx，接下来即可通过http://127.0.0.1/purge/clean的方式清除缓存。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>nginx缓冲区</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">http<span class="token punctuation">&#123;</span>
+    <span class="token comment"># 设置与后端服务器建立连接时的超时时间。</span>
+    proxy_connect_timeout <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token comment"># 设置从后端服务器读取响应数据的超时时间。</span>
+    proxy_read_timeout <span class="token number">120</span><span class="token punctuation">;</span>
+    <span class="token comment"># 设置向后端服务器传输请求数据的超时时间。</span>
+    proxy_send_timeout <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token comment"># 是否启用缓冲机制，默认为on关闭状态。</span>
+    proxy_buffering on<span class="token punctuation">;</span>
+    <span class="token comment"># 设置缓冲客户端请求数据的内存大小。</span>
+    client_body_buffer_size 512k<span class="token punctuation">;</span>
+    <span class="token comment"># 为每个请求/连接设置缓冲区的数量和大小，默认4 4k/8k。</span>
+    proxy_buffers <span class="token number">4</span> 64k<span class="token punctuation">;</span>
+    <span class="token comment"># 设置用于存储响应头的缓冲区大小。</span>
+    proxy_buffer_size 16k<span class="token punctuation">;</span>
+    <span class="token comment"># 在后端数据没有完全接收完成时，Nginx可以将busy状态的缓冲返回给客户端，该参数用来设置busy状态的buffer具体有多大，默认为proxy_buffer_size*2。</span>
+    proxy_busy_buffers_size 128k<span class="token punctuation">;</span>
+    <span class="token comment"># 设置每次写数据到临时文件的大小限制。</span>
+    proxy_temp_file_write_size 128k<span class="token punctuation">;</span>
+    <span class="token comment"># 当内存缓冲区存满时，可以将数据临时存放到磁盘，该参数是设置存储缓冲数据的目录。</span>
+    proxy_temp_path /soft/nginx/temp_buffer<span class="token punctuation">;</span>
+    <span class="token comment"># 设置临时的缓冲目录中允许存储的最大容量。</span>
+    proxy_max_temp_file_size 256k<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>nginxIP黑名单</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">http<span class="token punctuation">&#123;</span>
+    <span class="token comment"># 屏蔽该文件中的所有IP</span>
+    include /soft/nginx/IP/BlocksIP.conf<span class="token punctuation">;</span>
+ server<span class="token punctuation">&#123;</span>
+    location xxx <span class="token punctuation">&#123;</span>
+        <span class="token comment"># 某一系列接口只开放给白名单中的IP</span>
+        include /soft/nginx/IP/blockip.conf<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+ <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment"># -------黑名单：BlocksIP.conf---------</span>
+deny <span class="token number">192.177</span>.12.222<span class="token punctuation">;</span> <span class="token comment"># 屏蔽192.177.12.222访问</span>
+deny <span class="token number">192.177</span>.44.201<span class="token punctuation">;</span> <span class="token comment"># 屏蔽192.177.44.201访问</span>
+deny <span class="token number">127.0</span>.0.0/8<span class="token punctuation">;</span> <span class="token comment"># 屏蔽127.0.0.1到127.255.255.254网段中的所有IP访问</span>
+
+<span class="token comment"># --------白名单：WhiteIP.conf---------</span>
+allow <span class="token number">192.177</span>.12.222<span class="token punctuation">;</span> <span class="token comment"># 允许192.177.12.222访问</span>
+allow <span class="token number">192.177</span>.44.201<span class="token punctuation">;</span> <span class="token comment"># 允许192.177.44.201访问</span>
+allow <span class="token number">127.45</span>.0.0/16<span class="token punctuation">;</span> <span class="token comment"># 允许127.45.0.1到127.45.255.254网段中的所有IP访问</span>
+deny all<span class="token punctuation">;</span> <span class="token comment"># 除开上述IP外，其他IP全部禁止访问</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>nginx跨域配置</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">location / <span class="token punctuation">&#123;</span>
+    <span class="token comment"># 允许跨域的请求，可以自定义变量$http_origin，*表示所有</span>
+    add_header <span class="token string">'Access-Control-Allow-Origin'</span> *<span class="token punctuation">;</span>
+    <span class="token comment"># 允许携带cookie请求</span>
+    add_header <span class="token string">'Access-Control-Allow-Credentials'</span> <span class="token string">'true'</span><span class="token punctuation">;</span>
+    <span class="token comment"># 允许跨域请求的方法：GET,POST,OPTIONS,PUT</span>
+    add_header <span class="token string">'Access-Control-Allow-Methods'</span> <span class="token string">'GET,POST,OPTIONS,PUT'</span><span class="token punctuation">;</span>
+    <span class="token comment"># 允许请求时携带的头部信息，*表示所有</span>
+    add_header <span class="token string">'Access-Control-Allow-Headers'</span> *<span class="token punctuation">;</span>
+    <span class="token comment"># 允许发送按段获取资源的请求</span>
+    add_header <span class="token string">'Access-Control-Expose-Headers'</span> <span class="token string">'Content-Length,Content-Range'</span><span class="token punctuation">;</span>
+    <span class="token comment"># 一定要有！！！否则Post请求无法进行跨域！</span>
+    <span class="token comment"># 在发送Post跨域请求前，会以Options方式发送预检请求，服务器接受时才会正式请求</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request_method</span> <span class="token operator">=</span> <span class="token string">'OPTIONS'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        add_header <span class="token string">'Access-Control-Max-Age'</span> <span class="token number">1728000</span><span class="token punctuation">;</span>
+        add_header <span class="token string">'Content-Type'</span> <span class="token string">'text/plain; charset=utf-8'</span><span class="token punctuation">;</span>
+        add_header <span class="token string">'Content-Length'</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token comment"># 对于Options方式的请求返回204，表示接受跨域请求</span>
+        <span class="token builtin class-name">return</span> <span class="token number">204</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>nginx防盗链</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 在动静分离的location中开启防盗链机制</span>
+location ~ .*<span class="token punctuation">\</span>.<span class="token punctuation">(</span>html<span class="token operator">|</span>htm<span class="token operator">|</span>gif<span class="token operator">|</span>jpg<span class="token operator">|</span>jpeg<span class="token operator">|</span>bmp<span class="token operator">|</span>png<span class="token operator">|</span>ico<span class="token operator">|</span>txt<span class="token operator">|</span>js<span class="token operator">|</span>css<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token comment"># 最后面的值在上线前可配置为允许的域名地址</span>
+    valid_referers blocked <span class="token number">192.168</span>.12.129 *.poyais.cn www.roxn.cn<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$invalid_referer</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment"># 可以配置成返回一张禁止盗取的图片，优雅的禁止盗链。</span>
+        <span class="token comment"># rewrite   ^/ http://xx.xx.com/NO.jpg;</span>
+        <span class="token comment"># 也可直接返回403</span>
+        <span class="token builtin class-name">return</span>   <span class="token number">403</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+   
+    root   /soft/nginx/static_resources<span class="token punctuation">;</span>
+    expires 7d<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment"># 上面的配置可以过滤大部分的盗链，少部分程序伪装盗链可以使用ngx_http_secure_link_module模块，对请求的链接进行真伪校验，并限制链接的有效时间。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>nginx大文件传输</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 设置请求体允许的最大体积</span>
+client_max_body_size 1024m<span class="token punctuation">;</span>
+<span class="token comment"># 等待客户端发送一个请求头的超时时间</span>
+client_header_timeout 1s<span class="token punctuation">;</span>
+<span class="token comment"># 设置读取请求体的超时时间</span>
+client_body_timeout 1s<span class="token punctuation">;</span>
+<span class="token comment"># 设置请求被后端服务器读取时，nginx等待的最长时间</span>
+proxy_read_timeout 15s<span class="token punctuation">;</span>
+<span class="token comment"># 设置后端向nginx返回响应时的超时时间</span>
+proxy_send_timeout 10s<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>nginxSSL</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># ------HTTP请求转HTTPS--------</span>
+server <span class="token punctuation">&#123;</span>
+    <span class="token comment"># 监听HTTP默认的80端口</span>
+    listen       <span class="token number">80</span><span class="token punctuation">;</span>
+    <span class="token comment"># 如果80端口出现访问该域名的请求</span>
+    server_name  n9e.xxxx.cn<span class="token punctuation">;</span>
+    <span class="token comment"># 将请求改写为HTTPS（这里写你配置了HTTPS的域名</span>
+    rewrite ^ https://<span class="token variable">$http_host</span><span class="token variable">$request_uri</span>? permanent<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment"># ----------HTTPS配置-----------</span>
+server <span class="token punctuation">&#123;</span>
+    <span class="token comment"># 监听HTTPS默认的443端口，开启ssl http2</span>
+    listen      <span class="token number">443</span> ssl http2<span class="token punctuation">;</span>
+    <span class="token comment"># 配置自己项目的域名</span>
+    server_name  n9e.hqzg.cloud<span class="token punctuation">;</span>
+    <span class="token comment"># 设置字符集</span>
+    charset utf-8<span class="token punctuation">;</span>
+    <span class="token comment"># 数字证书，pem、crt、cer等等格式</span>
+    ssl_certificate /etc/nginx/cert/hqzg.cloud.cer<span class="token punctuation">;</span>
+    <span class="token comment"># 证书私钥</span>
+    ssl_certificate_key /etc/nginx/cert/hqzg.cloud.key<span class="token punctuation">;</span>
+    <span class="token comment"># 停止通信时，加密会话的有效期，在该时间段内不需要重新交换密钥</span>
+    ssl_session_timeout 5m<span class="token punctuation">;</span>
+    <span class="token comment"># TLS握手时，服务器采用的密码套件</span>
+    ssl_ciphers EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256::<span class="token operator">!</span>MD5<span class="token punctuation">;</span>
+    <span class="token comment"># 服务器支持的TLS版本</span>
+    ssl_protocols TLSv1.2 TLSv1.3<span class="token punctuation">;</span>
+    <span class="token comment"># 开启由服务器决定采用的密码套件</span>
+    ssl_prefer_server_ciphers on<span class="token punctuation">;</span>
+    <span class="token comment"># HSTS Header，告诉浏览器，在接下来的31536000秒内（1年），对于当前域名及其子域名的后续通信应该强制性的只使用HTTPS，直到超过有效期为止。</span>
+    add_header Strict-Transport-Security <span class="token string">"max-age=31536000"</span><span class="token punctuation">;</span>
+    location / <span class="token punctuation">&#123;</span>
+        <span class="token punctuation">..</span><span class="token punctuation">..</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token operator">&lt;&lt;</span><span class="token string">"EOF"
+# SSL加速
+开启http2
+listen 443 ssl http2;
+调整Cipher优先级
+挑选更新更快的Cipher减少延迟
+# 手动启用 cipher 列表
+ssl_prefer_server_ciphers on;  # prefer a list of ciphers to prevent old and slow ciphers
+ssl_ciphers 'EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH';
+优化国内Let's Encrypt 证书的服务或网站的延迟。
+解决这个问题的方法有两个：
+不使用 Let's Encrypt，可以尝试替换为阿里云提供的免费 DV 证书
+开启 OCSP Stapling
+ssl_stapling on;
+ssl_stapling_verify on;
+ssl_trusted_certificate /path/to/full_chain.pem;
+调整ssl_buffer_size 建议 2 - 16k
+ssl_buffer_size 4k;
+启用SSL Session缓存，减少TLS反复验证
+ssl_session_cache   shared:SSL:50m; # speed up first time. 1m ~= 4000 connections
+ssl_session_timeout 4h;
+EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>nginx重写</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># rewrite相关指令</span>
+<span class="token comment"># set指令</span>
+<span class="token builtin class-name">set</span> <span class="token variable">$variable</span> value<span class="token punctuation">;</span>
+ location /test <span class="token punctuation">&#123;</span>
+     default_type text/html<span class="token punctuation">;</span>
+     <span class="token builtin class-name">set</span> <span class="token variable">$username</span> zhangsan<span class="token punctuation">;</span>
+     <span class="token builtin class-name">return</span> <span class="token number">200</span> <span class="token operator">&lt;</span>html<span class="token operator">>></span><span class="token operator">&lt;</span>p<span class="token operator">></span>username:<span class="token variable">$username</span><span class="token operator">&lt;</span>/p<span class="token operator">></span><span class="token operator">&lt;</span>p<span class="token operator">></span>request_uri:<span class="token variable">$request_uri</span><span class="token operator">&lt;</span>/p<span class="token operator">></span><span class="token operator">&lt;</span>p<span class="token operator">></span>document_uri:<span class="token variable">$document_uri</span><span class="token operator">&lt;</span>/p<span class="token operator">></span><span class="token operator">&lt;</span>p<span class="token operator">></span>uri:<span class="token variable">$uri</span><span class="token operator">&lt;</span>/p<span class="token operator">></span><span class="token operator">&lt;</span>p<span class="token operator">></span>query_string:<span class="token variable">$query_string</span><span class="token operator">&lt;</span>/p<span class="token operator">></span><span class="token operator">&lt;</span>p<span class="token operator">></span>args:<span class="token variable">$args</span><span class="token operator">&lt;</span>/p<span class="token operator">></span><span class="token operator">&lt;</span>/html<span class="token operator">></span><span class="token punctuation">;</span>
+ <span class="token punctuation">&#125;</span>
+<span class="token comment"># if指令</span>
+ <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$variable</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span>
+ <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request_method</span> <span class="token operator">=</span> POST<span class="token punctuation">)</span><span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span>
+ <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$http_user_agent</span> ~ Mozilla/5.0<span class="token punctuation">)</span><span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span>
+ <span class="token keyword">if</span> <span class="token punctuation">(</span>-f <span class="token variable">$request_filename</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span>
+ <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>-f <span class="token variable">$request_filename</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span>
+<span class="token comment"># break指令</span>
+ location /testBreak <span class="token punctuation">&#123;</span>
+     default_type text/plain<span class="token punctuation">;</span>
+     <span class="token builtin class-name">set</span> <span class="token variable">$username</span> lisi<span class="token punctuation">;</span>
+     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$args</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+     <span class="token builtin class-name">set</span> <span class="token variable">$username</span> wangwu<span class="token punctuation">;</span>
+         <span class="token builtin class-name">break</span><span class="token punctuation">;</span>
+         <span class="token builtin class-name">set</span> <span class="token variable">$username</span> zhaoliu<span class="token punctuation">;</span>
+     <span class="token punctuation">&#125;</span>
+     add_header username <span class="token variable">$username</span><span class="token punctuation">;</span>
+     <span class="token builtin class-name">return</span> <span class="token number">200</span> <span class="token variable">$username</span><span class="token punctuation">;</span>
+ <span class="token punctuation">&#125;</span>
+<span class="token comment"># return指令</span>
+location /testReturn <span class="token punctuation">&#123;</span>
+	default_type text/plain<span class="token punctuation">;</span>
+	<span class="token builtin class-name">return</span> <span class="token number">200</span> <span class="token string">"test return"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+location /testReturn <span class="token punctuation">&#123;</span>
+	<span class="token builtin class-name">return</span> <span class="token number">302</span> https://www.baidu.com<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+location /testReturn <span class="token punctuation">&#123;</span>
+	<span class="token builtin class-name">return</span> https://www.baidu.com<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment"># rewrite指令</span>
+location /rewrite <span class="token punctuation">&#123;</span>
+	rewrite ^/rewrite/aaa<span class="token punctuation">\</span>w+$ https://www.baidu.com<span class="token punctuation">;</span>
+	rewrite ^/rewrite/<span class="token punctuation">(</span>bbb<span class="token punctuation">)</span><span class="token punctuation">\</span>w+$ /<span class="token variable">$1</span> last<span class="token punctuation">;</span>   <span class="token comment"># 停止处理rewrite指令，使用重写URI与各个location匹配</span>
+	rewrite ^/rewrite/<span class="token punctuation">(</span>ccc<span class="token punctuation">)</span><span class="token punctuation">\</span>w+$ /<span class="token variable">$1</span> <span class="token builtin class-name">break</span><span class="token punctuation">;</span>   <span class="token comment"># 停止处理rewrite，与break效果一样</span>
+	rewrite ^/rewrite/<span class="token punctuation">(</span>ddd<span class="token punctuation">)</span><span class="token punctuation">\</span>w+$ /<span class="token variable">$1</span> redirect<span class="token punctuation">;</span>   <span class="token comment"># 302响应不以http(s)://、或$scheme开头，就重写URL</span>
+	rewrite ^/rewrite/<span class="token punctuation">(</span>eee<span class="token punctuation">)</span><span class="token punctuation">\</span>w+$ /<span class="token variable">$1</span> permanent<span class="token punctuation">;</span>   <span class="token comment"># 301响应重写URL</span>
+<span class="token punctuation">&#125;</span>
+location /bbb <span class="token punctuation">&#123;</span>
+	default_type text/plain<span class="token punctuation">;</span>
+	<span class="token builtin class-name">return</span> <span class="token number">200</span> <span class="token string">"this is bbb"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+location /ccc <span class="token punctuation">&#123;</span>
+	default_type text/plain<span class="token punctuation">;</span>
+	<span class="token builtin class-name">return</span> <span class="token number">200</span> <span class="token string">"this is ccc"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+location /ddd <span class="token punctuation">&#123;</span>
+	default_type text/plain<span class="token punctuation">;</span>
+	<span class="token builtin class-name">return</span> <span class="token number">200</span> <span class="token string">"this is ddd"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+location /eee <span class="token punctuation">&#123;</span>
+	default_type text/plain<span class="token punctuation">;</span>
+	<span class="token builtin class-name">return</span> <span class="token number">200</span> <span class="token string">"this is eee"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment"># rewrite_log指令</span>
+location /rewrite <span class="token punctuation">&#123;</span>
+	<span class="token comment"># 开启rewrite_log</span>
+	rewrite_log on<span class="token punctuation">;</span>
+	<span class="token comment"># 配置error_log</span>
+	error_log logs/error.log notice<span class="token punctuation">;</span>
+	rewrite ^/rewrite/aaa<span class="token punctuation">\</span>w+$ https://www.baidu.com<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>nginx实时流量镜像</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ngx_http_mirror_module模块特性：
+nginx <span class="token number">1.13</span>.4及后续版本内置ngx_http_mirror_module模块，提供流量镜像<span class="token punctuation">(</span>复制<span class="token punctuation">)</span>的功能。
+支持流量放大，做法为：配置多份相同镜像。
+相比tcp-copy的优势：无需录制流量，实时可用；配置相当简单。
+源站请求，直接原路返回；正常配置下，mirror请求不影响源站请求及响应，源站nginx-server将流量复制到mirror站后，两者不再有任何交集。
+作用：nginx镜像流量接入自建开源WAF，以消除对源站的影响<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>TCP流量转发</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># TCP转发写法1</span>
+stream  <span class="token punctuation">&#123;</span>
+     server <span class="token punctuation">&#123;</span>
+         listen <span class="token number">3306</span><span class="token punctuation">;</span>
+         proxy_pass <span class="token number">192.168</span>.110.101:3306<span class="token punctuation">;</span>
+     <span class="token punctuation">&#125;</span>
+ <span class="token punctuation">&#125;</span>
+<span class="token comment"># 配置白名单</span>
+ stream  <span class="token punctuation">&#123;</span>
+     allow <span class="token number">192.168</span>.110.100<span class="token punctuation">;</span>
+     deny all<span class="token punctuation">;</span>
+     server <span class="token punctuation">&#123;</span>
+         listen <span class="token number">3306</span><span class="token punctuation">;</span>
+         proxy_pass <span class="token number">192.168</span>.110.101:3306<span class="token punctuation">;</span>
+     <span class="token punctuation">&#125;</span>
+ <span class="token punctuation">&#125;</span>
+<span class="token comment"># TCP转发写法2</span>
+ stream  <span class="token punctuation">&#123;</span>
+     upstream mysql_socket <span class="token punctuation">&#123;</span>
+         server <span class="token number">192.168</span>.110.101:3306<span class="token punctuation">;</span>
+     <span class="token punctuation">&#125;</span>
+     server <span class="token punctuation">&#123;</span>
+             listen <span class="token number">3306</span><span class="token punctuation">;</span>
+             proxy_pass mysql_socket<span class="token punctuation">;</span>
+     <span class="token punctuation">&#125;</span>
+ <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>其它优化</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 打开长连接配置</span>
+upstream xxx <span class="token punctuation">&#123;</span>
+    <span class="token comment"># 长连接数</span>
+    keepalive <span class="token number">32</span><span class="token punctuation">;</span>
+    <span class="token comment"># 每个长连接提供的最大请求数</span>
+    keepalived_requests <span class="token number">100</span><span class="token punctuation">;</span>
+    <span class="token comment"># 每个长连接没有新的请求时，保持的最长时间</span>
+    keepalive_timeout 60s<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment"># 开启零拷贝技术</span>
+sendfile on<span class="token punctuation">;</span>
+<span class="token comment"># 开启无延迟或多包共发机制</span>
+tcp_nodelay on<span class="token punctuation">;</span>
+tcp_nopush on<span class="token punctuation">;</span>
+<span class="token comment"># 调整Worker工作进程</span>
+worker_processes auto<span class="token punctuation">;</span>
+<span class="token comment"># 每个Worker能打开的文件描述符，最少调整至1W以上，负荷较高建议2-3W</span>
+worker_rlimit_nofile <span class="token number">20000</span><span class="token punctuation">;</span>
+<span class="token comment"># 开启CPU亲和机制</span>
+worker_cpu_affinity auto<span class="token punctuation">;</span>
+<span class="token comment"># 开启epoll模型及调整并发连接数</span>
+events <span class="token punctuation">&#123;</span>
+    <span class="token comment"># 使用epoll网络模型</span>
+    use epoll<span class="token punctuation">;</span>
+    <span class="token comment"># 调整每个Worker能够处理的连接数上限</span>
+    worker_connections  <span class="token number">10240</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="安装部署nginxha"><a href="#安装部署nginxha" class="headerlink" title="安装部署nginxha"></a>安装部署nginxha</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token parameter variable">-y</span> <span class="token function">install</span> keepalived<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><h4 id="keepalived"><a href="#keepalived" class="headerlink" title="keepalived"></a>keepalived</h4><blockquote>
+<p>编辑keepalived的配置文件<code>vi /etc/keepalived/keepalived.conf</code><br>主机137.12.7.129和137.12.7.130</p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">! Configuration File for keepalived
+global_defs &#123;
+# 自带的邮件提醒服务，建议用独立的监控或第三方SMTP，也可选择配置邮件发送。
+notification_email &#123;
+xx@xx.com
+&#125;
+notification_email_from xx@xx.com
+smtp_server 127.0.0.1
+smtp_connect_timeout 30
+# 高可用集群主机身份标识(集群中主机身份标识名称不能重复，建议配置成本机IP)
+router_id HAbackup-129
+&#125;
+# 定时运行的脚本文件配置
+vrrp_script chk_http_port &#123;
+  # 之前编写的nginx重启脚本的所在位置
+  script &quot;&#x2F;opt&#x2F;chk_nginx.sh&quot;
+  # 每间隔2秒执行一次
+  interval 2
+  # 如果脚本中的条件成立，重启一次则权重-5
+  weight -5
+  fall 2
+  rise 1
+&#125;
+vrrp_instance VI_1 &#123;
+  state MASTER   # 设置MASTER&#x2F;SLAVE
+  interface eth0
+  mcast_src_ip 137.12.7.129   # 本机IP
+  virtual_router_id 51   # keepalived集群，ID要保持一致
+  priority 150   # 权重，权重越大VIP优先级越高
+  # 优先级高的设置nopreempt，解决异常恢复后再次抢占造成的脑裂问题
+  nopreempt
+  # 组播信息发送间隔，两个节点设置必须一样，默认1s（类似于心跳检测）
+  advert_int 1 
+  authentication &#123;
+    auth_type PASS
+    auth_pass 1111   # 集群密码保持一致
+  &#125;
+  virtual_ipaddress &#123; 
+    137.12.7.168   # VIP可配置多个
+  &#125;
+track_script &#123;
+   # 执行Nginx监控的脚本
+   chk_http_port
+&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="nginx自启"><a href="#nginx自启" class="headerlink" title="nginx自启"></a>nginx自启</h2><blockquote>
+<p>编辑nginx自启脚本<code>vi /opt/chk_nginx.sh</code></p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token assign-left variable">counter</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">ps</span> <span class="token parameter variable">-C</span> nginx --no-heading<span class="token operator">|</span><span class="token function">wc</span> <span class="token parameter variable">-l</span><span class="token variable">)</span></span>
+<span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$counter</span>"</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token string">"<span class="token variable">$&#123;counter&#125;</span>"</span> <span class="token operator">=</span> <span class="token string">"0"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    /home/nginx/sbin/nginx   <span class="token comment"># 编译安装</span>
+<span class="token comment">#   systemctl start nginx   # yum安装</span>
+    <span class="token function">sleep</span> <span class="token number">2</span>
+    <span class="token assign-left variable">counter</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">ps</span> <span class="token parameter variable">-C</span> nginx --no-heading<span class="token operator">|</span><span class="token function">wc</span> <span class="token parameter variable">-l</span><span class="token variable">)</span></span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token string">"<span class="token variable">$&#123;counter&#125;</span>"</span> <span class="token operator">=</span> <span class="token string">"0"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+   systemctl stop keepalived
+    <span class="token keyword">fi</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>授权<code>chmod +x /opt/chk_nginx.sh</code></p>
+</blockquote>
+<h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><blockquote>
+<p>手动停止nginx会自动重启<br>停止keepalived，VIP会漂移至130主</p>
+</blockquote>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">160.4k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

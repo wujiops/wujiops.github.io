@@ -1,0 +1,1032 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Ubuntu 18 安装, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>Ubuntu 18 安装 | 波亚斯</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Ubuntu 18 安装</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ubuntu/">
+                                <span class="chip bg-color">ubuntu</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/System/" class="post-category">
+                                System
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-12-08
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.4k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
+<p>约定</p>
+</blockquote>
+<p>VMware 版本 15.5.1 <a target="_blank" rel="noopener" href="https://my.vmware.com/cn/web/vmware/details?downloadGroup=WKST-1551-WIN&productId=799&rPId=39513" title="VMware版本15.5.1 build-15018445">build-15018445</a></p>
+<p>Ubuntu18 版本 <a target="_blank" rel="noopener" href="http://mirror.bytemark.co.uk/ubuntu-releases/18.04.3/ubuntu-18.04.3-live-server-amd64.iso" title="ubuntu-18.04.3-live-server-amd64.iso">ubuntu-18.04.3-live-server-amd64</a></p>
+<blockquote>
+<p>新建虚拟机,选择典型<br><img src="/medias/img/ubuntu/0.jpg"></p>
+</blockquote>
+<blockquote>
+<p>选择下载好的Ubuntu18-server镜像<br><img src="/medias/img/ubuntu/1.jpg"></p>
+</blockquote>
+<blockquote>
+<p>个性化(用户名密码)<br><img src="/medias/img/ubuntu/2.jpg"></p>
+</blockquote>
+<blockquote>
+<p>安装位置,和虚拟机名称<br><img src="/medias/img/ubuntu/3.jpg"></p>
+</blockquote>
+<blockquote>
+<p>磁盘选择20G,存储为单个文件<br><img src="/medias/img/ubuntu/4.jpg"></p>
+</blockquote>
+<blockquote>
+<p>点击完成<br><img src="/medias/img/ubuntu/5.jpg"></p>
+</blockquote>
+<blockquote>
+<p>开机设置,设置使用英语<br><img src="/medias/img/ubuntu/6.jpg"></p>
+</blockquote>
+<blockquote>
+<p>键盘默认,不用改<br><img src="/medias/img/ubuntu/7.jpg"></p>
+</blockquote>
+<blockquote>
+<p>选定网卡,选择IPv4<br><img src="/medias/img/ubuntu/8.jpg"></p>
+</blockquote>
+<blockquote>
+<p>设置Manual<br><img src="/medias/img/ubuntu/9.jpg"></p>
+</blockquote>
+<blockquote>
+<p>填入自己的IP,网关等.<br><img src="/medias/img/ubuntu/10.jpg"></p>
+</blockquote>
+<blockquote>
+<p>我的如下<br><img src="/medias/img/ubuntu/11.jpg"></p>
+</blockquote>
+<blockquote>
+<p>查询自己的信息</p>
+</blockquote>
+<p>在VMware编辑里面,选择NAT模式,进入NAT设置,查看网关信息.依据此,填写自己的IP和网关.<br><img src="/medias/img/ubuntu/12.jpg"></p>
+<blockquote>
+<p>填完效果如下<br><img src="/medias/img/ubuntu/13.jpg"></p>
+</blockquote>
+<blockquote>
+<p>代理跳过,不设置<br><img src="/medias/img/ubuntu/14.jpg"></p>
+</blockquote>
+<blockquote>
+<p>修改为阿里云apt源<br><img src="/medias/img/ubuntu/15.jpg"></p>
+</blockquote>
+<blockquote>
+<p>选择安装磁盘<br><img src="/medias/img/ubuntu/16.jpg"></p>
+</blockquote>
+<blockquote>
+<p>直接回车<br><img src="/medias/img/ubuntu/17.jpg"></p>
+</blockquote>
+<blockquote>
+<p>分好的区<br>20G磁盘没有必要自定义分区,<strong>服务器安装请勿参考此分区.</strong><br><img src="/medias/img/ubuntu/18.jpg"></p>
+</blockquote>
+<blockquote>
+<p>选择格式化<br><img src="/medias/img/ubuntu/19.jpg"></p>
+</blockquote>
+<blockquote>
+<p>填入姓名,主机名,密码<br><img src="/medias/img/ubuntu/20.jpg"></p>
+</blockquote>
+<blockquote>
+<p>选择安装OpenSSH<br><img src="/medias/img/ubuntu/21.jpg"></p>
+</blockquote>
+<blockquote>
+<p>跳过,直接Done<br><img src="/medias/img/ubuntu/22.jpg"></p>
+</blockquote>
+<blockquote>
+<p>等待安装,View full log可以查看安装日志<br><img src="/medias/img/ubuntu/23.jpg"></p>
+</blockquote>
+<blockquote>
+<p>重启,完成安装<br><img src="/medias/img/ubuntu/24.jpg"></p>
+</blockquote>
+<blockquote>
+<p>用户名,密码登录<br><img src="/medias/img/ubuntu/25.jpg"></p>
+</blockquote>
+<blockquote>
+<p>会打印启动日志,覆盖掉登录窗口,直接回车显示登录信息<br><img src="/medias/img/ubuntu/26.jpg"></p>
+</blockquote>
+<blockquote>
+<p>开机设置,root密码,SSH远程登录</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 设置root密码</span>
+wang@roxn:~$ <span class="token function">sudo</span> <span class="token function">passwd</span> 
+<span class="token punctuation">[</span>sudo<span class="token punctuation">]</span> password <span class="token keyword">for</span> wang:    <span class="token comment"># 当前用户密码</span>
+Enter new UNIX password:    <span class="token comment"># 新root密码</span>
+Retype new UNIX password:    <span class="token comment"># 再次输入</span>
+passwd: password updated successfully
+
+wang@roxn:~$ <span class="token function">sudo</span> <span class="token function">vi</span> /etc/ssh/sshd_config
+<span class="token comment"># 揭开注释 &amp; 修改以下两行内容</span>
+Port <span class="token number">22</span>
+PermitRootLogin <span class="token function">yes</span>
+
+wang@roxn:~$ <span class="token function">sudo</span> <span class="token function">service</span> sshd restart   <span class="token comment"># 重启sshd服务</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>打开xshell尝试链接吧!</p>
+<h2 id="安装后优化"><a href="#安装后优化" class="headerlink" title="安装后优化"></a>安装后优化</h2><p>此文章在Ubuntu 20.04 LTS Desktop验证通过。</p>
+<p>不建议修改过多系统项，以免引起系统稳定性。</p>
+<blockquote>
+<p>安装openssh</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> openssh-server
+systemctl start sshd
+<span class="token comment"># 按提示输入密码</span>
+<span class="token comment"># xhsell链接</span>
+<span class="token function">ssh</span> username@IP
+<span class="token comment"># ssh username:password@ip:port</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>修改apt为阿里云源</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">cp</span> /etc/apt/sources.list /etc/apt/sources.list.backup
+<span class="token function">sudo</span> <span class="token function">vi</span> /etc/apt/sources.list
+<span class="token comment">###</span>
+deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+<span class="token comment">###</span>
+<span class="token function">sudo</span> <span class="token function">apt</span> update<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>vim安装</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> <span class="token function">vim</span>
+<span class="token function">sudo</span> <span class="token function">vi</span> /etc/profile
+<span class="token comment">### 增加</span>
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">vi</span><span class="token operator">=</span>vim
+<span class="token comment">### source 文件生效</span>
+<span class="token function">vi</span> /etc/vim/vimrc
+<span class="token comment">### 增加显示行号、tab设置4个空格</span>
+<span class="token builtin class-name">set</span> number
+<span class="token builtin class-name">set</span> <span class="token assign-left variable">ts</span><span class="token operator">=</span><span class="token number">4</span>
+<span class="token builtin class-name">set</span> expandtab
+<span class="token builtin class-name">set</span> autoindent
+<span class="token comment">### 立即生效</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>root权限</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">user@user-virtual-machine:~$ <span class="token function">sudo</span> <span class="token function">passwd</span>
+新的 密码： 
+重新输入新的 密码： 
+passwd：已成功更新密码
+user@user-virtual-machine:~$ <span class="token function">su</span> - root
+密码： 
+root@user-virtual-machine:~<span class="token comment"># </span>
+<span class="token comment"># 允许root远程登录</span>
+<span class="token function">vi</span> /etc/ssh/sshd_config
+<span class="token comment">###</span>
+PermitRootLogin <span class="token function">yes</span>
+<span class="token comment">###</span>
+systemctl restart sshd
+<span class="token comment"># 验证</span>
+<span class="token punctuation">[</span>C:<span class="token punctuation">\</span>~<span class="token punctuation">]</span>$ <span class="token function">ssh</span> root:1@192.168.1.12<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>bash修改</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ls</span> <span class="token parameter variable">-al</span> /bin/sh
+<span class="token comment"># lrwxrwxrwx 1 root root 4 7月  27 17:20 /bin/sh -> dash</span>
+dpkg-reconfigure dash   <span class="token comment"># 选择 否/No</span>
+<span class="token comment"># 正在删除 通过 dash 从 /bin/sh 到 /bin/sh.distrib 的转移</span>
+<span class="token comment"># 正在添加 通过 bash 从 /bin/sh 到 /bin/sh.distrib 的转移</span>
+<span class="token comment"># 正在删除 通过 dash 从 /usr/share/man/man1/sh.1.gz 到 /usr/share/man/man1/sh.distrib.1.gz 的转移</span>
+<span class="token comment"># 正在添加 通过 bash 从 /usr/share/man/man1/sh.1.gz 到 /usr/share/man/man1/sh.distrib.1.gz 的转移</span>
+<span class="token function">ls</span> <span class="token parameter variable">-al</span> /bin/sh
+<span class="token comment"># lrwxrwxrwx 1 root root 4 7月  28 17:02 /bin/sh -> bash</span>
+<span class="token function">vi</span> .bashrc 
+<span class="token comment"># PS1="\[\e]0;$&#123;debian_chroot:+($debian_chroot)&#125;\u@\h: \w\a\]$PS1" 修改为 PS1="[\u@\h \W]\\$ "</span>
+<span class="token comment"># bash 生效，centos风格</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>apache2</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> <span class="token function">install</span> apache2 <span class="token function">curl</span>
+systemctl start apache2
+update-rc.d <span class="token parameter variable">-f</span> apache2 defaults   <span class="token comment"># 开机自启</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"apache2 test page"</span> <span class="token operator">></span> /var/www/html/index.html 
+<span class="token function">curl</span> localhost
+<span class="token comment"># apache2 test page</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>python3</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 默认安装python3.8</span>
+<span class="token function">apt</span> <span class="token function">install</span> python3-pip
+python3 <span class="token parameter variable">-V</span>
+<span class="token comment"># Python 3.8.2</span>
+pip3 <span class="token parameter variable">-V</span>
+<span class="token comment"># pip 20.0.2 from /usr/lib/python3/dist-packages/pip (python 3.8)</span>
+<span class="token function">mkdir</span> .pip
+<span class="token function">vi</span> .pip/pip.conf   <span class="token comment"># 配置pip阿里云源</span>
+<span class="token comment">###</span>
+<span class="token punctuation">[</span>global<span class="token punctuation">]</span>
+index-url <span class="token operator">=</span> http://mirrors.aliyun.com/pypi/simple/
+trusted-host <span class="token operator">=</span> mirrors.aliyun.com
+<span class="token comment">###</span>
+pip3 <span class="token function">install</span> <span class="token parameter variable">--upgrade</span> pip   <span class="token comment"># 安装升级pip</span>
+pip <span class="token parameter variable">-V</span>
+<span class="token comment"># pip 20.1.1 from /usr/local/lib/python3.8/dist-packages/pip (python 3.8)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>java</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> <span class="token function">install</span> default-jre default-jdk   <span class="token comment"># 安装默认版本</span>
+<span class="token function">apt</span> <span class="token function">install</span> openjdk-8-jdk openjdk-8-jre   <span class="token comment"># 安装指定版本</span>
+<span class="token function">java</span> <span class="token parameter variable">-version</span>   <span class="token comment"># java默认版本</span>
+<span class="token comment"># openjdk version "11.0.8" 2020-07-14</span>
+<span class="token comment"># OpenJDK Runtime Environment (build 11.0.8+10-post-Ubuntu-0ubuntu120.04)</span>
+<span class="token comment"># OpenJDK 64-Bit Server VM (build 11.0.8+10-post-Ubuntu-0ubuntu120.04, mixed mode, sharing)</span>
+javac <span class="token parameter variable">-version</span>   <span class="token comment"># javac默认版本</span>
+<span class="token comment"># javac 11.0.8</span>
+update-alternatives <span class="token parameter variable">--config</span> <span class="token function">java</span>   <span class="token comment"># 设置默认java</span>
+<span class="token comment"># 有 2 个候选项可用于替换 java (提供 /usr/bin/java)。</span>
+
+<span class="token comment">#   选择       路径                                          优先级  状态</span>
+<span class="token comment"># ------------------------------------------------------------</span>
+<span class="token comment"># * 0            /usr/lib/jvm/java-11-openjdk-amd64/bin/java      1111      自动模式</span>
+<span class="token comment">#   1            /usr/lib/jvm/java-11-openjdk-amd64/bin/java      1111      手动模式</span>
+<span class="token comment">#   2            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java   1081      手动模式</span>
+
+<span class="token comment"># 要维持当前值[*]请按&lt;回车键>，或者键入选择的编号：2</span>
+<span class="token comment"># update-alternatives: 使用 /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java 来在手动模式中提供 /usr/bin/java (java)</span>
+update-alternatives <span class="token parameter variable">--config</span> javac   <span class="token comment"># 设置默认javac</span>
+<span class="token comment"># 有 2 个候选项可用于替换 javac (提供 /usr/bin/javac)。</span>
+
+<span class="token comment">#   选择       路径                                        优先级  状态</span>
+<span class="token comment"># ------------------------------------------------------------</span>
+<span class="token comment"># * 0            /usr/lib/jvm/java-11-openjdk-amd64/bin/javac   1111      自动模式</span>
+<span class="token comment">#   1            /usr/lib/jvm/java-11-openjdk-amd64/bin/javac   1111      手动模式</span>
+<span class="token comment">#   2            /usr/lib/jvm/java-8-openjdk-amd64/bin/javac    1081      手动模式</span>
+
+<span class="token comment"># 要维持当前值[*]请按&lt;回车键>，或者键入选择的编号：2</span>
+<span class="token comment"># update-alternatives: 使用 /usr/lib/jvm/java-8-openjdk-amd64/bin/javac 来在手动模式中提供 /usr/bin/javac (javac)</span>
+javac <span class="token parameter variable">-version</span>   <span class="token comment"># 验证</span>
+<span class="token comment"># javac 1.8.0_252</span>
+<span class="token function">java</span> <span class="token parameter variable">-version</span>   <span class="token comment"># 验证</span>
+<span class="token comment"># openjdk version "1.8.0_252"</span>
+<span class="token comment"># OpenJDK Runtime Environment (build 1.8.0_252-8u252-b09-1ubuntu1-b09)</span>
+<span class="token comment"># OpenJDK 64-Bit Server VM (build 25.252-b09, mixed mode)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">160.4k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
