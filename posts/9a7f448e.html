@@ -313,6 +313,10 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/tools/">
+                                <span class="chip bg-color">tools</span>
+                            </a>
+                        
                             <a href="/tags/jenkins/">
                                 <span class="chip bg-color">jenkins</span>
                             </a>
@@ -345,14 +349,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-15
+                    2023-09-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    712
+                    1.2k
                 </div>
                 
 
@@ -373,7 +377,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><blockquote>
+                <blockquote>
+<p>权限管理部分参考<a href="./459b86ad.html#%E5%AF%B9%E6%8E%A5Jenkins">openldap</a></p>
+</blockquote>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><blockquote>
 <p>Anolis OS 8.8<br>4C8G<br>java 8</p>
 </blockquote>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a target="_blank" rel="noopener" href="https://pkg.jenkins.io/redhat-stable/">官方文档</a></p>
@@ -484,6 +491,7 @@ server <span class="token punctuation">&#123;</span>
 <p><img src="/medias/img/jenkins/image-20230708221207629.png"></p>
 <blockquote>
 <p>如果你不知道安装什么插件，安装推荐插件即可。</p>
+<p><code>Role-based Authorization Strategy</code>插件用于配置用户和项目权限</p>
 </blockquote>
 <p><img src="/medias/img/jenkins/image-20230708221424682.png"></p>
 <blockquote>
@@ -510,6 +518,74 @@ server <span class="token punctuation">&#123;</span>
 <p>替换为：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/current/update-center.json">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/current/update-center.json</a></p>
 </blockquote>
 <p><img src="/medias/img/jenkins/image-20230708223612169.png"></p>
+<blockquote>
+<p>遇到的问题：</p>
+<p><code>ERROR: Error fetching remote repo &#39;origin&#39;</code></p>
+<p><code>using GIT_SSH to set credentials Gitlab SSHKey Verifying host key using known hosts file You&#39;re using &#39;Known hosts file&#39; strategy to verify ssh host keys, but your known_hosts file does not exist, please go to &#39;Manage Jenkins&#39; -&gt; &#39;Configure Global Security&#39; -&gt; &#39;Git Host Key Verification Configuration&#39; and configure host key verification.</code></p>
+<p>修改了：<code>Dashboard</code> —&gt; <code>Manage Jenkins</code> —&gt; <code>Security</code>，还增加了git全局用户名密码，删除了报错中的.git目录。<code>rm -fr /var/lib/jenkins/workspace/blog</code>最后一级目录就是我的Jenkins工作空间</p>
+</blockquote>
+<h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><blockquote>
+<p>安装钉钉机器人通知，这里展示的是已安装过的。</p>
+</blockquote>
+<p><img src="/medias/img/jenkins/image-20230916212621379.png"></p>
+<blockquote>
+<p>注意路径，钉钉在配置页面的最下面。</p>
+<p>配置机器人的URL和关键字和加密。</p>
+</blockquote>
+<p><img src="/medias/img/jenkins/image-20230916213057177.png"></p>
+<blockquote>
+<p>安装权限管理插件<code>Role-based Authorization Strategy</code></p>
+<p>当然jenkins自带的插件也可以设置权限，只不过配置方法不一样</p>
+</blockquote>
+<p><img src="/medias/img/jenkins/image-20230916213508768.png"></p>
+<blockquote>
+<p>选择刚才安装好的权限插件</p>
+</blockquote>
+<p><img src="/medias/img/jenkins/image-20230916213730880.png"></p>
+<blockquote>
+<p>新增全局权限组，后半部分不要授权，会覆盖下面的授权</p>
+</blockquote>
+<p><img src="/medias/img/jenkins/image-20230916214039908.png"></p>
+<blockquote>
+<p>针对项目设置授权</p>
+</blockquote>
+<p><img src="/medias/img/jenkins/image-20230916214644693.png"></p>
+<blockquote>
+<p>针对Jenkins用户/用户组设置权限规则，就是上面设置的权限组</p>
+</blockquote>
+<p><img src="/medias/img/jenkins/image-20230916215107614.png"></p>
+<blockquote>
+<p>设置某个用户/组，对某个项目有权限</p>
+</blockquote>
+<p><img src="/medias/img/jenkins/image-20230916220044610.png"></p>
+<h2 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h2><blockquote>
+<p>添加刚才的机器人</p>
+</blockquote>
+<p><img src="/medias/img/jenkins/image-20230916221346345.png"></p>
+<blockquote>
+<p>保留构建历史配置</p>
+</blockquote>
+<p><img src="/medias/img/jenkins/image-20230916231205181.png"></p>
+<blockquote>
+<p>配置build可以选择分支和标签，这里将分支和标签设置成了一个<code>BranchTag</code>变量，对这个变量设置了默认值</p>
+</blockquote>
+<p><img src="/medias/img/jenkins/image-20230916231440624.png"></p>
+<blockquote>
+<p>分支和标签的过滤规则使用了正则全匹配。</p>
+</blockquote>
+<p><img src="/medias/img/jenkins/image-20230916231652434.png"></p>
+<blockquote>
+<p>这里将已选择设置成默认值，支持搜索，定制化展示分支标签的行数</p>
+</blockquote>
+<p><img src="/medias/img/jenkins/image-20230916231842735.png"></p>
+<blockquote>
+<p>这里配置build的checkout目标，就是上面配置的，不选择就是默认值。</p>
+</blockquote>
+<p><img src="/medias/img/jenkins/image-20230916231936380.png"></p>
+<blockquote>
+<p>点击构建，就能看到搜索框，并且默认选择了设定的默认值。</p>
+</blockquote>
+<p><img src="/medias/img/jenkins/image-20230916232050858.png"></p>
 
 
             </div>
@@ -711,7 +787,7 @@ server <span class="token punctuation">&#123;</span>
             
             
                 <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
-                    class="white-color">160.4k</span>千字🎉
+                    class="white-color">168.6k</span>千字🎉
             
             
 

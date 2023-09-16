@@ -1,0 +1,1140 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="openvpn远程, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>openvpn远程 | 波亚斯</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">openvpn远程</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/tools/">
+                                <span class="chip bg-color">tools</span>
+                            </a>
+                        
+                            <a href="/tags/openvpn/">
+                                <span class="chip bg-color">openvpn</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Server/" class="post-category">
+                                Server
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-08-25
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-09-04
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.1k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="安装openvpn"><a href="#安装openvpn" class="headerlink" title="安装openvpn"></a>安装openvpn</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@wangj openvpn<span class="token punctuation">]</span><span class="token comment"># cat /etc/redhat-release </span>
+Anolis OS release <span class="token number">7.9</span>
+<span class="token comment"># 安装epel-release源，yum直接安装openvpn。</span>
+yum <span class="token function">install</span> openssh-server openssl openssl-devel lzo lzo-devel pam-devel openvpn <span class="token parameter variable">-y</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><blockquote>
+<p>/etc/openvpn</p>
+</blockquote>
+<h1 id="配置证书"><a href="#配置证书" class="headerlink" title="配置证书"></a>配置证书</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /etc/openvpn
+<span class="token comment"># 安装生成证书工具</span>
+yum <span class="token function">install</span> easy-rsa <span class="token parameter variable">-y</span>
+<span class="token function">cp</span> <span class="token parameter variable">-a</span> /usr/share/easy-rsa/3.0.8 /etc/openvpn/easyrsa
+<span class="token builtin class-name">cd</span> /etc/openvpn/easyrsa
+<span class="token comment"># 生成证书配置文件，tee直接覆盖，tee -a为追加内容</span>
+<span class="token function">tee</span> vars <span class="token operator">&lt;&lt;-</span> <span class="token string">'EOF'
+set_var EASYRSA_DN "cn_only"
+set_var EASYRSA_REQ_COUNTRY "CN"
+set_var EASYRSA_REQ_PROVINCE "Beijing"
+set_var EASYRSA_REQ_CITY "Beijing"
+set_var EASYRSA_REQ_ORG "roxn"
+set_var EASYRSA_REQ_EMAIL "my@roxn.cn"
+set_var EASYRSA_NS_SUPPORT "yes"
+set_var EASYRSA_CA_EXPIRE 36135
+set_var EASYRSA_KEY_EXPIRE 36135
+EOF</span>
+<span class="token comment"># set_var EASYRSA_CA_EXPIRE 36135   # 过期时间</span>
+<span class="token comment"># set_var EASYRSA_KEY_EXPIRE 36135   # 按实际要求修改</span>
+<span class="token comment"># 初始化与创建CA根证书</span>
+./easyrsa init-pki
+<span class="token comment"># 初始化，会在当前目录创建PKI目录，用于存储一些中间变量及最终生成的证书</span>
+./easyrsa build-ca
+<span class="token comment"># 在这部分需要输入PEM密码 PEM pass phrase，输入两次，此密码必须记住，不然以后不能为证书签名。</span>
+<span class="token comment"># 还需要输入common name 通用名，如：openvpn，这个你自己随便设置个独一无二的。</span>
+
+<span class="token comment"># 生成服务端证书</span>
+./easyrsa build-server-full server nopass
+<span class="token comment"># 为服务端生成证书对并在本地签名。nopass参数生成一个无密码的证书；在此过程中会让你确认ca密码</span>
+
+./easyrsa gen-dh
+<span class="token comment"># 创建Diffie-Hellman，确保key穿越不安全网络的命令，时间会有点长，耐心等待</span>
+
+<span class="token comment"># 为了提高安全性，生成ta.key</span>
+openvpn <span class="token parameter variable">--genkey</span> <span class="token parameter variable">--secret</span> ta.key
+<span class="token comment"># 加强认证方式，防攻击。</span>
+
+<span class="token comment"># 整理服务端证书</span>
+<span class="token function">cp</span> <span class="token parameter variable">-a</span> pki/ca.crt /etc/openvpn/server/
+<span class="token function">cp</span> <span class="token parameter variable">-a</span> pki/private/server.key /etc/openvpn/server/
+<span class="token function">cp</span> <span class="token parameter variable">-a</span> pki/issued/server.crt /etc/openvpn/server/
+<span class="token function">cp</span> <span class="token parameter variable">-a</span> pki/dh.pem /etc/openvpn/server/
+<span class="token function">cp</span> <span class="token parameter variable">-a</span> ta.key /etc/openvpn/server/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="服务端配置文件"><a href="#服务端配置文件" class="headerlink" title="服务端配置文件"></a>服务端配置文件</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建服务端配置文件</span>
+<span class="token function">tee</span> /etc/openvpn/server/server.conf <span class="token operator">&lt;&lt;-</span> <span class="token string">'EOF'
+#监控本机端口号
+port 52987
+
+#指定采用的传输协议，可以选择tcp或udp
+proto tcp
+
+#指定创建的通信隧道类型，可选tun或tap
+dev tun
+
+#指定CA证书的文件路径
+ca /etc/openvpn/easyrsa/pki/ca.crt
+
+#指定服务器端的证书文件路径
+cert /etc/openvpn/easyrsa/pki/issued/server.crt
+
+#指定服务器端的私钥文件路径
+key /etc/openvpn/easyrsa/pki/private/server.key
+
+#指定迪菲赫尔曼参数的文件路径
+dh /etc/openvpn/easyrsa/pki/dh.pem
+
+#指定虚拟局域网占用的IP地址段和子网掩码，此处配置的服务器自身占用.1的ip地址
+server 10.0.0.0 255.255.255.0
+
+#推送路由到客户端，实现VPN客户端之间通讯
+#push "route 0.0.0.0 0.0.0.0"
+push "route 10.0.0.0 255.255.255.0"
+#推送路由到客户端，本机网段172.21.0.0，实现VPN客户端和本机网段内的内网主机通讯
+#实际测试不需要在server端使用iptables转发
+push "route 172.21.0.0 255.255.255.0"
+
+#服务器自动给客户端分配IP后，客户端下次连接时，仍然采用上次的IP地址(第一次分配的IP保存在ipp.txt中，下一次分配其中保存的IP)。
+ifconfig-pool-persist ipp.txt
+
+#自动推送客户端上的网关及DHCP
+#push "redirect-gateway def1 bypass-dhcp"
+
+#OpenVPN的DHCP功能为客户端提供指定的 DNS、WINS 等
+#push "dhcp-option DNS 114.114.114.114"
+
+#允许客户端与客户端相连接，默认情况下客户端只能与服务器相连接
+client-to-client
+
+#每10秒ping一次，连接超时时间设为120秒
+keepalive 10 120
+
+#开启TLS-auth，使用ta.key防御攻击。服务器端的第二个参数值为0，客户端的为1。
+tls-auth /etc/openvpn/easyrsa/ta.key 0
+
+#加密认证算法
+cipher AES-256-CBC
+
+#使用lzo压缩的通讯,服务端和客户端都必须配置
+comp-lzo
+
+#最大连接用户
+max-clients 100 
+
+#重启时仍保留一些状态
+persist-key
+persist-tun
+
+#输出短日志,每分钟刷新一次,以显示当前的客户端
+status /home/logs/vpn/openvpn-status.log
+
+#日志保存路径
+log         /home/logs/vpn/openvpn.log
+log-append  /home/logs/vpn/openvpn.log
+
+#指定日志文件的记录详细级别，可选0-9，等级越高日志内容越详细
+verb 4
+
+#相同信息的数量，如果连续出现 20 条相同的信息，将不记录到日志中
+mute 20
+
+#注销证书
+crl-verify /etc/openvpn/easyrsa/pki/crl.pem
+EOF</span>
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /home/logs/vpn/
+systemctl start openvpn-server@server<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>client.ovpn内容：配置1将所有文件打包进配置文件，配置2外部引用各种证书文件，client.conf用于Linux系统</p>
+</blockquote>
+<pre class="line-numbers language-conf" data-language="conf"><code class="language-conf"># 配置1
+client
+dev tun
+proto tcp
+remote 152.xx.xx.229 5xx7
+resolv-retry infinite
+nobind
+persist-key
+persist-tun
+mute-replay-warnings
+ns-cert-type server
+key-direction 1
+remote-cert-tls server
+cipher AES-256-CBC
+comp-lzo
+auth-nocache
+verb 4
+# 在最后面添加以下内容：
+&lt;ca&gt;
+# ca.crt文件内容
+&lt;&#x2F;ca&gt;
+&lt;cert&gt;
+# client.crt文件内容
+&lt;&#x2F;cert&gt;
+&lt;key&gt;
+# client.key文件内容
+&lt;&#x2F;key&gt;
+# key-direction
+&lt;tls-auth&gt;
+# ta.key文件内容
+&lt;&#x2F;tls-auth&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-conf" data-language="conf"><code class="language-conf"># 配置2
+client
+dev tun
+proto tcp
+remote 152.xx.xx.229 5xx7
+resolv-retry infinite
+nobind
+persist-key
+persist-tun
+ca ca.crt   # 以文件的方式指明证书
+cert vpn.crt
+key vpn.key
+tls-auth ta.key 1
+mute-replay-warnings
+ns-cert-type server
+key-direction 1
+remote-cert-tls server
+cipher AES-256-CBC
+comp-lzo
+auth-nocache
+verb 4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="快捷脚本"><a href="#快捷脚本" class="headerlink" title="快捷脚本"></a>快捷脚本</h1><blockquote>
+<p>openvpn</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token keyword">case</span> <span class="token variable">$1</span> <span class="token keyword">in</span>
+<span class="token function">add</span><span class="token punctuation">)</span>
+  ./easyrsa gen-req <span class="token variable">$2</span> nopass <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+
+EOF</span>
+  ./easyrsa sign client <span class="token variable">$2</span> <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+yes
+EOF</span>
+  <span class="token function">ls</span> <span class="token parameter variable">-l</span> pki/private/<span class="token variable">$&#123;2&#125;</span>.key pki/issued/<span class="token variable">$&#123;2&#125;</span>.crt
+<span class="token punctuation">;</span><span class="token punctuation">;</span>
+del<span class="token punctuation">)</span>
+  ./easyrsa revoke <span class="token variable">$&#123;2&#125;</span> <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+  rm -f pki/private/<span class="token variable">$&#123;2&#125;</span>.key pki/issued/<span class="token variable">$&#123;2&#125;</span>.crt
+yes
+EOF</span>
+  <span class="token function">rm</span> <span class="token parameter variable">-f</span> pki/private/<span class="token variable">$&#123;2&#125;</span>.key pki/issued/<span class="token variable">$&#123;2&#125;</span>.crt
+./easyrsa gen-crl <span class="token operator">>></span> /dev/null <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span>
+<span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token function">cp</span><span class="token punctuation">)</span>
+  <span class="token function">rm</span> <span class="token parameter variable">-f</span> cccp/*
+  <span class="token function">cp</span> none/client.default cccp/client.default
+  <span class="token builtin class-name">echo</span> <span class="token string">"&lt;cert>"</span> <span class="token operator">>></span> cccp/client.default
+  <span class="token function">cat</span> pki/issued/<span class="token variable">$&#123;2&#125;</span>.crt <span class="token operator">>></span> cccp/client.default
+  <span class="token builtin class-name">echo</span> <span class="token string">"&lt;/cert>"</span> <span class="token operator">>></span> cccp/client.default
+  <span class="token builtin class-name">echo</span> <span class="token string">"&lt;key>"</span> <span class="token operator">>></span> cccp/client.default
+  <span class="token function">cat</span> pki/private/<span class="token variable">$&#123;2&#125;</span>.key <span class="token operator">>></span> cccp/client.default
+  <span class="token builtin class-name">echo</span> <span class="token string">"&lt;/key>"</span><span class="token operator">>></span> cccp/client.default
+  <span class="token function">cp</span> cccp/client.<span class="token punctuation">&#123;</span>default,conf<span class="token punctuation">&#125;</span>
+  <span class="token function">mv</span> cccp/client.<span class="token punctuation">&#123;</span>default,ovpn<span class="token punctuation">&#125;</span>
+<span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token function">scp</span><span class="token punctuation">)</span>
+  <span class="token function">rm</span> <span class="token parameter variable">-f</span> cccp/*
+  <span class="token function">cp</span> none/client.default cccp/client.default
+  <span class="token builtin class-name">echo</span> <span class="token string">"&lt;cert>"</span> <span class="token operator">>></span> cccp/client.default
+  <span class="token function">cat</span> pki/issued/<span class="token variable">$&#123;2&#125;</span>.crt <span class="token operator">>></span> cccp/client.default
+  <span class="token builtin class-name">echo</span> <span class="token string">"&lt;/cert>"</span> <span class="token operator">>></span> cccp/client.default
+  <span class="token builtin class-name">echo</span> <span class="token string">"&lt;key>"</span> <span class="token operator">>></span> cccp/client.default
+  <span class="token function">cat</span> pki/private/<span class="token variable">$&#123;2&#125;</span>.key <span class="token operator">>></span> cccp/client.default
+  <span class="token builtin class-name">echo</span> <span class="token string">"&lt;/key>"</span><span class="token operator">>></span> cccp/client.default
+  <span class="token function">cp</span> cccp/client.<span class="token punctuation">&#123;</span>default,conf<span class="token punctuation">&#125;</span>
+  <span class="token function">mv</span> cccp/client.<span class="token punctuation">&#123;</span>default,ovpn<span class="token punctuation">&#125;</span>
+  <span class="token function">ssh</span> <span class="token parameter variable">-i</span> /home/wangj/.ssh/id_rsa <span class="token parameter variable">-p32601</span> roxn@jump <span class="token string">"rm -f /home/roxn/vpn/*"</span>
+  <span class="token function">scp</span> <span class="token parameter variable">-i</span> /home/wangj/.ssh/id_rsa <span class="token parameter variable">-P</span> <span class="token number">32601</span> cccp/* roxn@jump:vpn/
+<span class="token punctuation">;</span><span class="token punctuation">;</span>
+*<span class="token punctuation">)</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"vpn add|del|cp|scp name"</span>
+<span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token keyword">esac</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>vpn</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token keyword">case</span> <span class="token variable">$1</span> <span class="token keyword">in</span>
+<span class="token function">add</span><span class="token punctuation">)</span>
+  ./openvpn <span class="token variable">$*</span> <span class="token operator">>></span> /dev/null <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span>
+<span class="token punctuation">;</span><span class="token punctuation">;</span>
+del<span class="token punctuation">)</span>
+  ./openvpn <span class="token variable">$*</span> <span class="token operator">>></span> /dev/null <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span>
+<span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token function">cp</span><span class="token punctuation">)</span>
+  ./openvpn <span class="token variable">$*</span> <span class="token operator">>></span> /dev/null <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span>
+<span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token function">scp</span><span class="token punctuation">)</span>
+  ./openvpn <span class="token variable">$*</span> <span class="token operator">>></span> /dev/null <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span>
+<span class="token punctuation">;</span><span class="token punctuation">;</span>
+*<span class="token punctuation">)</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"vpn add|del|cp|scp name"</span>
+<span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token keyword">esac</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>none/client.default   # 这里使用的是 配置1 client.conf/ovpn配置文件</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">client
+dev tun
+proto tcp
+remote <span class="token number">152</span>.xx.xx.229 5xx7
+resolv-retry infinite
+nobind
+persist-key
+persist-tun
+mute-replay-warnings
+ns-cert-type server
+key-direction <span class="token number">1</span>
+remote-cert-tls server
+cipher AES-256-CBC
+comp-lzo
+auth-nocache
+verb <span class="token number">4</span>
+<span class="token operator">&lt;</span>ca<span class="token operator">></span>
+-----BEGIN CERTIFICATE-----
+MIIDIDCCxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxTALBgNV
+BAMMBGhxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxA8xDTAL
+BgNVBAMMxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxQChL/B+
+InktBQEdxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxjoiKs0K
+OrSJ9zA3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxeryc5rJ
+58GVetP0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxQo8yZrm
+lrJGTusXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyFc7zBv
+yiIwmjj3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxEQhOwLg
+NFIvPo8UxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxWco+Bsj
+xnBkizA/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxzENMAsG
+A1UEAwwExxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAQDAgEG
+MA0GCSqGxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxPNXuOZ/
+Z3bB2kPjxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxiIxd7rU
+BygVruDyxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxnhfNnW6
+uBZ36PU9xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx5sprjRj
+IfgQlrBJxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxE3s9ekg
+kQfuqCekxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxRaxCrlN
+-----END CERTIFICATE-----
+<span class="token operator">&lt;</span>/ca<span class="token operator">></span>
+<span class="token operator">&lt;</span>tls-auth<span class="token operator">></span>
+<span class="token comment">#</span>
+<span class="token comment"># 2048 bit OpenVPN static key</span>
+<span class="token comment">#</span>
+-----BEGIN OpenVPN Static key V1-----
+ca7adfxxxxxxxxxxxxxxxxxxx29a8844
+bf312axxxxxxxxxxxxxxxxxxxcfc4578
+73aba3xxxxxxxxxxxxxxxxxxxfa460b5
+f8766dxxxxxxxxxxxxxxxxxxx50ca470
+b626e7xxxxxxxxxxxxxxxxxxx1e290b5
+c0cbecxxxxxxxxxxxxxxxxxxxb832e92
+5f36bbxxxxxxxxxxxxxxxxxxxa91449e
+cbf443xxxxxxxxxxxxxxxxxxxbf651e7
+cf879fxxxxxxxxxxxxxxxxxxx58d64e2
+94cec9xxxxxxxxxxxxxxxxxxx6f9d536
+0e8306xxxxxxxxxxxxxxxxxxxd8b4da5
+652f06xxxxxxxxxxxxxxxxxxx3d9c52c
+57396axxxxxxxxxxxxxxxxxxxa2f1846
+f82b7fxxxxxxxxxxxxxxxxxxxeb48287
+758974xxxxxxxxxxxxxxxxxxx0d5e121
+9389f2xxxxxxxxxxxxxxxxxxxed408ef
+-----END OpenVPN Static key V1-----
+<span class="token operator">&lt;</span>/tls-auth<span class="token operator">></span>
+<span class="token comment"># 上面两个证书文件复制自己的，下面的由./vpn cp xxx自动生成用户xxx的证书信息</span>
+<span class="token comment"># &lt;cert></span>
+<span class="token comment"># client.crt</span>
+<span class="token comment"># &lt;/cert></span>
+<span class="token comment"># </span>
+<span class="token comment"># &lt;key></span>
+<span class="token comment"># client.key</span>
+<span class="token comment"># &lt;/key></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>脚本使用方法</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">vpn <span class="token function">add</span><span class="token operator">|</span>del<span class="token operator">|</span><span class="token function">cp</span><span class="token operator">|</span><span class="token function">scp</span> name
+<span class="token function">add</span>   增加用户证书
+del   吊销证书
+<span class="token function">cp</span>    复制证书到cccp目录，生成client.conf/ovpn两个配置文件，分别可以在Linux和Windows使用
+<span class="token function">scp</span>   我这里设定的是发送到远端固定服务器<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>安装部署可能会有一些小细节未完善，百度就能解决，常见的就是启动报错，一般是日志路径or日志文件不存在，手动创建即可，还有就是吊销证书报错，一般也是报错文件不存在，最好是创建xxx用户先吊销一次，后续再创建用户证书就可以直接吊销了。还有使用用户名密码连接openvpn的，这里不再做赘述，自行百度即可。还有openvpn server端是可以同时启动多个的，指定不同的配置文件即可，可以参考<code>ps -ef|grep openvpn</code>的信息配置，这样可以实现两个openvpn server端同时运行，公共使用的vpn server可以在夜间关闭。另外centos8及其分支系统，dnf安装openvpn server端可能不会生成<code>/usr/lib/systemd/system/openvpn@.service</code>文件，使用下面的脚本生成即可。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> <span class="token operator">>></span> /usr/lib/systemd/system/openvpn@.service <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+[Unit]
+Description=OpenVPN Robust And Highly Flexible Tunneling Application On %I
+After=network.target
+
+[Service]
+Type=notify
+PrivateTmp=true
+ExecStart=/usr/sbin/openvpn --cd /etc/openvpn/ --config %i.conf
+
+[Install]
+WantedBy=multi-user.target
+EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">168.6k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

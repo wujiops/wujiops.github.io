@@ -405,12 +405,12 @@ welcome to www.jsdig.com<span aria-hidden="true" class="line-numbers-rows"><span
 <p> <strong>使用文件进行邮件发送</strong> </p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mail <span class="token parameter variable">-s</span> <span class="token string">"Hello from jsdig.com by file"</span> admin@jsdig.com <span class="token operator">&lt;</span> mail.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>使用上面的命令后，我们就可以把mail.txt文件的内容作为邮件的内容发送给<a href="mailto:&#97;&#100;&#109;&#x69;&#110;&#64;&#106;&#115;&#100;&#105;&#103;&#x2e;&#x63;&#x6f;&#x6d;">&#97;&#100;&#109;&#x69;&#110;&#64;&#106;&#115;&#100;&#105;&#103;&#x2e;&#x63;&#x6f;&#x6d;</a>了。</p>
+<p>使用上面的命令后，我们就可以把mail.txt文件的内容作为邮件的内容发送给<a href="mailto:&#97;&#100;&#109;&#x69;&#110;&#64;&#x6a;&#x73;&#100;&#x69;&#103;&#46;&#x63;&#111;&#x6d;">&#97;&#100;&#109;&#x69;&#110;&#64;&#x6a;&#x73;&#100;&#x69;&#103;&#46;&#x63;&#111;&#x6d;</a>了。</p>
 <p>使用上述三种方式都可以给外部邮箱进行邮件发送，但因为前面2中都是直接在shell中敲入邮件内容，因此无法输入中文，即使我们使用粘贴的方式输入了中文，那么收到的邮件也是乱码的。但第3种方式，我们可以在window下编辑好邮件内容后，放到linux下，再进行发送，这样就可以正常发送中文了。不过目前邮件的中文标题暂时没有找到解决办法。</p>
 <p>因为mail程序本身就是调用sendmail来进行邮件发送的，因此我们可以在mail命令中使用sendmail的参数进行配置，比如我想使用特定的发件人发送邮件，可以使用如下命令：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mail <span class="token parameter variable">-s</span> <span class="token string">"Hello from jsdig.com with sender"</span> admin@jsdig.com -- <span class="token parameter variable">-f</span> user@jsdig.com<span class="token operator">&lt;</span>mail.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>上面的命令中，我们使用了– -f <a href="mailto:&#x75;&#115;&#x65;&#x72;&#x40;&#106;&#x73;&#100;&#x69;&#103;&#x2e;&#99;&#111;&#x6d;">&#x75;&#115;&#x65;&#x72;&#x40;&#106;&#x73;&#100;&#x69;&#103;&#x2e;&#99;&#111;&#x6d;</a>这样的参数，这是sendmail的选项，其中-f表示邮件的发送人邮件地址。</p>
+<p>上面的命令中，我们使用了– -f <a href="mailto:&#x75;&#115;&#x65;&#114;&#64;&#106;&#115;&#100;&#105;&#103;&#46;&#99;&#x6f;&#109;">&#x75;&#115;&#x65;&#114;&#64;&#106;&#115;&#100;&#105;&#103;&#46;&#99;&#x6f;&#109;</a>这样的参数，这是sendmail的选项，其中-f表示邮件的发送人邮件地址。</p>
 <p>很多情况下，我们也需要使用邮件来发送附件，在linux下使用mail命令发送附件也很简单，不过首先需要安装uuencode软件包，这个程序是对二进制文件进行编码使其适合通过邮件进行发送，在CentOS上安装该软件包如下：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> sharutils<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -620,7 +620,7 @@ welcome to www.jsdig.com<span aria-hidden="true" class="line-numbers-rows"><span
             
             
                 <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
-                    class="white-color">160.4k</span>千字🎉
+                    class="white-color">168.6k</span>千字🎉
             
             
 
