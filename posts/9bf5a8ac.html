@@ -1,0 +1,1112 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="ambari安装, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>ambari安装 | 波亚斯</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/featureimages/24.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">ambari安装</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ambari/">
+                                <span class="chip bg-color">ambari</span>
+                            </a>
+                        
+                            <a href="/tags/hadoop/">
+                                <span class="chip bg-color">hadoop</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/KDP/" class="post-category">
+                                KDP
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-12-22
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.8k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <!-- # <font size=5>**ambari安装视频**</font>
+<iframe height="600" width="800" src="//player.bilibili.com/player.html?aid=80163134&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe> -->
+
+<h1 id="ambari安装环境配置"><a href="#ambari安装环境配置" class="headerlink" title="ambari安装环境配置"></a><font size=5><strong>ambari安装环境配置</strong></font></h1><p>接上文esxi安装，利用其虚拟化出多个虚拟机。</p>
+<table>
+<thead>
+<tr>
+<th align="right">主机名</th>
+<th align="center">IP</th>
+<th align="center">内存</th>
+<th align="left">介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">ambari.hadoop.com</td>
+<td align="center">192.168.1.229</td>
+<td align="center">4G+</td>
+<td align="left">Hadoop集群管理工具</td>
+</tr>
+<tr>
+<td align="right">master1.hadoop.com</td>
+<td align="center">192.168.1.207</td>
+<td align="center">8G+</td>
+<td align="left">Hadoop集群master节点</td>
+</tr>
+<tr>
+<td align="right">master2.hadoop.com</td>
+<td align="center">192.168.1.208</td>
+<td align="center">8G+</td>
+<td align="left">Hadoop集群master节点</td>
+</tr>
+<tr>
+<td align="right">master3.hadoop.com</td>
+<td align="center">192.168.1.209</td>
+<td align="center">8G+</td>
+<td align="left">Hadoop集群master节点</td>
+</tr>
+<tr>
+<td align="right">slave1.hadoop.com</td>
+<td align="center">192.168.1.211</td>
+<td align="center">4G+</td>
+<td align="left">Hadoop集群slave节点</td>
+</tr>
+<tr>
+<td align="right">slave2.hadoop.com</td>
+<td align="center">192.168.1.212</td>
+<td align="center">4G+</td>
+<td align="left">Hadoop集群slave节点</td>
+</tr>
+<tr>
+<td align="right">client.hadoop.com</td>
+<td align="center">192.168.1.221</td>
+<td align="center">4G+</td>
+<td align="left">Hadoop集群client节点</td>
+</tr>
+<tr>
+<td align="right">repo.hadoop.com</td>
+<td align="center">192.168.1.228</td>
+<td align="center">1G+</td>
+<td align="left">Hadoop集群本地仓库</td>
+</tr>
+</tbody></table>
+<h2 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a><font size=4><strong>创建虚拟机</strong></font></h2><p><img src="/medias/img/ambari/0.jpg"></p>
+<h2 id="虚拟机名-amp-系统"><a href="#虚拟机名-amp-系统" class="headerlink" title="虚拟机名&amp;系统"></a><font size=4><strong>虚拟机名&amp;系统</strong></font></h2><p><img src="/medias/img/ambari/1.jpg"></p>
+<h2 id="虚拟机安装位置"><a href="#虚拟机安装位置" class="headerlink" title="虚拟机安装位置"></a><font size=4><strong>虚拟机安装位置</strong></font></h2><p><img src="/medias/img/ambari/2.jpg"></p>
+<h3 id="选择CPU热添加"><a href="#选择CPU热添加" class="headerlink" title="选择CPU热添加"></a><font size=3><strong>选择CPU热添加</strong></font></h3><p><img src="/medias/img/ambari/3.jpg"></p>
+<h3 id="选择CPU虚拟化"><a href="#选择CPU虚拟化" class="headerlink" title="选择CPU虚拟化"></a><font size=3><strong>选择CPU虚拟化</strong></font></h3><p><img src="/medias/img/ambari/4.jpg"></p>
+<h3 id="设置RAM大小，启用内存热插拔"><a href="#设置RAM大小，启用内存热插拔" class="headerlink" title="设置RAM大小，启用内存热插拔"></a><font size=3><strong>设置RAM大小，启用内存热插拔</strong></font></h3><p><img src="/medias/img/ambari/5.jpg"></p>
+<h2 id="选择系统盘大小40G"><a href="#选择系统盘大小40G" class="headerlink" title="选择系统盘大小40G+"></a><font size=4><strong>选择系统盘大小40G+</strong></font></h2><p><img src="/medias/img/ambari/6.jpg"></p>
+<h2 id="选择上载的ISO文件"><a href="#选择上载的ISO文件" class="headerlink" title="选择上载的ISO文件"></a><font size=4><strong>选择上载的ISO文件</strong></font></h2><p><img src="/medias/img/ambari/7.jpg"></p>
+<h2 id="双击红色框区域，和VMware安装一样"><a href="#双击红色框区域，和VMware安装一样" class="headerlink" title="双击红色框区域，和VMware安装一样"></a><font size=4><strong>双击红色框区域，和VMware安装一样</strong></font></h2><p><img src="/medias/img/ambari/8.jpg"></p>
+<h1 id="全部安装完记得右键拍摄快照，记好快照备注"><a href="#全部安装完记得右键拍摄快照，记好快照备注" class="headerlink" title="全部安装完记得右键拍摄快照，记好快照备注"></a><font size=5><strong>全部安装完记得右键拍摄快照，记好快照备注</strong></font></h1><p><img src="/medias/img/ambari/9.jpg"><br><strong><font color=red>此段主机repo.hadoop.com</font></strong></p>
+<h1 id="repo机器安装apache服务"><a href="#repo机器安装apache服务" class="headerlink" title="repo机器安装apache服务"></a><font size=5><strong>repo机器安装apache服务</strong></font></h1><p><img src="/medias/img/ambari/10.jpg"></p>
+<h2 id="上传下载好的ambari-HDP库"><a href="#上传下载好的ambari-HDP库" class="headerlink" title="上传下载好的ambari-HDP库"></a><font size=4><strong>上传下载好的ambari-HDP库</strong></font></h2><p><strong>参考ambari安装hdp-链接</strong><br><img src="/medias/img/ambari/11.jpg"><br><strong><font color=red>此段结束</font></strong></p>
+<h2 id="repo仓库配置"><a href="#repo仓库配置" class="headerlink" title="repo仓库配置"></a><font size=4><strong>repo仓库配置</strong></font></h2><p><strong>一定要修改脚本,为自己可用,下面有写在优化脚本中,本段可忽略</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@repo ~<span class="token punctuation">]</span><span class="token comment"># cat /etc/yum.repos.d/ambari.repo</span>
+<span class="token punctuation">[</span>ambari<span class="token punctuation">]</span>
+<span class="token assign-left variable">name</span><span class="token operator">=</span>ambari
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span>http://192.168.1.200/ambari/centos7/2.7.3.0-139/
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">1</span>
+
+<span class="token punctuation">[</span>HDP<span class="token punctuation">]</span>
+<span class="token assign-left variable">name</span><span class="token operator">=</span>HDP
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span>http://192.168.1.200/HDP/centos7/3.1.0.0-78/
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">1</span>
+
+<span class="token punctuation">[</span>HDP-UTILS<span class="token punctuation">]</span>
+<span class="token assign-left variable">name</span><span class="token operator">=</span>HDP-UTILS
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span>http://192.168.1.200/HDP-UTILS/centos7/1.1.0.22/
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="jdk配置"><a href="#jdk配置" class="headerlink" title="jdk配置"></a><font size=5><strong>jdk配置</strong></font></h1><p><strong>一定要修改脚本,为自己可用,下面有写在优化脚本中,本段可忽略</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> <span class="token parameter variable">-O</span> /opt/jdk-8u151-linux-x64.tar.gz http://192.168.1.200/jdk-8u151-linux-x64.tar.gz
+<span class="token builtin class-name">cd</span> /opt <span class="token operator">&amp;&amp;</span> <span class="token function">tar</span> xf jdk-8u151-linux-x64.tar.gz <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span>
+<span class="token function">cat</span> <span class="token operator">>></span> /etc/profile <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+export JAVA_HOME=/opt/jdk1.8.0_151/
+export PATH=<span class="token variable">$JAVA_HOME</span>/bin:<span class="token environment constant">$PATH</span>
+export CLASSPATH=.:<span class="token variable">$JAVA_HOME</span>/lib/dt.jar:<span class="token variable">$JAVA_HOME</span>/lib/tools.jar
+
+EOF</span>
+<span class="token builtin class-name">source</span> /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="一些脚本"><a href="#一些脚本" class="headerlink" title="一些脚本"></a><font size=5><strong>一些脚本</strong></font></h1><h2 id="免交互生成密钥-amp-密钥分发"><a href="#免交互生成密钥-amp-密钥分发" class="headerlink" title="免交互生成密钥 &amp; 密钥分发"></a><font size=4><strong>免交互生成密钥 &amp; 密钥分发</strong></font></h2><p><strong><font color=red>此段主机ambari.hadoop.com</font></strong></p>
+<p><strong>一定要修改脚本,为自己可用</strong></font></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment"># 安装密钥生成工具和批量处理工具</span>
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> <span class="token function">expect</span> sshpass
+<span class="token comment"># 无交互生成密钥</span>
+spawn ssh-keygen
+<span class="token function">expect</span> <span class="token punctuation">&#123;</span>
+        <span class="token string">"*(~/.ssh/id_rsa)"</span> <span class="token punctuation">&#123;</span>send <span class="token string">"<span class="token entity" title="\r">\r</span>"</span><span class="token punctuation">;</span>exp_continue<span class="token punctuation">&#125;</span>
+        <span class="token string">"*(empty for no passphrase)"</span> <span class="token punctuation">&#123;</span>send <span class="token string">"<span class="token entity" title="\r">\r</span>"</span><span class="token punctuation">;</span>exp_continue<span class="token punctuation">&#125;</span>
+        <span class="token string">"*again"</span> <span class="token punctuation">&#123;</span>send <span class="token string">"<span class="token entity" title="\r">\r</span>"</span><span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">expect</span> eof
+<span class="token comment"># 批量分发</span>
+<span class="token comment">#for ip in $*</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">ip</span> <span class="token keyword">in</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">seq</span> <span class="token number">101</span> <span class="token number">111</span><span class="token variable">)</span></span>
+
+<span class="token keyword">do</span>
+  <span class="token function">ping</span> <span class="token number">192.168</span>.1.<span class="token variable">$ip</span> <span class="token parameter variable">-c1</span> <span class="token operator">&amp;></span>/dev/null 
+  <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> <span class="token parameter variable">-gt</span> <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"192.168.1.<span class="token variable">$ip</span>无法ping通请检查网络"</span> 
+    <span class="token builtin class-name">continue</span>
+  <span class="token keyword">fi</span>
+  sshpass <span class="token parameter variable">-p</span> <span class="token string">"pass@word1"</span> ssh-copy-id <span class="token parameter variable">-o</span> <span class="token assign-left variable">StrictHostKeyChecking</span><span class="token operator">=</span>no root@192.168.1.<span class="token variable">$ip</span> <span class="token operator">&amp;></span>/dev/null
+  <span class="token builtin class-name">echo</span> <span class="token string">"192.168.1.<span class="token variable">$ip</span> 密钥分发成功"</span>
+<span class="token keyword">done</span>
+
+<span class="token comment">################################</span>
+<span class="token comment">#1.使用ssh连接远程主机时加上"-o StrictHostKeyChecking=no"的选项，如下：（推荐！！！）</span>
+<span class="token comment">#做法是使用-o 这个参数，在ssh/scp里加上 -o "StrictHostKeyChecking no" 即可跳过这个yes/no询问，直接进入下一步，例：</span>
+<span class="token comment">#Use the -o option：</span>
+<span class="token comment">#scp -o "StrictHostKeyChecking no" 1.txt user@host:1.txt </span>
+<span class="token comment">#ssh -o "StrictHostKeyChecking no" user@host</span>
+<span class="token comment">#2.一个彻底去掉这个提示的方法是，修改当前主机/etc/ssh/ssh_config文件（或$HOME/.ssh/config）中的配置，添加如下两行配置：</span>
+<span class="token comment">#源为：StrictHostKeyChecking ask</span>
+<span class="token comment">#改为：StrictHostKeyChecking no</span>
+<span class="token comment">#################################</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment"># 执行bash 当前脚本 IP1 IP2 IP3...,输入的IP会传给$*</span>
+<span class="token assign-left variable">User</span><span class="token operator">=</span>root
+<span class="token assign-left variable">passWord</span><span class="token operator">=</span>pass@word1
+
+<span class="token keyword">for</span> <span class="token for-or-select variable">ip</span> <span class="token keyword">in</span> <span class="token variable">$*</span>
+<span class="token keyword">do</span>
+    <span class="token function">ping</span> <span class="token number">192.168</span>.1.<span class="token variable">$ip</span> <span class="token parameter variable">-c1</span> <span class="token operator">&amp;></span>/dev/null 
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> <span class="token parameter variable">-gt</span> <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+        <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$ip</span>无法ping通请检查网络"</span> 
+        <span class="token builtin class-name">continue</span>
+    <span class="token keyword">fi</span>
+<span class="token comment">#    sshpass -p "$passWord" ssh-copy-id -i ~/.ssh/id_dsa.pub "-o StrictHostKeyChecking=no $&#123;User&#125;@$ip" &amp;>/dev/null</span>
+<span class="token comment">#    echo "$ip 密钥分发成功"</span>
+     <span class="token builtin class-name">echo</span> <span class="token string">"192.168.1.<span class="token variable">$ip</span> ok"</span>
+<span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong><font color=red>此段结束</font></strong></p>
+<h2 id="安装系统-优化脚本"><a href="#安装系统-优化脚本" class="headerlink" title="安装系统,优化脚本"></a><font size=4><strong>安装系统,优化脚本</strong></font></h2><p><strong>一定要修改脚本,为自己可用</strong></p>
+<p>将脚本分发给所有主机并执行.</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token comment">#Yum源更换为国内阿里源</span>
+yum <span class="token function">install</span> <span class="token function">wget</span> telnet <span class="token parameter variable">-y</span>
+<span class="token builtin class-name">cd</span> /etc/yum.repos.d/
+<span class="token function">mkdir</span> repo_old
+<span class="token function">mv</span> *.repo repo_old/
+<span class="token function">wget</span> <span class="token parameter variable">-O</span> /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+
+<span class="token comment">#添加阿里的epel源</span>
+<span class="token function">wget</span> <span class="token parameter variable">-O</span> /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
+
+<span class="token comment">#添加ambari本地源</span>
+<span class="token function">cat</span> <span class="token operator">>></span> /etc/yum.repos.d/ambari.repo <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+[ambari]
+name=ambari
+baseurl=http://192.168.1.200/ambari/centos7/2.7.3.0-139/
+gpgcheck=0
+enabled=1
+
+[HDP]
+name=HDP
+baseurl=http://192.168.1.200/HDP/centos7/3.1.0.0-78/
+gpgcheck=0
+enabled=1
+
+[HDP-UTILS]
+name=HDP-UTILS
+baseurl=http://192.168.1.200/HDP-UTILS/centos7/1.1.0.22/
+gpgcheck=0
+enabled=1
+EOF</span>
+
+<span class="token comment">#修改hosts文件</span>
+<span class="token function">cat</span> <span class="token operator">>></span> /etc/hosts <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+192.168.1.101  master1.hadoop.com
+192.168.1.102  master2.hadoop.com
+192.168.1.103  master3.hadoop.com
+192.168.1.104  slave1.hadoop.com
+192.168.1.105  slave2.hadoop.com
+192.168.1.108  client.hadoop.com
+192.168.1.110  ambari.hadoop.com
+EOF</span>
+
+<span class="token comment">#yum重新建立缓存</span>
+yum clean all
+yum makecache
+<span class="token comment">#同步时间</span>
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> ntp
+/usr/sbin/ntpdate cn.pool.ntp.org
+<span class="token builtin class-name">echo</span> <span class="token string">"* 4 * * * /usr/sbin/ntpdate cn.pool.ntp.org > /dev/null 2>&amp;1"</span> <span class="token operator">>></span> /var/spool/cron/root
+systemctl  restart crond.service
+
+<span class="token comment">#安装vim</span>
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> <span class="token function">vim</span>
+
+<span class="token comment">#设置最大打开文件描述符数</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"ulimit -SHn 102400"</span> <span class="token operator">>></span> /etc/rc.local
+<span class="token function">cat</span> <span class="token operator">>></span> /etc/security/limits.conf <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+*           soft   nofile       655350
+*           hard   nofile       655350
+EOF</span>
+
+<span class="token comment">#禁用selinux &amp; firewalld</span>
+<span class="token function">sed</span> <span class="token parameter variable">-i</span> <span class="token string">'s/SELINUX=enforcing/SELINUX=disabled/'</span> /etc/selinux/config
+setenforce <span class="token number">0</span>
+
+systemctl disable firewalld.service 
+systemctl stop firewalld.service 
+
+<span class="token comment">#ssh设置</span>
+<span class="token comment">#sed -i 's/^GSSAPIAuthentication yes$/GSSAPIAuthentication no/' /etc/ssh/sshd_config</span>
+<span class="token comment">#sed -i 's/#UseDNS yes/UseDNS no/' /etc/ssh/sshd_config</span>
+<span class="token comment">#systemctl  restart sshd.service</span>
+
+<span class="token comment">#内核参数优化</span>
+<span class="token comment">#cat >> /etc/sysctl.conf &lt;&lt; EOF</span>
+<span class="token comment">#vm.overcommit_memory = 1</span>
+<span class="token comment">#net.ipv4.tcp_fin_timeout = 1</span>
+<span class="token comment">#net.ipv4.tcp_keepalive_time = 1200</span>
+<span class="token comment">#net.ipv4.tcp_mem = 94500000 915000000 927000000</span>
+<span class="token comment">#net.ipv4.tcp_tw_reuse = 1</span>
+<span class="token comment">#net.ipv4.tcp_tw_recycle = 1</span>
+<span class="token comment">#net.ipv4.tcp_timestamps = 0</span>
+<span class="token comment">#net.ipv4.tcp_synack_retries = 1</span>
+<span class="token comment">#net.ipv4.tcp_syn_retries = 1</span>
+<span class="token comment">#net.ipv4.tcp_abort_on_overflow = 0</span>
+<span class="token comment">#net.core.rmem_max = 16777216</span>
+<span class="token comment">#net.core.wmem_max = 16777216</span>
+<span class="token comment">#net.core.netdev_max_backlog = 262144</span>
+<span class="token comment">#net.ipv4.tcp_max_orphans = 3276800</span>
+<span class="token comment">#net.ipv4.tcp_max_syn_backlog = 262144</span>
+<span class="token comment">#net.core.wmem_default = 8388608</span>
+<span class="token comment">#net.core.rmem_default = 8388608</span>
+<span class="token comment">#EOF</span>
+<span class="token comment">#/sbin/sysctl -p</span>
+
+<span class="token comment"># jdk 配置</span>
+<span class="token function">wget</span> <span class="token parameter variable">-O</span> /opt/jdk-8u151-linux-x64.tar.gz http://192.168.1.200/jdk-8u151-linux-x64.tar.gz
+<span class="token builtin class-name">cd</span> /opt <span class="token operator">&amp;&amp;</span> <span class="token function">tar</span> xf jdk-8u151-linux-x64.tar.gz <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span>
+<span class="token function">cat</span> <span class="token operator">>></span> /etc/profile <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+export JAVA_HOME=/opt/jdk1.8.0_151/
+export PATH=<span class="token variable">$JAVA_HOME</span>/bin:<span class="token environment constant">$PATH</span>
+export CLASSPATH=.:<span class="token variable">$JAVA_HOME</span>/lib/dt.jar:<span class="token variable">$JAVA_HOME</span>/lib/tools.jar
+EOF</span>
+
+<span class="token comment">#vim定义退格键可删除最后一个字符类型</span>
+<span class="token builtin class-name">echo</span> <span class="token string">'alias vi=vim'</span> <span class="token operator">>></span> /etc/profile
+<span class="token builtin class-name">echo</span> <span class="token string">'stty erase ^H'</span> <span class="token operator">>></span> /etc/profile
+<span class="token function">cat</span> <span class="token operator">>></span> /root/.vimrc <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+set tabstop=4
+set shiftwidth=4
+set expandtab
+syntax on
+set number
+EOF</span>
+
+<span class="token comment">#update soft</span>
+<span class="token comment">#yum -y update</span>
+
+<span class="token function">reboot</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="ambari安装"><a href="#ambari安装" class="headerlink" title="ambari安装"></a><font size=5><strong>ambari安装</strong></font></h1><p><strong><font color=red>此段在ambari.hadoop.com</font></strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@ambari ~<span class="token punctuation">]</span><span class="token comment"># yum install ambari-server -y</span>
+<span class="token punctuation">[</span>root@ambari ~<span class="token punctuation">]</span><span class="token comment"># ambari-server setup</span>
+Using python  /usr/bin/python
+Setup ambari-server
+Checking SELinux<span class="token punctuation">..</span>.
+SELinux status is <span class="token string">'disabled'</span>
+Customize user account <span class="token keyword">for</span> ambari-server daemon <span class="token punctuation">[</span>y/n<span class="token punctuation">]</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span>? y
+Enter user account <span class="token keyword">for</span> ambari-server daemon <span class="token punctuation">(</span>root<span class="token punctuation">)</span>:root
+Adjusting ambari-server permissions and ownership<span class="token punctuation">..</span>.
+Checking firewall status<span class="token punctuation">..</span>.
+Checking JDK<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> Oracle JDK <span class="token number">1.8</span> + Java Cryptography Extension <span class="token punctuation">(</span>JCE<span class="token punctuation">)</span> Policy Files <span class="token number">8</span>
+<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> Custom JDK
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
+Enter choice <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>: <span class="token number">2</span>
+WARNING: JDK must be installed on all hosts and JAVA_HOME must be valid on all hosts.
+WARNING: JCE Policy files are required <span class="token keyword">for</span> configuring Kerberos security. If you plan to use Kerberos,please <span class="token function">make</span> sure JCE Unlimited Strength Jurisdiction Policy Files are valid on all hosts.
+Path to JAVA_HOME: /opt/jdk1.8.0_151/
+Validating JDK on Ambari Server<span class="token punctuation">..</span>.done.
+Check JDK version <span class="token keyword">for</span> Ambari Server<span class="token punctuation">..</span>.
+JDK version found: <span class="token number">8</span>
+Minimum JDK version is <span class="token number">8</span> <span class="token keyword">for</span> Ambari. Skipping to setup different JDK <span class="token keyword">for</span> Ambari Server.
+Checking GPL software agreement<span class="token punctuation">..</span>.
+GPL License <span class="token keyword">for</span> LZO: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
+Enable Ambari Server to download and <span class="token function">install</span> GPL Licensed LZO packages <span class="token punctuation">[</span>y/n<span class="token punctuation">]</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span>? 
+Completing setup<span class="token punctuation">..</span>.
+Configuring database<span class="token punctuation">..</span>.
+Enter advanced database configuration <span class="token punctuation">[</span>y/n<span class="token punctuation">]</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span>? 
+Configuring database<span class="token punctuation">..</span>.
+Default properties detected. Using built-in database.
+Configuring ambari database<span class="token punctuation">..</span>.
+Checking PostgreSQL<span class="token punctuation">..</span>.
+Running initdb: This may take up to a minute.
+Initializing database <span class="token punctuation">..</span>. OK
+
+About to start PostgreSQL
+Configuring <span class="token builtin class-name">local</span> database<span class="token punctuation">..</span>.
+Configuring PostgreSQL<span class="token punctuation">..</span>.
+Restarting PostgreSQL
+Creating schema and user<span class="token punctuation">..</span>.
+done.
+Creating tables<span class="token punctuation">..</span>.
+done.
+Extracting system views<span class="token punctuation">..</span>.
+ambari-admin-2.7.3.0.139.jar
+<span class="token punctuation">..</span><span class="token punctuation">..</span>
+Ambari repo <span class="token function">file</span> doesn<span class="token string">'t contain latest json url, skipping repoinfos modification
+Adjusting ambari-server permissions and ownership...
+Ambari Server '</span>setup' completed successfully.
+
+<span class="token punctuation">[</span>root@ambari ~<span class="token punctuation">]</span><span class="token comment"># ambari-server start</span>
+<span class="token comment"># 网页端访问ambari.hadoop.com:8080安装hadoop即可，下一篇介绍。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong><font color=red>此段结束</font></strong></p>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">168.6k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

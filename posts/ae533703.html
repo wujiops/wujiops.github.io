@@ -1,0 +1,1088 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="文件管理, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>文件管理 | 波亚斯</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/featureimages/4.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">文件管理</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/file/">
+                                <span class="chip bg-color">file</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-05-29
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.7k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="系统配额"><a href="#系统配额" class="headerlink" title="系统配额"></a>系统配额</h1><ol>
+<li>配额的作用：当Linux根分区的磁盘空间耗尽时，Linux系统将无法再建立新的文件（包括程序运行的临时文件），从而出现服务程序崩溃，系统无法启动等故障现象。</li>
+</ol>
+<p>为了避免在服务器中出现类似的磁盘空间不足的问题，可以设置启用磁盘配额功能，对用户在指定文件系统（分区）中使用的磁盘空间、文件数量进行限制，以防个别用户恶意或无意间占用大量磁盘空间。是为了存储空间的稳定性和可持续性。</p>
+<ol start="2">
+<li>配额系统综述：</li>
+</ol>
+<blockquote>
+<p>在内核中执行</p>
+</blockquote>
+<blockquote>
+<p>作用范围：以文件系统（分区）为单位启用</p>
+</blockquote>
+<blockquote>
+<p>限制对象：对不同组、用户限制</p>
+</blockquote>
+<blockquote>
+<p>限制类型：根据磁盘容量或者文件数量（配置文件中容量单位默认为K）</p>
+</blockquote>
+<blockquote>
+<p>限制方法：</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>软限制（soft）：指定一个软性的配额数值，在固定的宽限期内（默认7天），允许超过这个限制，但文件系统会给出警告信息。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>硬限制（hard）：指定一个硬性的配额数值，绝对禁止用户超过的限制值，当达到硬限制值时系统也会给出警告并禁止继续写入数据，硬限制的配额值应大于相应的软限制值，否则软限制将失效。</p>
+</blockquote>
+</blockquote>
+<p>综上，只有当用户或组、文件系统（分区）及配额数值都满足限额条件时，才会对操作进行限制。</p>
+<ol start="3">
+<li>配额管理：步骤：以支持配额功能的方式挂载文件系统→检测磁盘配额并生成配额文件→编辑用户和组行号的配额设置→开启文件系统配额功能→验证磁盘配额功能→查看配额使用情况。</li>
+</ol>
+<p>以支持配额功能的方式挂载</p>
+<p><code>mount -o usrquota,grpquota 设备分区名 挂载点</code></p>
+<p>以支持配额功能的方式重新挂载</p>
+<p><code>mount -o remount,usrquota,grpquota 设备分区名 挂载点</code></p>
+<p>开机自动挂载支持磁盘配额功能</p>
+<p><code>vim /etc/fstab</code></p>
+<p><code>设备分区名 挂载点 文件系统类型 usrquota,grpquota 0 0</code></p>
+<p>检测磁盘配额并生成配额文件</p>
+<p><code>quotacheck -augcv</code></p>
+<blockquote>
+<p>选项</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-a：检测所有分区（如不使用-a，则必须指定一个设备分区名或挂载点，作为命令参数）</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-u：检测用户配额信息</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-g：检测组配额信息</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-c：创建新的配额文件</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-v：显示命令执行过程</p>
+</blockquote>
+</blockquote>
+<p>设定配额：编辑用户和组的配额设置</p>
+<p><code>edquota -u 用户名</code></p>
+<p>（blocks设置soft 5文件大小软限制为5k，设置hard 9文件大小硬限制为9k；inodes设置soft 2文件数量软限制为2个，设置hard 5文件数量硬限制为5个）</p>
+<p><code>edquota -g 组名</code></p>
+<p>打开配额文件编辑</p>
+<pre class="line-numbers language-none"><code class="language-none">block soft hard inode soft hard
+        1   2           1   2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>释义：文件大小 软限制1K 硬限制2K 文件个数 软限制1个 硬限制2个</p>
+<p>修改宽限期</p>
+<p><code>edquota -t</code></p>
+<p>修改配置文件 <code>#days</code></p>
+<p>启动配额功能</p>
+<p><code>quotaon -u 设备分区名（挂载点）</code></p>
+<p><code>quotaon -g 设备分区名（挂载点）</code></p>
+<p><code>-v</code> 显示命令的执行过程</p>
+<p>关闭磁盘配额</p>
+<p><code>quotaoff -u/g -v 设备分区名（挂载点）</code></p>
+<p>查看配额状态</p>
+<p><code>quota -u 用户名</code></p>
+<p><code>quota -g 组名</code></p>
+<p>查看指定文件系统输出配额使用情况</p>
+<p><code>repquota 设备分区名</code></p>
+<p>查看所有可用分区的配额使用报告</p>
+<p><code>repquota -a</code> </p>
+<h1 id="软RAID设备"><a href="#软RAID设备" class="headerlink" title="软RAID设备"></a>软RAID设备</h1><p>RAID：磁盘阵列</p>
+<p>简单的说，RAID是把多块独立的物理硬盘组合起来，形成一个硬盘组即逻辑硬盘，从而提供比单个硬盘更高的存储性能和提供数据备份技术。</p>
+<p>组成磁盘阵列的不同方式称为RAID级别，根据不同级别，分别可以提供不同的速度、安全和性价比，根据实际情况选择适当的RAID级别可以满足用户对存储系统可用性能和容量的要求。</p>
+<h2 id="RAID实现方式："><a href="#RAID实现方式：" class="headerlink" title="RAID实现方式："></a>RAID实现方式：</h2><p>外接式磁盘阵列：通过扩展卡提供适配能力</p>
+<p>内接式RAID：主板集成RAID控制器；安装OS前在BIOS里配置</p>
+<p>软件RAID：通过OS实现</p>
+<p>RAID级别：0：条带卷 1：镜像卷 5、6、1 0、0 1、</p>
+<h3 id="RAID-0：条带卷"><a href="#RAID-0：条带卷" class="headerlink" title="RAID-0：条带卷"></a>RAID-0：条带卷</h3><p>数据分割之后并行存储</p>
+<p>读写性能提升</p>
+<p>可用空间N x min（N磁盘数量，min最小磁盘容量）</p>
+<p>无容错能力（损坏一块就不能用），适合对数据读写要求高，而对安全无要求的环境</p>
+<p>至少磁盘数：2</p>
+<h3 id="RAID-1：镜像卷"><a href="#RAID-1：镜像卷" class="headerlink" title="RAID-1：镜像卷"></a>RAID-1：镜像卷</h3><p>数据分割后，进行镜像备份存储</p>
+<p>读取性能提升，写入性能下降</p>
+<p>可用空间min</p>
+<p>有冗余能力（有一块磁盘完好就行），适合对安全要求高的环境</p>
+<p>至少磁盘数：2或2的倍数</p>
+<h3 id="RAID-5："><a href="#RAID-5：" class="headerlink" title="RAID-5："></a>RAID-5：</h3><p>3块以上的盘组成阵列，一个数据分成N-1份，同时生成一份校验数据，共N份数据在N块盘上循环均衡存储</p>
+<p>校验数据作用：在某一块盘损坏时，可以通过其它盘和校验数据，把数据内容算出来</p>
+<p>N块盘同时读写，由于校验机制，写性能相对不高，但综合性能很好</p>
+<p>可用空间N-1 x min</p>
+<p>有容错能力：允许坏一块，不影响数据</p>
+<p>最少磁盘数：3</p>
+<h3 id="RAID-6：（类似5）"><a href="#RAID-6：（类似5）" class="headerlink" title="RAID-6：（类似5）"></a>RAID-6：（类似5）</h3><p>由4块以上的盘组成阵列，数据分成N-2份，并生成2份独立的奇偶校验数据，N份数据在磁盘上循环均衡存储</p>
+<p>由于存在2个独立的奇偶校验数据，所以写入性能较差，但数据可靠性非常高</p>
+<p>有容错能力：最多允许坏2块盘</p>
+<p>最少磁盘数：4</p>
+<p>RAID-10：先进行RAID-1再进行RAID-0</p>
+<p>RAID-01：先进行RAID-0再进行RAID-1</p>
+<p>其它RAID-50等</p>
+<p>步骤：安装mdadm→准备用于RAID阵列的分区→创建RAID设备→在RAID设备中建立文件系统→挂载并使用文件系统</p>
+<p><code>fdisk /dev/sd*</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mdadm</span> <span class="token punctuation">[</span>模式<span class="token punctuation">]</span> <span class="token operator">&lt;</span>设备名称<span class="token operator">></span> <span class="token punctuation">[</span>选项<span class="token punctuation">]</span> <span class="token operator">&lt;</span>磁盘分区<span class="token operator">></span>
+
+模式：
+
+-C：创建
+
+    <span class="token parameter variable">-n</span> <span class="token comment">#：使用#块设备创建此RAID</span>
+
+    <span class="token parameter variable">-l</span> <span class="token comment">#：指明要创建的RAID级别</span>
+
+    <span class="token parameter variable">-a</span> yes：自动创建目标RAID设备文件
+
+    <span class="token parameter variable">-c</span> <span class="token comment">#[KMG]：指明块大小</span>
+
+    <span class="token parameter variable">-x</span> <span class="token comment">#：指明空闲盘的个数</span>
+
+-A：装配、激活
+
+    -s：扫描设备信息
+
+-D（--detail）：显示RAID的详细信息
+
+<span class="token function">mdadm</span> <span class="token parameter variable">-D</span> /dev/md<span class="token comment">#</span>
+
+管理模式：
+
+    -f：标记指定磁盘为损坏
+
+    -a：添加磁盘
+
+    -r：移除磁盘
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>观察md的状态：</p>
+<p><code>cat /proc/mdstat</code></p>
+<p>创建RAID设备：</p>
+<p><code>mdadm -C /dev/md0 -a yes -l 5 -n 3 -x 1 /dev/sdb&#123;1,2,3,4&#125;</code></p>
+<p>在RAID中建立文件系统：</p>
+<p><code>mkfs.ext4 /dev/md0</code></p>
+<p>挂载使用</p>
+<p><code>mount /dev/md0 /testdir</code></p>
+<p>生成RAID配置文件：<code>/etc/mdadm.conf</code>（默认不存在）</p>
+<p>执行<code>mdadm -D -s &gt;&gt; /etc/mdadm.conf</code></p>
+<p><code>vim /etc/mdadm.conf</code></p>
+<p>修改其内容：在最上面添加一行：<code>DEVICE /dev/sd*</code> ；第二行删除<code>metadata=…</code>,<code>name=…</code>两项；保存退出</p>
+<p>检测配置文件是否有语法错误：</p>
+<p>使用启动/停止服务的方式：</p>
+<p>&emsp;&emsp;停服务：<code>mdadm -S /dev/md0</code></p>
+<p>&emsp;&emsp;激活/启动：<code>mdadm -As /dev/md0</code></p>
+<p>&emsp;&emsp;强制启动：<code>mdadm -R /dev/md0</code></p>
+<p>查看<code>df -hT</code></p>
+<p>自动挂载：添加到<code>/etc/fstab</code>文件中去</p>
+<p>模拟磁盘故障</p>
+<p><code>mdadm /dev/md0 -f /dev/sdb1</code></p>
+<p>移除磁盘</p>
+<p><code>mdadm /dev/md0 -r /dev/sdb1</code></p>
+<p>添加新成员</p>
+<p><code>mdadm -G /dev/md0 -n 4 -a /dev/sdb1</code></p>
+<p>从软件RAID磁盘修复磁盘故障：</p>
+<p>替换出故障的磁盘然后开机；在备用驱动器上重建分区；</p>
+<p><code>mdadm /dev/md0 -a /dev/sdb1</code></p>
+<p>查看状态：</p>
+<p><code>mdadm --query或cat /proc/mdstat</code></p>
+<p>删除RAID信息：<code>mdadm --zero-superblock /dev/sdb1</code></p>
+<h1 id="LVM逻辑卷"><a href="#LVM逻辑卷" class="headerlink" title="LVM逻辑卷"></a>LVM逻辑卷</h1><p>允许对卷进行方便操作的抽象层，包括重新设定文件系统的大小，允许在多个物理设备间重新组织文件系统</p>
+<p>将设备指定为物理卷PV</p>
+<p>用一个或多个物理卷来创建一个卷组VG</p>
+<p>物理卷是用固定大小的物理区域PE来定义的</p>
+<p>在物理卷上利用物理区域创建逻辑卷LV</p>
+<p>可以在逻辑卷上创建文件系统</p>
+<p>LVM介绍：LVM：逻辑卷管理器；设备名：<code>/dev/dm-#</code></p>
+<p>LVM可以弹性的更改LVM的容量：通过交换PE来进行资料的转换，将原来LV内的PE转移到其他的设备中以LV的容量，或将其他设备中的PE加到LV中以加大容量</p>
+<table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">物理卷管理PV</th>
+<th align="left">卷管理VG</th>
+<th align="left">逻辑卷管理LV</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">scan 扫描</td>
+<td align="left">pvscan</td>
+<td align="left">vgscan</td>
+<td align="left">lvscan</td>
+</tr>
+<tr>
+<td align="left">create 建立</td>
+<td align="left">pvcreate</td>
+<td align="left">vgcreate</td>
+<td align="left">lvcreate</td>
+</tr>
+<tr>
+<td align="left">display 显示</td>
+<td align="left">pvdisplay</td>
+<td align="left">vgdisplay</td>
+<td align="left">lvdisplay</td>
+</tr>
+<tr>
+<td align="left">remove 删除</td>
+<td align="left">pvremove</td>
+<td align="left">vgremove</td>
+<td align="left">lvremove</td>
+</tr>
+<tr>
+<td align="left">reduce 缩减</td>
+<td align="left">-</td>
+<td align="left">vgreduce</td>
+<td align="left">lvreduce</td>
+</tr>
+<tr>
+<td align="left">extend 扩展</td>
+<td align="left">-</td>
+<td align="left">vgextend</td>
+<td align="left">lvestend</td>
+</tr>
+</tbody></table>
+<h2 id="PV管理工具："><a href="#PV管理工具：" class="headerlink" title="PV管理工具："></a>PV管理工具：</h2><p>PV：物理卷：整个硬盘，或使用fdisk工具建立的普通分区（8e），包括许多默认的4MB大小的PE单元</p>
+<p>创建PV物理卷</p>
+<p><code>pvcreate /dev/sdb&#123;1,2,3&#125;</code></p>
+<p>pvs：显示简要pv信息（pvdisplay显示的更详细）</p>
+<h2 id="VG管理工具"><a href="#VG管理工具" class="headerlink" title="VG管理工具"></a>VG管理工具</h2><p>VG：卷组：一个或多个物理卷组合而成的整体（相当于逻辑上的一个硬盘）</p>
+<p>创建卷组（-s指定PE大小8M）</p>
+<p><code>vgcreate -s 8m vg名 pv名</code></p>
+<p>vgs：显示简要vg信息（vgdisplay显示的更详细）</p>
+<p><code>vgextend vg名 pv名（扩容vg）</code></p>
+<p><code>vgreduce vg名 pv名（减容vg）</code></p>
+<p><code>vgremove /dev/vg名（删除vg）</code>，先做<code>pvmove /dev/pv1 /dev/pv2</code>（将pv1中的内容移动到pv2中），不需要保留数据则不做pvmove</p>
+<h2 id="LV管理工具"><a href="#LV管理工具" class="headerlink" title="LV管理工具"></a>LV管理工具</h2><p>LV：逻辑卷：从卷组中割出的一块空间，可以格式化挂载使用</p>
+<p>创建逻辑卷</p>
+<p><code>lvcreate -L 5G -n lv名 vg名</code>（-L指定lv大小5g）</p>
+<p>lvs：显示lv简要信息（lvdisplay显示的更详细）</p>
+<h3 id="扩展逻辑卷LV"><a href="#扩展逻辑卷LV" class="headerlink" title="扩展逻辑卷LV"></a>扩展逻辑卷LV</h3><p><code>lvextend -L 7G /dev/vg名/lv名</code>（扩展逻辑卷到7G），</p>
+<p>执行<code>resize2fs /dev/vg名/lv名</code>，让文件系统<code>df -h</code>识别扩展后的逻辑卷大小</p>
+<h3 id="缩减逻辑卷"><a href="#缩减逻辑卷" class="headerlink" title="缩减逻辑卷"></a>缩减逻辑卷</h3><p><code>umount /dev/vg名/lv名</code>：卸载</p>
+<p><code>e2fsck -f /dev/vg名/lv名</code>：磁盘检查</p>
+<p><code>resize2fs /dev/vg名/lv名 3G</code>：指定缩减后的逻辑卷大小为3G（将分散的数据整理到要保留的3G逻辑卷空间里）</p>
+<p><code>lvreduce -L 3G /dev/vg名/lv名</code>：缩减逻辑卷为3G</p>
+<p><code>mount /dev/vg名/lv名 /原挂载点</code>（由于执行<code>resize2fs</code>命令，所以原挂载的内容会被保留，原挂载点数据&lt;3G）</p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="../linux-command-1.16.0/edquota">磁盘配额edquota</a><br><a href="../linux-command-1.16.0/quota">磁盘配额quota</a><br><a href="../linux-command-1.16.0/fdisk">磁盘分区fdisk</a><br><a href="../linux-command-1.16.0/parted">磁盘分区parted</a><br><a href="../linux-command-1.16.0/partprobe">重载分区</a></p>
+<table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">物理卷管理PV</th>
+<th align="left">卷管理VG</th>
+<th align="left">逻辑卷管理LV</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">scan 扫描</td>
+<td align="left"><a href="../linux-command-1.16.0/pvscan">pvscan</a></td>
+<td align="left"><a href="../linux-command-1.16.0/vgscan">vgscan</a></td>
+<td align="left"><a href="../linux-command-1.16.0/lvscan">lvscan</a></td>
+</tr>
+<tr>
+<td align="left">create 建立</td>
+<td align="left"><a href="../linux-command-1.16.0/pvcreate">pvcreate</a></td>
+<td align="left"><a href="../linux-command-1.16.0/vgcreate">vgcreate</a></td>
+<td align="left"><a href="../linux-command-1.16.0/lvcreate">lvcreate</a></td>
+</tr>
+<tr>
+<td align="left">display 显示</td>
+<td align="left"><a href="../linux-command-1.16.0/pvdisplay">pvdisplay</a></td>
+<td align="left"><a href="../linux-command-1.16.0/vgdisplay">vgdisplay</a></td>
+<td align="left"><a href="../linux-command-1.16.0/lvdisplay">lvdisplay</a></td>
+</tr>
+<tr>
+<td align="left">remove 删除</td>
+<td align="left"><a href="../linux-command-1.16.0/pvremove">pvremove</a></td>
+<td align="left"><a href="../linux-command-1.16.0/vgremove">vgremove</a></td>
+<td align="left"><a href="../linux-command-1.16.0/lvremove">lvremove</a></td>
+</tr>
+<tr>
+<td align="left">reduce 缩减</td>
+<td align="left">-</td>
+<td align="left"><a href="../linux-command-1.16.0/vgreduce">vgreduce</a></td>
+<td align="left"><a href="../linux-command-1.16.0/lvreduce">lvreduce</a></td>
+</tr>
+<tr>
+<td align="left">extend 扩展</td>
+<td align="left">-</td>
+<td align="left"><a href="../linux-command-1.16.0/vgextend">vgextend</a></td>
+<td align="left"><a href="../linux-command-1.16.0/lvestend">lvestend</a></td>
+</tr>
+</tbody></table>
+<p><a href="../linux-command-1.16.0/pvck">pvck检查</a><br><a href="../linux-command-1.16.0/pvchange">pvchange分配</a><br><a href="../linux-command-1.16.0/pvs">pvs物理卷概要</a><br><a href="../linux-command-1.16.0/lvresize">lvresize改变逻辑卷大小</a><br><a href="../linux-command-1.16.0/vgchange">vgchange修改卷组状态</a><br><a href="../linux-command-1.16.0/vgconvert">vgconvert转换卷组格式</a><br><a href="../linux-command-1.16.0/vgrename">vgrename重命名卷组</a></p>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">168.6k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

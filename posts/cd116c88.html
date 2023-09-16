@@ -1,0 +1,958 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="DHCP, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>DHCP | 波亚斯</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/featureimages/18.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">DHCP</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/dhcp/">
+                                <span class="chip bg-color">dhcp</span>
+                            </a>
+                        
+                            <a href="/tags/route/">
+                                <span class="chip bg-color">route</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-07-01
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.4k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="理解DHCP原理"><a href="#理解DHCP原理" class="headerlink" title="理解DHCP原理"></a>理解DHCP原理</h1><p>DHCP（动态主机配置协议）是由Internet工作任务小组设计开发的，专门用于为TCP/IP网络中的计算机在自动分配TCP/IP参数的协议</p>
+<p>简单来说，DHCP就是一个不需要账号密码登录的、自动给内网机器分配IP地址等信息的协议</p>
+<p>使用DHCP的好处：</p>
+<ol>
+<li><p>减少管理员的工作量</p>
+</li>
+<li><p>避免ip地址冲突</p>
+</li>
+<li><p>当网络更改ip地址段时，不需要再重新配置每个用户的ip地址</p>
+</li>
+<li><p>提高了ip地址的利用率</p>
+</li>
+<li><p>方便客户端的配置</p>
+</li>
+</ol>
+<p>可分配的地址信息主要包括：</p>
+<blockquote>
+<p>网卡的IP地址、子网掩码</p>
+</blockquote>
+<blockquote>
+<p>对应的网络地址、广播地址</p>
+</blockquote>
+<blockquote>
+<p>默认网关地址</p>
+</blockquote>
+<blockquote>
+<p>DNS服务器地址</p>
+</blockquote>
+<p>DHCP服务的端口：UDP的67、68</p>
+<h2 id="DHCP的分配方式："><a href="#DHCP的分配方式：" class="headerlink" title="DHCP的分配方式："></a>DHCP的分配方式：</h2><p>自动分配：分配到一个ip地址后永久使用</p>
+<p>手动分配：由DHCP服务器管理员专门指定ip地址</p>
+<p>动态分配：使用完后释放该ip，供其它客户机使用</p>
+<h2 id="DHCP的租约过程"><a href="#DHCP的租约过程" class="headerlink" title="DHCP的租约过程"></a>DHCP的租约过程</h2><p>客户机从DHCP服务器获得ip地址的过程称为DHCP的租约过程</p>
+<p>租约过程分为四个步骤：</p>
+<ol>
+<li>客户机请求ip（客户机发DHCP Discover）（四步均为广播发送）</li>
+</ol>
+<p>客户端在网络中搜索服务器</p>
+<ol start="2">
+<li>服务器响应（服务器发DHCP Offer）</li>
+</ol>
+<p>服务器向客户端响应服务</p>
+<ol start="3">
+<li>客户机选择ip（客户机发DHCP Request）</li>
+</ol>
+<p>客户端向目标服务器发送服务请求</p>
+<ol start="4">
+<li>服务器确定租约（服务器发DHCP ACK广播包）</li>
+</ol>
+<p>服务器向客户端提供服务</p>
+<hr>
+<ol>
+<li>客户机请求ip地址</li>
+</ol>
+<p>当一个DHCP客户机启动时，客户机还没有ip地址，所以客户机要通过DHCP获取一个合法的地址</p>
+<p>此时，DHCP客户机以广播的方式（原因是DHCP服务器的ip地址对客户机来说是未知的），通过UDP的67端口发送DHCP Discover发现信息来寻找DHCP服务器，广播信息中包含DHCP客户机的MAC地址和计算机名，以便DHCP服务器确定哪个客户机发送的请求</p>
+<p><img src="/medias/img/dhcp/0.png">            </p>
+<ol start="2">
+<li>服务器响应</li>
+</ol>
+<p>当DHCP服务器接收到来自客户机请求ip地址的信息时，它就在自己的ip地址池中查找是否有合法的ip地址提供给客户机，如果有，DHCP服务器就将此ip地址做上标记，加入到DHCP Offer的消息中，然后DHCP服务器就通过UDP的68端口广播一则包含下列信息的DHCP Offer消息</p>
+<p>DHCP客户机的MAC地址、DHCP服务器提供的合法ip地址、子网掩码、默认网关、租约的期限、DHCP服务器的ip地址</p>
+<p><img src="/medias/img/dhcp/1.png">            </p>
+<ol start="3">
+<li>客户机选择ip地址</li>
+</ol>
+<p>DHCP客户机从接收到的第一个DHCP Offer消息中提取ip地址，发出ip地址的DHCP服务器将该地址保留，这样该地址就不能再分配给其它客户机</p>
+<p>客户机从第一个DHCP服务器接收DHCP Offer消息并提取了ip地址后，客户机将DHCP Request消息广播到所有的DHCP服务器，表明它接收提供的内容</p>
+<p>DHCP Request消息包括为客户机提供ip配置的服务器的服务标识（服务器ip地址）DHCP服务器查看服务器标识字段，以确定提供的ip地址是否被接收，如果DHCP Offer被拒绝，则DHCP服务取消并保留其ip地址以提供给下一个客户机的租约请求</p>
+<p><img src="/medias/img/dhcp/2.png">            </p>
+<ol start="4">
+<li>服务器确定租约</li>
+</ol>
+<p>DHCP服务器接收到DHCP Request消息后，以DHCP Ack消息的形式向客户机广播成功确认，该消息包含有ip地址的有效租约和其它可配置的信息</p>
+<p>当客户机收到DHCP Ack消息时，它就配置了ip地址，完成TCP/IP的初始化</p>
+<p><img src="/medias/img/dhcp/3.png"></p>
+<h2 id="重新登录"><a href="#重新登录" class="headerlink" title="重新登录"></a>重新登录</h2><h3 id="可以继续使用："><a href="#可以继续使用：" class="headerlink" title="可以继续使用："></a>可以继续使用：</h3><p>DHCP客户机每次重新登录网络时，不需要再发送DHCP Discover消息，而是直接发送包含前一次所分配的ip地址的DHCP Request请求信息</p>
+<p>当DHCP服务器接收到这一信息后，它会尝试让DHCP客户机继续使用原来的ip地址，并回答一个DHCP Ack确认信息</p>
+<h3 id="不可继续使用："><a href="#不可继续使用：" class="headerlink" title="不可继续使用："></a>不可继续使用：</h3><p>如果此ip地址无法再分配给原来的DHCP客户机使用（如，ip地址已经分配给其它的DHCP客户机使用），DHCP服务器给DHCP客户机回答一个DHCP Noack否认信息</p>
+<p>当原来的DHCP客户机收到此DHCP Noack否认信息后，它就必须重新发送DHCP Discover发现信息来请求新的ip地址</p>
+<h3 id="更新租约："><a href="#更新租约：" class="headerlink" title="更新租约："></a>更新租约：</h3><p>当DHCP服务器向客户机出租的ip地址租期达到50%时，就需要更新地址租约，当租约时间达到87.5%时还没能找到DHCP服务器更新新租约，客户机就需要重新发送DHCP Discover包</p>
+<p>如果客户端发送Discover包后，没有DHCP回应，客户端会启用一个169.254.0.0/16的B类地址作为临时通讯地址</p>
+<h1 id="配置DHCP服务"><a href="#配置DHCP服务" class="headerlink" title="配置DHCP服务"></a>配置DHCP服务</h1><h2 id="DHCP配置与使用"><a href="#DHCP配置与使用" class="headerlink" title="DHCP配置与使用"></a>DHCP配置与使用</h2><p>关闭虚拟机DHCP服务（任务管理器—-&gt;服务）</p>
+<p><img src="/medias/img/dhcp/4.png"></p>
+<h3 id="DHCP服务器的配置"><a href="#DHCP服务器的配置" class="headerlink" title="DHCP服务器的配置"></a>DHCP服务器的配置</h3><p>安装DHCP包：<code>dhcp</code>（yum安装即可）</p>
+<p>主配置文件：</p>
+<p><code>/etc/dhcp/dhcpd.conf</code></p>
+<p><img src="/medias/img/dhcp/5.png">  </p>
+<p>默认此文件中没有配置内容，只有提示，需要到<code>/usr/share/doc/dhcp-版本/dhcpd.conf.sample</code>文件复制 </p>
+<h3 id="执行程序："><a href="#执行程序：" class="headerlink" title="执行程序："></a>执行程序：</h3><p>主程序：<code>/usr/sbin/dhcp/dhcpd</code></p>
+<p>服务脚本：<code>/etc/init.d/dhcpd</code></p>
+<p>指定配置参数：<code>/etc/sysconfig/dhcpd</code>（dhcp启动时要读取的参数）</p>
+<p>中继主程序：<code>dhcrelay</code></p>
+<p>中继服务脚本：<code>/etc/init.d/dhcrelay</code></p>
+<p>DHCP中继配置：<code>/etc/sysconfig/dhcrelay</code></p>
+<p><img src="/medias/img/dhcp/6.png"></p>
+<p>声明：用来描述dhcpd服务器中对网络布局的划分，其中subnet声明用来约束一个网段，host声明用来约束一台特定的主机</p>
+<p>参数：由配置关键字和对应的值组成，总是以 ；结束，一般位于指定的声明范围之内，用来设置所在范围的运行特性（如，默认租约时间、最大租约时间等）</p>
+<p>选项：由option引导，后面跟具体的配置关键字和对应的值，也是以分号 ；结束，用于指定分配给客户机的各种地址参数（如，默认网关地址、子网掩码、DNS服务器地址等）</p>
+<p>确定DHCP服务的全局配置，作用与整个DHCP服务器，为了使配置文件的结果更加清晰，全局配置通常会放在配置文件dhcpd.conf的开头部分，可以是配置参数，也可以是配置选项</p>
+<h3 id="subnet网段声明"><a href="#subnet网段声明" class="headerlink" title="subnet网段声明"></a>subnet网段声明</h3><p>作用于整个子网段（subnet必须要有，且可有多个）</p>
+<pre class="line-numbers language-conf" data-language="conf"><code class="language-conf">subnet 192.168.0.0 netmask 255.255.255.0 &#123;   # 声明网段地址
+    range 192.168.0.10 192.168.0.100;   # 设置地址池
+    option subnet-mask 255.255.255.0;   # 设置子网掩码
+    option routers 192.168.0.1;   # 指定默认网关
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="host主机声明"><a href="#host主机声明" class="headerlink" title="host主机声明"></a>host主机声明</h3><p>作用于单个主机（为个别服务器分配固定的ip地址）</p>
+<pre class="line-numbers language-conf" data-language="conf"><code class="language-conf">host test&#123;
+
+    hardware ethernet 00:00:00:00:00:00;   # 指定mac地址
+    fixed-address 192.168.0.45;   # 指定ip地址
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>启动DHCP服务</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">service</span> dhcpd start
+<span class="token function">netstat</span> -anpu<span class="token operator">|</span><span class="token function">grep</span> <span class="token string">":67"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>启动失败，查看/var/log/messages中的报错信息，根据提示进行排错。</p>
+<p>注意：在启动dhcpd服务之前，应确定提供DHCP服务器的网络接口具有静态指定的固定ip地址，并至少有一个网络接口的ip地址与DHCP服务器中的一个subnet网段相对应，否则将无法正常启动dhcpd服务</p>
+<h3 id="DHCP客户端获取IP："><a href="#DHCP客户端获取IP：" class="headerlink" title="DHCP客户端获取IP："></a>DHCP客户端获取IP：</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">service</span> network restart
+dhclient <span class="token parameter variable">-d</span> eth0   <span class="token comment"># dhclient -r 释放获取的ip地址</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><code>/var/lib/dhcpd/dhcpd.leases</code>中记录了服务器的ip地址分配情况</p>
+<h1 id="配置DHCP中继"><a href="#配置DHCP中继" class="headerlink" title="配置DHCP中继"></a>配置DHCP中继</h1><p>在实际应用中可能会遇到一个比较大的物理网络中存在多个ip子网，而每个ip子网的主机都需要DHCP服务器来动态分配ip地址：</p>
+<ol>
+<li><p>在每个子网设置DHCP服务器，将其分别为每个子网分配ip地址，但此方法会增加开销，浪费资源</p>
+</li>
+<li><p>在一个子网内设置DHCP服务器，通过这台DHCP服务器来为所有的子网分配ip地址</p>
+</li>
+</ol>
+<h2 id="DHCP中继配置"><a href="#DHCP中继配置" class="headerlink" title="DHCP中继配置"></a>DHCP中继配置</h2><p>中继主程序：<code>dhcrelay</code></p>
+<p>中继服务脚本：<code>/etc/init.d/dhcrelay</code></p>
+<p>DHCP中继配置文件：<code>/etc/sysconfig/dhcrelay</code></p>
+<ol>
+<li>开启路由转发功能</li>
+</ol>
+<p>永久启用：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/sysctl.conf
+<span class="token assign-left variable">net.ipv4.ip_forword</span><span class="token operator">=</span><span class="token number">1</span>   <span class="token comment"># 修改</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><code>sysctl -p</code> 让配置文件生效</p>
+<ol start="2">
+<li>指定dhcpserver及监听的网卡到配置文件</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/sysconfig/dhcrelay
+
+<span class="token assign-left variable">INTERFACES</span><span class="token operator">=</span><span class="token string">"eth0 eth1 eth2…"</span>   <span class="token comment"># 监听的网卡</span>
+
+<span class="token assign-left variable">DHCPSERVERS</span><span class="token operator">=</span><span class="token string">"192.168.0.10"</span>   <span class="token comment"># dhcp服务器ip</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="3">
+<li>启动中继服务</li>
+</ol>
+<p><code>service dhcrelay restart</code></p>
+<p>添加路由：</p>
+<p>dhcp服务器中添加默认路由指定中继ip</p>
+<p>dhcp客户机中添加默认路由指定中继ip</p>
+<p>示例：</p>
+<p>DHCP服务器端</p>
+<p>关闭SELinux和iptables</p>
+<p><img src="/medias/img/dhcp/7.png"></p>
+<p>安装<code>dhcp</code></p>
+<p>配置<code>/etc/dhcp/dhcpd.conf</code>（subnet 对全局生效）</p>
+<p><img src="/medias/img/dhcp/8.png"></p>
+<p>如果host中有指定ip则subnet对此host不生效</p>
+<p><img src="/medias/img/dhcp/9.png"></p>
+<p>客户端：</p>
+<p><code>dhclient -d eth#</code> 获取动态ip</p>
+<p>带中继：</p>
+<p>HDCP服务器增加</p>
+<p><img src="/medias/img/dhcp/10.png"></p>
+<p>配置中继服务器：</p>
+<p>配置<code>/etc/sysctl.conf</code></p>
+<p><img src="/medias/img/dhcp/11.png"></p>
+<p>生效<code>sysctl -p</code></p>
+<p><img src="/medias/img/dhcp/12.png"></p>
+<p>配置/etc/sysconfig/dhcrelay</p>
+<p><img src="/medias/img/dhcp/13.png"></p>
+<p>启动中继服务：</p>
+<p><code>service dhcrelay restart</code></p>
+<p>在dhcp服务器中添加默认路由下一跳为中继ip（和dhcp服务器同网段）</p>
+<p>在dhcp客户端中添加默认路由下一跳为中继ip（和dhcp服务器分配的网段一致）</p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="../linux-command-1.16.0/dhcpd">DHCP补充</a><br><a href="../linux-command-1.16.0/route">ROUTE</a><br><a href="../linux-command-1.16.0/dhcrelay">dhcrelay</a><br><a href="../linux-command-1.16.0/traceroute">traceroute</a></p>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">168.6k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

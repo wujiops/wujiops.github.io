@@ -1,0 +1,973 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="SSH, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>SSH | 波亚斯</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/featureimages/10.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">SSH</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ssh/">
+                                <span class="chip bg-color">ssh</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-05-30
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.3k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="ssh服务讲解"><a href="#ssh服务讲解" class="headerlink" title="ssh服务讲解"></a>ssh服务讲解</h1><p>SSH简介：</p>
+<p>SSH是一种安全通道协议，主要用来实现字符界面的远程登录，远程复制等功能</p>
+<p>ssh协议对通信双方的数据传输进行了加密处理，其中包括用户登录时输入的用户口令</p>
+<p>与telnet等应用相比，ssh协议提供了更好的安全性</p>
+<p>OpenSSH：ssh协议的开源实现</p>
+<p>配置openssh服务器端：</p>
+<p>ssh服务是”C/S”架构的，C代表客户端，S代表服务器端</p>
+<p>在安装Linux系统时openssh服务默认已经安装</p>
+<p>ssh服务及配置文件：</p>
+<p>openssh-server：服务器端软件</p>
+<p>openssh-clients：客户端软件</p>
+<p>要保证这两个包都安装才行</p>
+<p>启动：service sshd start</p>
+<p>配置文件：</p>
+<p>/etc/ssh/sshd_config</p>
+<p>配置项：</p>
+<p>Port 22：port代表监听的端口，默认22，可修改</p>
+<p>ListenAddress 0.0.0.0：监听的IP地址，默认为所有，可修改</p>
+<p>Protocol 2：代表的ssh的第二个版本</p>
+<p>LoginGraceTime 2m：输入用户名后，2分钟不输入密码自动关闭</p>
+<p>PermitRootLogin yes：是否允许root登录</p>
+<p>MaxAuthTries 6：最大的认证次数，即输入密码次数</p>
+<p>RSAAuthentication yes：启用RSA算法认证</p>
+<p>PubkeyAuthentication yes：启用公钥认证</p>
+<p>AuthorizedkeysFile：~/.ssh/authorized_keys公钥放置位置，在对应用户的家目录下面的.ssh隐藏目录中，名字为authorized_keys文件</p>
+<p>PasswordAuthentication yes：密码认证</p>
+<p>PermitEmptyPasswords no：是否允许空密码登录</p>
+<p>限制可登录用户的配置：（allow白名单，deny黑名单）</p>
+<p>AllowUsers user1 user2 user3…</p>
+<p>DenyUsers</p>
+<p>AllowGroups</p>
+<p>DenyGroups</p>
+<p>登录验证方法：</p>
+<p>ssh服务支持两种验证方式：密码验证、密钥对验证，可以只设置其中一种方式，也可以两种方式都启用</p>
+<p>密码验证：以服务器中本地系统用户的远程登录名称、密码进行验证，这种方式使用最为简便，但以客户机角度来看，正在连接的服务器有可能被假冒，从服务器角度来看，当遇到密码穷举（即暴力破解）攻击时，防御力能力比较弱</p>
+<p>密钥对验证：要求提供相匹配的密钥信息才能通过验证</p>
+<p>使用ssh客户端程序</p>
+<p>客户端组件：</p>
+<p>命令程序：ssh、scp、sftp</p>
+<p>图形工具：Xshell</p>
+<p>ssh远程登录命令</p>
+<p>格式：<code>ssh [user@]host [command]</code></p>
+<p><code>-p port</code>：远程服务器监听的端口</p>
+<p>例如：<code>ssh test@192.168.0.10</code></p>
+<p>使用test用户登录192.168.0.10这台服务器，注意：test用户是192.168.0.10这台服务器上的用户</p>
+<p>scp命令：</p>
+<p>scp [options] SRC… DEST/</p>
+<p>两种方式：</p>
+<p><code>scp [options] [user@]host:/sourcefile /testdir</code></p>
+<p><code>scp [options] /sourcefile [user@]host:/testpath</code></p>
+<p>常用选项：</p>
+<p><code>-C</code>：压缩数据流</p>
+<p><code>-r</code>：递归复制</p>
+<p><code>-p</code>：保持原文件的修改时间、访问时间、权限</p>
+<p><code>-P PORT</code>：指明远程主机监听的端口</p>
+<h1 id="远程复制工具"><a href="#远程复制工具" class="headerlink" title="远程复制工具"></a>远程复制工具</h1><p>rsync命令：</p>
+<p>基于ssh和rsh服务实现高效率的远程系统之间复制文件</p>
+<p>使用安全的shell连接做为传输方式</p>
+<p><code>rsync -av /etc/passwd server1:/tmp</code>复制目录和目录下文件</p>
+<p><code>rsync -av /etc/ server1:/tmp</code>只复制目录下文件</p>
+<p>比scp更快，只复制不同的文件</p>
+<p>选项：</p>
+<p><code>-n</code>模拟复制过程</p>
+<p><code>-v</code>显示过程</p>
+<p><code>-r</code>递归复制目录树</p>
+<p><code>-p</code>保留权限</p>
+<p><code>-t</code>保留时间戳</p>
+<p><code>-g</code>保留组信息</p>
+<p><code>-o</code>保留所有者信息</p>
+<p>ssh客户端：</p>
+<p>允许实现对远程系统经验证地加密安全访问</p>
+<p>当用户远程连接ssh服务器时会复制ssh服务器<code>/etc/ssh/ssh_host*key.pub</code>文件中的公钥到客户机的<code>~./ssh/know_hosts</code>中，下次连接时，会比较两处是否有不同</p>
+<h1 id="基于key认证"><a href="#基于key认证" class="headerlink" title="基于key认证"></a>基于key认证</h1><p>基于key认证：</p>
+<p>在服务器、客户端中构建密钥对验证ssh的基本过程</p>
+<p>第一步：创建密钥对：</p>
+<p>公钥文件：id_rsa.pub</p>
+<p>私钥文件：id_rsa</p>
+<p>第二步：上传公钥文件id_rsa.pub到服务器中</p>
+<p>第三步：导入公钥信息</p>
+<p>公钥库文件：~/.ssh/authorized_key（此文件的权限必须为600）</p>
+<p>第四步：使用密钥对方式验证</p>
+<p>具体实现两种方式：</p>
+<p>第一种方式（较复杂）：</p>
+<p>使用<code>user</code>用户连接<code>ssh</code>服务器的<code>user1</code>用户</p>
+<p>第一步：在客户端创建密钥对</p>
+<p><code>su - 客户端用户</code></p>
+<p><code>ssh-keygen -t rsa -b 2048</code>（一路回车）</p>
+<p>第二步：上传公钥</p>
+<p><code>cd /home/客户端用户/.ssh</code></p>
+<p><code>scp id_rsa.pub root@服务端IP:/tmp</code></p>
+<p>第三步：在ssh服务器中设置</p>
+<p><code>cd /tmp</code></p>
+<p><code>mkdir /home/服务端用户/.ssh</code></p>
+<p><code>cat id_rsa.pub &gt; /home/服务端用户/.ssh/authorized_keys</code>（相当于mv id_rsa.pub /home/服务端/.ssh/authorized_keys）</p>
+<p><code>chmod 600 /home/服务端用户/.ssh/authorized_keys</code></p>
+<p>第四步：在客户端登录验证</p>
+<p>第二种方式（简单）</p>
+<p>使用客户端用户连接ssh服务器的服务端用户</p>
+<p>第一步：在客户机创建密钥对</p>
+<p><code>su - user</code></p>
+<p><code>ssh-keygen -t rsa -b 2048</code></p>
+<p>第二步：直接导入公钥到user1用户的家目录中</p>
+<p><code>ssh-copy-id -i id_rsa.pub user1@192.168.0.10</code>（cd 到用户家目录下的.ssh目录下）</p>
+<p>输入user1用户的密码</p>
+<p>查看是否成功</p>
+<p>第三步：在客户端验证</p>
+<p>ssh <a href="mailto:&#x75;&#115;&#x65;&#114;&#x31;&#x40;&#x31;&#x39;&#x32;&#46;&#x31;&#x36;&#x38;&#46;&#x30;&#x2e;&#49;&#48;">&#x75;&#115;&#x65;&#114;&#x31;&#x40;&#x31;&#x39;&#x32;&#46;&#x31;&#x36;&#x38;&#46;&#x30;&#x2e;&#49;&#48;</a>以user1用户登录看是否免密</p>
+<p>ssh服务最佳实践</p>
+<p>1、不要使用默认端口</p>
+<p>2、禁止使用Protocol version 1</p>
+<p>3、限制可登录用户</p>
+<p>4、设定空闲会话超时时长</p>
+<p>5、利用防火墙设置ssh访问策略</p>
+<p>6、仅监听特定的IP地址 </p>
+<p>7、基于口令认证时，使用强密码策略</p>
+<p>8、使用基于密钥的认证</p>
+<p>9、禁止使用空密码</p>
+<p>10、禁止root用户直接登录</p>
+<p>11、限制ssh的访问频度和并发在线数</p>
+<p>12、做好日志，经常分析</p>
+<h1 id="sudo提升权限"><a href="#sudo提升权限" class="headerlink" title="sudo提升权限"></a>sudo提升权限</h1><p>sudo的用途：</p>
+<ol>
+<li><p>sudo 能够授权指定用户在指定主机上运行某些命令，如果未授权用户尝试使用，sudo会提示联系管理员</p>
+</li>
+<li><p>sudo 可以提供日志，记录每个用户使用sudo操作</p>
+</li>
+<li><p>sudo 为系统管理员提供配置文件，允许系统管理员集中地管理用户的使用权限的使用的主机</p>
+</li>
+<li><p>sudo 使用时间戳文件来完成类似”检票”的系统 默认存活期为5分钟的”入场券”</p>
+</li>
+</ol>
+<p>通过visudo命令编辑配置文件，具有文件，具有语法检查功能</p>
+<p><code>visudo -c</code>检查语法</p>
+<p>配置sudo授权</p>
+<p>配置文件：<code>/etc/sudoers</code>，<code>/etc/sudoers.d/</code></p>
+<p>日志文件：<code>/var/log/secure</code></p>
+<p>配置文件支持使用通配符<code>glob</code>：</p>
+<p><code>?</code>匹配单一字符</p>
+<p><code>*</code>匹配任意长度字符</p>
+<p><code>[wxc]</code>匹配其中一个字符</p>
+<p><code>[^wxc]</code>除了给定的字符</p>
+<p><code>\x</code>转义</p>
+<p><code>[[:alpha:]]</code>字母 示例：<code>/bin/ls [[:alpha:]]*</code></p>
+<p><code>!</code>排除</p>
+<p>使用方法：</p>
+<p><code>sudo [参数] [授权命令]</code></p>
+<p>参数：</p>
+<p><code>-u user</code>：以指定用户身份运行命令</p>
+<p><code>-l</code>：查看当前用户可以执行的命令</p>
+<p><code>-v</code>：更新用户的时间戳而不执行命令</p>
+<p><code>-V</code>：显示sudo的版本信息</p>
+<p>配置文件格式：</p>
+<p>使用visudo命令或执行<code>vi /etc/sudoers</code>打开配置文件</p>
+<p>文件中记录格式：</p>
+<p>用户  主机名列表=（代表用户）命令程序列表</p>
+<p>ALL： 代表所有</p>
+<p>NOPASSWD：免密</p>
+<p>用户：运行命令者的身份</p>
+<p>主机列表：通过哪些主机</p>
+<p>代表用户：以哪个用户的身份</p>
+<p>命令程序列表：运行哪些命令</p>
+<p>注意：如果只授权用户登录本机执行命令，主机写本地ip即可</p>
+<p>例如：</p>
+<p>给user这个用户sudo权限，允许他在test这台主机中可执行/bin/下的所有命令，除了/sbin/reboot/外</p>
+<p><code>visudo</code></p>
+<p><code>user test=/sbin/*,!/sbin/reboot</code></p>
+<p>现在user用户就可以使用授权的命令了</p>
+<p><code>su - user</code></p>
+<p>sudo授权命令（会提示输入密码，输入user用户的密码即可，输入密码后5分钟内不用再输入密码）</p>
+<p>sudo别名</p>
+<p>别名设置：</p>
+<p>别名有四种类型：</p>
+<p>User_Alias用户别名</p>
+<p>Runas_Alias代表用户别名（可以省略）</p>
+<p>Host_Alias主机别名</p>
+<p>Cmnd_Alias命令别名</p>
+<p>（U、H、C后面可以跟多个用 ，分开）</p>
+<pre class="line-numbers language-none"><code class="language-none">User_Alias U&#x3D;haha
+Host_Alias H&#x3D;test
+Cmnd_Alias C&#x3D;&#x2F;sbin&#x2F;*
+U H&#x3D;C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>格式：<code>Alias_Type NAME1=item1,item2,item3…</code></p>
+<p>例如：定义用户别名为USER，包括user1，user2，user3，user4四个用户</p>
+<p><code>User_Alias USER=user1,user2,user3,user4</code></p>
+<p>这条别名就可以用来引用了</p>
+<p><code>USER test=/sbin/*</code></p>
+<p>sudo别名</p>
+<p>也可以将用户加入到组里进行统一管理，例如wheel组，组名前要加% 将用户加入到wheel组中，然后对wheel进行授权</p>
+<p><code>%wheel test=ALL</code></p>
+<pre class="line-numbers language-none"><code class="language-none">User_Alias U&#x3D;haha
+Host_Alias H&#x3D;test
+Cmnd_Alias C&#x3D;&#x2F;sbin&#x2F;*
+U H&#x3D;C
+%wheel H&#x3D;ALL<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这样wheel组里的所有用户都可以执行test主机里面的所有命令了</p>
+<h1 id="ssh端口转发"><a href="#ssh端口转发" class="headerlink" title="ssh端口转发"></a>ssh端口转发</h1><p>转发到远端：<code>ssh -C -f -N -g -L 本地端口:目标IP:目标端口 用户名@目标IP</code></p>
+<p>转发到本地：<code>ssh -C -f -N -g –R 本地端口:目标IP:目标端口 用户名@目标IP</code></p>
+<p>本地ssh不是22，需要最后指定本地端口</p>
+<p><code>ssh -C -f -N -g -L 本机端口:远端IP:远端端口 root@远端IP -p port</code></p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="../linux-command-1.16.0/ssh-add">ssh-add添加密钥到agent</a><br><a href="../linux-command-1.16.0/ssh-agent">ssh-agent密钥管理器</a><br><a href="../linux-command-1.16.0/ssh-copy-id">ssh-copy-id安装密钥</a><br><a href="../linux-command-1.16.0/ssh-keygen">ssh-keygen生成和管理密钥</a><br><a href="../linux-command-1.16.0/ssh-keyscan">ssh-keyscan收集公钥</a><br><a href="../linux-command-1.16.0/ssh">ssh连接工具</a><br><a href="../linux-command-1.16.0/sshd">sshd守护进程</a></p>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">168.6k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

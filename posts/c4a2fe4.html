@@ -1,0 +1,1161 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="AWK, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>AWK | 波亚斯</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/featureimages/13.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">AWK</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">系统</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-05-30
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.5k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="awk介绍"><a href="#awk介绍" class="headerlink" title="awk介绍"></a>awk介绍</h1><p>awk是一种处理文本的编程语言工具，报告生成器，格式化文本输出</p>
+<p>版本：<code>new awk</code>（<code>nawk</code>），<code>GUN awk</code>（<code>gawk</code>）</p>
+<p>gawk - 模式扫描和处理语言</p>
+<h1 id="awk基本用法"><a href="#awk基本用法" class="headerlink" title="awk基本用法"></a>awk基本用法</h1><p><code>awk [选项] &#39;program&#39; -v var=value file</code>（<code>-v</code>选项，自定义变量var）</p>
+<p><code>awk [选项] -f programfile</code>（将<code>program</code>写入文件中）<code>var=value file</code></p>
+<p><code>awk [选项] &#39;BEGIN&#123;动作;处理内容&#125; 模式&#123;动作;处理内容&#125; END&#123;动作;处理内容&#125;&#39; 文件名</code></p>
+<p>awk程序通常由：<code>BEGIN语句块</code>、能够使用模式匹配的<code>通用语句块</code>、<code>END语句块</code>，共三部分组成</p>
+<p>program（程序）通常是在单引号或双引号中</p>
+<p>选项：</p>
+<p><code>-F</code>指明输入时用到的字段分隔符</p>
+<p><code>-v var=value</code>自定义变量</p>
+<p>基本格式：<code>awk [options] &#39;program&#39; file</code></p>
+<p>program：<code>pattern&#123;action;要处理的内容&#125;</code></p>
+<h2 id="pattern和action"><a href="#pattern和action" class="headerlink" title="pattern和action"></a>pattern和action</h2><p><code>pattern</code>部分决定动作语句何时触发事件<code>BEGIN</code>，<code>END</code>，<code>正则表达式</code>（模式）</p>
+<p><code>action statements</code>对数据进行处理，放在 <code>&#123; &#125;</code> 内指明<code>print</code>，<code>printf</code></p>
+<h2 id="分隔符、域和记录"><a href="#分隔符、域和记录" class="headerlink" title="分隔符、域和记录"></a>分隔符、域和记录</h2><p>awk执行时，由分隔符分隔的字段<code>域</code>标记<code>$1</code>,<code>$2</code>,<code>$3...</code> <code>$n</code>称为<code>域标识</code>，<code>$0</code>为<code>所有域</code>，注意：和<code>shell</code>中变量<code>$</code>符含义不同</p>
+<p>文件的每一行称为记录</p>
+<p>省略<code>action</code>行，则默认执行<code>print $0</code>（打印所有）的操作</p>
+<h2 id="awk工作原理"><a href="#awk工作原理" class="headerlink" title="awk工作原理"></a>awk工作原理</h2><p>第一步：执行<code>BEGIN&#123;action;处理内容&#125;</code>语句块中的语句（可省）</p>
+<p>第二步：从文件或标准输入（<code>stdin</code>）读取一行，然后执行<code>pattern&#123;action;处理内容&#125;</code>语句块，它逐行扫描文件，从第一行到最后一行重复这个过程，直到文件全部被读取完毕</p>
+<p>第三步：当读至输入流末尾时，执行<code>END&#123;action;处理内容&#125;</code>语句块</p>
+<p><code>BEGIN</code>语句块在<code>awk</code>开始从输入流中读取之前被执行，这是一个可选的语句块，比如变量初始化、打印输出表格的表头等语句通常写在<code>BEGIN</code>语句块中</p>
+<p><code>END</code>语句块在<code>awk</code>从输入流中读取完所有的行之后即可被执行，比如打印所有行的分析结果这类信息汇总都是在<code>END</code>语句块中完成，它也是一个可选语句块</p>
+<p><code>pattern</code>语句块中的通用命令是最重要的部分，也是可选的，如果没有提供<code>pattern</code>语句块，则默认执行<code>&#123;print&#125;</code>，即打印每一个读取到的行，<code>awk</code>读取的每一行都会执行该语句块</p>
+<p><code>print</code>格式：<code>print item1，item2...</code>（<code>item</code>：条目）</p>
+<p>要点：</p>
+<ol>
+<li><p>逗号分隔符</p>
+</li>
+<li><p>输出的各<code>item</code>可以是<code>字符串</code>，也可以是<code>数值</code>；当前记录的字段、变量或<code>awk</code>的表达式</p>
+</li>
+<li><p>如省略<code>item</code>，相当于<code>print $0</code></p>
+</li>
+</ol>
+<p>示例：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk '&#123;print "hello,awk"&#125;'</span>
+hello,awk
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk '&#123;print&#125;' /etc/passwd</span>
+
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk '&#123;print "###"&#125;' /etc/passwd</span>
+
+<span class="token comment">###</span>
+<span class="token comment">###</span>
+<span class="token comment">###</span>
+<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '&#123;print $1&#125;' /etc/passwd</span>
+
+root
+bin
+daemon
+<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '&#123;print $0&#125;' /etc/passwd</span>
+
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '&#123;print $1"\t"$3&#125;' /etc/passwd</span>
+
+root    <span class="token number">0</span>
+bin    <span class="token number">1</span>
+daemon    <span class="token number">2</span>
+<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># tail -3 /etc/fstab | awk '&#123;print $2,$4&#125;' </span>
+/ defaults
+/boot defaults
+swap defaults<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="awk变量"><a href="#awk变量" class="headerlink" title="awk变量"></a>awk变量</h1><p>变量：内置和自定义变量</p>
+<p>FS：指定输入分隔符，不指定默认为空白字符</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -v FS=':' '&#123;print $1,$3,$7&#125;' /etc/passwd</span>
+
+root <span class="token number">0</span> /bin/bash
+bin <span class="token number">1</span> /sbin/nologin
+daemon <span class="token number">2</span> /sbin/nologin
+<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '&#123;print $1,$3,$7&#125;' /etc/passwd</span>
+
+root <span class="token number">0</span> /bin/bash
+bin <span class="token number">1</span> /sbin/nologin
+daemon <span class="token number">2</span> /sbin/nologin
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>OFS：为输出字段指定分隔符，默认为空白字符</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -v FS=':' -v OFS=':' '&#123;print $1,$3,$7&#125;' /etc/passwd</span>
+
+root:0:/bin/bash
+bin:1:/sbin/nologin
+daemon:2:/sbin/nologin
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>RS：输入行分隔符，指定输入时的换行符，原换行符仍然有效</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -v RS='0' '&#123;print&#125;' /etc/passwd</span>
+
+root:x:
+<span class="token builtin class-name">:</span>
+:root:/root:/bin/bash
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>ORS：输出时用指定符号代替换行符</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -v RS=':' -v ORS='##' '&#123;print&#125;' /etc/passwd   # 指定：为换行符，用##替换前面的换行符</span>
+root<span class="token comment">##x##0##0##root##/root##/bin/bash</span>
+bin<span class="token comment">##x##1##1##bin##/bin##/sbin/nologin</span>
+daemon<span class="token comment">##x##2##2##daemon##/sbin##/sbin/nologin </span>
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>NF：字段数量（指明分割符，每行分几段）</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '&#123;print NF&#125;' /etc/fstab   # 引用内置变量不用$</span>
+
+<span class="token number">0</span>
+<span class="token number">1</span>
+<span class="token number">1</span>
+<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '&#123;print $(NF-1)&#125;' /etc/passwd   # 以：为分割符，打印倒数第二域 </span>
+/root
+/bin
+/sbin
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>NR：打印行号</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk '&#123;print NR&#125;' /etc/fstab ; awk END'&#123;print NR&#125;' /etc/fstab</span>
+
+<span class="token number">1</span>
+<span class="token number">2</span>
+<span class="token number">3</span>
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>FNR：各文件分别计数，行号（竖着显示行号）</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk '&#123;print FNR&#125;' /etc/fstab /etc/inittab   # 先计数fstab再从头计数inittab</span>
+
+<span class="token number">1</span>
+<span class="token number">2</span>
+<span class="token number">3</span>
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>FILENAME：当前文件名</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk '&#123;print FILENAME&#125;' /etc/fstab</span>
+
+/etc/fstab
+/etc/fstab
+/etc/fstab
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>ARGC：命令行参数的个数</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk '&#123;print ARGC&#125;' /etc/fstab /etc/inittab</span>
+
+<span class="token number">3</span>
+<span class="token number">3</span>
+<span class="token number">3</span>
+<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk 'BEGIN&#123;print ARGC&#125;' /etc/fstab /etc/inittab</span>
+
+<span class="token number">3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>ARGV：数组，保存的是命令行所给定的各参数（0为第一个参数，1为第二个参数，以此类推）</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk 'BEGIN&#123;print ARGV[0]&#125;' /etc/fstab /etc/inittab</span>
+
+<span class="token function">awk</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk 'BEGIN&#123;print ARGV[1]&#125;' /etc/fstab /etc/inittab</span>
+
+/etc/fstab<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="自定义变量"><a href="#自定义变量" class="headerlink" title="自定义变量"></a>自定义变量</h2><ol>
+<li><p><code>-v var=value</code>变量名区分大小写</p>
+</li>
+<li><p>在<code>program</code>中直接定义</p>
+</li>
+</ol>
+<p>示例：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -v test='hello gawk' '&#123;print tast&#125;' /etc/fstab</span>
+
+<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -v test='hello gawk' 'BEGIN&#123;print test&#125;'</span>
+
+hello <span class="token function">gawk</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk 'BEGIN&#123;test="hello gawk";print test&#125;'</span>
+
+hello <span class="token function">gawk</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="awk格式化"><a href="#awk格式化" class="headerlink" title="awk格式化"></a>awk格式化</h1><p><code>printf</code>命令</p>
+<p>格式输出：<code>printf &quot;FORMAT&quot;,item1,item2…</code></p>
+<p>必须指定<code>FORMAT</code>（格式）</p>
+<p>不会自动换行，需要显示给出换行控制符 <code>\n</code></p>
+<p><code>FORMAT</code>中需要分别为后面每个<code>item</code>指定格式符</p>
+<p>格式符：与<code>item</code>一一对应</p>
+<p><code>%d</code>,<code>%i</code>：显示十进制整数</p>
+<p><code>%s</code>：显示字符串</p>
+<p><code>%%</code>：显示<code>%</code>自身</p>
+<p>修饰符</p>
+<p><code>#</code>：打印<code>#</code>个字符宽度（可以为小数）</p>
+<p><code>-</code>：左对齐<code>%-15s</code>（默认不带 <code>-</code> 右对齐）</p>
+<p><code>+</code>：显示数值的正负符号<code>%+d</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '&#123;printf "%s",$1&#125;' /etc/passwd</span>
+
+rootbindaemonadmlpsyncshutdownhaltmailoperatorgamesftpnobodydbussystemd-coredumpsystemd-resolvetsspolkitdlibstoragemgmtcockpit-wscockpit-wsinstancesssdsshdchronyrngdunboundnginx<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># </span>
+
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '&#123;printf "USERNAME:%s\n",$1&#125;' /etc/passwd</span>
+
+USERNAME:root
+USERNAME:bin
+USERNAME:daemon
+<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '&#123;printf "USERNAME:%s UID:%d\n",$1,$3&#125;' /etc/passwd</span>
+
+USERNAME:root <span class="token environment constant">UID</span>:0
+USERNAME:bin <span class="token environment constant">UID</span>:1
+USERNAME:daemon <span class="token environment constant">UID</span>:2
+<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '&#123;printf "USERNAME:%15s UID:%d\n",$1,$3&#125;' /etc/passwd</span>
+
+USERNAME:           root <span class="token environment constant">UID</span>:0
+USERNAME:            bin <span class="token environment constant">UID</span>:1
+USERNAME:         daemon <span class="token environment constant">UID</span>:2
+<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '&#123;printf "USERNAME:%-15s UID:%d\n",$1,$3&#125;' /etc/passwd</span>
+
+USERNAME:root            <span class="token environment constant">UID</span>:0
+USERNAME:bin             <span class="token environment constant">UID</span>:1
+USERNAME:daemon          <span class="token environment constant">UID</span>:2
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="awk操作符"><a href="#awk操作符" class="headerlink" title="awk操作符"></a>awk操作符</h1><h2 id="算数操作符："><a href="#算数操作符：" class="headerlink" title="算数操作符："></a>算数操作符：</h2><p><code>x+y</code>,<code>x-y</code>,<code>x*y</code>,<code>x/y</code>,<code>x^y</code>,<code>x%y</code>（<code>x%y</code>，即<code>x÷y</code>取余数）</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk 'BEGIN&#123;print 1+2&#125;'</span>
+<span class="token number">3</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk 'BEGIN&#123;print 1-2&#125;'</span>
+<span class="token parameter variable">-1</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk 'BEGIN&#123;print 1*2&#125;'</span>
+<span class="token number">2</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk 'BEGIN&#123;print 1/2&#125;'</span>
+<span class="token number">0.5</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk 'BEGIN&#123;print 1^2&#125;'</span>
+<span class="token number">1</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk 'BEGIN&#123;print 1%2&#125;'</span>
+<span class="token number">1</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk 'BEGIN&#123;print 3%2&#125;'</span>
+<span class="token number">1</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk 'BEGIN&#123;print 3%1&#125;'</span>
+<span class="token number">0</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk 'BEGIN&#123;print 5%3&#125;'</span>
+<span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>-x</code>：转换为负数（<code>-</code>用双引号引起来，可以在0前面加上<code>-</code>号）</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '&#123;print -$3&#125;' /etc/passwd</span>
+<span class="token number">0</span>
+<span class="token parameter variable">-1</span>
+<span class="token parameter variable">-2</span>
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>+x</code>：转换为数值（同<code>-</code>，可以用<code>&quot; &quot;</code>引起来）</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '&#123;print +$3&#125;' /etc/passwd</span>
+<span class="token number">0</span>
+<span class="token number">1</span>
+<span class="token number">2</span>
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="字符串操作符："><a href="#字符串操作符：" class="headerlink" title="字符串操作符："></a>字符串操作符：</h2><blockquote>
+<p>没有符号的操作符，字符串连接</p>
+</blockquote>
+<h2 id="赋值操作符："><a href="#赋值操作符：" class="headerlink" title="赋值操作符："></a>赋值操作符：</h2><p><code>=</code>，<code>+=</code>，<code>-=</code>，<code>*=</code>，<code>/=</code>，<code>%=</code>，<code>^=</code>，<code>++</code>，<code>--</code>（<code>++</code>每次加1，<code>--</code>每次减1）</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk 'BEGIN&#123;a=1;print a++,a&#125;'</span>
+<span class="token number">1</span> <span class="token number">2</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk 'BEGIN&#123;a=1;print a--,a&#125;'</span>
+<span class="token number">1</span> <span class="token number">0</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk 'BEGIN&#123;a=1;print --a,a&#125;'</span>
+<span class="token number">0</span> <span class="token number">0</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk 'BEGIN&#123;a=1;print ++a,a&#125;'</span>
+<span class="token number">2</span> <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="比较操作符："><a href="#比较操作符：" class="headerlink" title="比较操作符："></a>比较操作符：</h2><p><code>&gt;</code>，<code>&gt;=</code>，<code>&lt;</code>，<code>&lt;=</code>，<code>!=</code>，<code>==</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '$3 > 999&#123;print $3&#125;' /etc/passwd</span>
+<span class="token number">65534</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '$3 >= 999&#123;print $3&#125;' /etc/passwd</span>
+<span class="token number">65534</span>
+<span class="token number">999</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '$3 &lt; 3&#123;print $3&#125;' /etc/passwd</span>
+<span class="token number">0</span>
+<span class="token number">1</span>
+<span class="token number">2</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '$3 &lt;= 3&#123;print $3&#125;' /etc/passwd</span>
+<span class="token number">0</span>
+<span class="token number">1</span>
+<span class="token number">2</span>
+<span class="token number">3</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '$3 != 2&#123;print $3&#125;' /etc/passwd</span>
+<span class="token number">0</span>
+<span class="token number">1</span>
+<span class="token number">3</span>
+<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '$3 == 2&#123;print $3&#125;' /etc/passwd</span>
+<span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="模式匹配符："><a href="#模式匹配符：" class="headerlink" title="模式匹配符："></a>模式匹配符：</h2><p><code>~</code>：左边包含右边匹配到的内容</p>
+<p><code>!~</code>：左边不包含右边匹配到的内容</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk '$0 ~ /root/&#123;print&#125;' /etc/passwd   # 支持正则表达式</span>
+root:x:0:0:root:/root:/bin/bash
+operator:x:11:0:operator:/root:/sbin/nologin
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># cat /etc/passwd | awk '$0 !~ /^root/'</span>
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="逻辑操作符"><a href="#逻辑操作符" class="headerlink" title="逻辑操作符"></a>逻辑操作符</h2><p>或 <code>||</code>，与 <code>&amp;&amp;</code>，非<code>!</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '$3>=0 &amp;&amp; $3&lt;=3&#123;print $1,$3&#125;' /etc/passwd</span>
+root <span class="token number">0</span>
+bin <span class="token number">1</span>
+daemon <span class="token number">2</span>
+adm <span class="token number">3</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '$3==0 || $3&lt;=3&#123;print $1,$3&#125;' /etc/passwd</span>
+root <span class="token number">0</span>
+bin <span class="token number">1</span>
+daemon <span class="token number">2</span>
+adm <span class="token number">3</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '!($3>=3)&#123;print $1,$3&#125;' /etc/passwd</span>
+root <span class="token number">0</span>
+bin <span class="token number">1</span>
+daemon <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>PATTERN</code>：根据<code>pattern</code>条件，过滤匹配的行，再做处理</p>
+<p>如果未指定：空模式，匹配每一行</p>
+<p><code>/正则表达式/</code>：仅处理能够被模式匹配到的行，需要用 <code>/ /</code> 括起来</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk '/^UUID/&#123;print $1&#125;' /etc/fstab</span>
+<span class="token assign-left variable">UUID</span><span class="token operator">=</span>8b1f186e-ffcb-4b8e-a9e2-caba58a3a850
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk '!/^UUID/&#123;print $1&#125;' /etc/fstab</span>
+
+<span class="token punctuation">..</span>.
+/dev/mapper/cl-root
+/dev/mapper/cl-swap<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>关系表达式：结果有”真”有”假”；结果为”真”才会被处理；</p>
+<p>真：结果为非0值，非空字符串</p>
+<p>假：结果为空字符串</p>
+<p>示例：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '$3>1000&#123;print $1,$3&#125;' /etc/passwd</span>
+nobody <span class="token number">65534</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '$NF~/bash$/&#123;print $1,$NF&#125;' /etc/passwd</span>
+root /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>line ranges</code>：行范围</p>
+<p><code>startline,endline</code>：<code>/pat1/,/pat2/</code>不支持直接给出数字格式</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '/^root/,/^lp/&#123;print $1&#125;' /etc/passwd</span>
+root
+bin
+daemon
+adm
+lp
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '(NR>=2&amp;&amp;NR&lt;=5)&#123;print $1&#125;' /etc/passwd</span>
+bin
+daemon
+adm
+lp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>BEGIN/END</code>模式</p>
+<p><code>BEGIN&#123;&#125;</code>：仅在开始处理文件中的文本之前执行一次</p>
+<p><code>END&#123;&#125;</code>：仅在文本处理完成之后执行一次</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: 'BEGIN&#123;print "USER UID"&#125;(NR>=2&amp;&amp;NR&lt;=4)&#123;print $1":"$3&#125;END&#123;print "end file"&#125;' /etc/passwd</span>
+<span class="token environment constant">USER</span> <span class="token environment constant">UID</span>
+bin:1
+daemon:2
+adm:3
+end <span class="token function">file</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># cat /etc/passwd | head -3 | awk -F: '&#123;print "USER UID";print $1":"$3&#125;END&#123;print "end file"&#125;'</span>
+<span class="token environment constant">USER</span> <span class="token environment constant">UID</span>
+root:0
+<span class="token environment constant">USER</span> <span class="token environment constant">UID</span>
+bin:1
+<span class="token environment constant">USER</span> <span class="token environment constant">UID</span>
+daemon:2
+end <span class="token function">file</span>
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: 'BEGIN&#123;print "USER UID \n ---------"&#125;&#123;print $1,$3&#125;' /etc/passwd</span>
+<span class="token environment constant">USER</span> <span class="token environment constant">UID</span> 
+ ---------
+root <span class="token number">0</span>
+bin <span class="token number">1</span>
+<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>root@docker ~<span class="token punctuation">]</span><span class="token comment"># awk -F: 'BEGIN&#123;print "USER UID \n ---------"&#125;&#123;print $1,$3&#125;'END'&#123;print "========="&#125;' /etc/passwd</span>
+<span class="token environment constant">USER</span> <span class="token environment constant">UID</span> 
+ ---------
+root <span class="token number">0</span>
+<span class="token punctuation">..</span>.
+nginx <span class="token number">990</span>
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="../linux-command-1.16.0/awk">awk补充</a></p>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">168.6k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

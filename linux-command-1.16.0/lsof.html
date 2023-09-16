@@ -1,0 +1,1073 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="lsof命令, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>lsof命令 | 波亚斯</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/featureimages/20.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">lsof命令</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/">
+                                <span class="chip bg-color"></span>
+                            </a>
+                        
+                            <a href="/">
+                                <span class="chip bg-color"></span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/" class="post-category">
+                                
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-06-29
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-07-06
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.4k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h2><p><strong>lsof命令</strong> 用于查看你进程打开的文件，打开文件的进程，进程打开的端口(TCP、UDP)。找回/恢复删除的文件。是十分方便的系统监视工具，因为lsof命令需要访问核心内存和各种文件，所以需要root用户执行。</p>
+<p>在linux环境下，任何事物都以文件的形式存在，通过文件不仅仅可以访问常规数据，还可以访问网络连接和硬件。所以如传输控制协议 (TCP) 和用户数据报协议 (UDP) 套接字等，系统在后台都为该应用程序分配了一个文件描述符，无论这个文件的本质如何，该文件描述符为应用程序与基础操作系统之间的交互提供了通用接口。因为应用程序打开文件的描述符列表提供了大量关于这个应用程序本身的信息，因此通过lsof工具能够查看这个列表对系统监测以及排错将是很有帮助的。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">lsof</span> <span class="token punctuation">(</span>选项<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-a：列出打开文件存在的进程；
+-c<span class="token operator">&lt;</span>进程名<span class="token operator">></span>：列出指定进程所打开的文件；
+-g：列出GID号进程详情；
+-d<span class="token operator">&lt;</span>文件号<span class="token operator">></span>：列出占用该文件号的进程；
++d<span class="token operator">&lt;</span>目录<span class="token operator">></span>：列出目录下被打开的文件；
++D<span class="token operator">&lt;</span>目录<span class="token operator">></span>：递归列出目录下被打开的文件；
+-n<span class="token operator">&lt;</span>目录<span class="token operator">></span>：列出使用NFS的文件；
+-i<span class="token operator">&lt;</span>条件<span class="token operator">></span>：列出符合条件的进程（协议、:端口、 @ip ）
+-p<span class="token operator">&lt;</span>进程号<span class="token operator">></span>：列出指定进程号所打开的文件；
+-u：列出<span class="token environment constant">UID</span>号进程详情；
+-h：显示帮助信息；
+-v：显示版本信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">lsof</span>
+<span class="token builtin class-name">command</span>     PID <span class="token environment constant">USER</span>   FD      <span class="token builtin class-name">type</span>             DEVICE     SIZE       NODE NAME
+init          <span class="token number">1</span> root  cwd       DIR                <span class="token number">8,2</span>     <span class="token number">4096</span>          <span class="token number">2</span> /
+init          <span class="token number">1</span> root  rtd       DIR                <span class="token number">8,2</span>     <span class="token number">4096</span>          <span class="token number">2</span> /
+init          <span class="token number">1</span> root  txt       REG                <span class="token number">8,2</span>    <span class="token number">43496</span>    <span class="token number">6121706</span> /sbin/init
+init          <span class="token number">1</span> root  mem       REG                <span class="token number">8,2</span>   <span class="token number">143600</span>    <span class="token number">7823908</span> /lib64/ld-2.5.so
+init          <span class="token number">1</span> root  mem       REG                <span class="token number">8,2</span>  <span class="token number">1722304</span>    <span class="token number">7823915</span> /lib64/libc-2.5.so
+init          <span class="token number">1</span> root  mem       REG                <span class="token number">8,2</span>    <span class="token number">23360</span>    <span class="token number">7823919</span> /lib64/libdl-2.5.so
+init          <span class="token number">1</span> root  mem       REG                <span class="token number">8,2</span>    <span class="token number">95464</span>    <span class="token number">7824116</span> /lib64/libselinux.so.1
+init          <span class="token number">1</span> root  mem       REG                <span class="token number">8,2</span>   <span class="token number">247496</span>    <span class="token number">7823947</span> /lib64/libsepol.so.1
+init          <span class="token number">1</span> root   10u     FIFO               <span class="token number">0,17</span>                <span class="token number">1233</span> /dev/initctl
+migration     <span class="token number">2</span> root  cwd       DIR                <span class="token number">8,2</span>     <span class="token number">4096</span>          <span class="token number">2</span> /
+migration     <span class="token number">2</span> root  rtd       DIR                <span class="token number">8,2</span>     <span class="token number">4096</span>          <span class="token number">2</span> /
+migration     <span class="token number">2</span> root  txt   unknown                                        /proc/2/exe
+ksoftirqd     <span class="token number">3</span> root  cwd       DIR                <span class="token number">8,2</span>     <span class="token number">4096</span>          <span class="token number">2</span> /
+ksoftirqd     <span class="token number">3</span> root  rtd       DIR                <span class="token number">8,2</span>     <span class="token number">4096</span>          <span class="token number">2</span> /
+ksoftirqd     <span class="token number">3</span> root  txt   unknown                                        /proc/3/exe
+migration     <span class="token number">4</span> root  cwd       DIR                <span class="token number">8,2</span>     <span class="token number">4096</span>          <span class="token number">2</span> /
+migration     <span class="token number">4</span> root  rtd       DIR                <span class="token number">8,2</span>     <span class="token number">4096</span>          <span class="token number">2</span> /
+migration     <span class="token number">4</span> root  txt   unknown                                        /proc/4/exe
+ksoftirqd     <span class="token number">5</span> root  cwd       DIR                <span class="token number">8,2</span>     <span class="token number">4096</span>          <span class="token number">2</span> /
+ksoftirqd     <span class="token number">5</span> root  rtd       DIR                <span class="token number">8,2</span>     <span class="token number">4096</span>          <span class="token number">2</span> /
+ksoftirqd     <span class="token number">5</span> root  txt   unknown                                        /proc/5/exe
+events/0      <span class="token number">6</span> root  cwd       DIR                <span class="token number">8,2</span>     <span class="token number">4096</span>          <span class="token number">2</span> /
+events/0      <span class="token number">6</span> root  rtd       DIR                <span class="token number">8,2</span>     <span class="token number">4096</span>          <span class="token number">2</span> /
+events/0      <span class="token number">6</span> root  txt   unknown                                        /proc/6/exe
+events/1      <span class="token number">7</span> root  cwd       DIR                <span class="token number">8,2</span>     <span class="token number">4096</span>          <span class="token number">2</span> /<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>lsof输出各列信息的意义如下：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">标识</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>COMMAND</code></td>
+<td align="left">进程的名称</td>
+</tr>
+<tr>
+<td align="left"><code>PID</code></td>
+<td align="left">进程标识符</td>
+</tr>
+<tr>
+<td align="left"><code>PPID</code></td>
+<td align="left">父进程标识符（需要指定-R参数）</td>
+</tr>
+<tr>
+<td align="left"><code>USER</code></td>
+<td align="left">进程所有者</td>
+</tr>
+<tr>
+<td align="left"><code>PGID</code></td>
+<td align="left">进程所属组</td>
+</tr>
+<tr>
+<td align="left"><code>FD</code></td>
+<td align="left">文件描述符，应用程序通过它识别该文件</td>
+</tr>
+</tbody></table>
+<p>文件描述符列表：</p>
+<table>
+<thead>
+<tr>
+<th align="left">标识</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>cwd</code></td>
+<td align="left">表示当前工作目录，即：应用程序的当前工作目录，这是该应用程序启动的目录，除非它本身对这个目录进行更改</td>
+</tr>
+<tr>
+<td align="left"><code>txt</code></td>
+<td align="left">该类型的文件是程序代码，如应用程序二进制文件本身或共享库，如上列表中显示的 /sbin/init 程序</td>
+</tr>
+<tr>
+<td align="left"><code>lnn</code></td>
+<td align="left">库引用 (AIX);</td>
+</tr>
+<tr>
+<td align="left"><code>er</code></td>
+<td align="left">FD 信息错误（参见名称栏）</td>
+</tr>
+<tr>
+<td align="left"><code>jld</code></td>
+<td align="left">jail 目录 (FreeBSD);</td>
+</tr>
+<tr>
+<td align="left"><code>ltx</code></td>
+<td align="left">共享库文本（代码和数据）</td>
+</tr>
+<tr>
+<td align="left"><code>mxx</code></td>
+<td align="left">十六进制内存映射类型编号xx</td>
+</tr>
+<tr>
+<td align="left"><code>m86</code></td>
+<td align="left">DOS合并映射文件</td>
+</tr>
+<tr>
+<td align="left"><code>mem</code></td>
+<td align="left">内存映射文件</td>
+</tr>
+<tr>
+<td align="left"><code>mmap</code></td>
+<td align="left">内存映射设备</td>
+</tr>
+<tr>
+<td align="left"><code>pd</code></td>
+<td align="left">父目录</td>
+</tr>
+<tr>
+<td align="left"><code>rtd</code></td>
+<td align="left">根目录</td>
+</tr>
+<tr>
+<td align="left"><code>tr</code></td>
+<td align="left">内核跟踪文件 (OpenBSD)</td>
+</tr>
+<tr>
+<td align="left"><code>v86</code></td>
+<td align="left">VP/ix 映射文件</td>
+</tr>
+<tr>
+<td align="left"><code>0</code></td>
+<td align="left">表示标准输出</td>
+</tr>
+<tr>
+<td align="left"><code>1</code></td>
+<td align="left">表示标准输入</td>
+</tr>
+<tr>
+<td align="left"><code>2</code></td>
+<td align="left">表示标准错误</td>
+</tr>
+</tbody></table>
+<p>一般在标准输出、标准错误、标准输入后还跟着文件状态模式：</p>
+<table>
+<thead>
+<tr>
+<th align="left">标识</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>u</code></td>
+<td align="left">表示该文件被打开并处于读取/写入模式</td>
+</tr>
+<tr>
+<td align="left"><code>r</code></td>
+<td align="left">表示该文件被打开并处于只读模式</td>
+</tr>
+<tr>
+<td align="left"><code>w</code></td>
+<td align="left">表示该文件被打开并处于写入模式</td>
+</tr>
+<tr>
+<td align="left"><code>空格</code></td>
+<td align="left">表示该文件的状态模式为 unknow，且没有锁定</td>
+</tr>
+<tr>
+<td align="left"><code>-</code></td>
+<td align="left">表示该文件的状态模式为 unknow，且被锁定</td>
+</tr>
+</tbody></table>
+<p>同时在文件状态模式后面，还跟着相关的锁：</p>
+<table>
+<thead>
+<tr>
+<th align="left">标识</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>N</code></td>
+<td align="left">对于未知类型的Solaris NFS锁</td>
+</tr>
+<tr>
+<td align="left"><code>r</code></td>
+<td align="left">用于部分文件的读取锁定</td>
+</tr>
+<tr>
+<td align="left"><code>R</code></td>
+<td align="left">对整个文件进行读取锁定</td>
+</tr>
+<tr>
+<td align="left"><code>w</code></td>
+<td align="left">对文件的一部分进行写锁定(文件的部分写锁)</td>
+</tr>
+<tr>
+<td align="left"><code>W</code></td>
+<td align="left">对整个文件进行写锁定(整个文件的写锁)</td>
+</tr>
+<tr>
+<td align="left"><code>u</code></td>
+<td align="left">用于任何长度的读写锁</td>
+</tr>
+<tr>
+<td align="left"><code>U</code></td>
+<td align="left">对于未知类型的锁</td>
+</tr>
+<tr>
+<td align="left"><code>x</code></td>
+<td align="left">对于文件部分的SCO OpenServer Xenix锁</td>
+</tr>
+<tr>
+<td align="left"><code>X</code></td>
+<td align="left">对于整个文件的SCO OpenServer Xenix锁</td>
+</tr>
+<tr>
+<td align="left"><code>space</code></td>
+<td align="left">如果没有锁</td>
+</tr>
+</tbody></table>
+<p><strong>文件类型</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">标识</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>DIR</code></td>
+<td align="left">表示目录</td>
+</tr>
+<tr>
+<td align="left"><code>CHR</code></td>
+<td align="left">表示字符类型</td>
+</tr>
+<tr>
+<td align="left"><code>BLK</code></td>
+<td align="left">块设备类型</td>
+</tr>
+<tr>
+<td align="left"><code>UNIX</code></td>
+<td align="left">UNIX 域套接字</td>
+</tr>
+<tr>
+<td align="left"><code>FIFO</code></td>
+<td align="left">先进先出 (FIFO) 队列</td>
+</tr>
+<tr>
+<td align="left"><code>IPv4</code></td>
+<td align="left">网际协议 (IP) 套接字</td>
+</tr>
+<tr>
+<td align="left"><code>DEVICE</code></td>
+<td align="left">指定磁盘的名称</td>
+</tr>
+<tr>
+<td align="left"><code>SIZE</code></td>
+<td align="left">文件的大小</td>
+</tr>
+<tr>
+<td align="left"><code>NODE</code></td>
+<td align="left">索引节点（文件在磁盘上的标识）</td>
+</tr>
+<tr>
+<td align="left"><code>NAME</code></td>
+<td align="left">打开文件的确切名称</td>
+</tr>
+<tr>
+<td align="left"><code>REG</code></td>
+<td align="left">常规文件</td>
+</tr>
+</tbody></table>
+<p>列出指定进程号所打开的文件:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">lsof</span> <span class="token parameter variable">-p</span> <span class="token variable">$pid</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>获取端口对应的进程ID=&gt;pid</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">lsof</span> <span class="token parameter variable">-i:9981</span> <span class="token parameter variable">-P</span> <span class="token parameter variable">-t</span> <span class="token parameter variable">-sTCP:LISTEN</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>列出打开文件的进程:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">lsof</span> <span class="token variable">$filename</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>查看端口占用</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">lsof</span> -i:<span class="token variable">$port</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">168.6k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

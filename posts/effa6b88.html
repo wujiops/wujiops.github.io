@@ -1,0 +1,1045 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="mongodb, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>mongodb | 波亚斯</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/featureimages/6.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">mongodb</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/mongo/">
+                                <span class="chip bg-color">mongo</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Server/" class="post-category">
+                                Server
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-09-07
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-07-06
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.4k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="单机版"><a href="#单机版" class="headerlink" title="单机版"></a>单机版</h1><h2 id="下载软件包到服务器进行解压"><a href="#下载软件包到服务器进行解压" class="headerlink" title="下载软件包到服务器进行解压"></a>下载软件包到服务器进行解压</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.20.tgz
+<span class="token function">tar</span> <span class="token parameter variable">-xvzf</span> mongodb-linux-x86_64-4.0.20.tgz
+<span class="token function">mv</span> mongodb-linux-x86_64-4.0.20.tgz /home/mongodb<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="创建配置相关的目录及配置文件"><a href="#创建配置相关的目录及配置文件" class="headerlink" title="创建配置相关的目录及配置文件"></a>创建配置相关的目录及配置文件</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /home/mongodb/conf
+<span class="token function">vim</span> /home/mongodb/conf/mongodb.conf    <span class="token comment">#编辑配置文件</span>
+<span class="token assign-left variable">bind_ip</span><span class="token operator">=</span><span class="token number">192.168</span>.0.128
+<span class="token assign-left variable">port</span><span class="token operator">=</span><span class="token number">3717</span>
+<span class="token assign-left variable">dbpath</span><span class="token operator">=</span>/data/db
+<span class="token assign-left variable">logpath</span><span class="token operator">=</span>/data/log/mongodb.log
+<span class="token assign-left variable">logappend</span><span class="token operator">=</span>true
+<span class="token assign-left variable">fork</span><span class="token operator">=</span>true
+
+<span class="token function">mkdir</span> <span class="token parameter variable">-pv</span> /data/<span class="token punctuation">&#123;</span>db,log<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mongod <span class="token parameter variable">-f</span> /home/mongodb/conf/mongodb.conf     <span class="token comment">#启动mongod</span>
+<span class="token function">netstat</span> <span class="token parameter variable">-nlutp</span> <span class="token operator">|</span><span class="token function">grep</span> <span class="token number">3717</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">db.createUser<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>user: <span class="token string">"root"</span>, customData: <span class="token punctuation">&#123;</span>description: <span class="token string">"superuser"</span><span class="token punctuation">&#125;</span>, pwd: <span class="token string">"123456"</span>, roles: <span class="token punctuation">[</span><span class="token punctuation">&#123;</span>role: <span class="token string">"userAdminAnyDatabase"</span>, db: <span class="token string">"admin"</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+use roxn
+db.createUser<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>user: <span class="token string">"roxn_user"</span>, pwd: <span class="token string">"111111"</span>, roles: <span class="token punctuation">[</span><span class="token punctuation">&#123;</span>role: <span class="token string">"dbOwner"</span>, db: <span class="token string">"roxn"</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 2</span>
+use admin
+db.createUser<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>user: <span class="token string">"root"</span>, pwd: <span class="token string">"123456"</span>, roles: <span class="token punctuation">[</span> <span class="token string">"root"</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token comment"># 使用官方推荐的方法 调用passwordPrompt() 提示用户输入密码</span>
+
+use admin
+db.createUser<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>user: <span class="token string">"myUserAdmin"</span>, pwd: passwordPrompt<span class="token punctuation">(</span><span class="token punctuation">)</span>, roles: <span class="token punctuation">[</span> <span class="token punctuation">&#123;</span> role: <span class="token string">"userAdminAnyDatabase"</span>, db: <span class="token string">"admin"</span> <span class="token punctuation">&#125;</span>, <span class="token string">"readWriteAnyDatabase"</span> <span class="token punctuation">]</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="查看用户授权"><a href="#查看用户授权" class="headerlink" title="查看用户授权"></a>查看用户授权</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">></span> db.system.users.<span class="token function-name function">find</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">&#123;</span> <span class="token string">"_id"</span> <span class="token builtin class-name">:</span> <span class="token string">"admin.root"</span>, <span class="token string">"userId"</span> <span class="token builtin class-name">:</span> UUID<span class="token punctuation">(</span><span class="token string">"5a4be19a-181e-4d68-b04b-65939beb27d3"</span><span class="token punctuation">)</span>, <span class="token string">"user"</span> <span class="token builtin class-name">:</span> <span class="token string">"root"</span>, <span class="token string">"db"</span> <span class="token builtin class-name">:</span> <span class="token string">"admin"</span>, <span class="token string">"credentials"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span> <span class="token string">"SCRAM-SHA-1"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span> <span class="token string">"iterationCount"</span> <span class="token builtin class-name">:</span> <span class="token number">10000</span>, <span class="token string">"salt"</span> <span class="token builtin class-name">:</span> <span class="token string">"uB6KbqXzfsFjemhs+Gzo+A=="</span>, <span class="token string">"storedKey"</span> <span class="token builtin class-name">:</span> <span class="token string">"JBomPI/VnfRTKNygB2FLbHyjNEU="</span>, <span class="token string">"serverKey"</span> <span class="token builtin class-name">:</span> <span class="token string">"dnC1NF7Vq1NaJM30EusD54QqnSY="</span> <span class="token punctuation">&#125;</span>, <span class="token string">"SCRAM-SHA-256"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span> <span class="token string">"iterationCount"</span> <span class="token builtin class-name">:</span> <span class="token number">15000</span>, <span class="token string">"salt"</span> <span class="token builtin class-name">:</span> <span class="token string">"PsztIWthH9+7pXWqwBCqRQ4gSAds3IJVZASS4Q=="</span>, <span class="token string">"storedKey"</span> <span class="token builtin class-name">:</span> <span class="token string">"DdO2o7BDdkt9Tzz3FdQATk9VtA4RFEbZWZ2YS9p2mD4="</span>, <span class="token string">"serverKey"</span> <span class="token builtin class-name">:</span> <span class="token string">"S+99H9gGXZHMD54x/4I2qxwOJA+8nbeNCXijbNKRdJ8="</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span>, <span class="token string">"roles"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">[</span> <span class="token punctuation">&#123;</span> <span class="token string">"role"</span> <span class="token builtin class-name">:</span> <span class="token string">"root"</span>, <span class="token string">"db"</span> <span class="token builtin class-name">:</span> <span class="token string">"admin"</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">]</span> <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#123;</span> <span class="token string">"_id"</span> <span class="token builtin class-name">:</span> <span class="token string">"roxn.roxn_user"</span>, <span class="token string">"userId"</span> <span class="token builtin class-name">:</span> UUID<span class="token punctuation">(</span><span class="token string">"b8227dc2-2092-4943-b6c8-a38164892a00"</span><span class="token punctuation">)</span>, <span class="token string">"user"</span> <span class="token builtin class-name">:</span> <span class="token string">"roxn_user"</span>, <span class="token string">"db"</span> <span class="token builtin class-name">:</span> <span class="token string">"roxn"</span>, <span class="token string">"credentials"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span> <span class="token string">"SCRAM-SHA-1"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span> <span class="token string">"iterationCount"</span> <span class="token builtin class-name">:</span> <span class="token number">10000</span>, <span class="token string">"salt"</span> <span class="token builtin class-name">:</span> <span class="token string">"07foaRFBvRSpO49F2Zy3IQ=="</span>, <span class="token string">"storedKey"</span> <span class="token builtin class-name">:</span> <span class="token string">"XQ1Hkjrl2+TkLV8zwVDYRT/WjgA="</span>, <span class="token string">"serverKey"</span> <span class="token builtin class-name">:</span> <span class="token string">"IaE3SSDf6auO6oziBr/VApFOzV4="</span> <span class="token punctuation">&#125;</span>, <span class="token string">"SCRAM-SHA-256"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span> <span class="token string">"iterationCount"</span> <span class="token builtin class-name">:</span> <span class="token number">15000</span>, <span class="token string">"salt"</span> <span class="token builtin class-name">:</span> <span class="token string">"y12xFVQG7SlTjpYdHAJZf2RXH+VHTDnrH6hDLw=="</span>, <span class="token string">"storedKey"</span> <span class="token builtin class-name">:</span> <span class="token string">"D9ZU9zSaxS1w0g7xDQwcPQWNsDotA9Bo4ZZXOQWLan8="</span>, <span class="token string">"serverKey"</span> <span class="token builtin class-name">:</span> <span class="token string">"lA6g/FnbOCKCFx6U4JgGqtuxocHFCE1PC0BnE8NHtlQ="</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span>, <span class="token string">"roles"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">[</span> <span class="token punctuation">&#123;</span> <span class="token string">"role"</span> <span class="token builtin class-name">:</span> <span class="token string">"dbOwner"</span>, <span class="token string">"db"</span> <span class="token builtin class-name">:</span> <span class="token string">"roxn"</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">]</span> <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="集群配置"><a href="#集群配置" class="headerlink" title="集群配置"></a>集群配置</h1><p>在上述查看用户授权中，对root和roxn_user授完权后执行以下操作</p>
+<blockquote>
+<p>在192.168.0.128、192.168.0.129、192.168.0.130三台机器均安装mongodb，别忘了创建db和log目录创建配置文件，内容如下：<br>bind_ip=192.168.0.128   # 三台机器仅IP不一样，绑定本机IP<br>port=3717<br>dbpath=/home/mongodb/db<br>logpath=/home/mongodb/log/mongodb.log<br>logappend=true<br>fork=true<br>auth=true<br>replSet=rs   # 集群名称创建集群配置会用到<br>keyFile=/home/mongodb/key_file   # 集群主机间验证文件</p>
+</blockquote>
+<h2 id="生成key-file"><a href="#生成key-file" class="headerlink" title="生成key_file"></a>生成key_file</h2><p>导入到另外两台机器，key_file保持一致</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">openssl rand <span class="token parameter variable">-base64</span> <span class="token number">756</span> <span class="token operator">></span> key_file<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="配置集群"><a href="#配置集群" class="headerlink" title="配置集群"></a>配置集群</h2><h3 id="单机备份"><a href="#单机备份" class="headerlink" title="单机备份"></a>单机备份</h3><p>如果单机版直接修改成集群配置，需要备份数据</p>
+<ol>
+<li>备份<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># -d 库名</span>
+<span class="token comment"># -o 指定备份的目录</span>
+./mongodump <span class="token parameter variable">--port</span><span class="token operator">=</span><span class="token number">3717</span> <span class="token parameter variable">--username</span><span class="token operator">=</span>roxn_user <span class="token parameter variable">-d</span> roxn <span class="token parameter variable">-o</span> ./<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>恢复<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># --host 指定要连接的主机和端口</span>
+<span class="token comment"># -d 库名</span>
+./mongorestore <span class="token parameter variable">--host</span><span class="token operator">=</span><span class="token number">192.168</span>.0.128:3717 <span class="token parameter variable">-u</span> roxn_user <span class="token parameter variable">--authenticationDatabase</span> <span class="token parameter variable">-d</span> roxn ./<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<p>在192.168.0.128主机执行以下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 连接数据库</span>
+<span class="token punctuation">[</span>root@mongodb2 mongodb<span class="token punctuation">]</span><span class="token comment"># ./bin/mongo --host 192.168.0.128:3717 -u root -p --authenticationDatabase admin</span>
+<span class="token comment"># 进入admin库</span>
+<span class="token operator">></span> use admin
+<span class="token comment"># conf=配置集群</span>
+<span class="token operator">></span> <span class="token assign-left variable">conf</span><span class="token operator">=</span><span class="token punctuation">&#123;</span> _id:<span class="token string">"rs"</span>, members:<span class="token punctuation">[</span> <span class="token punctuation">&#123;</span>_id:0,host:<span class="token string">'192.168.0.128:3717'</span><span class="token punctuation">&#125;</span>, <span class="token punctuation">&#123;</span>_id:1,host:<span class="token string">'192.168.0.129:3717'</span><span class="token punctuation">&#125;</span>,<span class="token punctuation">&#123;</span>_id:2,host:<span class="token string">'192.168.0.130:3717'</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span>
+<span class="token comment"># 正常会打印conf=的内容</span>
+<span class="token comment"># 初始化集群</span>
+<span class="token operator">></span> rs.initiate<span class="token punctuation">(</span>conf<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span> <span class="token string">"ok"</span> <span class="token builtin class-name">:</span> <span class="token number">1</span> <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看集群状态，没有报错即可。全部打印信息如下，没必要和你的一一对照。</span>
+rs:SECONDARY<span class="token operator">></span> rs.<span class="token function-name function">status</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token string">"set"</span> <span class="token builtin class-name">:</span> <span class="token string">"rs"</span>,
+    <span class="token string">"date"</span> <span class="token builtin class-name">:</span> ISODate<span class="token punctuation">(</span><span class="token string">"2021-09-07T03:14:42.034Z"</span><span class="token punctuation">)</span>,
+    <span class="token string">"myState"</span> <span class="token builtin class-name">:</span> <span class="token number">1</span>,
+    <span class="token string">"term"</span> <span class="token builtin class-name">:</span> NumberLong<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>,
+    <span class="token string">"syncingTo"</span> <span class="token builtin class-name">:</span> <span class="token string">""</span>,
+    <span class="token string">"syncSourceHost"</span> <span class="token builtin class-name">:</span> <span class="token string">""</span>,
+    <span class="token string">"syncSourceId"</span> <span class="token builtin class-name">:</span> -1,
+    <span class="token string">"heartbeatIntervalMillis"</span> <span class="token builtin class-name">:</span> NumberLong<span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span>,
+    <span class="token string">"optimes"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+        <span class="token string">"lastCommittedOpTime"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token string">"ts"</span> <span class="token builtin class-name">:</span> Timestamp<span class="token punctuation">(</span><span class="token number">1630984475</span>, <span class="token number">1</span><span class="token punctuation">)</span>,
+            <span class="token string">"t"</span> <span class="token builtin class-name">:</span> NumberLong<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>,
+        <span class="token string">"readConcernMajorityOpTime"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token string">"ts"</span> <span class="token builtin class-name">:</span> Timestamp<span class="token punctuation">(</span><span class="token number">1630984475</span>, <span class="token number">1</span><span class="token punctuation">)</span>,
+            <span class="token string">"t"</span> <span class="token builtin class-name">:</span> NumberLong<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>,
+        <span class="token string">"appliedOpTime"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token string">"ts"</span> <span class="token builtin class-name">:</span> Timestamp<span class="token punctuation">(</span><span class="token number">1630984475</span>, <span class="token number">1</span><span class="token punctuation">)</span>,
+            <span class="token string">"t"</span> <span class="token builtin class-name">:</span> NumberLong<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>,
+        <span class="token string">"durableOpTime"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token string">"ts"</span> <span class="token builtin class-name">:</span> Timestamp<span class="token punctuation">(</span><span class="token number">1630984475</span>, <span class="token number">1</span><span class="token punctuation">)</span>,
+            <span class="token string">"t"</span> <span class="token builtin class-name">:</span> NumberLong<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>,
+    <span class="token string">"lastStableCheckpointTimestamp"</span> <span class="token builtin class-name">:</span> Timestamp<span class="token punctuation">(</span><span class="token number">1630984425</span>, <span class="token number">1</span><span class="token punctuation">)</span>,
+    <span class="token string">"electionCandidateMetrics"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+        <span class="token string">"lastElectionReason"</span> <span class="token builtin class-name">:</span> <span class="token string">"electionTimeout"</span>,
+        <span class="token string">"lastElectionDate"</span> <span class="token builtin class-name">:</span> ISODate<span class="token punctuation">(</span><span class="token string">"2021-09-07T03:08:45.725Z"</span><span class="token punctuation">)</span>,
+        <span class="token string">"electionTerm"</span> <span class="token builtin class-name">:</span> NumberLong<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>,
+        <span class="token string">"lastCommittedOpTimeAtElection"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token string">"ts"</span> <span class="token builtin class-name">:</span> Timestamp<span class="token punctuation">(</span><span class="token number">0</span>, <span class="token number">0</span><span class="token punctuation">)</span>,
+            <span class="token string">"t"</span> <span class="token builtin class-name">:</span> NumberLong<span class="token punctuation">(</span>-1<span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>,
+        <span class="token string">"lastSeenOpTimeAtElection"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token string">"ts"</span> <span class="token builtin class-name">:</span> Timestamp<span class="token punctuation">(</span><span class="token number">1630984114</span>, <span class="token number">1</span><span class="token punctuation">)</span>,
+            <span class="token string">"t"</span> <span class="token builtin class-name">:</span> NumberLong<span class="token punctuation">(</span>-1<span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>,
+        <span class="token string">"numVotesNeeded"</span> <span class="token builtin class-name">:</span> <span class="token number">2</span>,
+        <span class="token string">"priorityAtElection"</span> <span class="token builtin class-name">:</span> <span class="token number">1</span>,
+        <span class="token string">"electionTimeoutMillis"</span> <span class="token builtin class-name">:</span> NumberLong<span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">)</span>,
+        <span class="token string">"numCatchUpOps"</span> <span class="token builtin class-name">:</span> NumberLong<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>,
+        <span class="token string">"newTermStartDate"</span> <span class="token builtin class-name">:</span> ISODate<span class="token punctuation">(</span><span class="token string">"2021-09-07T03:08:45.738Z"</span><span class="token punctuation">)</span>,
+        <span class="token string">"wMajorityWriteAvailabilityDate"</span> <span class="token builtin class-name">:</span> ISODate<span class="token punctuation">(</span><span class="token string">"2021-09-07T03:08:46.320Z"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>,
+    <span class="token string">"members"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token string">"_id"</span> <span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">"name"</span> <span class="token builtin class-name">:</span> <span class="token string">"192.168.0.128:3717"</span>,
+            <span class="token string">"health"</span> <span class="token builtin class-name">:</span> <span class="token number">1</span>,
+            <span class="token string">"state"</span> <span class="token builtin class-name">:</span> <span class="token number">1</span>,
+            <span class="token string">"stateStr"</span> <span class="token builtin class-name">:</span> <span class="token string">"PRIMARY"</span>,
+            <span class="token string">"uptime"</span> <span class="token builtin class-name">:</span> <span class="token number">1181</span>,
+            <span class="token string">"optime"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+                <span class="token string">"ts"</span> <span class="token builtin class-name">:</span> Timestamp<span class="token punctuation">(</span><span class="token number">1630984475</span>, <span class="token number">1</span><span class="token punctuation">)</span>,
+                <span class="token string">"t"</span> <span class="token builtin class-name">:</span> NumberLong<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#125;</span>,
+            <span class="token string">"optimeDate"</span> <span class="token builtin class-name">:</span> ISODate<span class="token punctuation">(</span><span class="token string">"2021-09-07T03:14:35Z"</span><span class="token punctuation">)</span>,
+            <span class="token string">"syncingTo"</span> <span class="token builtin class-name">:</span> <span class="token string">""</span>,
+            <span class="token string">"syncSourceHost"</span> <span class="token builtin class-name">:</span> <span class="token string">""</span>,
+            <span class="token string">"syncSourceId"</span> <span class="token builtin class-name">:</span> -1,
+            <span class="token string">"infoMessage"</span> <span class="token builtin class-name">:</span> <span class="token string">""</span>,
+            <span class="token string">"electionTime"</span> <span class="token builtin class-name">:</span> Timestamp<span class="token punctuation">(</span><span class="token number">1630984125</span>, <span class="token number">1</span><span class="token punctuation">)</span>,
+            <span class="token string">"electionDate"</span> <span class="token builtin class-name">:</span> ISODate<span class="token punctuation">(</span><span class="token string">"2021-09-07T03:08:45Z"</span><span class="token punctuation">)</span>,
+            <span class="token string">"configVersion"</span> <span class="token builtin class-name">:</span> <span class="token number">1</span>,
+            <span class="token string">"self"</span> <span class="token builtin class-name">:</span> true,
+            <span class="token string">"lastHeartbeatMessage"</span> <span class="token builtin class-name">:</span> <span class="token string">""</span>
+        <span class="token punctuation">&#125;</span>,
+        <span class="token punctuation">&#123;</span>
+            <span class="token string">"_id"</span> <span class="token builtin class-name">:</span> <span class="token number">1</span>,
+            <span class="token string">"name"</span> <span class="token builtin class-name">:</span> <span class="token string">"192.168.0.129:3717"</span>,
+            <span class="token string">"health"</span> <span class="token builtin class-name">:</span> <span class="token number">1</span>,
+            <span class="token string">"state"</span> <span class="token builtin class-name">:</span> <span class="token number">2</span>,
+            <span class="token string">"stateStr"</span> <span class="token builtin class-name">:</span> <span class="token string">"SECONDARY"</span>,
+            <span class="token string">"uptime"</span> <span class="token builtin class-name">:</span> <span class="token number">367</span>,
+            <span class="token string">"optime"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+                <span class="token string">"ts"</span> <span class="token builtin class-name">:</span> Timestamp<span class="token punctuation">(</span><span class="token number">1630984475</span>, <span class="token number">1</span><span class="token punctuation">)</span>,
+                <span class="token string">"t"</span> <span class="token builtin class-name">:</span> NumberLong<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#125;</span>,
+            <span class="token string">"optimeDurable"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+                <span class="token string">"ts"</span> <span class="token builtin class-name">:</span> Timestamp<span class="token punctuation">(</span><span class="token number">1630984475</span>, <span class="token number">1</span><span class="token punctuation">)</span>,
+                <span class="token string">"t"</span> <span class="token builtin class-name">:</span> NumberLong<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#125;</span>,
+            <span class="token string">"optimeDate"</span> <span class="token builtin class-name">:</span> ISODate<span class="token punctuation">(</span><span class="token string">"2021-09-07T03:14:35Z"</span><span class="token punctuation">)</span>,
+            <span class="token string">"optimeDurableDate"</span> <span class="token builtin class-name">:</span> ISODate<span class="token punctuation">(</span><span class="token string">"2021-09-07T03:14:35Z"</span><span class="token punctuation">)</span>,
+            <span class="token string">"lastHeartbeat"</span> <span class="token builtin class-name">:</span> ISODate<span class="token punctuation">(</span><span class="token string">"2021-09-07T03:14:41.844Z"</span><span class="token punctuation">)</span>,
+            <span class="token string">"lastHeartbeatRecv"</span> <span class="token builtin class-name">:</span> ISODate<span class="token punctuation">(</span><span class="token string">"2021-09-07T03:14:40.469Z"</span><span class="token punctuation">)</span>,
+            <span class="token string">"pingMs"</span> <span class="token builtin class-name">:</span> NumberLong<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>,
+            <span class="token string">"lastHeartbeatMessage"</span> <span class="token builtin class-name">:</span> <span class="token string">""</span>,
+            <span class="token string">"syncingTo"</span> <span class="token builtin class-name">:</span> <span class="token string">"192.168.0.128:3717"</span>,
+            <span class="token string">"syncSourceHost"</span> <span class="token builtin class-name">:</span> <span class="token string">"192.168.0.128:3717"</span>,
+            <span class="token string">"syncSourceId"</span> <span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">"infoMessage"</span> <span class="token builtin class-name">:</span> <span class="token string">""</span>,
+            <span class="token string">"configVersion"</span> <span class="token builtin class-name">:</span> <span class="token number">1</span>
+        <span class="token punctuation">&#125;</span>,
+        <span class="token punctuation">&#123;</span>
+            <span class="token string">"_id"</span> <span class="token builtin class-name">:</span> <span class="token number">2</span>,
+            <span class="token string">"name"</span> <span class="token builtin class-name">:</span> <span class="token string">"192.168.0.130:3717"</span>,
+            <span class="token string">"health"</span> <span class="token builtin class-name">:</span> <span class="token number">1</span>,
+            <span class="token string">"state"</span> <span class="token builtin class-name">:</span> <span class="token number">2</span>,
+            <span class="token string">"stateStr"</span> <span class="token builtin class-name">:</span> <span class="token string">"SECONDARY"</span>,
+            <span class="token string">"uptime"</span> <span class="token builtin class-name">:</span> <span class="token number">367</span>,
+            <span class="token string">"optime"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+                <span class="token string">"ts"</span> <span class="token builtin class-name">:</span> Timestamp<span class="token punctuation">(</span><span class="token number">1630984475</span>, <span class="token number">1</span><span class="token punctuation">)</span>,
+                <span class="token string">"t"</span> <span class="token builtin class-name">:</span> NumberLong<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#125;</span>,
+            <span class="token string">"optimeDurable"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+                <span class="token string">"ts"</span> <span class="token builtin class-name">:</span> Timestamp<span class="token punctuation">(</span><span class="token number">1630984475</span>, <span class="token number">1</span><span class="token punctuation">)</span>,
+                <span class="token string">"t"</span> <span class="token builtin class-name">:</span> NumberLong<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#125;</span>,
+            <span class="token string">"optimeDate"</span> <span class="token builtin class-name">:</span> ISODate<span class="token punctuation">(</span><span class="token string">"2021-09-07T03:14:35Z"</span><span class="token punctuation">)</span>,
+            <span class="token string">"optimeDurableDate"</span> <span class="token builtin class-name">:</span> ISODate<span class="token punctuation">(</span><span class="token string">"2021-09-07T03:14:35Z"</span><span class="token punctuation">)</span>,
+            <span class="token string">"lastHeartbeat"</span> <span class="token builtin class-name">:</span> ISODate<span class="token punctuation">(</span><span class="token string">"2021-09-07T03:14:41.844Z"</span><span class="token punctuation">)</span>,
+            <span class="token string">"lastHeartbeatRecv"</span> <span class="token builtin class-name">:</span> ISODate<span class="token punctuation">(</span><span class="token string">"2021-09-07T03:14:40.933Z"</span><span class="token punctuation">)</span>,
+            <span class="token string">"pingMs"</span> <span class="token builtin class-name">:</span> NumberLong<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>,
+            <span class="token string">"lastHeartbeatMessage"</span> <span class="token builtin class-name">:</span> <span class="token string">""</span>,
+            <span class="token string">"syncingTo"</span> <span class="token builtin class-name">:</span> <span class="token string">"192.168.0.128:3717"</span>,
+            <span class="token string">"syncSourceHost"</span> <span class="token builtin class-name">:</span> <span class="token string">"192.168.0.128:3717"</span>,
+            <span class="token string">"syncSourceId"</span> <span class="token builtin class-name">:</span> <span class="token number">0</span>,
+            <span class="token string">"infoMessage"</span> <span class="token builtin class-name">:</span> <span class="token string">""</span>,
+            <span class="token string">"configVersion"</span> <span class="token builtin class-name">:</span> <span class="token number">1</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">]</span>,
+    <span class="token string">"ok"</span> <span class="token builtin class-name">:</span> <span class="token number">1</span>,
+    <span class="token string">"operationTime"</span> <span class="token builtin class-name">:</span> Timestamp<span class="token punctuation">(</span><span class="token number">1630984475</span>, <span class="token number">1</span><span class="token punctuation">)</span>,
+    <span class="token string">"<span class="token variable">$clusterTime</span>"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+        <span class="token string">"clusterTime"</span> <span class="token builtin class-name">:</span> Timestamp<span class="token punctuation">(</span><span class="token number">1630984475</span>, <span class="token number">1</span><span class="token punctuation">)</span>,
+        <span class="token string">"signature"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token string">"hash"</span> <span class="token builtin class-name">:</span> BinData<span class="token punctuation">(</span><span class="token number">0</span>,<span class="token string">"l+ba8+37Nug/0RnocqpCJDmws0o="</span><span class="token punctuation">)</span>,
+            <span class="token string">"keyId"</span> <span class="token builtin class-name">:</span> NumberLong<span class="token punctuation">(</span><span class="token string">"7005023477170176002"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="本机验证"><a href="#本机验证" class="headerlink" title="本机验证"></a>本机验证</h2><p>验证普通用户读写</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用普通用户登录</span>
+<span class="token punctuation">[</span>root@mongodb2 mongodb<span class="token punctuation">]</span><span class="token comment"># ./bin/mongo --host 192.168.0.128:3717 -u roxn_user -p --authenticationDatabase roxn</span>
+<span class="token comment"># 进入roxn数据库</span>
+rs:PRIMARY<span class="token operator">></span> use roxn
+<span class="token comment"># 创建几条数据，save，insert均可</span>
+rs:PRIMARY<span class="token operator">></span> db.table_1.save<span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token string">'Uid'</span><span class="token builtin class-name">:</span><span class="token string">'mail@roxn.com'</span>,<span class="token string">'Al'</span>:<span class="token punctuation">[</span><span class="token string">'test1@roxn.com'</span>,<span class="token string">'test2@roxn.com'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+WriteResult<span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token string">"nInserted"</span> <span class="token builtin class-name">:</span> <span class="token number">1</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+rs:PRIMARY<span class="token operator">></span> db.table_1.insert<span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token string">'Uid'</span><span class="token builtin class-name">:</span><span class="token string">'mail@roxn.com'</span>,<span class="token string">'Al'</span>:<span class="token punctuation">[</span><span class="token string">'test1@roxn.com'</span>,<span class="token string">'test2@roxn.com'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+WriteResult<span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token string">"nInserted"</span> <span class="token builtin class-name">:</span> <span class="token number">1</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+rs:PRIMARY<span class="token operator">></span> db.table_1.insert<span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token string">'Uid'</span><span class="token builtin class-name">:</span><span class="token string">'mail@roxn.com'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+WriteResult<span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token string">"nInserted"</span> <span class="token builtin class-name">:</span> <span class="token number">1</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token comment"># 数据查询</span>
+rs:PRIMARY<span class="token operator">></span> db.table_1.find<span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token string">'Uid'</span><span class="token builtin class-name">:</span><span class="token string">'mail@roxn.com'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>.<span class="token function-name function">pretty</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token string">"_id"</span> <span class="token builtin class-name">:</span> ObjectId<span class="token punctuation">(</span><span class="token string">"6136dac50f666835e21eee73"</span><span class="token punctuation">)</span>,
+    <span class="token string">"Uid"</span> <span class="token builtin class-name">:</span> <span class="token string">"mail@roxn.com"</span>,
+    <span class="token string">"Al"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"test1@roxn.com"</span>,
+        <span class="token string">"test2@roxn.com"</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token string">"_id"</span> <span class="token builtin class-name">:</span> ObjectId<span class="token punctuation">(</span><span class="token string">"6136db920f666835e21eee74"</span><span class="token punctuation">)</span>,
+    <span class="token string">"Uid"</span> <span class="token builtin class-name">:</span> <span class="token string">"mail@roxn.com"</span>,
+    <span class="token string">"Al"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"test1@roxn.com"</span>,
+        <span class="token string">"test2@roxn.com"</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token string">"_id"</span> <span class="token builtin class-name">:</span> ObjectId<span class="token punctuation">(</span><span class="token string">"6136dbdb0f666835e21eee75"</span><span class="token punctuation">)</span>,
+    <span class="token string">"Uid"</span> <span class="token builtin class-name">:</span> <span class="token string">"mail@roxn.com"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="备份机验证"><a href="#备份机验证" class="headerlink" title="备份机验证"></a>备份机验证</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 登录</span>
+<span class="token punctuation">[</span>root@mongodb3 mongodb<span class="token punctuation">]</span><span class="token comment"># ./bin/mongo --host 192.168.0.129:3717</span>
+<span class="token comment"># 默认备份机器没有读写权限，非要读写，使用rs.slaveOk()</span>
+rs:SECONDARY<span class="token operator">></span> rs.slaveOk<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 进入库</span>
+rs:SECONDARY<span class="token operator">></span> use admin
+switched to db admin
+<span class="token comment"># 认证</span>
+rs:SECONDARY<span class="token operator">></span> db.auth<span class="token punctuation">(</span><span class="token string">"root"</span>,<span class="token string">"654321"</span><span class="token punctuation">)</span>
+<span class="token number">1</span>
+<span class="token comment"># 查看集群状态</span>
+rs:SECONDARY<span class="token operator">></span> rs.status<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 查看数据</span>
+rs:SECONDARY<span class="token operator">></span> show dbs
+admin     <span class="token number">0</span>.000GB
+config    <span class="token number">0</span>.000GB
+<span class="token builtin class-name">local</span>     <span class="token number">0</span>.000GB
+roxn      <span class="token number">0</span>.006GB
+<span class="token comment"># 进入数据库</span>
+rs:SECONDARY<span class="token operator">></span> use roxn
+switched to db roxn
+<span class="token comment"># 查询验证</span>
+rs:SECONDARY<span class="token operator">></span> db.table_1.find<span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token string">'Uid'</span><span class="token builtin class-name">:</span><span class="token string">'mail@roxn.com'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>.<span class="token function-name function">pretty</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token string">"_id"</span> <span class="token builtin class-name">:</span> ObjectId<span class="token punctuation">(</span><span class="token string">"6136dac50f666835e21eee73"</span><span class="token punctuation">)</span>,
+    <span class="token string">"Uid"</span> <span class="token builtin class-name">:</span> <span class="token string">"mail@roxn.com"</span>,
+    <span class="token string">"Al"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"test1@roxn.com"</span>,
+        <span class="token string">"test2@roxn.com"</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token string">"_id"</span> <span class="token builtin class-name">:</span> ObjectId<span class="token punctuation">(</span><span class="token string">"6136db920f666835e21eee74"</span><span class="token punctuation">)</span>,
+    <span class="token string">"Uid"</span> <span class="token builtin class-name">:</span> <span class="token string">"mail@roxn.com"</span>,
+    <span class="token string">"Al"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"test1@roxn.com"</span>,
+        <span class="token string">"test2@roxn.com"</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token string">"_id"</span> <span class="token builtin class-name">:</span> ObjectId<span class="token punctuation">(</span><span class="token string">"6136dbdb0f666835e21eee75"</span><span class="token punctuation">)</span>,
+    <span class="token string">"Uid"</span> <span class="token builtin class-name">:</span> <span class="token string">"mail@roxn.com"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="713dc437.html">参考</a></p>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">168.6k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1036 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Python数据分析学习, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>Python数据分析学习 | 波亚斯</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/featureimages/0.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Python数据分析学习</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
+                            </a>
+                        
+                            <a href="/tags/data/">
+                                <span class="chip bg-color">data</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Python/" class="post-category">
+                                Python
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-12-16
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.5k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="造数据"><a href="#造数据" class="headerlink" title="造数据 "></a><font size=5><strong>造数据</strong> </font></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># @Time     : 2019/12/11 9:39</span>
+<span class="token comment"># @Author   : wangjun</span>
+<span class="token comment"># @Mail     : 158970251@qq.com</span>
+<span class="token comment"># @File     : name.py</span>
+<span class="token comment"># @Software : PyCharm</span>
+<span class="token comment"># _*_ coding: utf-8 _*_</span>
+<span class="token keyword">import</span> random
+
+listf <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">'王'</span><span class="token punctuation">,</span> <span class="token string">'李'</span><span class="token punctuation">,</span> <span class="token string">'张'</span><span class="token punctuation">,</span> <span class="token string">'刘'</span><span class="token punctuation">,</span> <span class="token string">'陈'</span><span class="token punctuation">,</span> <span class="token string">'杨'</span><span class="token punctuation">,</span> <span class="token string">'黄'</span><span class="token punctuation">,</span> <span class="token string">'赵'</span><span class="token punctuation">,</span> <span class="token string">'吴'</span><span class="token punctuation">,</span> <span class="token string">'周'</span><span class="token punctuation">,</span> <span class="token string">'徐'</span><span class="token punctuation">,</span> <span class="token string">'孙'</span><span class="token punctuation">,</span> <span class="token string">'马'</span><span class="token punctuation">,</span> <span class="token string">'朱'</span><span class="token punctuation">,</span> <span class="token string">'胡'</span><span class="token punctuation">,</span> <span class="token string">'郭'</span><span class="token punctuation">,</span> <span class="token string">'何'</span><span class="token punctuation">,</span> <span class="token string">'高'</span><span class="token punctuation">,</span> <span class="token string">'林'</span><span class="token punctuation">,</span> <span class="token string">'罗'</span><span class="token punctuation">,</span>
+    <span class="token string">'郑'</span><span class="token punctuation">,</span> <span class="token string">'梁'</span><span class="token punctuation">,</span> <span class="token string">'谢'</span><span class="token punctuation">,</span> <span class="token string">'宋'</span><span class="token punctuation">,</span> <span class="token string">'唐'</span><span class="token punctuation">,</span> <span class="token string">'许'</span><span class="token punctuation">,</span> <span class="token string">'韩'</span><span class="token punctuation">,</span> <span class="token string">'冯'</span><span class="token punctuation">,</span> <span class="token string">'邓'</span><span class="token punctuation">,</span> <span class="token string">'曹'</span><span class="token punctuation">,</span> <span class="token string">'彭'</span><span class="token punctuation">,</span> <span class="token string">'曾'</span><span class="token punctuation">,</span> <span class="token string">'肖'</span><span class="token punctuation">,</span> <span class="token string">'田'</span><span class="token punctuation">,</span> <span class="token string">'董'</span><span class="token punctuation">,</span> <span class="token string">'袁'</span><span class="token punctuation">,</span> <span class="token string">'潘'</span><span class="token punctuation">,</span> <span class="token string">'于'</span><span class="token punctuation">,</span> <span class="token string">'蒋'</span><span class="token punctuation">,</span> <span class="token string">'蔡'</span><span class="token punctuation">,</span>
+    <span class="token string">'余'</span><span class="token punctuation">,</span> <span class="token string">'杜'</span><span class="token punctuation">,</span> <span class="token string">'叶'</span><span class="token punctuation">,</span> <span class="token string">'程'</span><span class="token punctuation">,</span> <span class="token string">'苏'</span><span class="token punctuation">,</span> <span class="token string">'魏'</span><span class="token punctuation">,</span> <span class="token string">'吕'</span><span class="token punctuation">,</span> <span class="token string">'丁'</span><span class="token punctuation">,</span> <span class="token string">'任'</span><span class="token punctuation">,</span> <span class="token string">'沈'</span><span class="token punctuation">,</span> <span class="token string">'姚'</span><span class="token punctuation">,</span> <span class="token string">'卢'</span><span class="token punctuation">,</span> <span class="token string">'姜'</span><span class="token punctuation">,</span> <span class="token string">'崔'</span><span class="token punctuation">,</span> <span class="token string">'钟'</span><span class="token punctuation">,</span> <span class="token string">'谭'</span><span class="token punctuation">,</span> <span class="token string">'陆'</span><span class="token punctuation">,</span> <span class="token string">'汪'</span><span class="token punctuation">,</span> <span class="token string">'范'</span><span class="token punctuation">,</span> <span class="token string">'金'</span><span class="token punctuation">,</span>
+    <span class="token string">'石'</span><span class="token punctuation">,</span> <span class="token string">'廖'</span><span class="token punctuation">,</span> <span class="token string">'贾'</span><span class="token punctuation">,</span> <span class="token string">'夏'</span><span class="token punctuation">,</span> <span class="token string">'韦'</span><span class="token punctuation">,</span> <span class="token string">'付'</span><span class="token punctuation">,</span> <span class="token string">'方'</span><span class="token punctuation">,</span> <span class="token string">'白'</span><span class="token punctuation">,</span> <span class="token string">'邹'</span><span class="token punctuation">,</span> <span class="token string">'孟'</span><span class="token punctuation">,</span> <span class="token string">'熊'</span><span class="token punctuation">,</span> <span class="token string">'秦'</span><span class="token punctuation">,</span> <span class="token string">'邱'</span><span class="token punctuation">,</span> <span class="token string">'江'</span><span class="token punctuation">,</span> <span class="token string">'尹'</span><span class="token punctuation">,</span> <span class="token string">'薛'</span><span class="token punctuation">,</span> <span class="token string">'闫'</span><span class="token punctuation">,</span> <span class="token string">'段'</span><span class="token punctuation">,</span> <span class="token string">'雷'</span><span class="token punctuation">,</span> <span class="token string">'侯'</span><span class="token punctuation">,</span>
+    <span class="token string">'龙'</span><span class="token punctuation">,</span> <span class="token string">'史'</span><span class="token punctuation">,</span> <span class="token string">'陶'</span><span class="token punctuation">,</span> <span class="token string">'黎'</span><span class="token punctuation">,</span> <span class="token string">'贺'</span><span class="token punctuation">,</span> <span class="token string">'顾'</span><span class="token punctuation">,</span> <span class="token string">'毛'</span><span class="token punctuation">,</span> <span class="token string">'郝'</span><span class="token punctuation">,</span> <span class="token string">'龚'</span><span class="token punctuation">,</span> <span class="token string">'邵'</span><span class="token punctuation">,</span> <span class="token string">'万'</span><span class="token punctuation">,</span> <span class="token string">'钱'</span><span class="token punctuation">,</span> <span class="token string">'严'</span><span class="token punctuation">,</span> <span class="token string">'覃'</span><span class="token punctuation">,</span> <span class="token string">'武'</span><span class="token punctuation">,</span> <span class="token string">'戴'</span><span class="token punctuation">,</span> <span class="token string">'莫'</span><span class="token punctuation">,</span> <span class="token string">'孔'</span><span class="token punctuation">,</span> <span class="token string">'向'</span><span class="token punctuation">,</span> <span class="token string">'汤'</span><span class="token punctuation">]</span>
+
+listm <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">'兰'</span><span class="token punctuation">,</span> <span class="token string">'旺'</span><span class="token punctuation">,</span> <span class="token string">'瑶'</span><span class="token punctuation">,</span> <span class="token string">'任'</span><span class="token punctuation">,</span> <span class="token string">'晴'</span><span class="token punctuation">,</span> <span class="token string">'镇'</span><span class="token punctuation">,</span> <span class="token string">'乔'</span><span class="token punctuation">,</span> <span class="token string">'欣'</span><span class="token punctuation">,</span> <span class="token string">'昆'</span><span class="token punctuation">,</span> <span class="token string">'泰'</span><span class="token punctuation">,</span> <span class="token string">'筱'</span><span class="token punctuation">,</span> <span class="token string">'秉'</span><span class="token punctuation">,</span> <span class="token string">'曜'</span><span class="token punctuation">,</span> <span class="token string">'忠'</span><span class="token punctuation">,</span> <span class="token string">'真'</span><span class="token punctuation">,</span> <span class="token string">'凯'</span><span class="token punctuation">,</span> <span class="token string">'雯'</span><span class="token punctuation">,</span> <span class="token string">'懿'</span><span class="token punctuation">,</span> <span class="token string">'崇'</span><span class="token punctuation">,</span> <span class="token string">'成'</span><span class="token punctuation">,</span> <span class="token string">'顺'</span><span class="token punctuation">,</span> <span class="token string">'博'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'孟'</span><span class="token punctuation">,</span> <span class="token string">'琦'</span><span class="token punctuation">,</span> <span class="token string">'兆'</span><span class="token punctuation">,</span> <span class="token string">'佑'</span><span class="token punctuation">,</span> <span class="token string">'健'</span><span class="token punctuation">,</span> <span class="token string">'金'</span><span class="token punctuation">,</span> <span class="token string">'宥'</span><span class="token punctuation">,</span> <span class="token string">'贵'</span><span class="token punctuation">,</span> <span class="token string">'盛'</span><span class="token punctuation">,</span> <span class="token string">'元'</span><span class="token punctuation">,</span> <span class="token string">'珍'</span><span class="token punctuation">,</span> <span class="token string">'辰'</span><span class="token punctuation">,</span> <span class="token string">'初'</span><span class="token punctuation">,</span> <span class="token string">'慈'</span><span class="token punctuation">,</span> <span class="token string">'勇'</span><span class="token punctuation">,</span> <span class="token string">'仲'</span><span class="token punctuation">,</span> <span class="token string">'思'</span><span class="token punctuation">,</span> <span class="token string">'雪'</span><span class="token punctuation">,</span> <span class="token string">'右'</span><span class="token punctuation">,</span> <span class="token string">'琼'</span><span class="token punctuation">,</span> <span class="token string">'华'</span><span class="token punctuation">,</span> <span class="token string">'其'</span><span class="token punctuation">,</span>
+    <span class="token string">'火'</span><span class="token punctuation">,</span> <span class="token string">'彦'</span><span class="token punctuation">,</span> <span class="token string">'安'</span><span class="token punctuation">,</span> <span class="token string">'婷'</span><span class="token punctuation">,</span> <span class="token string">'曼'</span><span class="token punctuation">,</span> <span class="token string">'予'</span><span class="token punctuation">,</span> <span class="token string">'湖'</span><span class="token punctuation">,</span> <span class="token string">'绍'</span><span class="token punctuation">,</span> <span class="token string">'伊'</span><span class="token punctuation">,</span> <span class="token string">'以'</span><span class="token punctuation">,</span> <span class="token string">'宝'</span><span class="token punctuation">,</span> <span class="token string">'育'</span><span class="token punctuation">,</span> <span class="token string">'夙'</span><span class="token punctuation">,</span> <span class="token string">'富'</span><span class="token punctuation">,</span> <span class="token string">'武'</span><span class="token punctuation">,</span> <span class="token string">'品'</span><span class="token punctuation">,</span> <span class="token string">'玉'</span><span class="token punctuation">,</span> <span class="token string">'馨'</span><span class="token punctuation">,</span> <span class="token string">'家'</span><span class="token punctuation">,</span> <span class="token string">'山'</span><span class="token punctuation">,</span> <span class="token string">'美'</span><span class="token punctuation">,</span> <span class="token string">'一'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'常'</span><span class="token punctuation">,</span> <span class="token string">'扬'</span><span class="token punctuation">,</span> <span class="token string">'诚'</span><span class="token punctuation">,</span> <span class="token string">'士'</span><span class="token punctuation">,</span> <span class="token string">'姿'</span><span class="token punctuation">,</span> <span class="token string">'力'</span><span class="token punctuation">,</span> <span class="token string">'耀'</span><span class="token punctuation">,</span> <span class="token string">'竣'</span><span class="token punctuation">,</span> <span class="token string">'允'</span><span class="token punctuation">,</span> <span class="token string">'筠'</span><span class="token punctuation">,</span> <span class="token string">'瑜'</span><span class="token punctuation">,</span> <span class="token string">'舜'</span><span class="token punctuation">,</span> <span class="token string">'昌'</span><span class="token punctuation">,</span> <span class="token string">'冰'</span><span class="token punctuation">,</span> <span class="token string">'行'</span><span class="token punctuation">,</span> <span class="token string">'晓'</span><span class="token punctuation">,</span> <span class="token string">'轩'</span><span class="token punctuation">,</span> <span class="token string">'义'</span><span class="token punctuation">,</span> <span class="token string">'纬'</span><span class="token punctuation">,</span> <span class="token string">'淑'</span><span class="token punctuation">,</span> <span class="token string">'荣'</span><span class="token punctuation">,</span> <span class="token string">'海'</span><span class="token punctuation">,</span>
+    <span class="token string">'呈'</span><span class="token punctuation">,</span> <span class="token string">'素'</span><span class="token punctuation">,</span> <span class="token string">'之'</span><span class="token punctuation">,</span> <span class="token string">'碧'</span><span class="token punctuation">,</span> <span class="token string">'韦'</span><span class="token punctuation">,</span> <span class="token string">'峻'</span><span class="token punctuation">,</span> <span class="token string">'晏'</span><span class="token punctuation">,</span> <span class="token string">'胜'</span><span class="token punctuation">,</span> <span class="token string">'裕'</span><span class="token punctuation">,</span> <span class="token string">'惠'</span><span class="token punctuation">,</span> <span class="token string">'子'</span><span class="token punctuation">,</span> <span class="token string">'昭'</span><span class="token punctuation">,</span> <span class="token string">'骏'</span><span class="token punctuation">,</span> <span class="token string">'芳'</span><span class="token punctuation">,</span> <span class="token string">'凡'</span><span class="token punctuation">,</span> <span class="token string">'白'</span><span class="token punctuation">,</span> <span class="token string">'恭'</span><span class="token punctuation">,</span> <span class="token string">'弘'</span><span class="token punctuation">,</span> <span class="token string">'明'</span><span class="token punctuation">,</span> <span class="token string">'兴'</span><span class="token punctuation">,</span> <span class="token string">'坚'</span><span class="token punctuation">,</span> <span class="token string">'紫'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'婉'</span><span class="token punctuation">,</span> <span class="token string">'芝'</span><span class="token punctuation">,</span> <span class="token string">'小'</span><span class="token punctuation">,</span> <span class="token string">'孝'</span><span class="token punctuation">,</span> <span class="token string">'翊'</span><span class="token punctuation">,</span> <span class="token string">'乐'</span><span class="token punctuation">,</span> <span class="token string">'如'</span><span class="token punctuation">,</span> <span class="token string">'姵'</span><span class="token punctuation">,</span> <span class="token string">'珮'</span><span class="token punctuation">,</span> <span class="token string">'智'</span><span class="token punctuation">,</span> <span class="token string">'惟'</span><span class="token punctuation">,</span> <span class="token string">'添'</span><span class="token punctuation">,</span> <span class="token string">'旻'</span><span class="token punctuation">,</span> <span class="token string">'宁'</span><span class="token punctuation">,</span> <span class="token string">'东'</span><span class="token punctuation">,</span> <span class="token string">'淳'</span><span class="token punctuation">,</span> <span class="token string">'柏'</span><span class="token punctuation">,</span> <span class="token string">'沛'</span><span class="token punctuation">,</span> <span class="token string">'合'</span><span class="token punctuation">,</span> <span class="token string">'国'</span><span class="token punctuation">,</span> <span class="token string">'宣'</span><span class="token punctuation">,</span> <span class="token string">'益'</span><span class="token punctuation">,</span>
+    <span class="token string">'伯'</span><span class="token punctuation">,</span> <span class="token string">'长'</span><span class="token punctuation">,</span> <span class="token string">'于'</span><span class="token punctuation">,</span> <span class="token string">'平'</span><span class="token punctuation">,</span> <span class="token string">'绿'</span><span class="token punctuation">,</span> <span class="token string">'维'</span><span class="token punctuation">,</span> <span class="token string">'舒'</span><span class="token punctuation">,</span> <span class="token string">'妤'</span><span class="token punctuation">,</span> <span class="token string">'南'</span><span class="token punctuation">,</span> <span class="token string">'昱'</span><span class="token punctuation">,</span> <span class="token string">'宇'</span><span class="token punctuation">,</span> <span class="token string">'岳'</span><span class="token punctuation">,</span> <span class="token string">'恩'</span><span class="token punctuation">,</span> <span class="token string">'礼'</span><span class="token punctuation">,</span> <span class="token string">'群'</span><span class="token punctuation">,</span> <span class="token string">'佩'</span><span class="token punctuation">,</span> <span class="token string">'军'</span><span class="token punctuation">,</span> <span class="token string">'璇'</span><span class="token punctuation">,</span> <span class="token string">'文'</span><span class="token punctuation">,</span> <span class="token string">'咏'</span><span class="token punctuation">,</span> <span class="token string">'介'</span><span class="token punctuation">,</span> <span class="token string">'喜'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'毅'</span><span class="token punctuation">,</span> <span class="token string">'君'</span><span class="token punctuation">,</span> <span class="token string">'劭'</span><span class="token punctuation">,</span> <span class="token string">'嘉'</span><span class="token punctuation">,</span> <span class="token string">'肇'</span><span class="token punctuation">,</span> <span class="token string">'法'</span><span class="token punctuation">,</span> <span class="token string">'逸'</span><span class="token punctuation">,</span> <span class="token string">'治'</span><span class="token punctuation">,</span> <span class="token string">'万'</span><span class="token punctuation">,</span> <span class="token string">'松'</span><span class="token punctuation">,</span> <span class="token string">'水'</span><span class="token punctuation">,</span> <span class="token string">'浩'</span><span class="token punctuation">,</span> <span class="token string">'莹'</span><span class="token punctuation">,</span> <span class="token string">'景'</span><span class="token punctuation">,</span> <span class="token string">'茂'</span><span class="token punctuation">,</span> <span class="token string">'绮'</span><span class="token punctuation">,</span> <span class="token string">'蓉'</span><span class="token punctuation">,</span> <span class="token string">'薇'</span><span class="token punctuation">,</span> <span class="token string">'郁'</span><span class="token punctuation">,</span> <span class="token string">'俞'</span><span class="token punctuation">,</span> <span class="token string">'和'</span><span class="token punctuation">,</span> <span class="token string">'坤'</span><span class="token punctuation">,</span>
+    <span class="token string">'毓'</span><span class="token punctuation">,</span> <span class="token string">'均'</span><span class="token punctuation">,</span> <span class="token string">'梦'</span><span class="token punctuation">,</span> <span class="token string">'培'</span><span class="token punctuation">,</span> <span class="token string">'与'</span><span class="token punctuation">,</span> <span class="token string">'廷'</span><span class="token punctuation">,</span> <span class="token string">'乃'</span><span class="token punctuation">,</span> <span class="token string">'勋'</span><span class="token punctuation">,</span> <span class="token string">'登'</span><span class="token punctuation">,</span> <span class="token string">'爱'</span><span class="token punctuation">,</span> <span class="token string">'梅'</span><span class="token punctuation">,</span> <span class="token string">'千'</span><span class="token punctuation">,</span> <span class="token string">'书'</span><span class="token punctuation">,</span> <span class="token string">'欢'</span><span class="token punctuation">,</span> <span class="token string">'琇'</span><span class="token punctuation">,</span> <span class="token string">'念'</span><span class="token punctuation">,</span> <span class="token string">'玟'</span><span class="token punctuation">,</span> <span class="token string">'秋'</span><span class="token punctuation">,</span> <span class="token string">'颖'</span><span class="token punctuation">,</span> <span class="token string">'得'</span><span class="token punctuation">,</span> <span class="token string">'星'</span><span class="token punctuation">,</span> <span class="token string">'江'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'容'</span><span class="token punctuation">,</span> <span class="token string">'映'</span><span class="token punctuation">,</span> <span class="token string">'德'</span><span class="token punctuation">,</span> <span class="token string">'怡'</span><span class="token punctuation">,</span> <span class="token string">'茹'</span><span class="token punctuation">,</span> <span class="token string">'仪'</span><span class="token punctuation">,</span> <span class="token string">'儒'</span><span class="token punctuation">,</span> <span class="token string">'杰'</span><span class="token punctuation">,</span> <span class="token string">'哲'</span><span class="token punctuation">,</span> <span class="token string">'汉'</span><span class="token punctuation">,</span> <span class="token string">'刚'</span><span class="token punctuation">,</span> <span class="token string">'娇'</span><span class="token punctuation">,</span> <span class="token string">'修'</span><span class="token punctuation">,</span> <span class="token string">'旭'</span><span class="token punctuation">,</span> <span class="token string">'桂'</span><span class="token punctuation">,</span> <span class="token string">'雨'</span><span class="token punctuation">,</span> <span class="token string">'仕'</span><span class="token punctuation">,</span> <span class="token string">'莉'</span><span class="token punctuation">,</span> <span class="token string">'克'</span><span class="token punctuation">,</span> <span class="token string">'佳'</span><span class="token punctuation">,</span> <span class="token string">'珊'</span><span class="token punctuation">,</span> <span class="token string">'阿'</span><span class="token punctuation">,</span>
+    <span class="token string">'秀'</span><span class="token punctuation">,</span> <span class="token string">'尚'</span><span class="token punctuation">,</span> <span class="token string">'尧'</span><span class="token punctuation">,</span> <span class="token string">'晋'</span><span class="token punctuation">,</span> <span class="token string">'湘'</span><span class="token punctuation">,</span> <span class="token string">'俐'</span><span class="token punctuation">,</span> <span class="token string">'春'</span><span class="token punctuation">,</span> <span class="token string">'虹'</span><span class="token punctuation">,</span> <span class="token string">'瑞'</span><span class="token punctuation">,</span> <span class="token string">'百'</span><span class="token punctuation">,</span> <span class="token string">'琳'</span><span class="token punctuation">,</span> <span class="token string">'语'</span><span class="token punctuation">,</span> <span class="token string">'阳'</span><span class="token punctuation">,</span> <span class="token string">'木'</span><span class="token punctuation">,</span> <span class="token string">'建'</span><span class="token punctuation">,</span> <span class="token string">'丰'</span><span class="token punctuation">,</span> <span class="token string">'琪'</span><span class="token punctuation">,</span> <span class="token string">'财'</span><span class="token punctuation">,</span> <span class="token string">'英'</span><span class="token punctuation">,</span> <span class="token string">'慧'</span><span class="token punctuation">,</span> <span class="token string">'靖'</span><span class="token punctuation">,</span> <span class="token string">'菁'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'若'</span><span class="token punctuation">,</span> <span class="token string">'大'</span><span class="token punctuation">,</span> <span class="token string">'原'</span><span class="token punctuation">,</span> <span class="token string">'婕'</span><span class="token punctuation">,</span> <span class="token string">'意'</span><span class="token punctuation">,</span> <span class="token string">'展'</span><span class="token punctuation">,</span> <span class="token string">'巧'</span><span class="token punctuation">,</span> <span class="token string">'人'</span><span class="token punctuation">,</span> <span class="token string">'吟'</span><span class="token punctuation">,</span> <span class="token string">'竹'</span><span class="token punctuation">,</span> <span class="token string">'重'</span><span class="token punctuation">,</span> <span class="token string">'鸿'</span><span class="token punctuation">,</span> <span class="token string">'敬'</span><span class="token punctuation">,</span> <span class="token string">'依'</span><span class="token punctuation">,</span> <span class="token string">'进'</span><span class="token punctuation">,</span> <span class="token string">'台'</span><span class="token punctuation">,</span> <span class="token string">'左'</span><span class="token punctuation">,</span> <span class="token string">'亦'</span><span class="token punctuation">,</span> <span class="token string">'韵'</span><span class="token punctuation">,</span> <span class="token string">'钰'</span><span class="token punctuation">,</span> <span class="token string">'新'</span><span class="token punctuation">,</span> <span class="token string">'羽'</span><span class="token punctuation">,</span>
+    <span class="token string">'静'</span><span class="token punctuation">,</span> <span class="token string">'名'</span><span class="token punctuation">,</span> <span class="token string">'中'</span><span class="token punctuation">,</span> <span class="token string">'仁'</span><span class="token punctuation">,</span> <span class="token string">'采'</span><span class="token punctuation">,</span> <span class="token string">'亭'</span><span class="token punctuation">,</span> <span class="token string">'妙'</span><span class="token punctuation">,</span> <span class="token string">'希'</span><span class="token punctuation">,</span> <span class="token string">'必'</span><span class="token punctuation">,</span> <span class="token string">'承'</span><span class="token punctuation">,</span> <span class="token string">'豪'</span><span class="token punctuation">,</span> <span class="token string">'吉'</span><span class="token punctuation">,</span> <span class="token string">'芷'</span><span class="token punctuation">,</span> <span class="token string">'上'</span><span class="token punctuation">,</span> <span class="token string">'石'</span><span class="token punctuation">,</span> <span class="token string">'冠'</span><span class="token punctuation">,</span> <span class="token string">'威'</span><span class="token punctuation">,</span> <span class="token string">'又'</span><span class="token punctuation">,</span> <span class="token string">'辛'</span><span class="token punctuation">,</span> <span class="token string">'奕'</span><span class="token punctuation">,</span> <span class="token string">'雅'</span><span class="token punctuation">,</span> <span class="token string">'泓'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'伶'</span><span class="token punctuation">,</span> <span class="token string">'玫'</span><span class="token punctuation">,</span> <span class="token string">'定'</span><span class="token punctuation">,</span> <span class="token string">'世'</span><span class="token punctuation">,</span> <span class="token string">'皓'</span><span class="token punctuation">,</span> <span class="token string">'协'</span><span class="token punctuation">,</span> <span class="token string">'芸'</span><span class="token punctuation">,</span> <span class="token string">'政'</span><span class="token punctuation">,</span> <span class="token string">'洁'</span><span class="token punctuation">,</span> <span class="token string">'祥'</span><span class="token punctuation">,</span> <span class="token string">'清'</span><span class="token punctuation">,</span> <span class="token string">'光'</span><span class="token punctuation">,</span> <span class="token string">'贞'</span><span class="token punctuation">,</span> <span class="token string">'翠'</span><span class="token punctuation">,</span> <span class="token string">'纯'</span><span class="token punctuation">,</span> <span class="token string">'伟'</span><span class="token punctuation">,</span> <span class="token string">'振'</span><span class="token punctuation">,</span> <span class="token string">'庭'</span><span class="token punctuation">,</span> <span class="token string">'易'</span><span class="token punctuation">,</span> <span class="token string">'香'</span><span class="token punctuation">,</span> <span class="token string">'永'</span><span class="token punctuation">,</span> <span class="token string">'皇'</span><span class="token punctuation">,</span>
+    <span class="token string">'茜'</span><span class="token punctuation">,</span> <span class="token string">'良'</span><span class="token punctuation">,</span> <span class="token string">'敏'</span><span class="token punctuation">,</span> <span class="token string">'燕'</span><span class="token punctuation">,</span> <span class="token string">'俊'</span><span class="token punctuation">,</span> <span class="token string">'月'</span><span class="token punctuation">,</span> <span class="token string">'民'</span><span class="token punctuation">,</span> <span class="token string">'隆'</span><span class="token punctuation">,</span> <span class="token string">'侑'</span><span class="token punctuation">,</span> <span class="token string">'诗'</span><span class="token punctuation">,</span> <span class="token string">'心'</span><span class="token punctuation">,</span> <span class="token string">'友'</span><span class="token punctuation">,</span> <span class="token string">'致'</span><span class="token punctuation">,</span> <span class="token string">'贤'</span><span class="token punctuation">,</span> <span class="token string">'宛'</span><span class="token punctuation">,</span> <span class="token string">'奇'</span><span class="token punctuation">,</span> <span class="token string">'玲'</span><span class="token punctuation">,</span> <span class="token string">'志'</span><span class="token punctuation">,</span> <span class="token string">'宪'</span><span class="token punctuation">,</span> <span class="token string">'启'</span><span class="token punctuation">,</span> <span class="token string">'亚'</span><span class="token punctuation">,</span> <span class="token string">'盈'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'睿'</span><span class="token punctuation">,</span> <span class="token string">'涵'</span><span class="token punctuation">,</span> <span class="token string">'柔'</span><span class="token punctuation">,</span> <span class="token string">'萱'</span><span class="token punctuation">,</span> <span class="token string">'昀'</span><span class="token punctuation">,</span> <span class="token string">'伦'</span><span class="token punctuation">,</span> <span class="token string">'升'</span><span class="token punctuation">,</span> <span class="token string">'季'</span><span class="token punctuation">,</span> <span class="token string">'玮'</span><span class="token punctuation">,</span> <span class="token string">'凤'</span><span class="token punctuation">,</span> <span class="token string">'善'</span><span class="token punctuation">,</span> <span class="token string">'云'</span><span class="token punctuation">,</span> <span class="token string">'祯'</span><span class="token punctuation">,</span> <span class="token string">'幸'</span><span class="token punctuation">,</span> <span class="token string">'宏'</span><span class="token punctuation">,</span> <span class="token string">'可'</span><span class="token punctuation">,</span> <span class="token string">'信'</span><span class="token punctuation">,</span> <span class="token string">'天'</span><span class="token punctuation">,</span> <span class="token string">'宗'</span><span class="token punctuation">,</span> <span class="token string">'宜'</span><span class="token punctuation">,</span> <span class="token string">'忆'</span><span class="token punctuation">,</span> <span class="token string">'康'</span><span class="token punctuation">,</span>
+    <span class="token string">'翰'</span><span class="token punctuation">,</span> <span class="token string">'正'</span><span class="token punctuation">,</span> <span class="token string">'丽'</span><span class="token punctuation">,</span> <span class="token string">'翔'</span><span class="token punctuation">,</span> <span class="token string">'少'</span><span class="token punctuation">,</span> <span class="token string">'朝'</span><span class="token punctuation">,</span> <span class="token string">'倩'</span><span class="token punctuation">,</span> <span class="token string">'圣'</span><span class="token punctuation">,</span> <span class="token string">'钧'</span><span class="token punctuation">,</span> <span class="token string">'琬'</span><span class="token punctuation">,</span> <span class="token string">'铭'</span><span class="token punctuation">,</span> <span class="token string">'学'</span><span class="token punctuation">,</span> <span class="token string">'幼'</span><span class="token punctuation">,</span> <span class="token string">'立'</span><span class="token punctuation">,</span> <span class="token string">'蕙'</span><span class="token punctuation">,</span> <span class="token string">'青'</span><span class="token punctuation">,</span> <span class="token string">'枝'</span><span class="token punctuation">,</span> <span class="token string">'庆'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">]</span>
+
+listl <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">'盛'</span><span class="token punctuation">,</span> <span class="token string">'斌'</span><span class="token punctuation">,</span> <span class="token string">'铃'</span><span class="token punctuation">,</span> <span class="token string">'峰'</span><span class="token punctuation">,</span> <span class="token string">'志'</span><span class="token punctuation">,</span> <span class="token string">'原'</span><span class="token punctuation">,</span> <span class="token string">'莲'</span><span class="token punctuation">,</span> <span class="token string">'扬'</span><span class="token punctuation">,</span> <span class="token string">'全'</span><span class="token punctuation">,</span> <span class="token string">'茂'</span><span class="token punctuation">,</span> <span class="token string">'辰'</span><span class="token punctuation">,</span> <span class="token string">'彰'</span><span class="token punctuation">,</span> <span class="token string">'臻'</span><span class="token punctuation">,</span> <span class="token string">'竹'</span><span class="token punctuation">,</span> <span class="token string">'翰'</span><span class="token punctuation">,</span> <span class="token string">'静'</span><span class="token punctuation">,</span> <span class="token string">'妹'</span><span class="token punctuation">,</span> <span class="token string">'霖'</span><span class="token punctuation">,</span> <span class="token string">'添'</span><span class="token punctuation">,</span> <span class="token string">'吟'</span><span class="token punctuation">,</span> <span class="token string">'廷'</span><span class="token punctuation">,</span> <span class="token string">'正'</span><span class="token punctuation">,</span>
+    <span class="token string">'奇'</span><span class="token punctuation">,</span> <span class="token string">'平'</span><span class="token punctuation">,</span> <span class="token string">'安'</span><span class="token punctuation">,</span> <span class="token string">'柔'</span><span class="token punctuation">,</span> <span class="token string">'毓'</span><span class="token punctuation">,</span> <span class="token string">'贵'</span><span class="token punctuation">,</span> <span class="token string">'宪'</span><span class="token punctuation">,</span> <span class="token string">'怡'</span><span class="token punctuation">,</span> <span class="token string">'秋'</span><span class="token punctuation">,</span> <span class="token string">'茜'</span><span class="token punctuation">,</span> <span class="token string">'和'</span><span class="token punctuation">,</span> <span class="token string">'玉'</span><span class="token punctuation">,</span> <span class="token string">'泉'</span><span class="token punctuation">,</span> <span class="token string">'珍'</span><span class="token punctuation">,</span> <span class="token string">'季'</span><span class="token punctuation">,</span> <span class="token string">'娇'</span><span class="token punctuation">,</span> <span class="token string">'盈'</span><span class="token punctuation">,</span> <span class="token string">'蓉'</span><span class="token punctuation">,</span> <span class="token string">'仪'</span><span class="token punctuation">,</span> <span class="token string">'群'</span><span class="token punctuation">,</span> <span class="token string">'升'</span><span class="token punctuation">,</span> <span class="token string">'忠'</span><span class="token punctuation">,</span>
+    <span class="token string">'慧'</span><span class="token punctuation">,</span> <span class="token string">'睿'</span><span class="token punctuation">,</span> <span class="token string">'军'</span><span class="token punctuation">,</span> <span class="token string">'友'</span><span class="token punctuation">,</span> <span class="token string">'威'</span><span class="token punctuation">,</span> <span class="token string">'云'</span><span class="token punctuation">,</span> <span class="token string">'玲'</span><span class="token punctuation">,</span> <span class="token string">'康'</span><span class="token punctuation">,</span> <span class="token string">'彬'</span><span class="token punctuation">,</span> <span class="token string">'雅'</span><span class="token punctuation">,</span> <span class="token string">'勋'</span><span class="token punctuation">,</span> <span class="token string">'丰'</span><span class="token punctuation">,</span> <span class="token string">'帆'</span><span class="token punctuation">,</span> <span class="token string">'君'</span><span class="token punctuation">,</span> <span class="token string">'琴'</span><span class="token punctuation">,</span> <span class="token string">'毅'</span><span class="token punctuation">,</span> <span class="token string">'玫'</span><span class="token punctuation">,</span> <span class="token string">'璇'</span><span class="token punctuation">,</span> <span class="token string">'淑'</span><span class="token punctuation">,</span> <span class="token string">'秀'</span><span class="token punctuation">,</span> <span class="token string">'琦'</span><span class="token punctuation">,</span> <span class="token string">'玮'</span><span class="token punctuation">,</span>
+    <span class="token string">'媛'</span><span class="token punctuation">,</span> <span class="token string">'逸'</span><span class="token punctuation">,</span> <span class="token string">'博'</span><span class="token punctuation">,</span> <span class="token string">'筑'</span><span class="token punctuation">,</span> <span class="token string">'维'</span><span class="token punctuation">,</span> <span class="token string">'韦'</span><span class="token punctuation">,</span> <span class="token string">'均'</span><span class="token punctuation">,</span> <span class="token string">'昌'</span><span class="token punctuation">,</span> <span class="token string">'欣'</span><span class="token punctuation">,</span> <span class="token string">'合'</span><span class="token punctuation">,</span> <span class="token string">'强'</span><span class="token punctuation">,</span> <span class="token string">'法'</span><span class="token punctuation">,</span> <span class="token string">'冰'</span><span class="token punctuation">,</span> <span class="token string">'其'</span><span class="token punctuation">,</span> <span class="token string">'昀'</span><span class="token punctuation">,</span> <span class="token string">'心'</span><span class="token punctuation">,</span> <span class="token string">'惠'</span><span class="token punctuation">,</span> <span class="token string">'甄'</span><span class="token punctuation">,</span> <span class="token string">'薇'</span><span class="token punctuation">,</span> <span class="token string">'旺'</span><span class="token punctuation">,</span> <span class="token string">'纬'</span><span class="token punctuation">,</span> <span class="token string">'南'</span><span class="token punctuation">,</span>
+    <span class="token string">'辛'</span><span class="token punctuation">,</span> <span class="token string">'伯'</span><span class="token punctuation">,</span> <span class="token string">'凤'</span><span class="token punctuation">,</span> <span class="token string">'祥'</span><span class="token punctuation">,</span> <span class="token string">'倩'</span><span class="token punctuation">,</span> <span class="token string">'舜'</span><span class="token punctuation">,</span> <span class="token string">'菱'</span><span class="token punctuation">,</span> <span class="token string">'英'</span><span class="token punctuation">,</span> <span class="token string">'美'</span><span class="token punctuation">,</span> <span class="token string">'虹'</span><span class="token punctuation">,</span> <span class="token string">'松'</span><span class="token punctuation">,</span> <span class="token string">'星'</span><span class="token punctuation">,</span> <span class="token string">'辉'</span><span class="token punctuation">,</span> <span class="token string">'元'</span><span class="token punctuation">,</span> <span class="token string">'圣'</span><span class="token punctuation">,</span> <span class="token string">'隆'</span><span class="token punctuation">,</span> <span class="token string">'龙'</span><span class="token punctuation">,</span> <span class="token string">'花'</span><span class="token punctuation">,</span> <span class="token string">'苹'</span><span class="token punctuation">,</span> <span class="token string">'筠'</span><span class="token punctuation">,</span> <span class="token string">'任'</span><span class="token punctuation">,</span> <span class="token string">'纶'</span><span class="token punctuation">,</span>
+    <span class="token string">'岚'</span><span class="token punctuation">,</span> <span class="token string">'妃'</span><span class="token punctuation">,</span> <span class="token string">'昆'</span><span class="token punctuation">,</span> <span class="token string">'贤'</span><span class="token punctuation">,</span> <span class="token string">'生'</span><span class="token punctuation">,</span> <span class="token string">'瑄'</span><span class="token punctuation">,</span> <span class="token string">'谦'</span><span class="token punctuation">,</span> <span class="token string">'兴'</span><span class="token punctuation">,</span> <span class="token string">'伟'</span><span class="token punctuation">,</span> <span class="token string">'宝'</span><span class="token punctuation">,</span> <span class="token string">'沛'</span><span class="token punctuation">,</span> <span class="token string">'馨'</span><span class="token punctuation">,</span> <span class="token string">'珮'</span><span class="token punctuation">,</span> <span class="token string">'蓁'</span><span class="token punctuation">,</span> <span class="token string">'蕙'</span><span class="token punctuation">,</span> <span class="token string">'钰'</span><span class="token punctuation">,</span> <span class="token string">'杰'</span><span class="token punctuation">,</span> <span class="token string">'劭'</span><span class="token punctuation">,</span> <span class="token string">'旭'</span><span class="token punctuation">,</span> <span class="token string">'宏'</span><span class="token punctuation">,</span> <span class="token string">'庭'</span><span class="token punctuation">,</span> <span class="token string">'坤'</span><span class="token punctuation">,</span>
+    <span class="token string">'轩'</span><span class="token punctuation">,</span> <span class="token string">'修'</span><span class="token punctuation">,</span> <span class="token string">'芸'</span><span class="token punctuation">,</span> <span class="token string">'佳'</span><span class="token punctuation">,</span> <span class="token string">'月'</span><span class="token punctuation">,</span> <span class="token string">'桦'</span><span class="token punctuation">,</span> <span class="token string">'来'</span><span class="token punctuation">,</span> <span class="token string">'霞'</span><span class="token punctuation">,</span> <span class="token string">'孜'</span><span class="token punctuation">,</span> <span class="token string">'乐'</span><span class="token punctuation">,</span> <span class="token string">'达'</span><span class="token punctuation">,</span> <span class="token string">'敏'</span><span class="token punctuation">,</span> <span class="token string">'善'</span><span class="token punctuation">,</span> <span class="token string">'亦'</span><span class="token punctuation">,</span> <span class="token string">'超'</span><span class="token punctuation">,</span> <span class="token string">'钧'</span><span class="token punctuation">,</span> <span class="token string">'天'</span><span class="token punctuation">,</span> <span class="token string">'羽'</span><span class="token punctuation">,</span> <span class="token string">'刚'</span><span class="token punctuation">,</span> <span class="token string">'绿'</span><span class="token punctuation">,</span> <span class="token string">'爱'</span><span class="token punctuation">,</span> <span class="token string">'纯'</span><span class="token punctuation">,</span>
+    <span class="token string">'侑'</span><span class="token punctuation">,</span> <span class="token string">'士'</span><span class="token punctuation">,</span> <span class="token string">'名'</span><span class="token punctuation">,</span> <span class="token string">'雯'</span><span class="token punctuation">,</span> <span class="token string">'义'</span><span class="token punctuation">,</span> <span class="token string">'亚'</span><span class="token punctuation">,</span> <span class="token string">'琬'</span><span class="token punctuation">,</span> <span class="token string">'芷'</span><span class="token punctuation">,</span> <span class="token string">'尧'</span><span class="token punctuation">,</span> <span class="token string">'伦'</span><span class="token punctuation">,</span> <span class="token string">'新'</span><span class="token punctuation">,</span> <span class="token string">'乔'</span><span class="token punctuation">,</span> <span class="token string">'雄'</span><span class="token punctuation">,</span> <span class="token string">'洁'</span><span class="token punctuation">,</span> <span class="token string">'幸'</span><span class="token punctuation">,</span> <span class="token string">'娥'</span><span class="token punctuation">,</span> <span class="token string">'恩'</span><span class="token punctuation">,</span> <span class="token string">'玟'</span><span class="token punctuation">,</span> <span class="token string">'书'</span><span class="token punctuation">,</span> <span class="token string">'惟'</span><span class="token punctuation">,</span> <span class="token string">'泰'</span><span class="token punctuation">,</span> <span class="token string">'瑜'</span><span class="token punctuation">,</span>
+    <span class="token string">'珊'</span><span class="token punctuation">,</span> <span class="token string">'远'</span><span class="token punctuation">,</span> <span class="token string">'晴'</span><span class="token punctuation">,</span> <span class="token string">'彦'</span><span class="token punctuation">,</span> <span class="token string">'哲'</span><span class="token punctuation">,</span> <span class="token string">'瑞'</span><span class="token punctuation">,</span> <span class="token string">'琇'</span><span class="token punctuation">,</span> <span class="token string">'智'</span><span class="token punctuation">,</span> <span class="token string">'映'</span><span class="token punctuation">,</span> <span class="token string">'珠'</span><span class="token punctuation">,</span> <span class="token string">'鸿'</span><span class="token punctuation">,</span> <span class="token string">'梦'</span><span class="token punctuation">,</span> <span class="token string">'燕'</span><span class="token punctuation">,</span> <span class="token string">'人'</span><span class="token punctuation">,</span> <span class="token string">'春'</span><span class="token punctuation">,</span> <span class="token string">'儒'</span><span class="token punctuation">,</span> <span class="token string">'卿'</span><span class="token punctuation">,</span> <span class="token string">'佩'</span><span class="token punctuation">,</span> <span class="token string">'祯'</span><span class="token punctuation">,</span> <span class="token string">'良'</span><span class="token punctuation">,</span> <span class="token string">'清'</span><span class="token punctuation">,</span> <span class="token string">'欢'</span><span class="token punctuation">,</span>
+    <span class="token string">'中'</span><span class="token punctuation">,</span> <span class="token string">'麟'</span><span class="token punctuation">,</span> <span class="token string">'骏'</span><span class="token punctuation">,</span> <span class="token string">'岳'</span><span class="token punctuation">,</span> <span class="token string">'财'</span><span class="token punctuation">,</span> <span class="token string">'芳'</span><span class="token punctuation">,</span> <span class="token string">'诚'</span><span class="token punctuation">,</span> <span class="token string">'文'</span><span class="token punctuation">,</span> <span class="token string">'真'</span><span class="token punctuation">,</span> <span class="token string">'柏'</span><span class="token punctuation">,</span> <span class="token string">'湖'</span><span class="token punctuation">,</span> <span class="token string">'菁'</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">,</span> <span class="token string">'一'</span><span class="token punctuation">,</span> <span class="token string">'佑'</span><span class="token punctuation">,</span> <span class="token string">'颖'</span><span class="token punctuation">,</span> <span class="token string">'阳'</span><span class="token punctuation">,</span> <span class="token string">'水'</span><span class="token punctuation">,</span> <span class="token string">'枝'</span><span class="token punctuation">,</span> <span class="token string">'茹'</span><span class="token punctuation">,</span> <span class="token string">'德'</span><span class="token punctuation">,</span> <span class="token string">'豪'</span><span class="token punctuation">,</span>
+    <span class="token string">'谕'</span><span class="token punctuation">,</span> <span class="token string">'华'</span><span class="token punctuation">,</span> <span class="token string">'裕'</span><span class="token punctuation">,</span> <span class="token string">'山'</span><span class="token punctuation">,</span> <span class="token string">'孝'</span><span class="token punctuation">,</span> <span class="token string">'依'</span><span class="token punctuation">,</span> <span class="token string">'木'</span><span class="token punctuation">,</span> <span class="token string">'宣'</span><span class="token punctuation">,</span> <span class="token string">'涵'</span><span class="token punctuation">,</span> <span class="token string">'凯'</span><span class="token punctuation">,</span> <span class="token string">'源'</span><span class="token punctuation">,</span> <span class="token string">'韵'</span><span class="token punctuation">,</span> <span class="token string">'成'</span><span class="token punctuation">,</span> <span class="token string">'育'</span><span class="token punctuation">,</span> <span class="token string">'喜'</span><span class="token punctuation">,</span> <span class="token string">'宁'</span><span class="token punctuation">,</span> <span class="token string">'郁'</span><span class="token punctuation">,</span> <span class="token string">'仁'</span><span class="token punctuation">,</span> <span class="token string">'仲'</span><span class="token punctuation">,</span> <span class="token string">'希'</span><span class="token punctuation">,</span> <span class="token string">'芬'</span><span class="token punctuation">,</span> <span class="token string">'雨'</span><span class="token punctuation">,</span>
+    <span class="token string">'瑶'</span><span class="token punctuation">,</span> <span class="token string">'翔'</span><span class="token punctuation">,</span> <span class="token string">'火'</span><span class="token punctuation">,</span> <span class="token string">'铭'</span><span class="token punctuation">,</span> <span class="token string">'芝'</span><span class="token punctuation">,</span> <span class="token string">'东'</span><span class="token punctuation">,</span> <span class="token string">'定'</span><span class="token punctuation">,</span> <span class="token string">'璋'</span><span class="token punctuation">,</span> <span class="token string">'意'</span><span class="token punctuation">,</span> <span class="token string">'江'</span><span class="token punctuation">,</span> <span class="token string">'靖'</span><span class="token punctuation">,</span> <span class="token string">'民'</span><span class="token punctuation">,</span> <span class="token string">'易'</span><span class="token punctuation">,</span> <span class="token string">'如'</span><span class="token punctuation">,</span> <span class="token string">'淳'</span><span class="token punctuation">,</span> <span class="token string">'光'</span><span class="token punctuation">,</span> <span class="token string">'发'</span><span class="token punctuation">,</span> <span class="token string">'启'</span><span class="token punctuation">,</span> <span class="token string">'俐'</span><span class="token punctuation">,</span> <span class="token string">'俊'</span><span class="token punctuation">,</span> <span class="token string">'礼'</span><span class="token punctuation">,</span> <span class="token string">'齐'</span><span class="token punctuation">,</span>
+    <span class="token string">'庆'</span><span class="token punctuation">,</span> <span class="token string">'谚'</span><span class="token punctuation">,</span> <span class="token string">'香'</span><span class="token punctuation">,</span> <span class="token string">'富'</span><span class="token punctuation">,</span> <span class="token string">'妤'</span><span class="token punctuation">,</span> <span class="token string">'宜'</span><span class="token punctuation">,</span> <span class="token string">'弘'</span><span class="token punctuation">,</span> <span class="token string">'学'</span><span class="token punctuation">,</span> <span class="token string">'汉'</span><span class="token punctuation">,</span> <span class="token string">'政'</span><span class="token punctuation">,</span> <span class="token string">'以'</span><span class="token punctuation">,</span> <span class="token string">'伶'</span><span class="token punctuation">,</span> <span class="token string">'勇'</span><span class="token punctuation">,</span> <span class="token string">'绮'</span><span class="token punctuation">,</span> <span class="token string">'凡'</span><span class="token punctuation">,</span> <span class="token string">'吉'</span><span class="token punctuation">,</span> <span class="token string">'梅'</span><span class="token punctuation">,</span> <span class="token string">'慈'</span><span class="token punctuation">,</span> <span class="token string">'容'</span><span class="token punctuation">,</span> <span class="token string">'明'</span><span class="token punctuation">,</span> <span class="token string">'荣'</span><span class="token punctuation">,</span> <span class="token string">'萍'</span><span class="token punctuation">,</span>
+    <span class="token string">'贞'</span><span class="token punctuation">,</span> <span class="token string">'娟'</span><span class="token punctuation">,</span> <span class="token string">'信'</span><span class="token punctuation">,</span> <span class="token string">'青'</span><span class="token punctuation">,</span> <span class="token string">'皓'</span><span class="token punctuation">,</span> <span class="token string">'雪'</span><span class="token punctuation">,</span> <span class="token string">'治'</span><span class="token punctuation">,</span> <span class="token string">'琳'</span><span class="token punctuation">,</span> <span class="token string">'紫'</span><span class="token punctuation">,</span> <span class="token string">'兰'</span><span class="token punctuation">,</span> <span class="token string">'白'</span><span class="token punctuation">,</span> <span class="token string">'婷'</span><span class="token punctuation">,</span> <span class="token string">'莹'</span><span class="token punctuation">,</span> <span class="token string">'嘉'</span><span class="token punctuation">,</span> <span class="token string">'恭'</span><span class="token punctuation">,</span> <span class="token string">'萱'</span><span class="token punctuation">,</span> <span class="token string">'顺'</span><span class="token punctuation">,</span> <span class="token string">'行'</span><span class="token punctuation">,</span> <span class="token string">'琪'</span><span class="token punctuation">,</span> <span class="token string">'念'</span><span class="token punctuation">,</span> <span class="token string">'宇'</span><span class="token punctuation">,</span> <span class="token string">'海'</span><span class="token punctuation">,</span>
+    <span class="token string">'坚'</span><span class="token punctuation">,</span> <span class="token string">'福'</span><span class="token punctuation">,</span> <span class="token string">'绍'</span><span class="token punctuation">,</span> <span class="token string">'桂'</span><span class="token punctuation">]</span>
+
+<span class="token comment"># 生成10000个人名</span>
+<span class="token keyword">for</span> WJ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token comment"># for WJ in range(1, 10001):</span>
+    <span class="token comment"># 名字格式</span>
+    name <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>listf<span class="token punctuation">)</span> <span class="token operator">+</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>listm<span class="token punctuation">)</span> <span class="token operator">+</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>listl<span class="token punctuation">)</span>
+    <span class="token comment"># 打开文件,(a+)追加内容</span>
+    f <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'file.txt'</span><span class="token punctuation">,</span> <span class="token string">'a+'</span><span class="token punctuation">)</span>
+    <span class="token comment"># 写入格式</span>
+    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>name <span class="token operator">+</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>
+    <span class="token comment"># 关闭文件</span>
+    f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析 "></a><font size=5><strong>数据分析</strong> </font></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># _*_ coding: utf-8 _*_</span>
+
+<span class="token keyword">from</span> collections <span class="token keyword">import</span> Counter
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">import</span> matplotlib
+<span class="token keyword">from</span> time <span class="token keyword">import</span> <span class="token operator">*</span>
+
+time1 <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 设置图片字体</span>
+matplotlib<span class="token punctuation">.</span>rcParams<span class="token punctuation">[</span><span class="token string">'font.family'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'SimHei'</span>
+<span class="token comment"># 打开文件,(r)读取内容</span>
+f <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'D:/PyCharm/1211/file.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span>
+<span class="token comment"># 将读取的内容存入变量</span>
+<span class="token builtin">str</span> <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 格式化成字典</span>
+b <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">(</span>Counter<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 显示重复次数超过50的人名</span>
+<span class="token comment"># print(&#123;key:value for key,value in b.items()if value > 50&#125;) </span>
+<span class="token comment"># 整理排序,(reverse=True)按从大到小排序</span>
+res <span class="token operator">=</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> b<span class="token punctuation">:</span> b<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> reverse<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token comment"># 取前十</span>
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>res<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># 格式化打印格式</span>
+<span class="token comment"># df2 = pd.DataFrame(&#123;"名字": df[0], "次数": df[1]&#125;)</span>
+<span class="token comment"># 打印名字和重复次数</span>
+<span class="token comment"># print(df2)</span>
+<span class="token comment"># x,y轴的内容,以列表的形式赋值</span>
+x <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># x,y轴的坐标系名称字体的大小的设定</span>
+plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'名字'</span><span class="token punctuation">,</span> size<span class="token operator">=</span><span class="token number">18</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'重复次数'</span><span class="token punctuation">,</span> size<span class="token operator">=</span><span class="token number">18</span><span class="token punctuation">)</span>
+<span class="token comment"># 设置x,y轴的条形图信息,宽度,颜色等</span>
+plt<span class="token punctuation">.</span>bar<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> width<span class="token operator">=</span><span class="token number">0.6</span><span class="token punctuation">,</span> facecolor<span class="token operator">=</span><span class="token string">'orange'</span><span class="token punctuation">,</span> edgecolor<span class="token operator">=</span><span class="token string">'black'</span><span class="token punctuation">)</span>
+<span class="token comment"># 传值,把x,y列表的'值'导入到坐标系</span>
+<span class="token keyword">for</span> a<span class="token punctuation">,</span> b <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    plt<span class="token punctuation">.</span>text<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b <span class="token operator">+</span> <span class="token number">0.05</span><span class="token punctuation">,</span> <span class="token string">'%.0f'</span> <span class="token operator">%</span> b<span class="token punctuation">,</span> ha<span class="token operator">=</span><span class="token string">'center'</span><span class="token punctuation">,</span> va<span class="token operator">=</span><span class="token string">'bottom'</span><span class="token punctuation">,</span> fontsize<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span>
+<span class="token comment"># 生成的图片信息</span>
+file_name <span class="token operator">=</span> <span class="token string">"重名次数统计图.jpg"</span>
+plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">"重名次数统计图"</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>savefig<span class="token punctuation">(</span>file_name<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+time2 <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+time3 <span class="token operator">=</span> time2 <span class="token operator">-</span> time1
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'该循环程序运行时间: '</span><span class="token punctuation">,</span> time3<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="查看图片"><a href="#查看图片" class="headerlink" title="查看图片 "></a><font size=5><strong>查看图片</strong> </font></h2><p><img src="/medias/img/python0/0.jpg" alt="重名次数统计图.jpg"></p>
+<h2 id="创建数据库和表"><a href="#创建数据库和表" class="headerlink" title="创建数据库和表 "></a><font size=5><strong>创建数据库和表</strong> </font></h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># sql语句</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> <span class="token identifier"><span class="token punctuation">`</span>school<span class="token punctuation">`</span></span> <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> <span class="token string">'utf8'</span> <span class="token keyword">COLLATE</span> <span class="token string">'utf8_bin'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>school<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>student<span class="token punctuation">`</span></span>  <span class="token punctuation">(</span>
+  <span class="token identifier"><span class="token punctuation">`</span>name<span class="token punctuation">`</span></span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> utf8 <span class="token keyword">COLLATE</span> utf8_bin <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>gender<span class="token punctuation">`</span></span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> utf8 <span class="token keyword">COLLATE</span> utf8_bin <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>age<span class="token punctuation">`</span></span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>cclass<span class="token punctuation">`</span></span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> utf8 <span class="token keyword">COLLATE</span> utf8_bin <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>yuwen<span class="token punctuation">`</span></span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>shuxue<span class="token punctuation">`</span></span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>english<span class="token punctuation">`</span></span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>total<span class="token punctuation">`</span></span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="导入数据"><a href="#导入数据" class="headerlink" title="导入数据 "></a><font size=5><strong>导入数据</strong> </font></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># @Time     : 2019/12/9 17:23</span>
+<span class="token comment"># @Author   : wangjun</span>
+<span class="token comment"># @Mail     : 158970251@qq.com</span>
+<span class="token comment"># @File     : mysql.py</span>
+<span class="token comment"># @Software : PyCharm</span>
+<span class="token comment"># _*_ coding: utf-8 _*_</span>
+
+<span class="token keyword">import</span> pymysql
+<span class="token keyword">import</span> random
+<span class="token keyword">from</span> time <span class="token keyword">import</span> <span class="token operator">*</span>
+
+<span class="token comment"># 姓</span>
+listf <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">'王'</span><span class="token punctuation">,</span> <span class="token string">'李'</span><span class="token punctuation">,</span> <span class="token string">'张'</span><span class="token punctuation">,</span> <span class="token string">'刘'</span><span class="token punctuation">,</span> <span class="token string">'陈'</span><span class="token punctuation">,</span> <span class="token string">'杨'</span><span class="token punctuation">,</span> <span class="token string">'黄'</span><span class="token punctuation">,</span> <span class="token string">'赵'</span><span class="token punctuation">,</span> <span class="token string">'吴'</span><span class="token punctuation">,</span> <span class="token string">'周'</span><span class="token punctuation">,</span> <span class="token string">'徐'</span><span class="token punctuation">,</span> <span class="token string">'孙'</span><span class="token punctuation">,</span> <span class="token string">'马'</span><span class="token punctuation">,</span> <span class="token string">'朱'</span><span class="token punctuation">,</span> <span class="token string">'胡'</span><span class="token punctuation">,</span> <span class="token string">'郭'</span><span class="token punctuation">,</span> <span class="token string">'何'</span><span class="token punctuation">,</span> <span class="token string">'高'</span><span class="token punctuation">,</span> <span class="token string">'林'</span><span class="token punctuation">,</span> <span class="token string">'罗'</span><span class="token punctuation">,</span>
+    <span class="token string">'郑'</span><span class="token punctuation">,</span> <span class="token string">'梁'</span><span class="token punctuation">,</span> <span class="token string">'谢'</span><span class="token punctuation">,</span> <span class="token string">'宋'</span><span class="token punctuation">,</span> <span class="token string">'唐'</span><span class="token punctuation">,</span> <span class="token string">'许'</span><span class="token punctuation">,</span> <span class="token string">'韩'</span><span class="token punctuation">,</span> <span class="token string">'冯'</span><span class="token punctuation">,</span> <span class="token string">'邓'</span><span class="token punctuation">,</span> <span class="token string">'曹'</span><span class="token punctuation">,</span> <span class="token string">'彭'</span><span class="token punctuation">,</span> <span class="token string">'曾'</span><span class="token punctuation">,</span> <span class="token string">'肖'</span><span class="token punctuation">,</span> <span class="token string">'田'</span><span class="token punctuation">,</span> <span class="token string">'董'</span><span class="token punctuation">,</span> <span class="token string">'袁'</span><span class="token punctuation">,</span> <span class="token string">'潘'</span><span class="token punctuation">,</span> <span class="token string">'于'</span><span class="token punctuation">,</span> <span class="token string">'蒋'</span><span class="token punctuation">,</span> <span class="token string">'蔡'</span><span class="token punctuation">,</span>
+    <span class="token string">'余'</span><span class="token punctuation">,</span> <span class="token string">'杜'</span><span class="token punctuation">,</span> <span class="token string">'叶'</span><span class="token punctuation">,</span> <span class="token string">'程'</span><span class="token punctuation">,</span> <span class="token string">'苏'</span><span class="token punctuation">,</span> <span class="token string">'魏'</span><span class="token punctuation">,</span> <span class="token string">'吕'</span><span class="token punctuation">,</span> <span class="token string">'丁'</span><span class="token punctuation">,</span> <span class="token string">'任'</span><span class="token punctuation">,</span> <span class="token string">'沈'</span><span class="token punctuation">,</span> <span class="token string">'姚'</span><span class="token punctuation">,</span> <span class="token string">'卢'</span><span class="token punctuation">,</span> <span class="token string">'姜'</span><span class="token punctuation">,</span> <span class="token string">'崔'</span><span class="token punctuation">,</span> <span class="token string">'钟'</span><span class="token punctuation">,</span> <span class="token string">'谭'</span><span class="token punctuation">,</span> <span class="token string">'陆'</span><span class="token punctuation">,</span> <span class="token string">'汪'</span><span class="token punctuation">,</span> <span class="token string">'范'</span><span class="token punctuation">,</span> <span class="token string">'金'</span><span class="token punctuation">,</span>
+    <span class="token string">'石'</span><span class="token punctuation">,</span> <span class="token string">'廖'</span><span class="token punctuation">,</span> <span class="token string">'贾'</span><span class="token punctuation">,</span> <span class="token string">'夏'</span><span class="token punctuation">,</span> <span class="token string">'韦'</span><span class="token punctuation">,</span> <span class="token string">'付'</span><span class="token punctuation">,</span> <span class="token string">'方'</span><span class="token punctuation">,</span> <span class="token string">'白'</span><span class="token punctuation">,</span> <span class="token string">'邹'</span><span class="token punctuation">,</span> <span class="token string">'孟'</span><span class="token punctuation">,</span> <span class="token string">'熊'</span><span class="token punctuation">,</span> <span class="token string">'秦'</span><span class="token punctuation">,</span> <span class="token string">'邱'</span><span class="token punctuation">,</span> <span class="token string">'江'</span><span class="token punctuation">,</span> <span class="token string">'尹'</span><span class="token punctuation">,</span> <span class="token string">'薛'</span><span class="token punctuation">,</span> <span class="token string">'闫'</span><span class="token punctuation">,</span> <span class="token string">'段'</span><span class="token punctuation">,</span> <span class="token string">'雷'</span><span class="token punctuation">,</span> <span class="token string">'侯'</span><span class="token punctuation">,</span>
+    <span class="token string">'龙'</span><span class="token punctuation">,</span> <span class="token string">'史'</span><span class="token punctuation">,</span> <span class="token string">'陶'</span><span class="token punctuation">,</span> <span class="token string">'黎'</span><span class="token punctuation">,</span> <span class="token string">'贺'</span><span class="token punctuation">,</span> <span class="token string">'顾'</span><span class="token punctuation">,</span> <span class="token string">'毛'</span><span class="token punctuation">,</span> <span class="token string">'郝'</span><span class="token punctuation">,</span> <span class="token string">'龚'</span><span class="token punctuation">,</span> <span class="token string">'邵'</span><span class="token punctuation">,</span> <span class="token string">'万'</span><span class="token punctuation">,</span> <span class="token string">'钱'</span><span class="token punctuation">,</span> <span class="token string">'严'</span><span class="token punctuation">,</span> <span class="token string">'覃'</span><span class="token punctuation">,</span> <span class="token string">'武'</span><span class="token punctuation">,</span> <span class="token string">'戴'</span><span class="token punctuation">,</span> <span class="token string">'莫'</span><span class="token punctuation">,</span> <span class="token string">'孔'</span><span class="token punctuation">,</span> <span class="token string">'向'</span><span class="token punctuation">,</span> <span class="token string">'汤'</span><span class="token punctuation">]</span>
+<span class="token comment"># 中间穿插的''是为了生成两个字的名字</span>
+listm <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">'兰'</span><span class="token punctuation">,</span> <span class="token string">'旺'</span><span class="token punctuation">,</span> <span class="token string">'瑶'</span><span class="token punctuation">,</span> <span class="token string">'任'</span><span class="token punctuation">,</span> <span class="token string">'晴'</span><span class="token punctuation">,</span> <span class="token string">'镇'</span><span class="token punctuation">,</span> <span class="token string">'乔'</span><span class="token punctuation">,</span> <span class="token string">'欣'</span><span class="token punctuation">,</span> <span class="token string">'昆'</span><span class="token punctuation">,</span> <span class="token string">'泰'</span><span class="token punctuation">,</span> <span class="token string">'筱'</span><span class="token punctuation">,</span> <span class="token string">'秉'</span><span class="token punctuation">,</span> <span class="token string">'曜'</span><span class="token punctuation">,</span> <span class="token string">'忠'</span><span class="token punctuation">,</span> <span class="token string">'真'</span><span class="token punctuation">,</span> <span class="token string">'凯'</span><span class="token punctuation">,</span> <span class="token string">'雯'</span><span class="token punctuation">,</span> <span class="token string">'懿'</span><span class="token punctuation">,</span> <span class="token string">'崇'</span><span class="token punctuation">,</span> <span class="token string">'成'</span><span class="token punctuation">,</span> <span class="token string">'顺'</span><span class="token punctuation">,</span> <span class="token string">'博'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'孟'</span><span class="token punctuation">,</span> <span class="token string">'琦'</span><span class="token punctuation">,</span> <span class="token string">'兆'</span><span class="token punctuation">,</span> <span class="token string">'佑'</span><span class="token punctuation">,</span> <span class="token string">'健'</span><span class="token punctuation">,</span> <span class="token string">'金'</span><span class="token punctuation">,</span> <span class="token string">'宥'</span><span class="token punctuation">,</span> <span class="token string">'贵'</span><span class="token punctuation">,</span> <span class="token string">'盛'</span><span class="token punctuation">,</span> <span class="token string">'元'</span><span class="token punctuation">,</span> <span class="token string">'珍'</span><span class="token punctuation">,</span> <span class="token string">'辰'</span><span class="token punctuation">,</span> <span class="token string">'初'</span><span class="token punctuation">,</span> <span class="token string">'慈'</span><span class="token punctuation">,</span> <span class="token string">'勇'</span><span class="token punctuation">,</span> <span class="token string">'仲'</span><span class="token punctuation">,</span> <span class="token string">'思'</span><span class="token punctuation">,</span> <span class="token string">'雪'</span><span class="token punctuation">,</span> <span class="token string">'右'</span><span class="token punctuation">,</span> <span class="token string">'琼'</span><span class="token punctuation">,</span> <span class="token string">'华'</span><span class="token punctuation">,</span> <span class="token string">'其'</span><span class="token punctuation">,</span>
+    <span class="token string">'火'</span><span class="token punctuation">,</span> <span class="token string">'彦'</span><span class="token punctuation">,</span> <span class="token string">'安'</span><span class="token punctuation">,</span> <span class="token string">'婷'</span><span class="token punctuation">,</span> <span class="token string">'曼'</span><span class="token punctuation">,</span> <span class="token string">'予'</span><span class="token punctuation">,</span> <span class="token string">'湖'</span><span class="token punctuation">,</span> <span class="token string">'绍'</span><span class="token punctuation">,</span> <span class="token string">'伊'</span><span class="token punctuation">,</span> <span class="token string">'以'</span><span class="token punctuation">,</span> <span class="token string">'宝'</span><span class="token punctuation">,</span> <span class="token string">'育'</span><span class="token punctuation">,</span> <span class="token string">'夙'</span><span class="token punctuation">,</span> <span class="token string">'富'</span><span class="token punctuation">,</span> <span class="token string">'武'</span><span class="token punctuation">,</span> <span class="token string">'品'</span><span class="token punctuation">,</span> <span class="token string">'玉'</span><span class="token punctuation">,</span> <span class="token string">'馨'</span><span class="token punctuation">,</span> <span class="token string">'家'</span><span class="token punctuation">,</span> <span class="token string">'山'</span><span class="token punctuation">,</span> <span class="token string">'美'</span><span class="token punctuation">,</span> <span class="token string">'一'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'常'</span><span class="token punctuation">,</span> <span class="token string">'扬'</span><span class="token punctuation">,</span> <span class="token string">'诚'</span><span class="token punctuation">,</span> <span class="token string">'士'</span><span class="token punctuation">,</span> <span class="token string">'姿'</span><span class="token punctuation">,</span> <span class="token string">'力'</span><span class="token punctuation">,</span> <span class="token string">'耀'</span><span class="token punctuation">,</span> <span class="token string">'竣'</span><span class="token punctuation">,</span> <span class="token string">'允'</span><span class="token punctuation">,</span> <span class="token string">'筠'</span><span class="token punctuation">,</span> <span class="token string">'瑜'</span><span class="token punctuation">,</span> <span class="token string">'舜'</span><span class="token punctuation">,</span> <span class="token string">'昌'</span><span class="token punctuation">,</span> <span class="token string">'冰'</span><span class="token punctuation">,</span> <span class="token string">'行'</span><span class="token punctuation">,</span> <span class="token string">'晓'</span><span class="token punctuation">,</span> <span class="token string">'轩'</span><span class="token punctuation">,</span> <span class="token string">'义'</span><span class="token punctuation">,</span> <span class="token string">'纬'</span><span class="token punctuation">,</span> <span class="token string">'淑'</span><span class="token punctuation">,</span> <span class="token string">'荣'</span><span class="token punctuation">,</span> <span class="token string">'海'</span><span class="token punctuation">,</span>
+    <span class="token string">'呈'</span><span class="token punctuation">,</span> <span class="token string">'素'</span><span class="token punctuation">,</span> <span class="token string">'之'</span><span class="token punctuation">,</span> <span class="token string">'碧'</span><span class="token punctuation">,</span> <span class="token string">'韦'</span><span class="token punctuation">,</span> <span class="token string">'峻'</span><span class="token punctuation">,</span> <span class="token string">'晏'</span><span class="token punctuation">,</span> <span class="token string">'胜'</span><span class="token punctuation">,</span> <span class="token string">'裕'</span><span class="token punctuation">,</span> <span class="token string">'惠'</span><span class="token punctuation">,</span> <span class="token string">'子'</span><span class="token punctuation">,</span> <span class="token string">'昭'</span><span class="token punctuation">,</span> <span class="token string">'骏'</span><span class="token punctuation">,</span> <span class="token string">'芳'</span><span class="token punctuation">,</span> <span class="token string">'凡'</span><span class="token punctuation">,</span> <span class="token string">'白'</span><span class="token punctuation">,</span> <span class="token string">'恭'</span><span class="token punctuation">,</span> <span class="token string">'弘'</span><span class="token punctuation">,</span> <span class="token string">'明'</span><span class="token punctuation">,</span> <span class="token string">'兴'</span><span class="token punctuation">,</span> <span class="token string">'坚'</span><span class="token punctuation">,</span> <span class="token string">'紫'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'婉'</span><span class="token punctuation">,</span> <span class="token string">'芝'</span><span class="token punctuation">,</span> <span class="token string">'小'</span><span class="token punctuation">,</span> <span class="token string">'孝'</span><span class="token punctuation">,</span> <span class="token string">'翊'</span><span class="token punctuation">,</span> <span class="token string">'乐'</span><span class="token punctuation">,</span> <span class="token string">'如'</span><span class="token punctuation">,</span> <span class="token string">'姵'</span><span class="token punctuation">,</span> <span class="token string">'珮'</span><span class="token punctuation">,</span> <span class="token string">'智'</span><span class="token punctuation">,</span> <span class="token string">'惟'</span><span class="token punctuation">,</span> <span class="token string">'添'</span><span class="token punctuation">,</span> <span class="token string">'旻'</span><span class="token punctuation">,</span> <span class="token string">'宁'</span><span class="token punctuation">,</span> <span class="token string">'东'</span><span class="token punctuation">,</span> <span class="token string">'淳'</span><span class="token punctuation">,</span> <span class="token string">'柏'</span><span class="token punctuation">,</span> <span class="token string">'沛'</span><span class="token punctuation">,</span> <span class="token string">'合'</span><span class="token punctuation">,</span> <span class="token string">'国'</span><span class="token punctuation">,</span> <span class="token string">'宣'</span><span class="token punctuation">,</span> <span class="token string">'益'</span><span class="token punctuation">,</span>
+    <span class="token string">'伯'</span><span class="token punctuation">,</span> <span class="token string">'长'</span><span class="token punctuation">,</span> <span class="token string">'于'</span><span class="token punctuation">,</span> <span class="token string">'平'</span><span class="token punctuation">,</span> <span class="token string">'绿'</span><span class="token punctuation">,</span> <span class="token string">'维'</span><span class="token punctuation">,</span> <span class="token string">'舒'</span><span class="token punctuation">,</span> <span class="token string">'妤'</span><span class="token punctuation">,</span> <span class="token string">'南'</span><span class="token punctuation">,</span> <span class="token string">'昱'</span><span class="token punctuation">,</span> <span class="token string">'宇'</span><span class="token punctuation">,</span> <span class="token string">'岳'</span><span class="token punctuation">,</span> <span class="token string">'恩'</span><span class="token punctuation">,</span> <span class="token string">'礼'</span><span class="token punctuation">,</span> <span class="token string">'群'</span><span class="token punctuation">,</span> <span class="token string">'佩'</span><span class="token punctuation">,</span> <span class="token string">'军'</span><span class="token punctuation">,</span> <span class="token string">'璇'</span><span class="token punctuation">,</span> <span class="token string">'文'</span><span class="token punctuation">,</span> <span class="token string">'咏'</span><span class="token punctuation">,</span> <span class="token string">'介'</span><span class="token punctuation">,</span> <span class="token string">'喜'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'毅'</span><span class="token punctuation">,</span> <span class="token string">'君'</span><span class="token punctuation">,</span> <span class="token string">'劭'</span><span class="token punctuation">,</span> <span class="token string">'嘉'</span><span class="token punctuation">,</span> <span class="token string">'肇'</span><span class="token punctuation">,</span> <span class="token string">'法'</span><span class="token punctuation">,</span> <span class="token string">'逸'</span><span class="token punctuation">,</span> <span class="token string">'治'</span><span class="token punctuation">,</span> <span class="token string">'万'</span><span class="token punctuation">,</span> <span class="token string">'松'</span><span class="token punctuation">,</span> <span class="token string">'水'</span><span class="token punctuation">,</span> <span class="token string">'浩'</span><span class="token punctuation">,</span> <span class="token string">'莹'</span><span class="token punctuation">,</span> <span class="token string">'景'</span><span class="token punctuation">,</span> <span class="token string">'茂'</span><span class="token punctuation">,</span> <span class="token string">'绮'</span><span class="token punctuation">,</span> <span class="token string">'蓉'</span><span class="token punctuation">,</span> <span class="token string">'薇'</span><span class="token punctuation">,</span> <span class="token string">'郁'</span><span class="token punctuation">,</span> <span class="token string">'俞'</span><span class="token punctuation">,</span> <span class="token string">'和'</span><span class="token punctuation">,</span> <span class="token string">'坤'</span><span class="token punctuation">,</span>
+    <span class="token string">'毓'</span><span class="token punctuation">,</span> <span class="token string">'均'</span><span class="token punctuation">,</span> <span class="token string">'梦'</span><span class="token punctuation">,</span> <span class="token string">'培'</span><span class="token punctuation">,</span> <span class="token string">'与'</span><span class="token punctuation">,</span> <span class="token string">'廷'</span><span class="token punctuation">,</span> <span class="token string">'乃'</span><span class="token punctuation">,</span> <span class="token string">'勋'</span><span class="token punctuation">,</span> <span class="token string">'登'</span><span class="token punctuation">,</span> <span class="token string">'爱'</span><span class="token punctuation">,</span> <span class="token string">'梅'</span><span class="token punctuation">,</span> <span class="token string">'千'</span><span class="token punctuation">,</span> <span class="token string">'书'</span><span class="token punctuation">,</span> <span class="token string">'欢'</span><span class="token punctuation">,</span> <span class="token string">'琇'</span><span class="token punctuation">,</span> <span class="token string">'念'</span><span class="token punctuation">,</span> <span class="token string">'玟'</span><span class="token punctuation">,</span> <span class="token string">'秋'</span><span class="token punctuation">,</span> <span class="token string">'颖'</span><span class="token punctuation">,</span> <span class="token string">'得'</span><span class="token punctuation">,</span> <span class="token string">'星'</span><span class="token punctuation">,</span> <span class="token string">'江'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'容'</span><span class="token punctuation">,</span> <span class="token string">'映'</span><span class="token punctuation">,</span> <span class="token string">'德'</span><span class="token punctuation">,</span> <span class="token string">'怡'</span><span class="token punctuation">,</span> <span class="token string">'茹'</span><span class="token punctuation">,</span> <span class="token string">'仪'</span><span class="token punctuation">,</span> <span class="token string">'儒'</span><span class="token punctuation">,</span> <span class="token string">'杰'</span><span class="token punctuation">,</span> <span class="token string">'哲'</span><span class="token punctuation">,</span> <span class="token string">'汉'</span><span class="token punctuation">,</span> <span class="token string">'刚'</span><span class="token punctuation">,</span> <span class="token string">'娇'</span><span class="token punctuation">,</span> <span class="token string">'修'</span><span class="token punctuation">,</span> <span class="token string">'旭'</span><span class="token punctuation">,</span> <span class="token string">'桂'</span><span class="token punctuation">,</span> <span class="token string">'雨'</span><span class="token punctuation">,</span> <span class="token string">'仕'</span><span class="token punctuation">,</span> <span class="token string">'莉'</span><span class="token punctuation">,</span> <span class="token string">'克'</span><span class="token punctuation">,</span> <span class="token string">'佳'</span><span class="token punctuation">,</span> <span class="token string">'珊'</span><span class="token punctuation">,</span> <span class="token string">'阿'</span><span class="token punctuation">,</span>
+    <span class="token string">'秀'</span><span class="token punctuation">,</span> <span class="token string">'尚'</span><span class="token punctuation">,</span> <span class="token string">'尧'</span><span class="token punctuation">,</span> <span class="token string">'晋'</span><span class="token punctuation">,</span> <span class="token string">'湘'</span><span class="token punctuation">,</span> <span class="token string">'俐'</span><span class="token punctuation">,</span> <span class="token string">'春'</span><span class="token punctuation">,</span> <span class="token string">'虹'</span><span class="token punctuation">,</span> <span class="token string">'瑞'</span><span class="token punctuation">,</span> <span class="token string">'百'</span><span class="token punctuation">,</span> <span class="token string">'琳'</span><span class="token punctuation">,</span> <span class="token string">'语'</span><span class="token punctuation">,</span> <span class="token string">'阳'</span><span class="token punctuation">,</span> <span class="token string">'木'</span><span class="token punctuation">,</span> <span class="token string">'建'</span><span class="token punctuation">,</span> <span class="token string">'丰'</span><span class="token punctuation">,</span> <span class="token string">'琪'</span><span class="token punctuation">,</span> <span class="token string">'财'</span><span class="token punctuation">,</span> <span class="token string">'英'</span><span class="token punctuation">,</span> <span class="token string">'慧'</span><span class="token punctuation">,</span> <span class="token string">'靖'</span><span class="token punctuation">,</span> <span class="token string">'菁'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'若'</span><span class="token punctuation">,</span> <span class="token string">'大'</span><span class="token punctuation">,</span> <span class="token string">'原'</span><span class="token punctuation">,</span> <span class="token string">'婕'</span><span class="token punctuation">,</span> <span class="token string">'意'</span><span class="token punctuation">,</span> <span class="token string">'展'</span><span class="token punctuation">,</span> <span class="token string">'巧'</span><span class="token punctuation">,</span> <span class="token string">'人'</span><span class="token punctuation">,</span> <span class="token string">'吟'</span><span class="token punctuation">,</span> <span class="token string">'竹'</span><span class="token punctuation">,</span> <span class="token string">'重'</span><span class="token punctuation">,</span> <span class="token string">'鸿'</span><span class="token punctuation">,</span> <span class="token string">'敬'</span><span class="token punctuation">,</span> <span class="token string">'依'</span><span class="token punctuation">,</span> <span class="token string">'进'</span><span class="token punctuation">,</span> <span class="token string">'台'</span><span class="token punctuation">,</span> <span class="token string">'左'</span><span class="token punctuation">,</span> <span class="token string">'亦'</span><span class="token punctuation">,</span> <span class="token string">'韵'</span><span class="token punctuation">,</span> <span class="token string">'钰'</span><span class="token punctuation">,</span> <span class="token string">'新'</span><span class="token punctuation">,</span> <span class="token string">'羽'</span><span class="token punctuation">,</span>
+    <span class="token string">'静'</span><span class="token punctuation">,</span> <span class="token string">'名'</span><span class="token punctuation">,</span> <span class="token string">'中'</span><span class="token punctuation">,</span> <span class="token string">'仁'</span><span class="token punctuation">,</span> <span class="token string">'采'</span><span class="token punctuation">,</span> <span class="token string">'亭'</span><span class="token punctuation">,</span> <span class="token string">'妙'</span><span class="token punctuation">,</span> <span class="token string">'希'</span><span class="token punctuation">,</span> <span class="token string">'必'</span><span class="token punctuation">,</span> <span class="token string">'承'</span><span class="token punctuation">,</span> <span class="token string">'豪'</span><span class="token punctuation">,</span> <span class="token string">'吉'</span><span class="token punctuation">,</span> <span class="token string">'芷'</span><span class="token punctuation">,</span> <span class="token string">'上'</span><span class="token punctuation">,</span> <span class="token string">'石'</span><span class="token punctuation">,</span> <span class="token string">'冠'</span><span class="token punctuation">,</span> <span class="token string">'威'</span><span class="token punctuation">,</span> <span class="token string">'又'</span><span class="token punctuation">,</span> <span class="token string">'辛'</span><span class="token punctuation">,</span> <span class="token string">'奕'</span><span class="token punctuation">,</span> <span class="token string">'雅'</span><span class="token punctuation">,</span> <span class="token string">'泓'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'伶'</span><span class="token punctuation">,</span> <span class="token string">'玫'</span><span class="token punctuation">,</span> <span class="token string">'定'</span><span class="token punctuation">,</span> <span class="token string">'世'</span><span class="token punctuation">,</span> <span class="token string">'皓'</span><span class="token punctuation">,</span> <span class="token string">'协'</span><span class="token punctuation">,</span> <span class="token string">'芸'</span><span class="token punctuation">,</span> <span class="token string">'政'</span><span class="token punctuation">,</span> <span class="token string">'洁'</span><span class="token punctuation">,</span> <span class="token string">'祥'</span><span class="token punctuation">,</span> <span class="token string">'清'</span><span class="token punctuation">,</span> <span class="token string">'光'</span><span class="token punctuation">,</span> <span class="token string">'贞'</span><span class="token punctuation">,</span> <span class="token string">'翠'</span><span class="token punctuation">,</span> <span class="token string">'纯'</span><span class="token punctuation">,</span> <span class="token string">'伟'</span><span class="token punctuation">,</span> <span class="token string">'振'</span><span class="token punctuation">,</span> <span class="token string">'庭'</span><span class="token punctuation">,</span> <span class="token string">'易'</span><span class="token punctuation">,</span> <span class="token string">'香'</span><span class="token punctuation">,</span> <span class="token string">'永'</span><span class="token punctuation">,</span> <span class="token string">'皇'</span><span class="token punctuation">,</span>
+    <span class="token string">'茜'</span><span class="token punctuation">,</span> <span class="token string">'良'</span><span class="token punctuation">,</span> <span class="token string">'敏'</span><span class="token punctuation">,</span> <span class="token string">'燕'</span><span class="token punctuation">,</span> <span class="token string">'俊'</span><span class="token punctuation">,</span> <span class="token string">'月'</span><span class="token punctuation">,</span> <span class="token string">'民'</span><span class="token punctuation">,</span> <span class="token string">'隆'</span><span class="token punctuation">,</span> <span class="token string">'侑'</span><span class="token punctuation">,</span> <span class="token string">'诗'</span><span class="token punctuation">,</span> <span class="token string">'心'</span><span class="token punctuation">,</span> <span class="token string">'友'</span><span class="token punctuation">,</span> <span class="token string">'致'</span><span class="token punctuation">,</span> <span class="token string">'贤'</span><span class="token punctuation">,</span> <span class="token string">'宛'</span><span class="token punctuation">,</span> <span class="token string">'奇'</span><span class="token punctuation">,</span> <span class="token string">'玲'</span><span class="token punctuation">,</span> <span class="token string">'志'</span><span class="token punctuation">,</span> <span class="token string">'宪'</span><span class="token punctuation">,</span> <span class="token string">'启'</span><span class="token punctuation">,</span> <span class="token string">'亚'</span><span class="token punctuation">,</span> <span class="token string">'盈'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'睿'</span><span class="token punctuation">,</span> <span class="token string">'涵'</span><span class="token punctuation">,</span> <span class="token string">'柔'</span><span class="token punctuation">,</span> <span class="token string">'萱'</span><span class="token punctuation">,</span> <span class="token string">'昀'</span><span class="token punctuation">,</span> <span class="token string">'伦'</span><span class="token punctuation">,</span> <span class="token string">'升'</span><span class="token punctuation">,</span> <span class="token string">'季'</span><span class="token punctuation">,</span> <span class="token string">'玮'</span><span class="token punctuation">,</span> <span class="token string">'凤'</span><span class="token punctuation">,</span> <span class="token string">'善'</span><span class="token punctuation">,</span> <span class="token string">'云'</span><span class="token punctuation">,</span> <span class="token string">'祯'</span><span class="token punctuation">,</span> <span class="token string">'幸'</span><span class="token punctuation">,</span> <span class="token string">'宏'</span><span class="token punctuation">,</span> <span class="token string">'可'</span><span class="token punctuation">,</span> <span class="token string">'信'</span><span class="token punctuation">,</span> <span class="token string">'天'</span><span class="token punctuation">,</span> <span class="token string">'宗'</span><span class="token punctuation">,</span> <span class="token string">'宜'</span><span class="token punctuation">,</span> <span class="token string">'忆'</span><span class="token punctuation">,</span> <span class="token string">'康'</span><span class="token punctuation">,</span>
+    <span class="token string">'翰'</span><span class="token punctuation">,</span> <span class="token string">'正'</span><span class="token punctuation">,</span> <span class="token string">'丽'</span><span class="token punctuation">,</span> <span class="token string">'翔'</span><span class="token punctuation">,</span> <span class="token string">'少'</span><span class="token punctuation">,</span> <span class="token string">'朝'</span><span class="token punctuation">,</span> <span class="token string">'倩'</span><span class="token punctuation">,</span> <span class="token string">'圣'</span><span class="token punctuation">,</span> <span class="token string">'钧'</span><span class="token punctuation">,</span> <span class="token string">'琬'</span><span class="token punctuation">,</span> <span class="token string">'铭'</span><span class="token punctuation">,</span> <span class="token string">'学'</span><span class="token punctuation">,</span> <span class="token string">'幼'</span><span class="token punctuation">,</span> <span class="token string">'立'</span><span class="token punctuation">,</span> <span class="token string">'蕙'</span><span class="token punctuation">,</span> <span class="token string">'青'</span><span class="token punctuation">,</span> <span class="token string">'枝'</span><span class="token punctuation">,</span> <span class="token string">'庆'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">]</span>
+<span class="token comment"># 名</span>
+listl <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">'盛'</span><span class="token punctuation">,</span> <span class="token string">'斌'</span><span class="token punctuation">,</span> <span class="token string">'铃'</span><span class="token punctuation">,</span> <span class="token string">'峰'</span><span class="token punctuation">,</span> <span class="token string">'志'</span><span class="token punctuation">,</span> <span class="token string">'原'</span><span class="token punctuation">,</span> <span class="token string">'莲'</span><span class="token punctuation">,</span> <span class="token string">'扬'</span><span class="token punctuation">,</span> <span class="token string">'全'</span><span class="token punctuation">,</span> <span class="token string">'茂'</span><span class="token punctuation">,</span> <span class="token string">'辰'</span><span class="token punctuation">,</span> <span class="token string">'彰'</span><span class="token punctuation">,</span> <span class="token string">'臻'</span><span class="token punctuation">,</span> <span class="token string">'竹'</span><span class="token punctuation">,</span> <span class="token string">'翰'</span><span class="token punctuation">,</span> <span class="token string">'静'</span><span class="token punctuation">,</span> <span class="token string">'妹'</span><span class="token punctuation">,</span> <span class="token string">'霖'</span><span class="token punctuation">,</span> <span class="token string">'添'</span><span class="token punctuation">,</span> <span class="token string">'吟'</span><span class="token punctuation">,</span> <span class="token string">'廷'</span><span class="token punctuation">,</span> <span class="token string">'正'</span><span class="token punctuation">,</span>
+    <span class="token string">'奇'</span><span class="token punctuation">,</span> <span class="token string">'平'</span><span class="token punctuation">,</span> <span class="token string">'安'</span><span class="token punctuation">,</span> <span class="token string">'柔'</span><span class="token punctuation">,</span> <span class="token string">'毓'</span><span class="token punctuation">,</span> <span class="token string">'贵'</span><span class="token punctuation">,</span> <span class="token string">'宪'</span><span class="token punctuation">,</span> <span class="token string">'怡'</span><span class="token punctuation">,</span> <span class="token string">'秋'</span><span class="token punctuation">,</span> <span class="token string">'茜'</span><span class="token punctuation">,</span> <span class="token string">'和'</span><span class="token punctuation">,</span> <span class="token string">'玉'</span><span class="token punctuation">,</span> <span class="token string">'泉'</span><span class="token punctuation">,</span> <span class="token string">'珍'</span><span class="token punctuation">,</span> <span class="token string">'季'</span><span class="token punctuation">,</span> <span class="token string">'娇'</span><span class="token punctuation">,</span> <span class="token string">'盈'</span><span class="token punctuation">,</span> <span class="token string">'蓉'</span><span class="token punctuation">,</span> <span class="token string">'仪'</span><span class="token punctuation">,</span> <span class="token string">'群'</span><span class="token punctuation">,</span> <span class="token string">'升'</span><span class="token punctuation">,</span> <span class="token string">'忠'</span><span class="token punctuation">,</span>
+    <span class="token string">'慧'</span><span class="token punctuation">,</span> <span class="token string">'睿'</span><span class="token punctuation">,</span> <span class="token string">'军'</span><span class="token punctuation">,</span> <span class="token string">'友'</span><span class="token punctuation">,</span> <span class="token string">'威'</span><span class="token punctuation">,</span> <span class="token string">'云'</span><span class="token punctuation">,</span> <span class="token string">'玲'</span><span class="token punctuation">,</span> <span class="token string">'康'</span><span class="token punctuation">,</span> <span class="token string">'彬'</span><span class="token punctuation">,</span> <span class="token string">'雅'</span><span class="token punctuation">,</span> <span class="token string">'勋'</span><span class="token punctuation">,</span> <span class="token string">'丰'</span><span class="token punctuation">,</span> <span class="token string">'帆'</span><span class="token punctuation">,</span> <span class="token string">'君'</span><span class="token punctuation">,</span> <span class="token string">'琴'</span><span class="token punctuation">,</span> <span class="token string">'毅'</span><span class="token punctuation">,</span> <span class="token string">'玫'</span><span class="token punctuation">,</span> <span class="token string">'璇'</span><span class="token punctuation">,</span> <span class="token string">'淑'</span><span class="token punctuation">,</span> <span class="token string">'秀'</span><span class="token punctuation">,</span> <span class="token string">'琦'</span><span class="token punctuation">,</span> <span class="token string">'玮'</span><span class="token punctuation">,</span>
+    <span class="token string">'媛'</span><span class="token punctuation">,</span> <span class="token string">'逸'</span><span class="token punctuation">,</span> <span class="token string">'博'</span><span class="token punctuation">,</span> <span class="token string">'筑'</span><span class="token punctuation">,</span> <span class="token string">'维'</span><span class="token punctuation">,</span> <span class="token string">'韦'</span><span class="token punctuation">,</span> <span class="token string">'均'</span><span class="token punctuation">,</span> <span class="token string">'昌'</span><span class="token punctuation">,</span> <span class="token string">'欣'</span><span class="token punctuation">,</span> <span class="token string">'合'</span><span class="token punctuation">,</span> <span class="token string">'强'</span><span class="token punctuation">,</span> <span class="token string">'法'</span><span class="token punctuation">,</span> <span class="token string">'冰'</span><span class="token punctuation">,</span> <span class="token string">'其'</span><span class="token punctuation">,</span> <span class="token string">'昀'</span><span class="token punctuation">,</span> <span class="token string">'心'</span><span class="token punctuation">,</span> <span class="token string">'惠'</span><span class="token punctuation">,</span> <span class="token string">'甄'</span><span class="token punctuation">,</span> <span class="token string">'薇'</span><span class="token punctuation">,</span> <span class="token string">'旺'</span><span class="token punctuation">,</span> <span class="token string">'纬'</span><span class="token punctuation">,</span> <span class="token string">'南'</span><span class="token punctuation">,</span>
+    <span class="token string">'辛'</span><span class="token punctuation">,</span> <span class="token string">'伯'</span><span class="token punctuation">,</span> <span class="token string">'凤'</span><span class="token punctuation">,</span> <span class="token string">'祥'</span><span class="token punctuation">,</span> <span class="token string">'倩'</span><span class="token punctuation">,</span> <span class="token string">'舜'</span><span class="token punctuation">,</span> <span class="token string">'菱'</span><span class="token punctuation">,</span> <span class="token string">'英'</span><span class="token punctuation">,</span> <span class="token string">'美'</span><span class="token punctuation">,</span> <span class="token string">'虹'</span><span class="token punctuation">,</span> <span class="token string">'松'</span><span class="token punctuation">,</span> <span class="token string">'星'</span><span class="token punctuation">,</span> <span class="token string">'辉'</span><span class="token punctuation">,</span> <span class="token string">'元'</span><span class="token punctuation">,</span> <span class="token string">'圣'</span><span class="token punctuation">,</span> <span class="token string">'隆'</span><span class="token punctuation">,</span> <span class="token string">'龙'</span><span class="token punctuation">,</span> <span class="token string">'花'</span><span class="token punctuation">,</span> <span class="token string">'苹'</span><span class="token punctuation">,</span> <span class="token string">'筠'</span><span class="token punctuation">,</span> <span class="token string">'任'</span><span class="token punctuation">,</span> <span class="token string">'纶'</span><span class="token punctuation">,</span>
+    <span class="token string">'岚'</span><span class="token punctuation">,</span> <span class="token string">'妃'</span><span class="token punctuation">,</span> <span class="token string">'昆'</span><span class="token punctuation">,</span> <span class="token string">'贤'</span><span class="token punctuation">,</span> <span class="token string">'生'</span><span class="token punctuation">,</span> <span class="token string">'瑄'</span><span class="token punctuation">,</span> <span class="token string">'谦'</span><span class="token punctuation">,</span> <span class="token string">'兴'</span><span class="token punctuation">,</span> <span class="token string">'伟'</span><span class="token punctuation">,</span> <span class="token string">'宝'</span><span class="token punctuation">,</span> <span class="token string">'沛'</span><span class="token punctuation">,</span> <span class="token string">'馨'</span><span class="token punctuation">,</span> <span class="token string">'珮'</span><span class="token punctuation">,</span> <span class="token string">'蓁'</span><span class="token punctuation">,</span> <span class="token string">'蕙'</span><span class="token punctuation">,</span> <span class="token string">'钰'</span><span class="token punctuation">,</span> <span class="token string">'杰'</span><span class="token punctuation">,</span> <span class="token string">'劭'</span><span class="token punctuation">,</span> <span class="token string">'旭'</span><span class="token punctuation">,</span> <span class="token string">'宏'</span><span class="token punctuation">,</span> <span class="token string">'庭'</span><span class="token punctuation">,</span> <span class="token string">'坤'</span><span class="token punctuation">,</span>
+    <span class="token string">'轩'</span><span class="token punctuation">,</span> <span class="token string">'修'</span><span class="token punctuation">,</span> <span class="token string">'芸'</span><span class="token punctuation">,</span> <span class="token string">'佳'</span><span class="token punctuation">,</span> <span class="token string">'月'</span><span class="token punctuation">,</span> <span class="token string">'桦'</span><span class="token punctuation">,</span> <span class="token string">'来'</span><span class="token punctuation">,</span> <span class="token string">'霞'</span><span class="token punctuation">,</span> <span class="token string">'孜'</span><span class="token punctuation">,</span> <span class="token string">'乐'</span><span class="token punctuation">,</span> <span class="token string">'达'</span><span class="token punctuation">,</span> <span class="token string">'敏'</span><span class="token punctuation">,</span> <span class="token string">'善'</span><span class="token punctuation">,</span> <span class="token string">'亦'</span><span class="token punctuation">,</span> <span class="token string">'超'</span><span class="token punctuation">,</span> <span class="token string">'钧'</span><span class="token punctuation">,</span> <span class="token string">'天'</span><span class="token punctuation">,</span> <span class="token string">'羽'</span><span class="token punctuation">,</span> <span class="token string">'刚'</span><span class="token punctuation">,</span> <span class="token string">'绿'</span><span class="token punctuation">,</span> <span class="token string">'爱'</span><span class="token punctuation">,</span> <span class="token string">'纯'</span><span class="token punctuation">,</span>
+    <span class="token string">'侑'</span><span class="token punctuation">,</span> <span class="token string">'士'</span><span class="token punctuation">,</span> <span class="token string">'名'</span><span class="token punctuation">,</span> <span class="token string">'雯'</span><span class="token punctuation">,</span> <span class="token string">'义'</span><span class="token punctuation">,</span> <span class="token string">'亚'</span><span class="token punctuation">,</span> <span class="token string">'琬'</span><span class="token punctuation">,</span> <span class="token string">'芷'</span><span class="token punctuation">,</span> <span class="token string">'尧'</span><span class="token punctuation">,</span> <span class="token string">'伦'</span><span class="token punctuation">,</span> <span class="token string">'新'</span><span class="token punctuation">,</span> <span class="token string">'乔'</span><span class="token punctuation">,</span> <span class="token string">'雄'</span><span class="token punctuation">,</span> <span class="token string">'洁'</span><span class="token punctuation">,</span> <span class="token string">'幸'</span><span class="token punctuation">,</span> <span class="token string">'娥'</span><span class="token punctuation">,</span> <span class="token string">'恩'</span><span class="token punctuation">,</span> <span class="token string">'玟'</span><span class="token punctuation">,</span> <span class="token string">'书'</span><span class="token punctuation">,</span> <span class="token string">'惟'</span><span class="token punctuation">,</span> <span class="token string">'泰'</span><span class="token punctuation">,</span> <span class="token string">'瑜'</span><span class="token punctuation">,</span>
+    <span class="token string">'珊'</span><span class="token punctuation">,</span> <span class="token string">'远'</span><span class="token punctuation">,</span> <span class="token string">'晴'</span><span class="token punctuation">,</span> <span class="token string">'彦'</span><span class="token punctuation">,</span> <span class="token string">'哲'</span><span class="token punctuation">,</span> <span class="token string">'瑞'</span><span class="token punctuation">,</span> <span class="token string">'琇'</span><span class="token punctuation">,</span> <span class="token string">'智'</span><span class="token punctuation">,</span> <span class="token string">'映'</span><span class="token punctuation">,</span> <span class="token string">'珠'</span><span class="token punctuation">,</span> <span class="token string">'鸿'</span><span class="token punctuation">,</span> <span class="token string">'梦'</span><span class="token punctuation">,</span> <span class="token string">'燕'</span><span class="token punctuation">,</span> <span class="token string">'人'</span><span class="token punctuation">,</span> <span class="token string">'春'</span><span class="token punctuation">,</span> <span class="token string">'儒'</span><span class="token punctuation">,</span> <span class="token string">'卿'</span><span class="token punctuation">,</span> <span class="token string">'佩'</span><span class="token punctuation">,</span> <span class="token string">'祯'</span><span class="token punctuation">,</span> <span class="token string">'良'</span><span class="token punctuation">,</span> <span class="token string">'清'</span><span class="token punctuation">,</span> <span class="token string">'欢'</span><span class="token punctuation">,</span>
+    <span class="token string">'中'</span><span class="token punctuation">,</span> <span class="token string">'麟'</span><span class="token punctuation">,</span> <span class="token string">'骏'</span><span class="token punctuation">,</span> <span class="token string">'岳'</span><span class="token punctuation">,</span> <span class="token string">'财'</span><span class="token punctuation">,</span> <span class="token string">'芳'</span><span class="token punctuation">,</span> <span class="token string">'诚'</span><span class="token punctuation">,</span> <span class="token string">'文'</span><span class="token punctuation">,</span> <span class="token string">'真'</span><span class="token punctuation">,</span> <span class="token string">'柏'</span><span class="token punctuation">,</span> <span class="token string">'湖'</span><span class="token punctuation">,</span> <span class="token string">'菁'</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">,</span> <span class="token string">'一'</span><span class="token punctuation">,</span> <span class="token string">'佑'</span><span class="token punctuation">,</span> <span class="token string">'颖'</span><span class="token punctuation">,</span> <span class="token string">'阳'</span><span class="token punctuation">,</span> <span class="token string">'水'</span><span class="token punctuation">,</span> <span class="token string">'枝'</span><span class="token punctuation">,</span> <span class="token string">'茹'</span><span class="token punctuation">,</span> <span class="token string">'德'</span><span class="token punctuation">,</span> <span class="token string">'豪'</span><span class="token punctuation">,</span>
+    <span class="token string">'谕'</span><span class="token punctuation">,</span> <span class="token string">'华'</span><span class="token punctuation">,</span> <span class="token string">'裕'</span><span class="token punctuation">,</span> <span class="token string">'山'</span><span class="token punctuation">,</span> <span class="token string">'孝'</span><span class="token punctuation">,</span> <span class="token string">'依'</span><span class="token punctuation">,</span> <span class="token string">'木'</span><span class="token punctuation">,</span> <span class="token string">'宣'</span><span class="token punctuation">,</span> <span class="token string">'涵'</span><span class="token punctuation">,</span> <span class="token string">'凯'</span><span class="token punctuation">,</span> <span class="token string">'源'</span><span class="token punctuation">,</span> <span class="token string">'韵'</span><span class="token punctuation">,</span> <span class="token string">'成'</span><span class="token punctuation">,</span> <span class="token string">'育'</span><span class="token punctuation">,</span> <span class="token string">'喜'</span><span class="token punctuation">,</span> <span class="token string">'宁'</span><span class="token punctuation">,</span> <span class="token string">'郁'</span><span class="token punctuation">,</span> <span class="token string">'仁'</span><span class="token punctuation">,</span> <span class="token string">'仲'</span><span class="token punctuation">,</span> <span class="token string">'希'</span><span class="token punctuation">,</span> <span class="token string">'芬'</span><span class="token punctuation">,</span> <span class="token string">'雨'</span><span class="token punctuation">,</span>
+    <span class="token string">'瑶'</span><span class="token punctuation">,</span> <span class="token string">'翔'</span><span class="token punctuation">,</span> <span class="token string">'火'</span><span class="token punctuation">,</span> <span class="token string">'铭'</span><span class="token punctuation">,</span> <span class="token string">'芝'</span><span class="token punctuation">,</span> <span class="token string">'东'</span><span class="token punctuation">,</span> <span class="token string">'定'</span><span class="token punctuation">,</span> <span class="token string">'璋'</span><span class="token punctuation">,</span> <span class="token string">'意'</span><span class="token punctuation">,</span> <span class="token string">'江'</span><span class="token punctuation">,</span> <span class="token string">'靖'</span><span class="token punctuation">,</span> <span class="token string">'民'</span><span class="token punctuation">,</span> <span class="token string">'易'</span><span class="token punctuation">,</span> <span class="token string">'如'</span><span class="token punctuation">,</span> <span class="token string">'淳'</span><span class="token punctuation">,</span> <span class="token string">'光'</span><span class="token punctuation">,</span> <span class="token string">'发'</span><span class="token punctuation">,</span> <span class="token string">'启'</span><span class="token punctuation">,</span> <span class="token string">'俐'</span><span class="token punctuation">,</span> <span class="token string">'俊'</span><span class="token punctuation">,</span> <span class="token string">'礼'</span><span class="token punctuation">,</span> <span class="token string">'齐'</span><span class="token punctuation">,</span>
+    <span class="token string">'庆'</span><span class="token punctuation">,</span> <span class="token string">'谚'</span><span class="token punctuation">,</span> <span class="token string">'香'</span><span class="token punctuation">,</span> <span class="token string">'富'</span><span class="token punctuation">,</span> <span class="token string">'妤'</span><span class="token punctuation">,</span> <span class="token string">'宜'</span><span class="token punctuation">,</span> <span class="token string">'弘'</span><span class="token punctuation">,</span> <span class="token string">'学'</span><span class="token punctuation">,</span> <span class="token string">'汉'</span><span class="token punctuation">,</span> <span class="token string">'政'</span><span class="token punctuation">,</span> <span class="token string">'以'</span><span class="token punctuation">,</span> <span class="token string">'伶'</span><span class="token punctuation">,</span> <span class="token string">'勇'</span><span class="token punctuation">,</span> <span class="token string">'绮'</span><span class="token punctuation">,</span> <span class="token string">'凡'</span><span class="token punctuation">,</span> <span class="token string">'吉'</span><span class="token punctuation">,</span> <span class="token string">'梅'</span><span class="token punctuation">,</span> <span class="token string">'慈'</span><span class="token punctuation">,</span> <span class="token string">'容'</span><span class="token punctuation">,</span> <span class="token string">'明'</span><span class="token punctuation">,</span> <span class="token string">'荣'</span><span class="token punctuation">,</span> <span class="token string">'萍'</span><span class="token punctuation">,</span>
+    <span class="token string">'贞'</span><span class="token punctuation">,</span> <span class="token string">'娟'</span><span class="token punctuation">,</span> <span class="token string">'信'</span><span class="token punctuation">,</span> <span class="token string">'青'</span><span class="token punctuation">,</span> <span class="token string">'皓'</span><span class="token punctuation">,</span> <span class="token string">'雪'</span><span class="token punctuation">,</span> <span class="token string">'治'</span><span class="token punctuation">,</span> <span class="token string">'琳'</span><span class="token punctuation">,</span> <span class="token string">'紫'</span><span class="token punctuation">,</span> <span class="token string">'兰'</span><span class="token punctuation">,</span> <span class="token string">'白'</span><span class="token punctuation">,</span> <span class="token string">'婷'</span><span class="token punctuation">,</span> <span class="token string">'莹'</span><span class="token punctuation">,</span> <span class="token string">'嘉'</span><span class="token punctuation">,</span> <span class="token string">'恭'</span><span class="token punctuation">,</span> <span class="token string">'萱'</span><span class="token punctuation">,</span> <span class="token string">'顺'</span><span class="token punctuation">,</span> <span class="token string">'行'</span><span class="token punctuation">,</span> <span class="token string">'琪'</span><span class="token punctuation">,</span> <span class="token string">'念'</span><span class="token punctuation">,</span> <span class="token string">'宇'</span><span class="token punctuation">,</span> <span class="token string">'海'</span><span class="token punctuation">,</span>
+    <span class="token string">'坚'</span><span class="token punctuation">,</span> <span class="token string">'福'</span><span class="token punctuation">,</span> <span class="token string">'绍'</span><span class="token punctuation">,</span> <span class="token string">'桂'</span><span class="token punctuation">]</span>
+
+<span class="token comment"># 数据库类</span>
+<span class="token keyword">class</span> <span class="token class-name">Wdatabases</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>__db_host <span class="token operator">=</span> <span class="token string">"192.168.236.128"</span>
+        self<span class="token punctuation">.</span>__db_port <span class="token operator">=</span> <span class="token number">3306</span>
+        self<span class="token punctuation">.</span>__db_user <span class="token operator">=</span> <span class="token string">"root"</span>
+        self<span class="token punctuation">.</span>__db_password <span class="token operator">=</span> <span class="token string">"YjUzZjg0NTU1OWViM2I5ZTM1ZWE0NWZj"</span>
+        self<span class="token punctuation">.</span>__db_database <span class="token operator">=</span> <span class="token string">"school"</span>
+
+    <span class="token comment"># 链接数据库</span>
+    <span class="token keyword">def</span> <span class="token function">Wlink</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>__db <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>
+            host<span class="token operator">=</span>self<span class="token punctuation">.</span>__db_host<span class="token punctuation">,</span>
+            port<span class="token operator">=</span>self<span class="token punctuation">.</span>__db_port<span class="token punctuation">,</span>
+            user<span class="token operator">=</span>self<span class="token punctuation">.</span>__db_user<span class="token punctuation">,</span>
+            password<span class="token operator">=</span>self<span class="token punctuation">.</span>__db_password<span class="token punctuation">,</span>
+            database<span class="token operator">=</span>self<span class="token punctuation">.</span>__db_database<span class="token punctuation">,</span>
+            charset<span class="token operator">=</span><span class="token string">'utf8'</span>
+        <span class="token punctuation">)</span>
+
+    <span class="token comment"># 插入数据</span>
+    <span class="token keyword">def</span> <span class="token function">Winsert</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> gender<span class="token punctuation">,</span> ages<span class="token punctuation">,</span> cclass<span class="token punctuation">,</span> yuwen<span class="token punctuation">,</span> shuxue<span class="token punctuation">,</span> english<span class="token punctuation">,</span> total<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            <span class="token comment"># 连接数据库</span>
+            self<span class="token punctuation">.</span>Wlink<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token comment"># 创建游标</span>
+            <span class="token keyword">global</span> cursor
+            cursor <span class="token operator">=</span> self<span class="token punctuation">.</span>__db<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token comment"># sql命令</span>
+            sql <span class="token operator">=</span> <span class="token string">"insert into student(name,gender,age,cclass,yuwen,shuxue,english, total) value(%s,%s,%s,%s,%s,%s,"</span> \
+                  <span class="token string">"%s,%s)"</span>
+            <span class="token comment"># 执行sql命令</span>
+            cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">,</span> <span class="token punctuation">(</span>name<span class="token punctuation">,</span> gender<span class="token punctuation">,</span> ages<span class="token punctuation">,</span> cclass<span class="token punctuation">,</span> yuwen<span class="token punctuation">,</span> shuxue<span class="token punctuation">,</span> english<span class="token punctuation">,</span> total<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+        <span class="token keyword">finally</span><span class="token punctuation">:</span>
+            <span class="token comment"># 关闭游标</span>
+            cursor<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token comment"># 提交</span>
+            self<span class="token punctuation">.</span>__db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token comment"># 关闭数据库连接</span>
+            self<span class="token punctuation">.</span>__db<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># 数据生成姓名, 年龄, 等并调用数据插入方法</span>
+    <span class="token keyword">def</span> <span class="token function">Wcommit</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        name <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>listf<span class="token punctuation">)</span> <span class="token operator">+</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>listm<span class="token punctuation">)</span> <span class="token operator">+</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>listf<span class="token punctuation">)</span>
+        age <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span>
+        yuwen <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+        shuxue <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+        english <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+        gender <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'男'</span><span class="token punctuation">,</span> <span class="token string">'女'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        total <span class="token operator">=</span> yuwen <span class="token operator">+</span> shuxue <span class="token operator">+</span> english
+        cclass <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+        <span class="token comment"># cclass = random.choice(('一', '二', '三'))</span>
+        self<span class="token punctuation">.</span>Winsert<span class="token punctuation">(</span>name<span class="token punctuation">,</span> gender<span class="token punctuation">,</span> age<span class="token punctuation">,</span> cclass<span class="token punctuation">,</span> yuwen<span class="token punctuation">,</span> shuxue<span class="token punctuation">,</span> english<span class="token punctuation">,</span> total<span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    开始时间 <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment"># 创建实例化对象</span>
+    db <span class="token operator">=</span> Wdatabases<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment"># 插入100条数据</span>
+    <span class="token keyword">for</span> WJ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># 调用方法</span>
+        db<span class="token punctuation">.</span>Wcommit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    结束时间 <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    运行时间 <span class="token operator">=</span> 结束时间 <span class="token operator">-</span> 开始时间
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'该循环程序运行时间: '</span><span class="token punctuation">,</span> 运行时间<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="查看运行时间"><a href="#查看运行时间" class="headerlink" title="查看运行时间 "></a><font size=5><strong>查看运行时间</strong> </font></h2><p>(我用的是pycharm软件,可以直接复制到MySQL服务器,运行.py文件)</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">D:\PyCharm\venv\Scripts\python<span class="token punctuation">.</span>exe <span class="token string">"F:\PyCharm 2019.2.3\helpers\pydev\pydevconsole.py"</span> <span class="token operator">--</span>mode=client <span class="token operator">--</span>port=62152
+
+import sys<span class="token punctuation">;</span> print<span class="token punctuation">(</span><span class="token string">'Python %s on %s'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>sys<span class="token punctuation">.</span>version<span class="token punctuation">,</span> sys<span class="token punctuation">.</span>platform<span class="token punctuation">)</span><span class="token punctuation">)</span>
+sys<span class="token punctuation">.</span>path<span class="token punctuation">.</span>extend<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'D:\\PyCharm'</span><span class="token punctuation">,</span> <span class="token string">'D:/PyCharm'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+PyDev console: starting<span class="token punctuation">.</span>
+
+Python 3<span class="token punctuation">.</span>7<span class="token punctuation">.</span>0 <span class="token punctuation">(</span>v3<span class="token punctuation">.</span>7<span class="token punctuation">.</span>0:1bf9cc5093<span class="token punctuation">,</span> Jun 27 2018<span class="token punctuation">,</span> 04:59:51<span class="token punctuation">)</span> <span class="token namespace">[MSC v.1914 64 bit (AMD64)]</span> on win32
+>>> runfile<span class="token punctuation">(</span><span class="token string">'D:/PyCharm/1209/mysql.py'</span><span class="token punctuation">,</span> wdir=<span class="token string">'D:/PyCharm/1209'</span><span class="token punctuation">)</span>
+该循环程序运行时间:  0<span class="token punctuation">.</span>7610917091369629<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">168.6k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1191 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="objdump命令, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>objdump命令 | 波亚斯</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/featureimages/20.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">objdump命令</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/">
+                                <span class="chip bg-color"></span>
+                            </a>
+                        
+                            <a href="/">
+                                <span class="chip bg-color"></span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/" class="post-category">
+                                
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-06-29
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-07-06
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h2><p><strong>objdump命令</strong> 是用查看目标文件或者可执行的目标文件的构成的gcc工具。</p>
+<h3 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-a</span> --archive-headers 
+<span class="token comment"># 显示档案库的成员信息,类似ls -l将lib*.a的信息列出。 </span>
+
+<span class="token parameter variable">-b</span> bfdname <span class="token parameter variable">--target</span><span class="token operator">=</span>bfdname 
+<span class="token comment"># 指定目标码格式。这不是必须的，objdump能自动识别许多格式，比如： </span>
+
+objdump <span class="token parameter variable">-b</span> oasys <span class="token parameter variable">-m</span> vax <span class="token parameter variable">-h</span> fu.o 
+<span class="token comment"># 显示fu.o的头部摘要信息，明确指出该文件是Vax系统下用Oasys编译器生成的目标文件。objdump -i将给出这里可以指定的目标码格式列表。 </span>
+
+<span class="token parameter variable">-C</span> <span class="token parameter variable">--demangle</span> 
+<span class="token comment"># 将底层的符号名解码成用户级名字，除了去掉所开头的下划线之外，还使得C++函数名以可理解的方式显示出来。 </span>
+<span class="token parameter variable">--debugging</span> 
+<span class="token parameter variable">-g</span> 
+<span class="token comment"># 显示调试信息。企图解析保存在文件中的调试信息并以C语言的语法显示出来。仅仅支持某些类型的调试信息。有些其他的格式被readelf -w支持。 </span>
+
+<span class="token parameter variable">-e</span> --debugging-tags 
+<span class="token comment"># 类似-g选项，但是生成的信息是和ctags工具相兼容的格式。 </span>
+<span class="token parameter variable">--disassemble</span> 
+<span class="token parameter variable">-d</span> 
+<span class="token comment"># 从objfile中反汇编那些特定指令机器码的section。 </span>
+
+<span class="token parameter variable">-D</span> --disassemble-all 
+<span class="token comment"># 与 -d 类似，但反汇编所有section. </span>
+
+--prefix-addresses 
+<span class="token comment"># 反汇编的时候，显示每一行的完整地址。这是一种比较老的反汇编格式。 </span>
+
+<span class="token parameter variable">-EB</span> 
+<span class="token parameter variable">-EL</span> 
+<span class="token parameter variable">--endian</span><span class="token operator">=</span><span class="token punctuation">&#123;</span>big<span class="token operator">|</span>little<span class="token punctuation">&#125;</span> 
+<span class="token comment"># 指定目标文件的小端。这个项将影响反汇编出来的指令。在反汇编的文件没描述小端信息的时候用。例如S-records. </span>
+
+<span class="token parameter variable">-f</span> 
+--file-headers 
+显示objfile中每个文件的整体头部摘要信息。 
+
+<span class="token parameter variable">-h</span> 
+--section-headers 
+<span class="token parameter variable">--headers</span> 
+显示目标文件各个section的头部摘要信息。 
+
+<span class="token parameter variable">-H</span> 
+<span class="token parameter variable">--help</span> 
+简短的帮助信息。 
+
+<span class="token parameter variable">-i</span> 
+<span class="token parameter variable">--info</span> 
+显示对于 <span class="token parameter variable">-b</span> 或者 <span class="token parameter variable">-m</span> 选项可用的架构和目标格式列表。 
+
+<span class="token parameter variable">-j</span> name
+<span class="token parameter variable">--section</span><span class="token operator">=</span>name 
+仅仅显示指定名称为name的section的信息 
+
+<span class="token parameter variable">-l</span>
+--line-numbers 
+用文件名和行号标注相应的目标代码，仅仅和-d、-D或者-r一起使用使用-ld和使用-d的区别不是很大，在源码级调试的时候有用，要求编译时使用了-g之类的调试编译选项。 
+
+<span class="token parameter variable">-m</span> machine 
+<span class="token parameter variable">--architecture</span><span class="token operator">=</span>machine 
+指定反汇编目标文件时使用的架构，当待反汇编文件本身没描述架构信息的时候<span class="token punctuation">(</span>比如S-records<span class="token punctuation">)</span>，这个选项很有用。可以用-i选项列出这里能够指定的架构. 
+
+<span class="token parameter variable">--reloc</span> 
+<span class="token parameter variable">-r</span> 
+显示文件的重定位入口。如果和-d或者-D一起使用，重定位部分以反汇编后的格式显示出来。 
+
+--dynamic-reloc 
+<span class="token parameter variable">-R</span> 
+显示文件的动态重定位入口，仅仅对于动态目标文件意义，比如某些共享库。 
+
+<span class="token parameter variable">-s</span> 
+--full-contents 
+显示指定section的完整内容。默认所有的非空section都会被显示。 
+
+<span class="token parameter variable">-S</span> 
+<span class="token parameter variable">--source</span> 
+尽可能反汇编出源代码，尤其当编译的时候指定了-g这种调试参数时，效果比较明显。隐含了-d参数。 
+
+--show-raw-insn 
+反汇编的时候，显示每条汇编指令对应的机器码，如不指定--prefix-addresses，这将是缺省选项。 
+
+--no-show-raw-insn 
+反汇编时，不显示汇编指令的机器码，如不指定--prefix-addresses，这将是缺省选项。 
+
+--start-address<span class="token operator">=</span>address 
+从指定地址开始显示数据，该选项影响-d、-r和-s选项的输出。 
+
+--stop-address<span class="token operator">=</span>address 
+显示数据直到指定地址为止，该项影响-d、-r和-s选项的输出。 
+
+<span class="token parameter variable">-t</span> 
+<span class="token parameter variable">--syms</span> 
+显示文件的符号表入口。类似于nm -s提供的信息 
+
+<span class="token parameter variable">-T</span> 
+--dynamic-syms 
+显示文件的动态符号表入口，仅仅对动态目标文件意义，比如某些共享库。它显示的信息类似于 nm -D<span class="token operator">|</span>--dynamic 显示的信息。 
+
+<span class="token parameter variable">-V</span> 
+<span class="token parameter variable">--version</span> 
+版本信息 
+
+--all-headers 
+<span class="token parameter variable">-x</span> 
+显示所可用的头信息，包括符号表、重定位入口。-x 等价于-a <span class="token parameter variable">-f</span> <span class="token parameter variable">-h</span> <span class="token parameter variable">-r</span> <span class="token parameter variable">-t</span> 同时指定。 
+
+<span class="token parameter variable">-z</span> 
+--disassemble-zeroes 
+一般反汇编输出将省略大块的零，该选项使得这些零块也被反汇编。 
+
+@file 可以将选项集中到一个文件中，然后使用这个@file选项载入。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>首先，在给出后面大部分测试所基于的源代码以及编译指令。 源代码如下： </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">root@localhost <span class="token punctuation">[</span>test<span class="token punctuation">]</span><span class="token comment"># nl mytest.cpp </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">void <span class="token function-name function">printTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    char a<span class="token punctuation">;</span>
+    a <span class="token operator">=</span> <span class="token string">'a'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+void <span class="token function-name function">printTest2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+int a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token assign-left variable">a</span><span class="token operator">+=</span><span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>对以上源代码进行编译，如下： </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># g++ -c -g mytest.cpp </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这里，生成的文件是mytest.o，为了方便测试包含了调试的信息，对可执行文件的测试，显示的结果类似。 </p>
+<p> **查看当前使用的objdump的版本号： ** </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># objdump -V </span>
+GNU objdump <span class="token number">2.17</span>.50.0.6-14.el5 <span class="token number">20061020</span> 
+Copyright <span class="token number">2005</span> <span class="token function">free</span> Software Foundation, Inc. 
+This program is <span class="token function">free</span> software<span class="token punctuation">;</span> you may redistribute it under the terms of 
+the GNU General Public License.  This program has absolutely no warranty. <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p> **查看档案库文件中的信息： ** </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># objdump -a libmy2.a </span>
+In archive libmy2.a: 
+myfile.o:     <span class="token function">file</span> <span class="token function">format</span> elf32-i386 
+rwxrwxrwx <span class="token number">0</span>/0   <span class="token number">2724</span> Nov <span class="token number">16</span> <span class="token number">16</span>:06 <span class="token number">2009</span> myfile.o 
+mytest.o:     <span class="token function">file</span> <span class="token function">format</span> elf32-i386 
+rw-r--r-- <span class="token number">0</span>/0    <span class="token number">727</span> Jul <span class="token number">13</span> <span class="token number">15</span>:32 <span class="token number">2011</span> mytest.o <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p> *<em>这里，libmy2.a是一个使用ar命令将多个</em>.o目标文件打包而生成的静态库。命令的输出类似<code>ar -tv</code>，相比较<code>ar -tv</code>输出如下： ** </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># ar -tv libmy2.a </span>
+rwxrwxrwx <span class="token number">0</span>/0   <span class="token number">2724</span> Nov <span class="token number">16</span> <span class="token number">16</span>:06 <span class="token number">2009</span> myfile.o 
+rw-r--r-- <span class="token number">0</span>/0    <span class="token number">727</span> Jul <span class="token number">13</span> <span class="token number">15</span>:32 <span class="token number">2011</span> mytest.o <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>显示可用的架构和目标结构列表： </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># objdump -i </span>
+BFD header <span class="token function">file</span> version <span class="token number">2.17</span>.50.0.6-14.el5 <span class="token number">20061020</span> 
+elf32-i386 
+<span class="token punctuation">(</span>header little endian, data little endian<span class="token punctuation">)</span> 
+  i386 
+a.out-i386-linux 
+<span class="token punctuation">(</span>header little endian, data little endian<span class="token punctuation">)</span> 
+  i386 
+efi-app-ia32 
+<span class="token punctuation">(</span>header little endian, data little endian<span class="token punctuation">)</span> 
+  i386 
+elf64-x86-64 
+<span class="token punctuation">(</span>header little endian, data little endian<span class="token punctuation">)</span> 
+  i386 
+elf64-little 
+<span class="token punctuation">(</span>header little endian, data little endian<span class="token punctuation">)</span> 
+  i386 
+elf64-big 
+<span class="token punctuation">(</span>header big endian, data big endian<span class="token punctuation">)</span> 
+  i386 
+elf32-little 
+<span class="token punctuation">(</span>header little endian, data little endian<span class="token punctuation">)</span> 
+  i386 
+elf32-big 
+<span class="token punctuation">(</span>header big endian, data big endian<span class="token punctuation">)</span> 
+  i386 
+srec 
+<span class="token punctuation">(</span>header endianness unknown, data endianness unknown<span class="token punctuation">)</span> 
+  i386 
+symbolsrec 
+<span class="token punctuation">(</span>header endianness unknown, data endianness unknown<span class="token punctuation">)</span> 
+  i386 
+tekhex 
+<span class="token punctuation">(</span>header endianness unknown, data endianness unknown<span class="token punctuation">)</span> 
+  i386 
+binary 
+<span class="token punctuation">(</span>header endianness unknown, data endianness unknown<span class="token punctuation">)</span> 
+  i386 
+ihex 
+<span class="token punctuation">(</span>header endianness unknown, data endianness unknown<span class="token punctuation">)</span> 
+  i386 
+trad-core 
+<span class="token punctuation">(</span>header endianness unknown, data endianness unknown<span class="token punctuation">)</span> 
+
+              elf32-i386 a.out-i386-linux efi-app-ia32 elf64-x86-64 
+          i386 elf32-i386 a.out-i386-linux efi-app-ia32 elf64-x86-64 
+
+              elf64-little elf64-big elf32-little elf32-big srec symbolsrec 
+          i386 elf64-little elf64-big elf32-little elf32-big srec symbolsrec 
+
+              tekhex binary ihex trad-core 
+          i386 tekhex binary ihex --------- <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里，显示的信息是相对于 -b 或者 -m 选项可用的架构和目标格式列表。 </p>
+<p> **显示mytest.o文件中的text段的内容： ** </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># objdump --section=.text -s mytest.o </span>
+mytest.o:     <span class="token function">file</span> <span class="token function">format</span> elf32-i386 
+Contents of section .text: 
+0000 5589e583 ec10c645 ff61c9c3 5589e583  U<span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>E.a<span class="token punctuation">..</span>U<span class="token punctuation">..</span>. 
+0010 ec10c745 fc020000 008345fc 02c9c3    <span class="token punctuation">..</span>.E<span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>E<span class="token punctuation">..</span><span class="token punctuation">..</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里注意，不能单独使用-j或者–section，例如<code>objdump --section=.text mytest.o</code>是不会运行成功的。 </p>
+<p> **反汇编mytest.o中的text段内容，并尽可能用源代码形式表示： ** </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># objdump -j .text -S mytest.o </span>
+mytest.o:     <span class="token function">file</span> <span class="token function">format</span> elf32-i386 
+Disassembly of section .text: 
+00000000 <span class="token operator">&lt;</span>_Z9printTestv<span class="token operator">></span>: 
+void printTest<span class="token punctuation">(</span><span class="token punctuation">)</span> 
+   <span class="token number">0</span>:   <span class="token number">55</span>                      push   %ebp 
+   <span class="token number">1</span>:   <span class="token number">89</span> e5                   mov    %esp,%ebp 
+   <span class="token number">3</span>:   <span class="token number">83</span> ec <span class="token number">10</span>                sub    <span class="token variable">$0x10</span>,%esp 
+<span class="token punctuation">&#123;</span> 
+        char a<span class="token punctuation">;</span> 
+        a <span class="token operator">=</span> <span class="token string">'a'</span><span class="token punctuation">;</span> 
+   <span class="token number">6</span>:   c6 <span class="token number">45</span> ff <span class="token number">61</span>             movb   <span class="token variable">$0x61</span>,0xffffffff<span class="token punctuation">(</span>%ebp<span class="token punctuation">)</span> 
+<span class="token punctuation">&#125;</span> 
+   a:   c9                      leave  
+   b:   c3                      ret    
+
+000000c <span class="token operator">&lt;</span>_Z10printTest2v<span class="token operator">></span>: 
+void printTest2<span class="token punctuation">(</span><span class="token punctuation">)</span> 
+   c:   <span class="token number">55</span>                      push   %ebp 
+   d:   <span class="token number">89</span> e5                   mov    %esp,%ebp 
+   f:   <span class="token number">83</span> ec <span class="token number">10</span>                sub    <span class="token variable">$0x10</span>,%esp 
+<span class="token punctuation">&#123;</span> 
+        int a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> 
+  <span class="token number">12</span>:   c7 <span class="token number">45</span> fc 02 00 00 00    movl   <span class="token variable">$0x2</span>,0xfffffffc<span class="token punctuation">(</span>%ebp<span class="token punctuation">)</span> 
+        <span class="token assign-left variable">a</span><span class="token operator">+=</span><span class="token number">2</span><span class="token punctuation">;</span> 
+  <span class="token number">19</span>:   <span class="token number">83</span> <span class="token number">45</span> fc 02             addl   <span class="token variable">$0x2</span>,0xfffffffc<span class="token punctuation">(</span>%ebp<span class="token punctuation">)</span> 
+<span class="token punctuation">&#125;</span> 
+  1d:   c9                      leave  
+  1e:   c3                      ret    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里注意，不能单独使用-j或者–section，例如<code>objdump -j .text mytest.o是不会运行成功的</code>。另外-S命令对于包含调试信息的目标文件，显示的效果比较好，如果编译时没有指定g++的-g选项，那么目标文件就不包含调试信息，那么显示效果就差多了。 </p>
+<p> **反汇编出mytest.o的源代码: ** </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># objdump -S mytest.o </span>
+mytest.o:     <span class="token function">file</span> <span class="token function">format</span> elf32-i386 
+
+Disassembly of section .text: 
+
+00000000 <span class="token operator">&lt;</span>_Z9printTestv<span class="token operator">></span>: 
+void printTest<span class="token punctuation">(</span><span class="token punctuation">)</span> 
+   <span class="token number">0</span>:   <span class="token number">55</span>                      push   %ebp 
+   <span class="token number">1</span>:   <span class="token number">89</span> e5                   mov    %esp,%ebp 
+   <span class="token number">3</span>:   <span class="token number">83</span> ec <span class="token number">10</span>                sub    <span class="token variable">$0x10</span>,%esp 
+<span class="token punctuation">&#123;</span> 
+        char a<span class="token punctuation">;</span> 
+        a <span class="token operator">=</span> <span class="token string">'a'</span><span class="token punctuation">;</span> 
+   <span class="token number">6</span>:   c6 <span class="token number">45</span> ff <span class="token number">61</span>             movb   <span class="token variable">$0x61</span>,0xffffffff<span class="token punctuation">(</span>%ebp<span class="token punctuation">)</span> 
+<span class="token punctuation">&#125;</span> 
+   a:   c9                      leave  
+   b:   c3                      ret    
+
+0000000c <span class="token operator">&lt;</span>_Z10printTest2v<span class="token operator">></span>: 
+void printTest2<span class="token punctuation">(</span><span class="token punctuation">)</span> 
+   c:   <span class="token number">55</span>                      push   %ebp 
+   d:   <span class="token number">89</span> e5                   mov    %esp,%ebp 
+   f:   <span class="token number">83</span> ec <span class="token number">10</span>                sub    <span class="token variable">$0x10</span>,%esp 
+<span class="token punctuation">&#123;</span> 
+       int a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> 
+  <span class="token number">12</span>:   c7 <span class="token number">45</span> fc 02 00 00 00    movl   <span class="token variable">$0x2</span>,0xfffffffc<span class="token punctuation">(</span>%ebp<span class="token punctuation">)</span> 
+        <span class="token assign-left variable">a</span><span class="token operator">+=</span><span class="token number">2</span><span class="token punctuation">;</span> 
+  <span class="token number">19</span>:   <span class="token number">83</span> <span class="token number">45</span> fc 02             addl   <span class="token variable">$0x2</span>,0xfffffffc<span class="token punctuation">(</span>%ebp<span class="token punctuation">)</span> 
+<span class="token punctuation">&#125;</span> 
+  1d:   c9                      leave  
+  1e:   c3                      ret    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里，尤其当编译的时候指定了-g这种调试参数时，反汇编的效果比较明显。隐含了-d参数。 </p>
+<p> **显示文件的符号表入口: ** </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># objdump -t mytest.o </span>
+mytest.o:     <span class="token function">file</span> <span class="token function">format</span> elf32-i386 
+
+SYMBOL TABLE: 
+00000000 l    <span class="token function">df</span> *ABS*  00000000 mytest.cpp 
+00000000 l    d  .text  00000000 .text 
+00000000 l    d  .data  00000000 .data 
+00000000 l    d  .bss   00000000 .bss 
+00000000 l    d  .debug_abbrev  00000000 .debug_abbrev 
+00000000 l    d  .debug_info    00000000 .debug_info 
+00000000 l    d  .debug_line    00000000 .debug_line 
+00000000 l    d  .debug_frame   00000000 .debug_frame 
+00000000 l    d  .debug_loc     00000000 .debug_loc 
+00000000 l    d  .debug_pubnames        00000000 .debug_pubnames 
+00000000 l    d  .debug_aranges 00000000 .debug_aranges 
+00000000 l    d  .note.GNU-stack        00000000 .note.GNU-stack 
+00000000 l    d  .comment       00000000 .comment 
+00000000 g     F .text  0000000c _Z9printTestv 
+00000000         *UND*  00000000 __gxx_personality_v0 
+0000000c g     F .text  00000013 _Z10printTest2v <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里，输出的信息类似<code>nm -s</code>命令的输出，相比较之下，nm命令的输出如下： </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># nm -s mytest.o </span>
+0000000c T _Z10printTest2v 
+00000000 T _Z9printTestv 
+         U __gxx_personality_v0 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p> **显示文件的符号表入口，将底层符号解码并表示成用户级别: ** </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># objdump -t -C mytest.o </span>
+mytest.o:     <span class="token function">file</span> <span class="token function">format</span> elf32-i386 
+SYMBOL TABLE: 
+00000000 l    <span class="token function">df</span> *ABS*  00000000 mytest.cpp 
+00000000 l    d  .text  00000000 .text 
+00000000 l    d  .data  00000000 .data 
+00000000 l    d  .bss   00000000 .bss 
+00000000 l    d  .debug_abbrev  00000000 .debug_abbrev 
+00000000 l    d  .debug_info    00000000 .debug_info 
+00000000 l    d  .debug_line    00000000 .debug_line 
+00000000 l    d  .debug_frame   00000000 .debug_frame 
+00000000 l    d  .debug_loc     00000000 .debug_loc 
+00000000 l    d  .debug_pubnames        00000000 .debug_pubnames 
+00000000 l    d  .debug_aranges 00000000 .debug_aranges 
+00000000 l    d  .note.GNU-stack        00000000 .note.GNU-stack 
+00000000 l    d  .comment       00000000 .comment 
+00000000 g     F .text  0000000c printTest<span class="token punctuation">(</span><span class="token punctuation">)</span> 
+00000000         *UND*  00000000 __gxx_personality_v0 
+0000000c g     F .text  00000013 printTest2<span class="token punctuation">(</span><span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里，和没-C相比，printTest2函数可读性增加了。 </p>
+<p> **反汇编目标文件的特定机器码段： ** </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># objdump -d mytest.o </span>
+mytest.o:     <span class="token function">file</span> <span class="token function">format</span> elf32-i386 
+Disassembly of section .text: 
+
+00000000 <span class="token operator">&lt;</span>_Z9printTestv<span class="token operator">></span>: 
+   <span class="token number">0</span>:   <span class="token number">55</span>                      push   %ebp 
+   <span class="token number">1</span>:   <span class="token number">89</span> e5                   mov    %esp,%ebp 
+   <span class="token number">3</span>:   <span class="token number">83</span> ec <span class="token number">10</span>                sub    <span class="token variable">$0x10</span>,%esp 
+   <span class="token number">6</span>:   c6 <span class="token number">45</span> ff <span class="token number">61</span>             movb   <span class="token variable">$0x61</span>,0xffffffff<span class="token punctuation">(</span>%ebp<span class="token punctuation">)</span> 
+   a:   c9                      leave  
+  b:   c3                      ret    
+
+0000000c <span class="token operator">&lt;</span>_Z10printTest2v<span class="token operator">></span>: 
+   c:   <span class="token number">55</span>                      push   %ebp 
+   d:   <span class="token number">89</span> e5                   mov    %esp,%ebp 
+   f:   <span class="token number">83</span> ec <span class="token number">10</span>                sub    <span class="token variable">$0x10</span>,%esp 
+  <span class="token number">12</span>:   c7 <span class="token number">45</span> fc 02 00 00 00    movl   <span class="token variable">$0x2</span>,0xfffffffc<span class="token punctuation">(</span>%ebp<span class="token punctuation">)</span> 
+  <span class="token number">19</span>:   <span class="token number">83</span> <span class="token number">45</span> fc 02             addl   <span class="token variable">$0x2</span>,0xfffffffc<span class="token punctuation">(</span>%ebp<span class="token punctuation">)</span> 
+  1d:   c9                      leave  
+  1e:   c3                      ret    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里，对text段的内容进行了反汇编。 </p>
+<p> **反汇编特定段，并将汇编代码对应的文件名称和行号对应上： ** </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># objdump -d -l mytest.o</span>
+mytest.o:     <span class="token function">file</span> <span class="token function">format</span> elf32-i386 
+Disassembly of section .text: 
+
+00000000 <span class="token operator">&lt;</span>_Z9printTestv<span class="token operator">></span>: 
+_Z9printTestv<span class="token punctuation">(</span><span class="token punctuation">)</span>: 
+/root/test/04_libraryTest/mytest.cpp:1 
+   <span class="token number">0</span>:   <span class="token number">55</span>                      push   %ebp 
+   <span class="token number">1</span>:   <span class="token number">89</span> e5                   mov    %esp,%ebp 
+   <span class="token number">3</span>:   <span class="token number">83</span> ec <span class="token number">10</span>                sub    <span class="token variable">$0x10</span>,%esp 
+/root/test/04_libraryTest/mytest.cpp:4 
+   <span class="token number">6</span>:   c6 <span class="token number">45</span> ff <span class="token number">61</span>             movb   <span class="token variable">$0x61</span>,0xffffffff<span class="token punctuation">(</span>%ebp<span class="token punctuation">)</span> 
+/root/test/04_libraryTest/mytest.cpp:5 
+   a:   c9                      leave  
+   b:   c3                      ret    
+
+0000000c <span class="token operator">&lt;</span>_Z10printTest2v<span class="token operator">></span>: 
+_Z10printTest2v<span class="token punctuation">(</span><span class="token punctuation">)</span>: 
+/root/test/04_libraryTest/mytest.cpp:6 
+   c:   <span class="token number">55</span>                      push   %ebp 
+   d:   <span class="token number">89</span> e5                   mov    %esp,%ebp 
+   f:   <span class="token number">83</span> ec <span class="token number">10</span>                sub    <span class="token variable">$0x10</span>,%esp 
+/root/test/04_libraryTest/mytest.cpp:8 
+  <span class="token number">12</span>:   c7 <span class="token number">45</span> fc 02 00 00 00    movl   <span class="token variable">$0x2</span>,0xfffffffc<span class="token punctuation">(</span>%ebp<span class="token punctuation">)</span> 
+/root/test/04_libraryTest/mytest.cpp:9 
+  <span class="token number">19</span>:   <span class="token number">83</span> <span class="token number">45</span> fc 02             addl   <span class="token variable">$0x2</span>,0xfffffffc<span class="token punctuation">(</span>%ebp<span class="token punctuation">)</span> 
+/root/test/04_libraryTest/mytest.cpp:10 
+  1d:   c9                      leave  
+  1e:   c3                      ret    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里，项”-d”从objfile中反汇编那些特定指令机器码的section，而使用”-l”指定用文件名和行号标注相应的目标代码，仅仅和-d、-D或者-r一起使用，使用-ld和使用-d的区别不是很大，在源码级调试的时候有用，要求编译时使用了-g之类的调试编译选项。 </p>
+<p> **显示目标文件各个段的头部摘要信息： ** </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost test<span class="token punctuation">]</span><span class="token comment"># objdump -h mytest.o </span>
+mytest.o:     <span class="token function">file</span> <span class="token function">format</span> elf32-i386 
+
+Sections: 
+Idx Name          Size      VMA       LMA       File off  Algn 
+  <span class="token number">0</span> .text         0000001f  00000000  00000000  00000034  <span class="token number">2</span>**2 
+                  CONTENTS, ALLOC, LOAD, readonly, CODE 
+  <span class="token number">1</span> .data         00000000  00000000  00000000  00000054  <span class="token number">2</span>**2 
+                  CONTENTS, ALLOC, LOAD, DATA 
+  <span class="token number">2</span> .bss          00000000  00000000  00000000  00000054  <span class="token number">2</span>**2 
+                  ALLOC 
+  <span class="token number">3</span> .debug_abbrev 00000046  00000000  00000000  00000054  <span class="token number">2</span>**0 
+                  CONTENTS, READONLY, DEBUGGING 
+  <span class="token number">4</span> .debug_info   000000ed  00000000  00000000  0000009a  <span class="token number">2</span>**0 
+                  CONTENTS, RELOC, READONLY, DEBUGGING 
+  <span class="token number">5</span> .debug_line   0000003e  00000000  00000000  00000187  <span class="token number">2</span>**0 
+                  CONTENTS, RELOC, READONLY, DEBUGGING 
+  <span class="token number">6</span> .debug_frame  00000044  00000000  00000000  000001c8  <span class="token number">2</span>**2 
+                  CONTENTS, RELOC, READONLY, DEBUGGING 
+  <span class="token number">7</span> .debug_loc    00000058  00000000  00000000  0000020c  <span class="token number">2</span>**0 
+                  CONTENTS, READONLY, DEBUGGING 
+  <span class="token number">8</span> .debug_pubnames 0000002f  00000000  00000000  00000264  <span class="token number">2</span>**0 
+                  CONTENTS, RELOC, READONLY, DEBUGGING 
+  <span class="token number">9</span> .debug_aranges 00000020  00000000  00000000  00000293  <span class="token number">2</span>**0 
+                  CONTENTS, RELOC, READONLY, DEBUGGING 
+<span class="token number">10</span> .comment      0000002e  00000000  00000000  000002b3  <span class="token number">2</span>**0 
+                  CONTENTS, READONLY 
+<span class="token number">11</span> .note.GNU-stack 00000000  00000000  00000000  000002e1  <span class="token number">2</span>**0 
+                  CONTENTS, READONLY <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里，更多的内容参见<code>man objdump</code>中的这个选项。</p>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">168.6k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

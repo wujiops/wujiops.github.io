@@ -1,0 +1,1072 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="FFmpeg6安装, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>FFmpeg6安装 | 波亚斯</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/featureimages/0.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">FFmpeg6安装</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/tools/">
+                                <span class="chip bg-color">tools</span>
+                            </a>
+                        
+                            <a href="/tags/ffmpeg/">
+                                <span class="chip bg-color">ffmpeg</span>
+                            </a>
+                        
+                            <a href="/tags/ffmpeg6/">
+                                <span class="chip bg-color">ffmpeg6</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Server/" class="post-category">
+                                Server
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-04-25
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.5k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="英语原文及翻译："><a href="#英语原文及翻译：" class="headerlink" title="英语原文及翻译："></a>英语原文及翻译：</h2><p><a target="_blank" rel="noopener" href="https://github.com/BtbN/FFmpeg-Builds">点击前往原文地址</a></p>
+<h2 id="FFmpeg-Static-Auto-Builds"><a href="#FFmpeg-Static-Auto-Builds" class="headerlink" title="FFmpeg Static Auto-Builds"></a>FFmpeg Static Auto-Builds</h2><blockquote>
+<p>FFmpeg 静态构建</p>
+</blockquote>
+<p>Static Windows (x86_64) and Linux (x86_64) Builds of ffmpeg master and latest release branch.</p>
+<blockquote>
+<p>FFmpeg-Builds 提供了 Windows (x86_64) 和 Linux (x86_64) 最新发布的 FFmpeg master 分支的静态构建。</p>
+</blockquote>
+<p>Windows builds are targetting Windows 7 and newer.</p>
+<blockquote>
+<p>Windows 构建针对 Windows 7 及更高版本。</p>
+</blockquote>
+<p><code>Linux (x86_64)</code> builds are targetting <code>Ubuntu 16.04</code> (glibc-2.23 + linux-4.4) and anything more recent.</p>
+<blockquote>
+<p><code>Linux (x86_64)</code> 构建针对 <code>Ubuntu 16.04</code> (glibc-2.23 + linux-4.4) 及更新版本。</p>
+</blockquote>
+<p><code>Linux (arm64)</code> builds are targetting <code>Ubuntu 18.04</code> (glibc-2.27 + linux-4.15) and anything more recent.</p>
+<blockquote>
+<p><code>Linux (arm64)</code> 构建针对 <code>Ubuntu 18.04</code> (glibc-2.27 + linux-4.15) 及更新版本。</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 这里使用的是系统是 CentOS 7</span>
+<span class="token punctuation">[</span>root@dev-gpu-node-02 ~<span class="token punctuation">]</span><span class="token comment"># cat /etc/os-release </span>
+<span class="token assign-left variable">NAME</span><span class="token operator">=</span><span class="token string">"CentOS Linux"</span>
+<span class="token assign-left variable">VERSION</span><span class="token operator">=</span><span class="token string">"7 (Core)"</span>
+<span class="token comment"># 内核版本5.4</span>
+<span class="token punctuation">[</span>root@dev-gpu-node-02 ~<span class="token punctuation">]</span><span class="token comment"># uname -r</span>
+<span class="token number">5.4</span>.242-1.el7.elrepo.x86_64
+<span class="token comment"># glibc版本2.23</span>
+<span class="token punctuation">[</span>root@dev-gpu-node-02 ~<span class="token punctuation">]</span><span class="token comment"># ldd --version</span>
+ldd <span class="token punctuation">(</span>GNU libc<span class="token punctuation">)</span> <span class="token number">2.23</span>
+<span class="token comment"># CUDA版本12.1、NVIDIA-SMI版本530.30.02</span>
+<span class="token punctuation">[</span>root@dev-gpu-node-02 ~<span class="token punctuation">]</span><span class="token comment"># nvidia-smi</span>
+Thu Jun <span class="token number">29</span> <span class="token number">14</span>:57:30 <span class="token number">2023</span>       
++---------------------------------------------------------------------------------------+
+<span class="token operator">|</span> NVIDIA-SMI <span class="token number">530.30</span>.02              Driver Version: <span class="token number">530.30</span>.02    CUDA Version: <span class="token number">12.1</span>     <span class="token operator">|</span>
+<span class="token operator">|</span>-----------------------------------------+----------------------+----------------------+
+<span class="token operator">|</span> GPU  Name                  Persistence-M<span class="token operator">|</span> Bus-Id        Disp.A <span class="token operator">|</span> Volatile Uncorr. ECC <span class="token operator">|</span>
+<span class="token operator">|</span> Fan  Temp  Perf            Pwr:Usage/Cap<span class="token operator">|</span>         Memory-Usage <span class="token operator">|</span> GPU-Util  Compute M. <span class="token operator">|</span>
+<span class="token operator">|</span>                                         <span class="token operator">|</span>                      <span class="token operator">|</span>               MIG M. <span class="token operator">|</span>
+<span class="token operator">|</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span><span class="token operator">+=</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span><span class="token operator">+=</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span><span class="token operator">|</span>
+<span class="token operator">|</span>   <span class="token number">0</span>  Quadro M5000                    Off<span class="token operator">|</span> 00000000:06:00.0 Off <span class="token operator">|</span>                  Off <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">42</span>%   35C    P0               46W / 150W<span class="token operator">|</span>      0MiB /  8192MiB <span class="token operator">|</span>      <span class="token number">1</span>%      Default <span class="token operator">|</span>
+<span class="token operator">|</span>                                         <span class="token operator">|</span>                      <span class="token operator">|</span>                  N/A <span class="token operator">|</span>
++-----------------------------------------+----------------------+----------------------+
+<span class="token comment"># ffmpeg 版本信息</span>
+<span class="token punctuation">[</span>root@dev-gpu-node-02 ~<span class="token punctuation">]</span><span class="token comment"># /usr/local/ffmpeg6/bin/ffmpeg -version</span>
+ffmpeg version n6.0-18-g27205c0b47-20230503 Copyright <span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token number">2000</span>-2023 the FFmpeg developers
+built with gcc <span class="token number">12.2</span>.0 <span class="token punctuation">(</span>crosstool-NG <span class="token number">1.25</span>.0.152_89671bf<span class="token punctuation">)</span>
+configuration: <span class="token parameter variable">--prefix</span><span class="token operator">=</span>/ffbuild/prefix --pkg-config-flags<span class="token operator">=</span>--static --pkg-config<span class="token operator">=</span>pkg-config --cross-prefix<span class="token operator">=</span>x86_64-ffbuild-linux-gnu- <span class="token parameter variable">--arch</span><span class="token operator">=</span>x86_64 --target-os<span class="token operator">=</span>linux --enable-gpl --enable-version3 --disable-debug --enable-iconv --enable-libxml2 --enable-zlib --enable-libfreetype --enable-libfribidi --enable-gmp --enable-openssl --enable-lzma --enable-fontconfig --enable-libvorbis --enable-opencl --enable-libpulse --enable-libvmaf --enable-libxcb --enable-xlib --enable-amf --enable-libaom --enable-libaribb24 --enable-avisynth --enable-chromaprint --enable-libdav1d --enable-libdavs2 --disable-libfdk-aac --enable-ffnvcodec --enable-cuda-llvm --enable-frei0r --enable-libgme --enable-libkvazaar --enable-libass --enable-libbluray --enable-libjxl --enable-libmp3lame --enable-libopus --enable-librist --enable-libssh --enable-libtheora --enable-libvpx --enable-libwebp --enable-lv2 --disable-libmfx --enable-libvpl --enable-openal --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopenmpt --enable-librav1e --enable-librubberband --disable-schannel --enable-sdl2 --enable-libsoxr --enable-libsrt --enable-libsvtav1 --enable-libtwolame --enable-libuavs3d --enable-libdrm --enable-vaapi --enable-libvidstab --enable-vulkan --enable-libshaderc --disable-libplacebo --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxvid --enable-libzimg --enable-libzvbi --extra-cflags<span class="token operator">=</span>-DLIBTWOLAME_STATIC --extra-cxxflags<span class="token operator">=</span> --extra-ldflags<span class="token operator">=</span>-pthread --extra-ldexeflags<span class="token operator">=</span>-pie --extra-libs<span class="token operator">=</span><span class="token string">'-ldl -lgomp'</span> --extra-version<span class="token operator">=</span><span class="token number">20230503</span>
+libavutil      <span class="token number">58</span>.  <span class="token number">2.100</span> / <span class="token number">58</span>.  <span class="token number">2.100</span>
+libavcodec     <span class="token number">60</span>.  <span class="token number">3.100</span> / <span class="token number">60</span>.  <span class="token number">3.100</span>
+libavformat    <span class="token number">60</span>.  <span class="token number">3.100</span> / <span class="token number">60</span>.  <span class="token number">3.100</span>
+libavdevice    <span class="token number">60</span>.  <span class="token number">1.100</span> / <span class="token number">60</span>.  <span class="token number">1.100</span>
+libavfilter     <span class="token number">9</span>.  <span class="token number">3.100</span> /  <span class="token number">9</span>.  <span class="token number">3.100</span>
+libswscale      <span class="token number">7</span>.  <span class="token number">1.100</span> /  <span class="token number">7</span>.  <span class="token number">1.100</span>
+libswresample   <span class="token number">4</span>. <span class="token number">10.100</span> /  <span class="token number">4</span>. <span class="token number">10.100</span>
+libpostproc    <span class="token number">57</span>.  <span class="token number">1.100</span> / <span class="token number">57</span>.  <span class="token number">1.100</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Auto-Builds"><a href="#Auto-Builds" class="headerlink" title="Auto-Builds"></a>Auto-Builds</h2><blockquote>
+<p>自动构建</p>
+</blockquote>
+<p>Builds run daily at 12:00 UTC (or GitHubs idea of that time) and are automatically released on success.</p>
+<blockquote>
+<p>每天中午 12:00 UTC运行一次自动构建，并在成功时自动发布。</p>
+</blockquote>
+<p><strong>Auto-Builds run ONLY for win64 and linux(arm)64. There are no win32/x86 auto-builds, though you can produce win32 builds yourself following the instructions below.</strong></p>
+<blockquote>
+<p><strong>仅针对 win64 和 linux(arm64) 进行自动构建。没有 win32/x86 的自动构建，但您可以按照以下说明自行生成 win32 构建。</strong></p>
+</blockquote>
+<p><font color=red size=4><em><strong>忽略自动构建部分，自己构建问题太多。</strong></em></font></p>
+<h3 id="Release-Retention-Policy"><a href="#Release-Retention-Policy" class="headerlink" title="Release Retention Policy"></a>Release Retention Policy</h3><blockquote>
+<p>本仓库构建发布保留策略</p>
+</blockquote>
+<ul>
+<li><p>The last build of each month is kept for two years.</p>
+<blockquote>
+<p>每个月的最后一个构建将保留两年。</p>
+</blockquote>
+</li>
+<li><p>The last 14 daily builds are kept.</p>
+<blockquote>
+<p>保留最近的 14 天的构建。</p>
+</blockquote>
+</li>
+<li><p>The special “latest” build floats and provides consistent URLs always pointing to the latest build.</p>
+<blockquote>
+<p>“latest” 构建始终指向最新的构建。</p>
+</blockquote>
+</li>
+</ul>
+<p>The linuxarm64 target will not build some dependencies due to lack of arm64 (aarch64) architecture support or cross-compiling restrictions.</p>
+<blockquote>
+<p>由于缺乏arm64 (aarch64)架构支持或交叉编译限制，linuxarm64目标将不构建某些依赖项。</p>
+</blockquote>
+<ul>
+<li><code>davs2</code> and xavs2: aarch64 support is broken.</li>
+<li><code>libmfx</code> and libva: Library for Intel QSV, so there is no aarch64 support.</li>
+</ul>
+<p>Available variants:</p>
+<blockquote>
+<p>本仓库可用的构建：</p>
+</blockquote>
+<p><font color=red size=4><em><strong>没有什么好推荐的，各人按照各人的需要自行选择，我选择的是gpl版本</strong></em></font></p>
+<ul>
+<li><p><code>gpl</code> Includes all dependencies, even those that require full <code>GPL</code> instead of just <code>LGPL</code>.</p>
+<blockquote>
+<p><code>gpl</code> 包括所有依赖项，即使那些需要完整的<code>GPL</code>而不是仅<code>LGPL</code>的依赖项。</p>
+</blockquote>
+</li>
+<li><p><code>lgpl</code> Lacking libraries that are <code>GPL-only</code>. Most prominently <code>libx264</code> and <code>libx265</code>.</p>
+<blockquote>
+<p><code>lgpl</code> 缺少仅供<code>GPL</code>使用的库。最显著的是<code>libx264</code>和<code>libx265</code>。</p>
+</blockquote>
+</li>
+<li><p><code>nonfree</code> Includes <code>fdk-aac</code> in addition to all the dependencies of the <code>gpl</code> variant.</p>
+<blockquote>
+<p><code>nonfree</code> 包括<code>gpl</code>变体的所有依赖项以及<code>fdk-aac</code>。</p>
+</blockquote>
+</li>
+<li><p><code>gpl-shared</code> Same as <code>gpl</code>, but comes with the <code>libav*</code> family of shared libs instead of pure static executables.</p>
+<blockquote>
+<p><code>gpl-shared</code> 与<code>gpl</code>相同，但附带<code>libav*</code>家族的共享库而不是纯静态可执行文件。</p>
+</blockquote>
+</li>
+<li><p><code>lgpl-shared</code> Same again, but with the <code>lgpl</code> set of dependencies.</p>
+<blockquote>
+<p><code>lgpl-shared</code> 再次相同，但附带<code>lgpl</code>集的依赖项。</p>
+</blockquote>
+</li>
+<li><p><code>nonfree-shared</code> Same again, but with the <code>nonfree</code> set of dependencies.</p>
+<blockquote>
+<p><code>nonfree-shared</code> 再次相同，但附带<code>nonfree</code>集的依赖项。</p>
+</blockquote>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/BtbN/FFmpeg-Builds/releases">下载列表</a></p>
+<p><img src="/medias/img/ffmpeg/image0.png"></p>
+<p>太多了根本截图不完</p>
+<h2 id="安装配置GPU加速转码服务器"><a href="#安装配置GPU加速转码服务器" class="headerlink" title="安装配置GPU加速转码服务器"></a>安装配置GPU加速转码服务器</h2><blockquote>
+<p>云服务器免安装GPU驱动(参考文末阿里云GPU服务器选型)，裸金属服务器需要安装驱动程序。</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://ghproxy.com/https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n6.0-latest-linux64-gpl-6.0.tar.xz
+<span class="token function">wget</span> https://developer.download.nvidia.com/compute/cuda/12.1.1/local_installers/cuda_12.1.1_530.30.02_linux.run
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cat /etc/yum.repos.d/nux-dextop.repo </span>
+<span class="token punctuation">[</span>nux-dextop<span class="token punctuation">]</span>
+<span class="token assign-left variable">name</span><span class="token operator">=</span>Nux.Ro RPMs <span class="token keyword">for</span> general desktop use
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span>http://li.nux.ro/download/nux/dextop/el7/<span class="token variable">$basearch</span>/ http://mirror.li.nux.ro/li.nux.ro/nux/dextop/el7/<span class="token variable">$basearch</span>/
+<span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">gpgkey</span><span class="token operator">=</span>file:///etc/pki/rpm-gpg/RPM-GPG-KEY-nux.ro
+<span class="token assign-left variable">protect</span><span class="token operator">=</span><span class="token number">0</span>
+
+<span class="token punctuation">[</span>nux-dextop-testing<span class="token punctuation">]</span>
+<span class="token assign-left variable">name</span><span class="token operator">=</span>Nux.Ro RPMs <span class="token keyword">for</span> general desktop use - testing
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span>http://li.nux.ro/download/nux/dextop-testing/el7/<span class="token variable">$basearch</span>/
+<span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">gpgkey</span><span class="token operator">=</span>file:///etc/pki/rpm-gpg/RPM-GPG-KEY-nux.ro
+<span class="token assign-left variable">protect</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token punctuation">[</span>root@dev-gpu-node-02 lishuwei<span class="token punctuation">]</span><span class="token comment"># cat /etc/yum.repos.d/cuda-rhel7.repo</span>
+<span class="token punctuation">[</span>cuda-rhel7-x86_64<span class="token punctuation">]</span>
+<span class="token assign-left variable">name</span><span class="token operator">=</span>cuda-rhel7-x86_64
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span>https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64
+<span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">gpgkey</span><span class="token operator">=</span>https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/D42D0685.pub
+<span class="token punctuation">[</span>root@dev-gpu-node-02 lishuwei<span class="token punctuation">]</span><span class="token comment"># cat /etc/yum.repos.d/elrepo.repo</span>
+<span class="token comment">### Name: ELRepo.org Community Enterprise Linux Repository for el7</span>
+<span class="token comment">### URL: https://elrepo.org/</span>
+
+<span class="token punctuation">[</span>elrepo<span class="token punctuation">]</span>
+<span class="token assign-left variable">name</span><span class="token operator">=</span>ELRepo.org Community Enterprise Linux Repository - el7
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span>http://elrepo.org/linux/elrepo/el7/<span class="token variable">$basearch</span>/
+    http://mirrors.coreix.net/elrepo/elrepo/el7/<span class="token variable">$basearch</span>/
+    http://mirror.rackspace.com/elrepo/elrepo/el7/<span class="token variable">$basearch</span>/
+    http://linux-mirrors.fnal.gov/linux/elrepo/elrepo/el7/<span class="token variable">$basearch</span>/
+<span class="token assign-left variable">mirrorlist</span><span class="token operator">=</span>http://mirrors.elrepo.org/mirrors-elrepo.el7
+<span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">gpgkey</span><span class="token operator">=</span>file:///etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
+<span class="token assign-left variable">protect</span><span class="token operator">=</span><span class="token number">0</span>
+
+yum <span class="token function">install</span> kernel-devel
+yum groupinstall <span class="token string">"KDE Plasma Workspaces"</span>
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> gcc kernel-headers
+yum <span class="token function">install</span> gcc-c++
+yum <span class="token function">install</span> <span class="token function">git</span>
+yum <span class="token function">install</span> <span class="token parameter variable">--enablerepo</span><span class="token operator">=</span>epel dkms
+yum <span class="token function">install</span> autoconf automake <span class="token function">bzip2</span> bzip2‐devel cmake freetype‐devel gcc
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> <span class="token function">unzip</span> net-tools telnet lrzsz
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> pcre-devel zlib-devel gcc gcc-c++ <span class="token function">make</span> openssl openssl-devel
+yum <span class="token function">install</span> autoconf automake <span class="token function">bzip2</span> bzip2-devel cmake freetype-devel gcc gcc-c ++ <span class="token function">git</span> libtool <span class="token function">make</span> mercurial pkgconfig zlib-devel
+yum <span class="token function">install</span> alsa-lib-devel <span class="token parameter variable">-y</span>
+yum <span class="token function">install</span> cuda-drivers <span class="token parameter variable">-y</span>
+yum <span class="token function">install</span> epel-release
+yum <span class="token function">install</span> <span class="token parameter variable">-y</span> kernel-headers kernel-devel dkms
+yum <span class="token function">install</span> cuda-drivers <span class="token parameter variable">-y</span>
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> nvidia-driver-latest-dkms
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> cuda
+yum-config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-rhel7.repo
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> nvidia-driver-latest-dkms
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> nvidia-driver-latest-dkms
+yum remove dkms
+yum remove nvidia-driver nvidia-driver-latest kmod-nvidia-open-dkms <span class="token parameter variable">-y</span>
+yum remove nvidia-driver nvidia-driver-latest kmod-nvidia-open-dkms <span class="token parameter variable">-y</span>
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> nvidia-driver-latest-dkms
+yum remove nvidia-driver nvidia-driver-latest kmod-nvidia-open-dkms 
+yum <span class="token function">install</span> cuda <span class="token parameter variable">-y</span>
+yum <span class="token function">install</span> ffmpeg ffmpeg-devel
+yum <span class="token function">install</span> alsa-lib-devel <span class="token parameter variable">-y</span>
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> <span class="token function">install</span> gcc <span class="token function">make</span> gcc-c++ yasm yasm-devel cmake automake libtool graphviz xmlto nasm  libogg-devel libvorbis libvorbis-devel libvpx libvpx-devel libwebp-devel libass libass-devel
+yum <span class="token function">install</span> autoconf automake <span class="token function">bzip2</span> cmake freetype-devel gcc gcc-c++ <span class="token function">git</span> libtool <span class="token function">make</span> mercurial pkgconfig zlib-devel
+yum <span class="token function">install</span> opus opus-devel <span class="token parameter variable">-y</span>
+yum <span class="token function">install</span> pkgconfig <span class="token parameter variable">-y</span>
+yum list <span class="token operator">|</span> <span class="token function">grep</span> nvidia-driver-latest-dkms 
+yum <span class="token function">install</span> nvidia-driver-latest-dkms cuda
+yum repolist<span class="token operator">|</span><span class="token function">grep</span> cuda
+yum list<span class="token operator">|</span><span class="token function">grep</span> cuda
+yum list<span class="token operator">|</span><span class="token function">grep</span> cuda<span class="token operator">|</span><span class="token function">grep</span> <span class="token number">11.4</span>.4
+yum <span class="token function">install</span> nvidia-driver-latest-dkms cuda-11-4.x86_64 
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> x264
+yum <span class="token function">install</span> kernel-devel
+yum groupinstall <span class="token string">"KDE Plasma Workspaces"</span>
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> gcc kernel-headers
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> gcc kernel-headers
+yum <span class="token function">install</span> gcc-c++
+yum <span class="token function">install</span> <span class="token function">git</span>
+yum <span class="token function">install</span> <span class="token parameter variable">--enablerepo</span><span class="token operator">=</span>epel dkms
+yum groupinstall <span class="token string">"KDE Plasma Workspaces"</span>
+yum <span class="token function">install</span> x11vnc
+yum <span class="token function">install</span> daala-utils
+yum <span class="token function">install</span> libdaala-dev
+yum <span class="token function">install</span> pkg-config
+yum <span class="token function">install</span> libavutil-dev libavcodec-dev libswscale-dev libpostproc-dev libaom-dev libfdk-aac libfdk-aac-dev libvorbis-dev libmp3lame-dev libmp3lame-plugins-dev
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> libraries
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> glibc
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> glibc
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> gcc gcc-c++
+yum <span class="token parameter variable">-y</span> <span class="token parameter variable">--enablerepo</span><span class="token operator">=</span>elrepo-kernel <span class="token function">install</span> kernel-ml.x86_64 kernel-ml-devel.x86_64
+yum <span class="token parameter variable">-y</span> <span class="token parameter variable">--enablerepo</span><span class="token operator">=</span>elrepo-kernel <span class="token function">install</span> kernel-ml.x86_64 kernel-ml-devel.x86_64
+yum remove kernel-ml kernel-ml-devel <span class="token parameter variable">-y</span>
+yum <span class="token parameter variable">--enablerepo</span><span class="token operator">=</span>elrepo-kernel <span class="token function">install</span> kernel-lt kernel-lt-devel kernel-lt-tools-libs kernel-lt-tools kernel-lt-headers
+yum removd kernel-tools kernel-headers kernel-tools-libs <span class="token parameter variable">-y</span>
+yum remove kernel-tools kernel-headers kernel-tools-libs <span class="token parameter variable">-y</span>
+yum <span class="token parameter variable">--enablerepo</span><span class="token operator">=</span>elrepo-kernel <span class="token function">install</span> kernel-lt kernel-lt-devel kernel-lt-tools-libs kernel-lt-tools kernel-lt-headers
+yum remove kernel-3.10.0*
+yum remove kernel-devel-3.10.0*
+yum <span class="token parameter variable">--enablerepo</span><span class="token operator">=</span>elrepo-kernel <span class="token function">install</span> kernel-lt kernel-lt-devel kernel-lt-tools-libs kernel-lt-tools kernel-lt-headers
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> gcc gcc-c++ glibc-devel glibc-headers
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> python3 python3-devel
+yum <span class="token function">install</span> nvidia-driver-latest-dkms cuda-11-4.x86_64 
+yumcd removd kernel-tools kernel-headers kernel-tools-libs <span class="token parameter variable">-y</span>
+yum update <span class="token parameter variable">-y</span>
+yum <span class="token function">install</span> nvidia-driver-latest-dkms cuda-11-4.x86_64
+yum <span class="token function">install</span> nvidia-driver-latest-dkms cuda-11-4.x86_64 <span class="token parameter variable">-y</span>
+yum <span class="token parameter variable">--enablerepo</span><span class="token operator">=</span>elrepo-kernel <span class="token function">install</span> kernel-lt-4.4* kernel-lt-devel-4.4* kernel-lt-tools-libs-4.4* kernel-lt-tools-4.4* kernel-lt-headers-4.4*
+yum list kernel-lt <span class="token parameter variable">--showduplicate</span>  <span class="token operator">|</span> <span class="token function">sort</span> <span class="token parameter variable">-r</span>
+yum <span class="token parameter variable">--disablerepo</span><span class="token operator">=</span><span class="token string">"*"</span> <span class="token parameter variable">--enablerepo</span><span class="token operator">=</span><span class="token string">"elrepo-kernel"</span> list available
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> autoconf automake <span class="token function">bzip2</span> bzip2-devel cmake freetype-devel gcc gcc-c ++ <span class="token function">git</span> libtool <span class="token function">make</span> mercurial pkgconfig zlib-devel
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> autoconf automake <span class="token function">bzip2</span> bzip2-devel cmake freetype-devel gcc gcc-c + <span class="token function">git</span> libtool <span class="token function">make</span> mercurial pkgconfig zlib-devel
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> autoconf automake <span class="token function">bzip2</span> bzip2-devel cmake freetype-devel gcc gcc-c++ <span class="token function">git</span> libtool <span class="token function">make</span> mercurial pkgconfig zlib-devel
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> dkms
+yum <span class="token parameter variable">--disablerepo</span><span class="token operator">=</span><span class="token string">"*"</span> <span class="token parameter variable">--enablerepo</span><span class="token operator">=</span><span class="token string">"elrepo-kernel"</span> list availabl
+yum <span class="token parameter variable">--disablerepo</span><span class="token operator">=</span><span class="token string">"*"</span> <span class="token parameter variable">--enablerepo</span><span class="token operator">=</span><span class="token string">"elrepo-kernel"</span> list availabl
+yum groupinstall <span class="token string">"Development Tools"</span> <span class="token parameter variable">-y</span>
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> centos-release-scl
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> centos-release-scl
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils
+yum remove cuda-*
+yum remove cuda-*
+yum remove nvidia-*
+yum <span class="token function">install</span> <span class="token parameter variable">-y</span> nvidia-driver nvidia-settings nvidia-prime
+<span class="token function">ps</span> -ef<span class="token operator">|</span><span class="token function">grep</span> yum
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> kmod-nvidia-470xx.x86_64
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> dkms
+yum <span class="token function">install</span> nvidia-detect
+yum search kmod-nvidia
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> kmod-nvidia-470xx.x86_64
+yum <span class="token function">install</span> ocl-icd
+yum remove ocl-icd opencl-filesystem <span class="token parameter variable">-y</span>
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> kmod-nvidia-470xx.x86_64
+yum remove nvidia-*
+yum  remove kmod-nvidia-*
+yum remove nvidia-*
+yum <span class="token parameter variable">-y</span> remove cuda-*
+yum <span class="token parameter variable">-y</span> reinstall dkms
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="阿里云服务器"><a href="#阿里云服务器" class="headerlink" title="阿里云服务器"></a>阿里云服务器</h3><blockquote>
+<p>仅用于个人学习<br>阿里云抢占式实例每小时约2元，前提要充值100元余额。可以随时提现<br>当然也可以选择华为云、腾讯云等相应的产品<br>一个小时的时间和1G流量足够使用了，如果你是新手应该多在虚拟机上练习安装，多看些其它网站博客教程，避免财产损失。</p>
+<p>其它教程有写将CUDA驱动lib编译进ffmpeg。实际测试我并没有这样做。<br>我只在GPU裸金属服务器安装上了CUDA驱动，以yum的方式安装的(也可以运行cuda_12.1.1_530.30.02_linux.run安装)。在FFmpeg-Builds仓库下载了gpl的编译包。直接解压到了我的/usr/local/ffmpeg6目录，配置了一下PATH，或者直接使用/usr/local/ffmpeg6/bin/ffmpeg [参数1] [参数2] … 直接就可以使用GPU加速转码。</p>
+</blockquote>
+<p><img src="/medias/img/ffmpeg/image2.png"><br><img src="/medias/img/ffmpeg/image1.png"></p>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">168.6k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

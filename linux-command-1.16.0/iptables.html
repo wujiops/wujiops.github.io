@@ -1,0 +1,1187 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="iptables命令, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>iptables命令 | 波亚斯</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/featureimages/4.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">iptables命令</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/">
+                                <span class="chip bg-color"></span>
+                            </a>
+                        
+                            <a href="/">
+                                <span class="chip bg-color"></span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/" class="post-category">
+                                
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-06-29
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-07-06
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.3k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h2><p><strong>iptables命令</strong> 是Linux上常用的防火墙软件，是netfilter项目的一部分。可以直接配置，也可以通过许多前端和图形界面配置。</p>
+<!-- TOC -->
+
+<ul>
+<li><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E">补充说明</a><ul>
+<li><a href="#%E8%AF%AD%E6%B3%95">语法</a></li>
+<li><a href="#%E9%80%89%E9%A1%B9">选项</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E5%8F%82%E6%95%B0">基本参数</a><ul>
+<li><a href="#%E5%91%BD%E4%BB%A4%E9%80%89%E9%A1%B9%E8%BE%93%E5%85%A5%E9%A1%BA%E5%BA%8F">命令选项输入顺序</a></li>
+<li><a href="#%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6">工作机制</a></li>
+<li><a href="#%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E7%AD%96%E7%95%A5">防火墙的策略</a></li>
+<li><a href="#%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E7%AD%96%E7%95%A5-1">防火墙的策略</a></li>
+<li><a href="#%E5%AE%9E%E4%BE%8B">实例</a><ul>
+<li><a href="#%E6%B8%85%E7%A9%BA%E5%BD%93%E5%89%8D%E7%9A%84%E6%89%80%E6%9C%89%E8%A7%84%E5%88%99%E5%92%8C%E8%AE%A1%E6%95%B0">清空当前的所有规则和计数</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E5%85%81%E8%AE%B8ssh%E7%AB%AF%E5%8F%A3%E8%BF%9E%E6%8E%A5">配置允许ssh端口连接</a></li>
+<li><a href="#%E5%85%81%E8%AE%B8%E6%9C%AC%E5%9C%B0%E5%9B%9E%E7%8E%AF%E5%9C%B0%E5%9D%80%E5%8F%AF%E4%BB%A5%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8">允许本地回环地址可以正常使用</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E7%9A%84%E8%A7%84%E5%88%99">设置默认的规则</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E7%99%BD%E5%90%8D%E5%8D%95">配置白名单</a></li>
+<li><a href="#%E5%BC%80%E5%90%AF%E7%9B%B8%E5%BA%94%E7%9A%84%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8F%A3">开启相应的服务端口</a></li>
+<li><a href="#%E4%BF%9D%E5%AD%98%E8%A7%84%E5%88%99%E5%88%B0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%AD">保存规则到配置文件中</a></li>
+<li><a href="#%E5%88%97%E5%87%BA%E5%B7%B2%E8%AE%BE%E7%BD%AE%E7%9A%84%E8%A7%84%E5%88%99">列出已设置的规则</a></li>
+<li><a href="#%E6%B8%85%E9%99%A4%E5%B7%B2%E6%9C%89%E8%A7%84%E5%88%99">清除已有规则</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E5%B7%B2%E6%B7%BB%E5%8A%A0%E7%9A%84%E8%A7%84%E5%88%99">删除已添加的规则</a></li>
+<li><a href="#%E5%BC%80%E6%94%BE%E6%8C%87%E5%AE%9A%E7%9A%84%E7%AB%AF%E5%8F%A3">开放指定的端口</a></li>
+<li><a href="#%E5%B1%8F%E8%94%BDip">屏蔽IP</a></li>
+<li><a href="#%E6%8C%87%E5%AE%9A%E6%95%B0%E6%8D%AE%E5%8C%85%E5%87%BA%E5%8E%BB%E7%9A%84%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3">指定数据包出去的网络接口</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%B7%B2%E6%B7%BB%E5%8A%A0%E7%9A%84%E8%A7%84%E5%88%99">查看已添加的规则</a></li>
+<li><a href="#%E5%90%AF%E5%8A%A8%E7%BD%91%E7%BB%9C%E8%BD%AC%E5%8F%91%E8%A7%84%E5%88%99">启动网络转发规则</a></li>
+<li><a href="#%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84">端口映射</a></li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D">字符串匹配</a></li>
+<li><a href="#%E9%98%BB%E6%AD%A2windows%E8%A0%95%E8%99%AB%E7%9A%84%E6%94%BB%E5%87%BB">阻止Windows蠕虫的攻击</a></li>
+<li><a href="#%E9%98%B2%E6%AD%A2syn%E6%B4%AA%E6%B0%B4%E6%94%BB%E5%87%BB">防止SYN洪水攻击</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables<span class="token punctuation">(</span>选项<span class="token punctuation">)</span><span class="token punctuation">(</span>参数<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-t, <span class="token parameter variable">--table</span> table 对指定的表 table 进行操作， table 必须是 raw， nat，filter，mangle 中的一个。如果不指定此选项，默认的是 filter 表。
+
+<span class="token comment"># 通用匹配：源地址目标地址的匹配</span>
+-p：指定要匹配的数据包协议类型；
+-s, <span class="token parameter variable">--source</span> <span class="token punctuation">[</span><span class="token operator">!</span><span class="token punctuation">]</span> address<span class="token punctuation">[</span>/mask<span class="token punctuation">]</span> ：把指定的一个／一组地址作为源地址，按此规则进行过滤。当后面没有 mask 时，address 是一个地址，比如：192.168.1.1；当 mask 指定时，可以表示一组范围内的地址，比如：192.168.1.0/255.255.255.0。
+-d, <span class="token parameter variable">--destination</span> <span class="token punctuation">[</span><span class="token operator">!</span><span class="token punctuation">]</span> address<span class="token punctuation">[</span>/mask<span class="token punctuation">]</span> ：地址格式同上，但这里是指定地址为目的地址，按此进行过滤。
+-i, --in-interface <span class="token punctuation">[</span><span class="token operator">!</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span>网络接口name<span class="token operator">></span> ：指定数据包的来自来自网络接口，比如最常见的 eth0 。注意：它只对 INPUT，FORWARD，PREROUTING 这三个链起作用。如果没有指定此选项， 说明可以来自任何一个网络接口。同前面类似，<span class="token string">"!"</span> 表示取反。
+-o, --out-interface <span class="token punctuation">[</span><span class="token operator">!</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span>网络接口name<span class="token operator">></span> ：指定数据包出去的网络接口。只对 OUTPUT，FORWARD，POSTROUTING 三个链起作用。
+
+<span class="token comment"># 查看管理命令</span>
+-L, <span class="token parameter variable">--list</span> <span class="token punctuation">[</span>chain<span class="token punctuation">]</span> 列出链 chain 上面的所有规则，如果没有指定链，列出表上所有链的所有规则。
+
+<span class="token comment"># 规则管理命令</span>
+-A, <span class="token parameter variable">--append</span> chain rule-specification 在指定链 chain 的末尾插入指定的规则，也就是说，这条规则会被放到最后，最后才会被执行。规则是由后面的匹配来指定。
+-I, <span class="token parameter variable">--insert</span> chain <span class="token punctuation">[</span>rulenum<span class="token punctuation">]</span> rule-specification 在链 chain 中的指定位置插入一条或多条规则。如果指定的规则号是1，则在链的头部插入。这也是默认的情况，如果没有指定规则号。
+-D, <span class="token parameter variable">--delete</span> chain rule-specification -D, <span class="token parameter variable">--delete</span> chain rulenum 在指定的链 chain 中删除一个或多个指定规则。
+<span class="token parameter variable">-R</span> num：Replays替换/修改第几条规则
+
+<span class="token comment"># 链管理命令（这都是立即生效的）</span>
+-P, <span class="token parameter variable">--policy</span> chain target ：为指定的链 chain 设置策略 target。注意，只有内置的链才允许有策略，用户自定义的是不允许的。
+-F, <span class="token parameter variable">--flush</span> <span class="token punctuation">[</span>chain<span class="token punctuation">]</span> 清空指定链 chain 上面的所有规则。如果没有指定链，清空该表上所有链的所有规则。
+-N, --new-chain chain 用指定的名字创建一个新的链。
+-X, --delete-chain <span class="token punctuation">[</span>chain<span class="token punctuation">]</span> ：删除指定的链，这个链必须没有被其它任何规则引用，而且这条上必须没有任何规则。如果没有指定链名，则会删除该表中所有非内置的链。
+-E, --rename-chain old-chain new-chain ：用指定的新名字去重命名指定的链。这并不会对链内部造成任何影响。
+-Z, <span class="token parameter variable">--zero</span> <span class="token punctuation">[</span>chain<span class="token punctuation">]</span> ：把指定链，或者表中的所有链上的所有计数器清零。
+
+-j, <span class="token parameter variable">--jump</span> target <span class="token operator">&lt;</span>指定目标<span class="token operator">></span> ：即满足某条件时该执行什么样的动作。target 可以是内置的目标，比如 ACCEPT，也可以是用户自定义的链。
+-h：显示帮助信息；<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="基本参数"><a href="#基本参数" class="headerlink" title="基本参数"></a>基本参数</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-P</td>
+<td>设置默认策略:iptables -P INPUT (DROP</td>
+</tr>
+<tr>
+<td>-F</td>
+<td>清空规则链</td>
+</tr>
+<tr>
+<td>-L</td>
+<td>查看规则链</td>
+</tr>
+<tr>
+<td>-A</td>
+<td>在规则链的末尾加入新规则</td>
+</tr>
+<tr>
+<td>-I</td>
+<td>num  在规则链的头部加入新规则</td>
+</tr>
+<tr>
+<td>-D</td>
+<td>num  删除某一条规则</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>匹配来源地址IP/MASK，加叹号”!”表示除这个IP外。</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>匹配目标地址</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>网卡名称 匹配从这块网卡流入的数据</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>网卡名称 匹配从这块网卡流出的数据</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>匹配协议,如tcp,udp,icmp</td>
+</tr>
+<tr>
+<td>–dport num</td>
+<td>匹配目标端口号</td>
+</tr>
+<tr>
+<td>–sport num</td>
+<td>匹配来源端口号</td>
+</tr>
+</tbody></table>
+<h4 id="命令选项输入顺序"><a href="#命令选项输入顺序" class="headerlink" title="命令选项输入顺序"></a>命令选项输入顺序</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-t</span> 表名 <span class="token operator">&lt;</span>-A/I/D/R<span class="token operator">></span> 规则链名 <span class="token punctuation">[</span>规则号<span class="token punctuation">]</span> <span class="token operator">&lt;</span>-i/o 网卡名<span class="token operator">></span> <span class="token parameter variable">-p</span> 协议名 <span class="token operator">&lt;</span>-s 源IP/源子网<span class="token operator">></span> <span class="token parameter variable">--sport</span> 源端口 <span class="token operator">&lt;</span>-d 目标IP/目标子网<span class="token operator">></span> <span class="token parameter variable">--dport</span> 目标端口 <span class="token parameter variable">-j</span> 动作<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="工作机制"><a href="#工作机制" class="headerlink" title="工作机制"></a>工作机制</h4><p>规则链名包括(也被称为五个钩子函数（hook functions）)：</p>
+<ul>
+<li><strong>INPUT链</strong> ：处理输入数据包。</li>
+<li><strong>OUTPUT链</strong> ：处理输出数据包。</li>
+<li><strong>FORWARD链</strong> ：处理转发数据包。</li>
+<li><strong>PREROUTING链</strong> ：用于目标地址转换（DNAT）。</li>
+<li><strong>POSTOUTING链</strong> ：用于源地址转换（SNAT）。</li>
+</ul>
+<h4 id="防火墙的策略"><a href="#防火墙的策略" class="headerlink" title="防火墙的策略"></a>防火墙的策略</h4><p>防火墙策略一般分为两种，一种叫<code>通</code>策略，一种叫<code>堵</code>策略，通策略，默认门是关着的，必须要定义谁能进。堵策略则是，大门是洞开的，但是你必须有身份认证，否则不能进。所以我们要定义，让进来的进来，让出去的出去，<code>所以通，是要全通，而堵，则是要选择</code>。当我们定义的策略的时候，要分别定义多条功能，其中：定义数据包中允许或者不允许的策略，filter过滤的功能，而定义地址转换的功能的则是nat选项。为了让这些功能交替工作，我们制定出了“表”这个定义，来定义、区分各种不同的工作功能和处理方式。</p>
+<p>我们现在用的比较多个功能有3个：</p>
+<ol>
+<li>filter 定义允许或者不允许的，只能做在3个链上：INPUT ，FORWARD ，OUTPUT</li>
+<li>nat 定义地址转换的，也只能做在3个链上：PREROUTING ，OUTPUT ，POSTROUTING</li>
+<li>mangle功能:修改报文原数据，是5个链都可以做：PREROUTING，INPUT，FORWARD，OUTPUT，POSTROUTING</li>
+</ol>
+<p>我们修改报文原数据就是来修改TTL的。能够实现将数据包的元数据拆开，在里面做标记/修改内容的。而防火墙标记，其实就是靠mangle来实现的。</p>
+<p>小扩展:</p>
+<ul>
+<li>对于filter来讲一般只能做在3个链上：INPUT ，FORWARD ，OUTPUT</li>
+<li>对于nat来讲一般也只能做在3个链上：PREROUTING ，OUTPUT ，POSTROUTING</li>
+<li>而mangle则是5个链都可以做：PREROUTING，INPUT，FORWARD，OUTPUT，POSTROUTING</li>
+</ul>
+<p>iptables/netfilter（这款软件）是工作在用户空间的，它可以让规则进行生效的，本身不是一种服务，而且规则是立即生效的。而我们iptables现在被做成了一个服务，可以进行启动，停止的。启动，则将规则直接生效，停止，则将规则撤销。</p>
+<p>iptables还支持自己定义链。但是自己定义的链，必须是跟某种特定的链关联起来的。在一个关卡设定，指定当有数据的时候专门去找某个特定的链来处理，当那个链处理完之后，再返回。接着在特定的链中继续检查。</p>
+<p>注意：规则的次序非常关键，<code>谁的规则越严格，应该放的越靠前</code>，而检查规则的时候，是按照从上往下的方式进行检查的。</p>
+<p>表名包括：</p>
+<ul>
+<li><strong>raw</strong> ：高级功能，如：网址过滤。</li>
+<li><strong>mangle</strong> ：数据包修改（QOS），用于实现服务质量。</li>
+<li><strong>nat</strong> ：地址转换，用于网关路由器。</li>
+<li><strong>filter</strong> ：包过滤，用于防火墙规则。</li>
+</ul>
+<p>动作包括：</p>
+<ul>
+<li><strong>ACCEPT</strong> ：接收数据包。</li>
+<li><strong>DROP</strong> ：丢弃数据包。</li>
+<li><strong>REDIRECT</strong> ：重定向、映射、透明代理。</li>
+<li><strong>SNAT</strong> ：源地址转换。</li>
+<li><strong>DNAT</strong> ：目标地址转换。</li>
+<li><strong>MASQUERADE</strong> ：IP伪装（NAT），用于ADSL。</li>
+<li><strong>LOG</strong> ：日志记录。</li>
+<li><strong>SEMARK</strong> : 添加SEMARK标记以供网域内强制访问控制（MAC）</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">                             ┏╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┓
+ ┌───────────────┐           ┃    Network    ┃
+ │ table: filter │           ┗━━━━━━━┳━━━━━━━┛
+ │ chain: INPUT  │◀────┐             │
+ └───────┬───────┘     │             ▼
+         │             │   ┌───────────────────┐
+  ┌      ▼      ┐      │   │ table: nat        │
+  │local process│      │   │ chain: PREROUTING │
+  └             ┘      │   └─────────┬─────────┘
+         │             │             │
+         ▼             │             ▼              ┌─────────────────┐
+┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅    │     ┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅      │table: nat       │
+ Routing decision      └───── outing decision ─────▶│chain: PREROUTING│
+┅┅┅┅┅┅┅┅┅┳┅┅┅┅┅┅┅┅┅          ┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅      └────────┬────────┘
+         │                                                   │
+         ▼                                                   │
+ ┌───────────────┐                                           │
+ │ table: nat    │           ┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅               │
+ │ chain: OUTPUT │    ┌─────▶ outing decision ◀──────────────┘
+ └───────┬───────┘    │      ┅┅┅┅┅┅┅┅┳┅┅┅┅┅┅┅┅
+         │            │              │
+         ▼            │              ▼
+ ┌───────────────┐    │   ┌────────────────────┐
+ │ table: filter │    │   │ chain: POSTROUTING │
+ │ chain: OUTPUT ├────┘   └──────────┬─────────┘
+ └───────────────┘                   │
+                                     ▼
+                             ┏╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┓
+                             ┃    Network    ┃
+                             ┗━━━━━━━━━━━━━━━┛<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><h4 id="清空当前的所有规则和计数"><a href="#清空当前的所有规则和计数" class="headerlink" title="清空当前的所有规则和计数"></a>清空当前的所有规则和计数</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-F</span>  <span class="token comment"># 清空所有的防火墙规则</span>
+iptables <span class="token parameter variable">-X</span>  <span class="token comment"># 删除用户自定义的空链</span>
+iptables <span class="token parameter variable">-Z</span>  <span class="token comment"># 清空计数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="配置允许ssh端口连接"><a href="#配置允许ssh端口连接" class="headerlink" title="配置允许ssh端口连接"></a>配置允许ssh端口连接</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-s</span> <span class="token number">192.168</span>.1.0/24 <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">--dport</span> <span class="token number">22</span> <span class="token parameter variable">-j</span> ACCEPT
+<span class="token comment"># 22为你的ssh端口， -s 192.168.1.0/24表示允许这个网段的机器来连接，其它网段的ip地址是登陆不了你的机器的。 -j ACCEPT表示接受这样的请求</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="允许本地回环地址可以正常使用"><a href="#允许本地回环地址可以正常使用" class="headerlink" title="允许本地回环地址可以正常使用"></a>允许本地回环地址可以正常使用</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-i</span> lo <span class="token parameter variable">-j</span> ACCEPT
+<span class="token comment">#本地圆环地址就是那个127.0.0.1，是本机上使用的,它进与出都设置为允许</span>
+iptables <span class="token parameter variable">-A</span> OUTPUT <span class="token parameter variable">-o</span> lo <span class="token parameter variable">-j</span> ACCEPT<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="设置默认的规则"><a href="#设置默认的规则" class="headerlink" title="设置默认的规则"></a>设置默认的规则</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-P</span> INPUT DROP <span class="token comment"># 配置默认的不让进</span>
+iptables <span class="token parameter variable">-P</span> FORWARD DROP <span class="token comment"># 默认的不允许转发</span>
+iptables <span class="token parameter variable">-P</span> OUTPUT ACCEPT <span class="token comment"># 默认的可以出去</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="配置白名单"><a href="#配置白名单" class="headerlink" title="配置白名单"></a>配置白名单</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-p</span> all <span class="token parameter variable">-s</span> <span class="token number">192.168</span>.1.0/24 <span class="token parameter variable">-j</span> ACCEPT  <span class="token comment"># 允许机房内网机器可以访问</span>
+iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-p</span> all <span class="token parameter variable">-s</span> <span class="token number">192.168</span>.140.0/24 <span class="token parameter variable">-j</span> ACCEPT  <span class="token comment"># 允许机房内网机器可以访问</span>
+iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">-s</span> <span class="token number">183.121</span>.3.7 <span class="token parameter variable">--dport</span> <span class="token number">3380</span> <span class="token parameter variable">-j</span> ACCEPT <span class="token comment"># 允许183.121.3.7访问本机的3380端口</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="开启相应的服务端口"><a href="#开启相应的服务端口" class="headerlink" title="开启相应的服务端口"></a>开启相应的服务端口</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">--dport</span> <span class="token number">80</span> <span class="token parameter variable">-j</span> ACCEPT <span class="token comment"># 开启80端口，因为web对外都是这个端口</span>
+iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-p</span> icmp --icmp-type <span class="token number">8</span> <span class="token parameter variable">-j</span> ACCEPT <span class="token comment"># 允许被ping</span>
+iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-m</span> state <span class="token parameter variable">--state</span> ESTABLISHED,RELATED <span class="token parameter variable">-j</span> ACCEPT <span class="token comment"># 已经建立的连接得让它进来</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="保存规则到配置文件中"><a href="#保存规则到配置文件中" class="headerlink" title="保存规则到配置文件中"></a>保存规则到配置文件中</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cp</span> /etc/sysconfig/iptables /etc/sysconfig/iptables.bak <span class="token comment"># 任何改动之前先备份，请保持这一优秀的习惯</span>
+iptables-save <span class="token operator">></span> /etc/sysconfig/iptables
+<span class="token function">cat</span> /etc/sysconfig/iptables<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="列出已设置的规则"><a href="#列出已设置的规则" class="headerlink" title="列出已设置的规则"></a>列出已设置的规则</h4><blockquote>
+<p>iptables -L [-t 表名] [链名]</p>
+</blockquote>
+<ul>
+<li>四个表名 <code>raw</code>，<code>nat</code>，<code>filter</code>，<code>mangle</code></li>
+<li>五个规则链名 <code>INPUT</code>、<code>OUTPUT</code>、<code>FORWARD</code>、<code>PREROUTING</code>、<code>POSTROUTING</code></li>
+<li>filter表包含<code>INPUT</code>、<code>OUTPUT</code>、<code>FORWARD</code>三个规则链</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-L</span> <span class="token parameter variable">-t</span> nat                  <span class="token comment"># 列出 nat 上面的所有规则</span>
+<span class="token comment">#            ^ -t 参数指定，必须是 raw， nat，filter，mangle 中的一个</span>
+iptables <span class="token parameter variable">-L</span> <span class="token parameter variable">-t</span> nat  --line-numbers  <span class="token comment"># 规则带编号</span>
+iptables <span class="token parameter variable">-L</span> INPUT
+
+iptables <span class="token parameter variable">-L</span> <span class="token parameter variable">-nv</span>  <span class="token comment"># 查看，这个列表看起来更详细</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="清除已有规则"><a href="#清除已有规则" class="headerlink" title="清除已有规则"></a>清除已有规则</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-F</span> INPUT  <span class="token comment"># 清空指定链 INPUT 上面的所有规则</span>
+iptables <span class="token parameter variable">-X</span> INPUT  <span class="token comment"># 删除指定的链，这个链必须没有被其它任何规则引用，而且这条上必须没有任何规则。</span>
+                   <span class="token comment"># 如果没有指定链名，则会删除该表中所有非内置的链。</span>
+iptables <span class="token parameter variable">-Z</span> INPUT  <span class="token comment"># 把指定链，或者表中的所有链上的所有计数器清零。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="删除已添加的规则"><a href="#删除已添加的规则" class="headerlink" title="删除已添加的规则"></a>删除已添加的规则</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 添加一条规则</span>
+iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-s</span> <span class="token number">192.168</span>.1.5 <span class="token parameter variable">-j</span> DROP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>将所有iptables以序号标记显示，执行：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-L</span> <span class="token parameter variable">-n</span> --line-numbers<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>比如要删除INPUT里序号为8的规则，执行：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-D</span> INPUT <span class="token number">8</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="开放指定的端口"><a href="#开放指定的端口" class="headerlink" title="开放指定的端口"></a>开放指定的端口</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-s</span> <span class="token number">127.0</span>.0.1 <span class="token parameter variable">-d</span> <span class="token number">127.0</span>.0.1 <span class="token parameter variable">-j</span> ACCEPT               <span class="token comment">#允许本地回环接口(即运行本机访问本机)</span>
+iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-m</span> state <span class="token parameter variable">--state</span> ESTABLISHED,RELATED <span class="token parameter variable">-j</span> ACCEPT    <span class="token comment">#允许已建立的或相关连的通行</span>
+iptables <span class="token parameter variable">-A</span> OUTPUT <span class="token parameter variable">-j</span> ACCEPT         <span class="token comment">#允许所有本机向外的访问</span>
+iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">--dport</span> <span class="token number">22</span> <span class="token parameter variable">-j</span> ACCEPT    <span class="token comment">#允许访问22端口</span>
+iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">--dport</span> <span class="token number">80</span> <span class="token parameter variable">-j</span> ACCEPT    <span class="token comment">#允许访问80端口</span>
+iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">--dport</span> <span class="token number">21</span> <span class="token parameter variable">-j</span> ACCEPT    <span class="token comment">#允许ftp服务的21端口</span>
+iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">--dport</span> <span class="token number">20</span> <span class="token parameter variable">-j</span> ACCEPT    <span class="token comment">#允许FTP服务的20端口</span>
+iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-j</span> reject       <span class="token comment">#禁止其他未允许的规则访问</span>
+iptables <span class="token parameter variable">-A</span> FORWARD <span class="token parameter variable">-j</span> REJECT     <span class="token comment">#禁止其他未允许的规则访问</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="屏蔽IP"><a href="#屏蔽IP" class="headerlink" title="屏蔽IP"></a>屏蔽IP</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">-m</span> tcp <span class="token parameter variable">-s</span> <span class="token number">192.168</span>.0.8 <span class="token parameter variable">-j</span> DROP  <span class="token comment"># 屏蔽恶意主机（比如，192.168.0.8</span>
+iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-s</span> <span class="token number">123.45</span>.6.7 <span class="token parameter variable">-j</span> DROP       <span class="token comment">#屏蔽单个IP的命令</span>
+iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-s</span> <span class="token number">123.0</span>.0.0/8 <span class="token parameter variable">-j</span> DROP      <span class="token comment">#封整个段即从123.0.0.1到123.255.255.254的命令</span>
+iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-s</span> <span class="token number">124.45</span>.0.0/16 <span class="token parameter variable">-j</span> DROP    <span class="token comment">#封IP段即从123.45.0.1到123.45.255.254的命令</span>
+iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-s</span> <span class="token number">123.45</span>.6.0/24 <span class="token parameter variable">-j</span> DROP    <span class="token comment">#封IP段即从123.45.6.1到123.45.6.254的命令是</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="指定数据包出去的网络接口"><a href="#指定数据包出去的网络接口" class="headerlink" title="指定数据包出去的网络接口"></a>指定数据包出去的网络接口</h4><p>只对 OUTPUT，FORWARD，POSTROUTING 三个链起作用。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-A</span> FORWARD <span class="token parameter variable">-o</span> eth0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="查看已添加的规则"><a href="#查看已添加的规则" class="headerlink" title="查看已添加的规则"></a>查看已添加的规则</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-L</span> <span class="token parameter variable">-n</span> <span class="token parameter variable">-v</span>
+Chain INPUT <span class="token punctuation">(</span>policy DROP <span class="token number">48106</span> packets, 2690K bytes<span class="token punctuation">)</span>
+ pkts bytes target     prot opt <span class="token keyword">in</span>     out     <span class="token builtin class-name">source</span>               destination
+ <span class="token number">5075</span>  589K ACCEPT     all  --  lo     *       <span class="token number">0.0</span>.0.0/0            <span class="token number">0.0</span>.0.0/0
+ 191K   90M ACCEPT     tcp  --  *      *       <span class="token number">0.0</span>.0.0/0            <span class="token number">0.0</span>.0.0/0           tcp dpt:22
+1499K  133M ACCEPT     tcp  --  *      *       <span class="token number">0.0</span>.0.0/0            <span class="token number">0.0</span>.0.0/0           tcp dpt:80
+4364K 6351M ACCEPT     all  --  *      *       <span class="token number">0.0</span>.0.0/0            <span class="token number">0.0</span>.0.0/0           state RELATED,ESTABLISHED
+ <span class="token number">6256</span>  327K ACCEPT     icmp --  *      *       <span class="token number">0.0</span>.0.0/0            <span class="token number">0.0</span>.0.0/0
+
+Chain FORWARD <span class="token punctuation">(</span>policy ACCEPT <span class="token number">0</span> packets, <span class="token number">0</span> bytes<span class="token punctuation">)</span>
+ pkts bytes target     prot opt <span class="token keyword">in</span>     out     <span class="token builtin class-name">source</span>               destination
+
+Chain OUTPUT <span class="token punctuation">(</span>policy ACCEPT 3382K packets, 1819M bytes<span class="token punctuation">)</span>
+ pkts bytes target     prot opt <span class="token keyword">in</span>     out     <span class="token builtin class-name">source</span>               destination
+ <span class="token number">5075</span>  589K ACCEPT     all  --  *      lo      <span class="token number">0.0</span>.0.0/0            <span class="token number">0.0</span>.0.0/0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="启动网络转发规则"><a href="#启动网络转发规则" class="headerlink" title="启动网络转发规则"></a>启动网络转发规则</h4><p>公网<code>210.14.67.7</code>让内网<code>192.168.188.0/24</code>上网</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-A</span> POSTROUTING <span class="token parameter variable">-s</span> <span class="token number">192.168</span>.188.0/24 <span class="token parameter variable">-j</span> SNAT --to-source <span class="token number">210.14</span>.67.127<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h4><p>本机的 2222 端口映射到内网 虚拟机的22 端口</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-A</span> PREROUTING <span class="token parameter variable">-d</span> <span class="token number">210.14</span>.67.127 <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">--dport</span> <span class="token number">2222</span>  <span class="token parameter variable">-j</span> DNAT --to-dest <span class="token number">192.168</span>.188.115:22<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="字符串匹配"><a href="#字符串匹配" class="headerlink" title="字符串匹配"></a>字符串匹配</h4><p>比如，我们要过滤所有TCP连接中的字符串<code>test</code>，一旦出现它我们就终止这个连接，我们可以这么做：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">-m</span> string <span class="token parameter variable">--algo</span> kmp <span class="token parameter variable">--string</span> <span class="token string">"test"</span> <span class="token parameter variable">-j</span> REJECT --reject-with tcp-reset
+iptables <span class="token parameter variable">-L</span>
+
+<span class="token comment"># Chain INPUT (policy ACCEPT)</span>
+<span class="token comment"># target     prot opt source               destination</span>
+<span class="token comment"># REJECT     tcp  --  anywhere             anywhere            STRING match "test" ALGO name kmp TO 65535 reject-with tcp-reset</span>
+<span class="token comment">#</span>
+<span class="token comment"># Chain FORWARD (policy ACCEPT)</span>
+<span class="token comment"># target     prot opt source               destination</span>
+<span class="token comment">#</span>
+<span class="token comment"># Chain OUTPUT (policy ACCEPT)</span>
+<span class="token comment"># target     prot opt source               destination</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="阻止Windows蠕虫的攻击"><a href="#阻止Windows蠕虫的攻击" class="headerlink" title="阻止Windows蠕虫的攻击"></a>阻止Windows蠕虫的攻击</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-j</span> DROP <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">-s</span> <span class="token number">0.0</span>.0.0/0 <span class="token parameter variable">-m</span> string <span class="token parameter variable">--algo</span> kmp <span class="token parameter variable">--string</span> <span class="token string">"cmd.exe"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="防止SYN洪水攻击"><a href="#防止SYN洪水攻击" class="headerlink" title="防止SYN洪水攻击"></a>防止SYN洪水攻击</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">--syn</span> <span class="token parameter variable">-m</span> limit <span class="token parameter variable">--limit</span> <span class="token number">5</span>/second <span class="token parameter variable">-j</span> ACCEPT<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="添加SECMARK记录"><a href="#添加SECMARK记录" class="headerlink" title="添加SECMARK记录"></a>添加SECMARK记录</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-t</span> mangle <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">--src</span> <span class="token number">192.168</span>.1.2 <span class="token parameter variable">--dport</span> <span class="token number">443</span> <span class="token parameter variable">-j</span> SECMARK <span class="token parameter variable">--selctx</span> system_u:object_r:myauth_packet_t
+<span class="token comment"># 向从 192.168.1.2:443 以TCP方式发出到本机的包添加MAC安全上下文 system_u:object_r:myauth_packet_t</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="更多实例"><a href="#更多实例" class="headerlink" title="更多实例"></a>更多实例</h2><blockquote>
+<p>用iptables搭建一套强大的安全防护盾 <a target="_blank" rel="noopener" href="http://www.imooc.com/learn/389">http://www.imooc.com/learn/389</a></p>
+</blockquote>
+<p>iptables: linux 下应用层防火墙工具</p>
+<p>iptables 5链: 对应 Hook point<br>netfilter: linux 操作系统核心层内部的一个数据包处理模块<br>Hook point: 数据包在 netfilter 中的挂载点; <code>PRE_ROUTING / INPUT / OUTPUT / FORWARD / POST_ROUTING</code></p>
+<p>iptables &amp; netfilter<br><img src="http://7xq89b.com1.z0.glb.clouddn.com/netfilter&iptables.jpg"></p>
+<p>iptables 4表5链<br><img src="http://7xq89b.com1.z0.glb.clouddn.com/iptables-data-stream.jpg"></p>
+<p>iptables rules<br><img src="http://7xq89b.com1.z0.glb.clouddn.com/iptables-rules.jpg"></p>
+<ul>
+<li>4表</li>
+</ul>
+<p><strong>filter</strong>: 访问控制 / 规则匹配<br><strong>nat</strong>: 地址转发<br> mangle / raw</p>
+<ul>
+<li>规则</li>
+</ul>
+<p>数据访问控制: ACCEPT / DROP / REJECT<br>数据包改写(nat -&gt; 地址转换): snat / dnat<br>信息记录: log</p>
+<h2 id="使用场景实例"><a href="#使用场景实例" class="headerlink" title="使用场景实例"></a>使用场景实例</h2><ul>
+<li>场景一</li>
+</ul>
+<p>开放 tcp 10-22/80 端口<br>开放 icmp<br>其他未被允许的端口禁止访问</p>
+<p>存在的问题: 本机无法访问本机; 本机无法访问其他主机</p>
+<ul>
+<li>场景二</li>
+</ul>
+<p>ftp: 默认被动模式(服务器产生随机端口告诉客户端, 客户端主动连接这个端口拉取数据)<br>vsftpd: 使 ftp 支持主动模式(客户端产生随机端口通知服务器, 服务器主动连接这个端口发送数据)</p>
+<ul>
+<li>场景三</li>
+</ul>
+<p>允许外网访问:<br>web<br>http -&gt; 80/tcp; https -&gt; 443/tcp<br>mail<br>smtp -&gt; 25/tcp; smtps -&gt; 465/tcp<br>pop3 -&gt; 110/tcp; pop3s -&gt; 995/tcp<br>imap -&gt; 143/tcp</p>
+<p>内部使用:<br>file<br>nfs -&gt; 123/udp<br>samba -&gt; 137/138/139/445/tcp<br>ftp -&gt; 20/21/tcp<br>remote<br>ssh -&gt; 22/tcp<br>sql<br>mysql -&gt; 3306/tcp<br>oracle -&gt; 1521/tcp</p>
+<ul>
+<li>场景四</li>
+</ul>
+<p>nat 转发</p>
+<ul>
+<li>场景五</li>
+</ul>
+<p>防CC攻击</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-L</span> <span class="token parameter variable">-F</span> <span class="token parameter variable">-A</span> <span class="token parameter variable">-D</span> <span class="token comment"># list flush append delete</span>
+<span class="token comment"># 场景一</span>
+iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">--dport</span> <span class="token number">80</span> <span class="token parameter variable">-j</span> ACCEPT <span class="token comment"># 允许 tcp 80 端口</span>
+iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">--dport</span> <span class="token number">10</span>:22 <span class="token parameter variable">-j</span> ACCEPT <span class="token comment"># 允许 tcp 10-22 端口</span>
+iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-p</span> icmp <span class="token parameter variable">-j</span> ACCEPT <span class="token comment"># 允许 icmp</span>
+iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-j</span> REJECT <span class="token comment"># 添加一条规则, 不允许所有</span>
+
+<span class="token comment"># 优化场景一</span>
+iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-i</span> lo <span class="token parameter variable">-j</span> ACCEPT <span class="token comment"># 允许本机访问</span>
+iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-m</span> state <span class="token parameter variable">--state</span> ESTABLISHED,RELATED <span class="token parameter variable">-j</span> ACCEPT <span class="token comment"># 允许访问外网</span>
+iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">--dport</span> <span class="token number">80</span> <span class="token parameter variable">-s</span> <span class="token number">10.10</span>.188.233 <span class="token parameter variable">-j</span> ACCEPT <span class="token comment"># 只允许固定ip访问80</span>
+
+<span class="token comment"># 场景二</span>
+<span class="token function">vi</span> /etc/vsftpd/vsftpd.conf <span class="token comment"># 使用 vsftpd 开启 ftp 主动模式</span>
+<span class="token assign-left variable">port_enable</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">connect_from_port_20</span><span class="token operator">=</span>YES
+iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">--dport</span> <span class="token number">21</span> <span class="token parameter variable">-j</span> ACCEPT
+
+<span class="token function">vi</span> /etc/vsftpd/vsftpd.conf <span class="token comment"># 建议使用 ftp 被动模式</span>
+<span class="token assign-left variable">pasv_min_port</span><span class="token operator">=</span><span class="token number">50000</span>
+<span class="token assign-left variable">pasv_max_port</span><span class="token operator">=</span><span class="token number">60000</span>
+iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">--dport</span> <span class="token number">21</span> <span class="token parameter variable">-j</span> ACCEPT
+iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">--dport</span> <span class="token number">50000</span>:60000 <span class="token parameter variable">-j</span> ACCEPT
+
+<span class="token comment"># 还可以使用 iptables 模块追踪来自动开发对应的端口</span>
+
+<span class="token comment"># 场景三</span>
+iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-i</span> lo <span class="token parameter variable">-j</span> ACCEPT <span class="token comment"># 允许本机访问</span>
+iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-m</span> state <span class="token parameter variable">--state</span> ESTABLISHED,RELATED <span class="token parameter variable">-j</span> ACCEPT <span class="token comment"># 允许访问外网</span>
+iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-s</span> <span class="token number">10.10</span>.155.0/24 <span class="token parameter variable">-j</span> ACCEPT <span class="token comment"># 允许内网访问</span>
+iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">-m</span> multiport <span class="token parameter variable">--dports</span> <span class="token number">80,1723</span> <span class="token parameter variable">-j</span> ACCEPT <span class="token comment"># 允许端口, 80 -> http, 1723 -> vpn</span>
+iptables <span class="token parameter variable">-A</span> INPUT <span class="token parameter variable">-j</span> REJECT <span class="token comment"># 添加一条规则, 不允许所有</span>
+
+iptables-save <span class="token comment"># 保存设置到配置文件</span>
+
+<span class="token comment"># 场景四</span>
+iptables <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-L</span> <span class="token comment"># 查看 nat 配置</span>
+
+iptables <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-A</span> POST_ROUTING <span class="token parameter variable">-s</span> <span class="token number">10.10</span>.177.0/24 <span class="token parameter variable">-j</span> SNAT <span class="token parameter variable">--to</span> <span class="token number">10.10</span>.188.232 <span class="token comment"># SNAT</span>
+<span class="token function">vi</span> /etc/sysconfig/network <span class="token comment"># 配置网关</span>
+
+iptables <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-A</span> POST_ROUTING <span class="token parameter variable">-d</span> <span class="token number">10.10</span>.188.232 <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">--dport</span> <span class="token number">80</span> <span class="token parameter variable">-j</span> DNAT <span class="token parameter variable">--to</span> <span class="token number">10.10</span>.177.232:80 <span class="token comment"># DNAT</span>
+
+<span class="token comment">#场景五</span>
+iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-p</span> tcp <span class="token parameter variable">--syn</span> <span class="token parameter variable">--dport</span> <span class="token number">80</span> <span class="token parameter variable">-m</span> connlimit --connlimit-above <span class="token number">100</span> <span class="token parameter variable">-j</span> REJECT <span class="token comment"># 限制并发连接访问数</span>
+iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-m</span> limit <span class="token parameter variable">--limit</span> <span class="token number">3</span>/hour --limit-burst <span class="token number">10</span> <span class="token parameter variable">-j</span> ACCEPT <span class="token comment"># limit模块; --limit-burst 默认为5</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">168.6k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1009 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="FTP, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>FTP | 波亚斯</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/featureimages/18.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">FTP</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ftp/">
+                                <span class="chip bg-color">ftp</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-07-21
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="FTP文件传输服务"><a href="#FTP文件传输服务" class="headerlink" title="FTP文件传输服务"></a>FTP文件传输服务</h1><p>概述：FTP（文件传输协议）是典型的C/S架构的应用层协议，需要由服务端软件、客户端软件两部分共同实现文件传输功能</p>
+<p>FTP连接及传输模式</p>
+<p>FTP的两个端口：</p>
+<p>控制连接：TCP的21号端口，用于控制连接，发送FTP命令信息。</p>
+<p>数据连接：TCP的20号端口，用于上传、下载数据</p>
+<p>一般观测FTP时，只观测21号端口即可，存在说明服务正在运行。</p>
+<p>数据连接的建立类型：主动模式、被动模式（以服务器的角度）</p>
+<ol>
+<li>主动模式：服务器主动发起数据连接</li>
+</ol>
+<p>首先由客户机向服务端的21号端口建立FTP控制连接，当需要数据连接时，客户端以PORT命令告知服务器，”客户端打开了某个端口，请求服务端过来连接”，于是服务器从20号端口向客户端的该端口发送请求并建立数据连接。这其中的”某端口”是客户端任意挑选的一个未被使用的随机端口。</p>
+<ol start="2">
+<li>被动模式：服务器被动等待数据连接</li>
+</ol>
+<p>如果客户机所在网络的防火墙禁止主动模式连接，通常会使用被动模式，首先由客户端向服务端的21号端口建立FTP控制连接，当需要数据连接时，服务器以PASV命令告知客户端”服务端打开了某端口，请求客户端来连接”，于是客户端向服务器的该端口（非20号端口）发送请求并建立数据连接。</p>
+<p>这其中的”某端口”是服务端任意的一个未被使用的随机端口</p>
+<p>客户端与服务端建立好数据连接之后就可以根据控制连接中发送的FTP命令上传或下载文件了。</p>
+<p>在传输文件时，根据是否进行字符转换，分为文本模式和二进制模式。使用二进制模式比文本模式更有效率，大多数FTP客户端工具可以根据文本类型自动选项文件传输模式，而无需用户手工指定</p>
+<h2 id="FTP用户类型分三类："><a href="#FTP用户类型分三类：" class="headerlink" title="FTP用户类型分三类："></a>FTP用户类型分三类：</h2><ol>
+<li>使用FTP客户端软件访问服务器时，通常要用到一类特殊的用户账号，其用户名为ftp或anonymous，提供任意密码（包括空密码）都可以通过FTP服务器的验证，这样的用户成为”匿名用户”</li>
+</ol>
+<p>匿名用户一般用于提供公共文件的下载，如，提供一些免费软件、学习资料下载的站点。</p>
+<ol start="2">
+<li><p>除了不需要密码验证的匿名用户以外，FTP服务器还可以直接使用本机的系统用户账号进行验证，这些用户通常被称为”本地用户”</p>
+</li>
+<li><p>有些FTP服务器软件还可以维护一份独立的用户数据库文件，而不是直接使用系统用户账号，这些位于独立数据库文件中的FTP用户账号，通常被称为”虚拟用户”，通过使用虚拟用户将FTP账户与Linux系统账户的关联性将至最低，增加了系统的安全性。</p>
+</li>
+</ol>
+<h2 id="FTP服务器软件的种类"><a href="#FTP服务器软件的种类" class="headerlink" title="FTP服务器软件的种类"></a>FTP服务器软件的种类</h2><p>在windows系统中，常见的FTP服务器软件包括File zilla service、serv-U等</p>
+<p>在Linux系统中，vsftpd是目前在Linux/Unix领域应用十分广泛的一款FTP服务软件。</p>
+<p>vsftpd服务的全名来源于”Very Secure FTP Daemon”，该软件针对安全方面做了大量的设计，除了安全性外，vsftpd在速度和稳定性方面的表现也相当突出。</p>
+<h2 id="FTP客户端工具的种类"><a href="#FTP客户端工具的种类" class="headerlink" title="FTP客户端工具的种类"></a>FTP客户端工具的种类</h2><p>最简单的FTP客户端工具莫过于”ftp”命令程序了，除此之外还有大量的图形化FTP客户端工具，Windows中比较常用的包括”Cuter FTP”、”FlashFXP”、”LeapFTP”、”Filezilla”等等。</p>
+<p>还有一些下载工具软件，如”Flash Get”、”wget”等，包括大多数网页浏览器程序，都支持通过FTP协议下载文件，但因不具备FTP上传等管理功能，通常不称为FTP客户端工具。</p>
+<h1 id="vsftpd服务基础"><a href="#vsftpd服务基础" class="headerlink" title="vsftpd服务基础"></a>vsftpd服务基础</h1><h2 id="vsftpd的配置文件"><a href="#vsftpd的配置文件" class="headerlink" title="vsftpd的配置文件"></a>vsftpd的配置文件</h2><ol>
+<li>用户列表文件<code>ftpusers</code>和<code>user_list</code></li>
+</ol>
+<p>在<code>ftpusers</code>、<code>user_list</code>文件中，各自记录了若干个FTP用户的账号名称，两个文件都用于<code>FTP</code>登录控制，但是控制方式存在一些差别。</p>
+<p><code>ftpusers</code>文件：此文件中列出的用户将禁止登录<code>vsftpd</code>服务器，不管该用户是否在<code>user_list</code>文件中出现，默认已经包括<code>root</code>、<code>bin</code>、<code>daemon</code>等用于系统运行的特殊用户（就如同黑名单）。</p>
+<p><code>user_list</code>文件：此文件中包含的用户可能被禁止登录，也可能被允许登录，具体取决去主配置文件<code>vsftpd.conf</code>中的设置，当存在<code>userlist_enable=YES</code>的配置项时，<code>user_list</code>列表文件方可生效；若指定<code>userlist_deny=YES</code>则仅禁止此文件列表中的用户等录；若指定<code>userlist_deny=NO</code>，则仅允许此文件列表中的用户等录。</p>
+<ol start="2">
+<li>主配置文件<code>vsftpd.conf</code></li>
+</ol>
+<p>在vsftpd的主配置文件中，配置行采用”配置项=参数”的形式，例：</p>
+<pre class="line-numbers language-conf" data-language="conf"><code class="language-conf"># 用于匿名用户配置项：
+anonymous_enable&#x3D;YES   # 设置是否允许匿名访问
+anon_umask&#x3D;022   # 设置匿名用户所上传文件的默认umask值
+anon_mkdir_write_enable&#x3D;YES   # 是否允许匿名用户有创建目录的写入权限。
+anon_other_write_enable&#x3D;YES   # 是否允许匿名用户对文件改名、覆盖及删除文件等操作。
+# 用于本地用户验证配置项：
+local_enable&#x3D;YES   # 是否允许本地系统用户访问
+local_umask&#x3D;022   # 设置本地用户所上传文件的默认umask值
+chroot_local_user&#x3D;YES   # 是否将FTP本地用户禁锢在家目录中
+# 全局配置项：
+listen&#x3D;YES   # 是否以独立运行的方式监听服务
+listen_sddress&#x3D;0.0.0.0   # 设置监听FTP服务的IP地址
+listen_port&#x3D;21   # 设置监听FTP服务的端口号
+write_enable&#x3D;YES   # 启用任何形式的写入权限，如上传、删除文件等
+download_enable&#x3D;YES   # 是否允许下载文件（建立仅限于浏览、上传的FTP服务器时可将其设置为&quot;NO&quot;）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>vsftpd服务可以使用Linux主机中的系统用户账号作为登录FTP的账号，包括匿名访问和用户验证两种形式。</p>
+<p>匿名访问的FTP服务器时，不需要密码，任何人都可以使用，非常方便，当需要提供公开访问的文件下载资源或者让用户上传一些不需要保密的数据资料时，可以选择搭建匿名FTP服务器</p>
+<h1 id="匿名访问的FTP服务"><a href="#匿名访问的FTP服务" class="headerlink" title="匿名访问的FTP服务"></a>匿名访问的FTP服务</h1><p>设置匿名访问的FTP服务器需要三步：</p>
+<ol>
+<li><p>准备匿名FTP访问的目录</p>
+</li>
+<li><p>开放匿名用户配置并启动vsftpd服务</p>
+</li>
+<li><p>测试匿名FTP访问</p>
+</li>
+</ol>
+<h2 id="具体步骤："><a href="#具体步骤：" class="headerlink" title="具体步骤："></a>具体步骤：</h2><p>准备匿名访问的目录默认<code>/var/ftp</code></p>
+<p><code>/var/ftp/</code>目录下默认设置了一个名为<code>pub</code>的子目录，可以给匿名访问FTP时提供上传文件使用。</p>
+<p>将<code>/var/ftp/pub</code>目录赋予匿名用户<code>ftp</code>写入权限</p>
+<p><code>chown ftp /var/ftp/pub</code></p>
+<h2 id="开放匿名用户配置并启动vsftpd服务"><a href="#开放匿名用户配置并启动vsftpd服务" class="headerlink" title="开放匿名用户配置并启动vsftpd服务"></a>开放匿名用户配置并启动vsftpd服务</h2><p>配置vsftpd服务时，是否开放匿名FTP访问取决于配置项”anonymous_enable”，只要将其设置为”YES”即可</p>
+<p>启用此项后默认只有读取权限，只能查看和下载文件，若要允许匿名用户有上传文件的权限，就需要开放更多的配置，主要有以下几项：</p>
+<blockquote>
+<p>write_enable=YES</p>
+</blockquote>
+<blockquote>
+<p>anon_upload_enable=YES</p>
+</blockquote>
+<blockquote>
+<p>anon_mkdir_write_enable=YES</p>
+</blockquote>
+<blockquote>
+<p>anon_other_write_enable=YES</p>
+</blockquote>
+<p>这些配置项应根据实际需要选择设置</p>
+<p>例如：若要设置vsftpd服务提供匿名访问、允许匿名用户上传、下载，但禁止删除操作，可以如下设置：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/vsftpd/vsftpd.conf
+
+<span class="token assign-left variable">anonymous_enable</span><span class="token operator">=</span>YES
+
+<span class="token assign-left variable">write_enable</span><span class="token operator">=</span>YES
+
+<span class="token assign-left variable">anon_umask</span><span class="token operator">=</span>022
+
+<span class="token assign-left variable">anon_upload_enable</span><span class="token operator">=</span>YES
+
+<span class="token assign-left variable">anon_mkdir_write_enable</span><span class="token operator">=</span>YES
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="/medias/img/ftp/0.png"><br><img src="/medias/img/ftp/1.png"><br>重启vsftpd服务</p>
+<p><code>service vsftpd restart</code></p>
+<p><img src="/medias/img/ftp/2.png"></p>
+<h2 id="测试匿名FTP访问"><a href="#测试匿名FTP访问" class="headerlink" title="测试匿名FTP访问"></a>测试匿名FTP访问</h2><p>在Windows主机中可以直接在”我的电脑”地址栏中输入URL地址访问，如<a href="ftp://192.168.0.123/">ftp://192.168.0.123</a></p>
+<p><img src="/medias/img/ftp/3.png"></p>
+<p>在Linux的字符界面中，可以使用ftp命令进行测试</p>
+<p>安装ftp命令：<code>yum -y install ftp</code></p>
+<p>例如：执行以下操作可以匿名登录到FTP服务器192.168.0.123</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ftp</span> <span class="token number">192.168</span>.0.123
+……
+name<span class="token punctuation">(</span><span class="token number">192.168</span>.0.123:root<span class="token punctuation">)</span>:用户名
+passwd:密码
+……
+ftp<span class="token operator">></span>登录成功<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="/medias/img/ftp/4.png"><br><img src="/medias/img/ftp/5.png"><br><img src="/medias/img/ftp/6.png"><br>登录成功后执行”?”或者”help”会显示出很多类似于samba登录环境中的命令可用</p>
+<p>常用的命令：ls、cd、</p>
+<p><code>cd</code>：切换本地目录</p>
+<p><code>get</code> <code>wget</code>：将文件下载到本地</p>
+<p><img src="/medias/img/ftp/7.png"><br><code>put</code> <code>mput</code>：将本地文件上传到服务器</p>
+<p><img src="/medias/img/ftp/8.png"><br><img src="/medias/img/ftp/9.png"><br><code>quit</code> <code>exit</code>：断开ftp连续连接并退出</p>
+<p>在已经知道要下载文件的完整URL地址的情况下，用户也可以使用wget工具直接下载文件。</p>
+<p>例如：要下载<code>/var/ftp/pub/testfile</code>文件</p>
+<p>执行：<code>wget ftp://192.168.0.123/pub/testfile</code></p>
+<p>lftp命令：lftp支持tab键补全，显示内容带有颜色</p>
+<p>用法：<code>lftp 用户名：密码@ip：端口</code>（默认21）</p>
+<p>例如：<code>lftp 192.168.0.123</code></p>
+<p><img src="/medias/img/ftp/10.png"></p>
+<h1 id="用户验证的FTP服务"><a href="#用户验证的FTP服务" class="headerlink" title="用户验证的FTP服务"></a>用户验证的FTP服务</h1><p>vsftpd可以直接使用Linux主机的系统用户作为FTP账号，提供基于用户名，密码的登录验证。用户使用系统用户账号登录FTP服务器后将默认位于自己家的家目录中，且在家目录中拥有读写权限</p>
+<ol>
+<li>基于本地用户验证（修改<code>anonymous_enable=NO</code>）</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/vsftpd/vsftpd.conf添加
+<span class="token assign-left variable">local_enable</span><span class="token operator">=</span>YES
+<span class="token assign-left variable">write_enable</span><span class="token operator">=</span>YES
+<span class="token assign-left variable">local_umask</span><span class="token operator">=</span>077
+<span class="token assign-left variable">chroot_local_user</span><span class="token operator">=</span>YES
+reload重载<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Windows访问 输入<code>ftp://用户:密码@192.168.0.123</code> 直接进入共享</p>
+<p><img src="/medias/img/ftp/11.png"></p>
+<p>Linux系统访问共享 输入<code>ftp 192.168.0.123</code></p>
+<p><img src="/medias/img/ftp/12.png"><br><img src="/medias/img/ftp/13.png"></p>
+<h2 id="设置用户”白名单”"><a href="#设置用户”白名单”" class="headerlink" title="设置用户”白名单”"></a>设置用户”白名单”</h2><p>只要一些用户登录</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/vsftpd/user_list 添加：
+queen
+king
+wang
+<span class="token function">vim</span> /etc/vsftpd/vsftpd.conf 添加：
+<span class="token assign-left variable">userlist_enable</span><span class="token operator">=</span>YES开启user_list用户列表
+<span class="token assign-left variable">userlist_deny</span><span class="token operator">=</span>NO禁用user_list列表中的用户<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="设置”虚拟用户”"><a href="#设置”虚拟用户”" class="headerlink" title="设置”虚拟用户”"></a>设置”虚拟用户”</h2><p>vsftpd服务的其它常用配置</p>
+<ol>
+<li>修改vsftpd服务的监听地址、端口</li>
+</ol>
+<pre class="line-numbers language-conf" data-language="conf"><code class="language-conf">listen&#x3D;YES   # 允许独立监听服务，也可以使用xinetd服务进行管控vsftpd服务，若使用修改YES为NO
+listen_address&#x3D;192.168.0.123
+listen_port&#x3D;2121
+# 重载生效<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="2">
+<li>允许使用FTP服务的被动模式</li>
+</ol>
+<pre class="line-numbers language-conf" data-language="conf"><code class="language-conf">pasv_enable&#x3D;YES
+pasv_min_port&#x3D;24500
+pasv_max_port&#x3D;24600   # 重启生效<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ol start="3">
+<li>限制FTP的并发连接数、传输速率</li>
+</ol>
+<pre class="line-numbers language-conf" data-language="conf"><code class="language-conf">vim &#x2F;etc&#x2F;vsftpd&#x2F;vsftpd.conf
+max_clients&#x3D;20   # 限制最多连接20个用户
+max_per_ip&#x3D;2   # 限制每个ip最多连接2个
+anon_max_rate&#x3D;50000   # 限制匿名用户传输速率为50KB&#x2F;s
+local_max_rate&#x3D;200000   # 限制本地用户传输速率为200KB&#x2F;s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>建立虚拟用户步骤：</p>
+<ol>
+<li>创建文本格式的用户名和密码表（格式：奇数行写假的用户名；偶数行写用户名对应的密码）</li>
+</ol>
+<p>例如：<code>vim /etc/vsftpd/xnyh_list</code>(文件名随意)</p>
+<pre class="line-numbers language-none"><code class="language-none">abc
+
+123
+
+xyz
+
+456
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="2">
+<li>建立DB数据库，安装<code>db4-utils</code>包</li>
+</ol>
+<p>执行：<code>db_load -T -t hash -f xnyh_list xnyh.db</code></p>
+<p><code>db_load</code>命令选项意义：</p>
+<p><code>-T</code>：制作数据库（允许将文本文件转译载入数据库）</p>
+<p><code>-t</code>：指定转译载入的数据库类型，hash为使用hash码加密</p>
+<p><code>-f</code>：指定要转译的文件</p>
+<p><code>file xnyh.db</code>查看文件的文件类型</p>
+<p><img src="/medias/img/ftp/14.png"></p>
+<ol start="3">
+<li>添加虚拟用户映射账号，创建<code>FTP</code>根目录</li>
+</ol>
+<p><code>useradd -s /sbin/nologin xnyh</code></p>
+<p><code>mkdir /etc/vsftpd/xnyh_dir</code></p>
+<ol start="4">
+<li>为虚拟用户建立<code>PAM</code>认证文件</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/pam.d/vsftpd_xnyh
+<span class="token comment">#%PAM-1.0</span>
+auth required pam_userdb.so <span class="token assign-left variable">db</span><span class="token operator">=</span>/etc/vsftpd/xnyh   <span class="token comment"># （指向为创建的虚拟用户数据库，省略.db）</span>
+account required pam_userdb.so <span class="token assign-left variable">db</span><span class="token operator">=</span>/etc/vsftpd/xnyh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="5">
+<li>修改vsftpd配置、添加虚拟用户支持</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/vsftpd/vsftpd.conf
+<span class="token assign-left variable">local_enable</span><span class="token operator">=</span>YES   <span class="token comment"># 需要映射本地用户，所有启用此项</span>
+<span class="token assign-left variable">write_enable</span><span class="token operator">=</span>YES
+<span class="token assign-left variable">anon_umask</span><span class="token operator">=</span>022
+<span class="token assign-left variable">guest_enable</span><span class="token operator">=</span>YES   <span class="token comment"># 启用用户映射功能</span>
+<span class="token assign-left variable">guest_username</span><span class="token operator">=</span>xnyh   <span class="token comment"># 指定映射的系统用户</span>
+<span class="token assign-left variable">pam_service_name</span><span class="token operator">=</span>vsftpd_xnyh   <span class="token comment"># 指定新的PAM认证文件</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="6">
+<li>为不同的虚拟用户建立独立的配置文件</li>
+</ol>
+<p><code>vim /etc/vsftpd/vsftpd.conf</code></p>
+<p>添加：<code>user_config_dir=/etc/vsftpd/xnyh_dir</code></p>
+<p><code>cd /etc/vsftpd/xnyh_dir</code></p>
+<p><code>vim abc</code></p>
+<p><code>anon_upload_enable=YES</code></p>
+<p><code>anon_mkdir_write_enable=YES</code></p>
+<p><code>touch xyz</code></p>
+<p>(<code>abc</code>虚拟用户可以上传，读写；<code>xyz</code>虚拟用户只能读、下载)</p>
+<p>重载<code>vsftpd</code>服务</p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="../linux-command-1.16.0/ftp">ftp</a><br><a href="../linux-command-1.16.0/ftpcount">ftpcount显示登录人数</a><br><a href="../linux-command-1.16.0/ftpshut">ftpshut关闭ftp</a><br><a href="../linux-command-1.16.0/ftpwho">ftpwho查看会话信息</a></p>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">168.6k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1046 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Zabbix, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>Zabbix | 波亚斯</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/featureimages/8.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Zabbix</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/zabbix/">
+                                <span class="chip bg-color">zabbix</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Devops/" class="post-category">
+                                Devops
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-07-29
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.9k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="环境配置-server端和agent端"><a href="#环境配置-server端和agent端" class="headerlink" title="环境配置(server端和agent端)"></a>环境配置(server端和agent端)</h2><p>升级系统组件到最新的版本</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span>  yum <span class="token parameter variable">-y</span> update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>关闭selinux</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">setenforce <span class="token number">0</span>       <span class="token comment">#临时关闭命令</span>
+<span class="token function">vi</span> /etc/selinux/config    <span class="token comment">#将SELINUX=enforcing改为SELINUX=disabled 设置后需要重启才能生效</span>
+getenforce         <span class="token comment">#检测selinux是否关闭，Disabled 为关闭</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>关闭防火墙</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd <span class="token parameter variable">--state</span>    <span class="token comment">#查看默认防火墙状态，关闭后显示not running，开启后显示running</span>
+systemctl stop firewalld.service    <span class="token comment">#临时关闭firewal</span>
+systemctl disable firewalld.service <span class="token comment">#禁止firewall开机启动</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="zabbix服务端配置-server端"><a href="#zabbix服务端配置-server端" class="headerlink" title="zabbix服务端配置(server端)"></a>zabbix服务端配置(server端)</h2><p>zabbix需要借助LAMP或者LNMP环境,LAMP比较方便配置所以先搭建LAMP环境</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装软件包和其他工具包</span>
+ yum <span class="token function">install</span> <span class="token parameter variable">-y</span> httpd mariadb-server mariadb php php-mysql php-gd libjpeg* php-ldap php-odbc php-pear php-xml php-xmlrpc php-mhash
+ <span class="token function">rpm</span> <span class="token parameter variable">-qa</span> httpd php   mariadb 
+
+ <span class="token comment"># 或者</span>
+
+ <span class="token function">rpm</span> <span class="token parameter variable">-qa</span> httpd php mysql-community-server 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>添加首页支持格式　</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span>  /etc/httpd/conf/httpd.conf
+     DirectoryIndex index.html index.php
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>配置时区</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/php.ini
+      date.timezone <span class="token operator">=</span> PRC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>启动并加入开启自启动</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl start httpd   <span class="token comment">#启动并加入开机自启动httpd</span>
+systemctl <span class="token builtin class-name">enable</span> httpd
+systemctl start mysqld  <span class="token comment">#启动并加入开机自启动mysqld</span>
+systemctl <span class="token builtin class-name">enable</span> mysqld
+
+ss <span class="token parameter variable">-anplt</span> <span class="token operator">|</span> <span class="token function">grep</span> httpd   <span class="token comment">#查看httpd启动情况，80端口监控表示httpd已启动</span>
+ss <span class="token parameter variable">-naplt</span> <span class="token operator">|</span> <span class="token function">grep</span> mysqld  <span class="token comment">#查看mysqld启动情况，3306端口监控表示mysqld已启动　</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>创建一个测试页测试</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span>  <span class="token function">sh</span> <span class="token parameter variable">-c</span> <span class="token string">'echo "&lt;?php echo phpinfo();?>"  > index.php '</span>
+
+<span class="token comment"># 直接使用sudo echo 会提示权限不足   例如：sudo echo "&lt;?php echo phpinfo();?>"  > index.php </span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><img src="/medias/img/zabbix/1.png"></p>
+<h2 id="数据库配置-server端"><a href="#数据库配置-server端" class="headerlink" title="数据库配置(server端)"></a>数据库配置(server端)</h2><p>初始化数据库设置数据库root密码</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> mysqladmin <span class="token parameter variable">-u</span> root password <span class="token number">123456</span>
+
+<span class="token comment">#root用户登陆数据库</span>
+mysql <span class="token parameter variable">-u</span> root <span class="token parameter variable">-p123456</span>     
+
+<span class="token comment">#创建zabbix数据库（中文编码格式）</span>
+CREATE DATABASE zabbix character <span class="token builtin class-name">set</span> utf8 collate utf8_bin<span class="token punctuation">;</span> 
+
+<span class="token comment">#授予zabbix用户zabbix数据库的所有权限，密码admin123</span>
+GRANT all ON zabbix.* TO <span class="token string">'zabbix'</span>@<span class="token string">'%'</span> IDENTIFIED BY <span class="token string">'admin123'</span><span class="token punctuation">;</span>
+
+<span class="token comment">#刷新权限</span>
+flush privileges<span class="token punctuation">;</span> 
+
+<span class="token comment">#退出数据库 </span>
+quit              
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="/medias/img/zabbix/2.png"></p>
+<p>数据库连接测试页</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vim</span> /var/www/html/index.php 
+    <span class="token operator">&lt;</span>?php
+    <span class="token variable">$link</span><span class="token operator">=</span>mysql_connect<span class="token punctuation">(</span><span class="token string">'172.18.20.224'</span>,<span class="token string">'zabbix'</span>,<span class="token string">'admin123'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    if<span class="token punctuation">(</span><span class="token variable">$link</span><span class="token punctuation">)</span> <span class="token builtin class-name">echo</span> <span class="token string">"&lt;h1>Success!!&lt;/h1>"</span><span class="token punctuation">;</span>   <span class="token comment">#显示Success表示连接数据库成功</span>
+    <span class="token keyword">else</span> <span class="token builtin class-name">echo</span> <span class="token string">"Fail!!"</span><span class="token punctuation">;</span>
+    mysql_close<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ?<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="/medias/img/zabbix/3.png"></p>
+<h2 id="安装zabbix-server端"><a href="#安装zabbix-server端" class="headerlink" title="安装zabbix(server端)"></a>安装zabbix(server端)</h2><p>安装依赖包和组件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span>  yum <span class="token parameter variable">-y</span> <span class="token function">install</span> net-snmp net-snmp-devel <span class="token function">curl</span> curl-devel libxml2 libxml2-devel libevent-devel.x86_64 javacc.noarch  javacc-javadoc.noarch javacc-maven-plugin.noarch javacc*
+<span class="token comment"># 安装php支持zabbix组件</span>
+<span class="token function">sudo</span>  yum <span class="token function">install</span> php-bcmath php-mbstring <span class="token parameter variable">-y</span> 
+<span class="token comment"># 会自动生成yum源文件，保证系统可以上网</span>
+<span class="token function">sudo</span>  <span class="token function">rpm</span> <span class="token parameter variable">-ivh</span> http://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-release-4.0-1.el7.noarch.rpm
+
+<span class="token comment"># 清理yum缓存</span>
+<span class="token function">sudo</span> yum clean all 
+<span class="token comment"># 安装zabbix组件</span>
+<span class="token function">sudo</span>  yum <span class="token function">install</span> zabbix-server-mysql zabbix-web-mysql <span class="token parameter variable">-y</span>  
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>安装zabbix后会有一个数据库文件,需要把这个文件恢复到数据库中</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span>   /usr/share/doc/zabbix-server-mysql-4.0.21/
+<span class="token comment">#导入数据到数据库zabbix中(最后一个zabbix是数据库zabbix)，且因为用户zabbix是%(任意主机)，所以登录时需要加上当前主机ip(-h 192.168.1.122),密码是用户zabbix登陆密码admin123</span>
+<span class="token function">sudo</span>  zcat  create.sql.gz <span class="token operator">|</span> mysql <span class="token parameter variable">-uzabbix</span> <span class="token parameter variable">-p</span> <span class="token parameter variable">-h</span> <span class="token number">192.168</span>.1.122 zabbix 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>在配置文件中配置数据库用户及密码</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vim</span>  /etc/zabbix/zabbix_server.conf 
+
+    <span class="token assign-left variable">DBHost</span><span class="token operator">=</span><span class="token number">192.168</span>.1.122
+    <span class="token assign-left variable">DBName</span><span class="token operator">=</span>zabbix
+    <span class="token assign-left variable">DBUser</span><span class="token operator">=</span>zabbix
+    <span class="token assign-left variable">DBPassword</span><span class="token operator">=</span>admin123<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>确定数据库用户及密码</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">grep</span> <span class="token parameter variable">-n</span> <span class="token string">'^'</span><span class="token punctuation">[</span>a-Z<span class="token punctuation">]</span> /etc/zabbix/zabbix_server.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>修改时区</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span>  <span class="token function">vim</span> /etc/httpd/conf.d/zabbix.conf
+
+<span class="token comment"># 将# php_value date.timezone Europe/Riga 变更成php_value date.timezone Asia/Shanghai</span>
+php_value date.timezone Asia/Shanghai<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>启动并加入开机自启动zabbix-server</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl <span class="token builtin class-name">enable</span> zabbix-server
+systemctl start zabbix-server
+<span class="token comment">#   监听在10051端口上,如果没监听成功，可重启zabbix-server服务试试</span>
+<span class="token function">netstat</span> <span class="token parameter variable">-anpt</span> <span class="token operator">|</span> <span class="token function">grep</span> zabbix<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>默认用户和密码</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">默认账号Admin
+默认密码为zabbix  密码经过MD5加密后为5fce1b3e34b520afeffb37ce08c7cd66<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="welcom-zabbix-后台"><a href="#welcom-zabbix-后台" class="headerlink" title="welcom zabbix(后台)"></a>welcom zabbix(后台)</h2><p>如果以上步骤无误，现在可以使用web打开 </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">http://192.168.1.122/zabbix   <span class="token comment"># 注意这里IE浏览器打不开,使用其他浏览器</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/medias/img/zabbix/5.png"><br>这里必须全部都是OK<br><img src="/medias/img/zabbix/6.png"><br><img src="/medias/img/zabbix/7.png"><br><img src="/medias/img/zabbix/8.png"><br><img src="/medias/img/zabbix/9.png"><br>安装成功<br><img src="/medias/img/zabbix/10.png"><br>进入界面后设置语言<br><img src="/medias/img/zabbix/11.png"><br>选择Chinese<br><img src="/medias/img/zabbix/12.png"></p>
+<h2 id="Agent端配置-agent端"><a href="#Agent端配置-agent端" class="headerlink" title="Agent端配置(agent端)"></a>Agent端配置(agent端)</h2><p>安装依赖包和组件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token parameter variable">-y</span> <span class="token function">install</span> net-snmp net-snmp-devel <span class="token function">curl</span> curl-devel libxml2 libxml2-devel libevent-devel.x86_64 javacc.noarch  javacc-javadoc.noarch javacc-maven-plugin.noarch javacc*
+<span class="token comment"># 安装php支持zabbix组件</span>
+sudoyum <span class="token function">install</span> php-bcmath php-mbstring <span class="token parameter variable">-y</span>
+<span class="token comment"># 会自动生成yum源文件，保证系统可以上网</span>
+<span class="token function">sudo</span>  <span class="token function">rpm</span> <span class="token parameter variable">-ivh</span> http://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-release-4.0-1.el7.noarch.rpm
+<span class="token comment"># 清理yum缓存</span>
+<span class="token function">sudo</span> yum clean all
+<span class="token comment"># 安装zabbix-agent </span>
+<span class="token function">sudo</span> yum <span class="token function">install</span> zabbix-agent <span class="token parameter variable">-y</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>修改zabbix-agent的配置文件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/zabbix/zabbix_agentd.conf
+<span class="token comment"># 指定zabbix服务器的IP</span>
+<span class="token assign-left variable">Server</span><span class="token operator">=</span><span class="token number">192.168</span>.1.122  
+<span class="token comment"># 指定zabbix服务器的IP</span>
+<span class="token assign-left variable">ServerActive</span><span class="token operator">=</span><span class="token number">192.168</span>.1.122
+<span class="token comment"># 指定后台显示名称</span>
+<span class="token assign-left variable">Hostname</span><span class="token operator">=</span>test   
+<span class="token comment"># 是否支持自定义key  默认为 0 不支持</span>
+<span class="token assign-left variable">UnsafeUserParameters</span><span class="token operator">=</span><span class="token number">1</span> 
+<span class="token comment"># 自定义key监控项</span>
+<span class="token assign-left variable">UserParameter</span><span class="token operator">=</span>prod.redis,ps <span class="token parameter variable">-ef</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">'redis'</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token parameter variable">-v</span> <span class="token string">'grep'</span><span class="token operator">|</span> <span class="token function">wc</span> <span class="token parameter variable">-l</span>   
+<span class="token comment"># 自定义key监控项</span>
+<span class="token assign-left variable">UserParameter</span><span class="token operator">=</span>prod.mongo,ps <span class="token parameter variable">-ef</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">'mongo'</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token parameter variable">-v</span> <span class="token string">'grep'</span><span class="token operator">|</span> <span class="token function">wc</span> <span class="token parameter variable">-l</span> 
+<span class="token comment"># 自定义key监控项</span>
+<span class="token assign-left variable">UserParameter</span><span class="token operator">=</span>prod.node,ps <span class="token parameter variable">-ef</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">'node'</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token parameter variable">-v</span> <span class="token string">'grep'</span><span class="token operator">|</span> <span class="token function">wc</span> <span class="token parameter variable">-l</span>     <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>启动agent端</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/sbin/zabbix_agentd <span class="token parameter variable">-c</span> /etc/zabbix/zabbix_agentd.conf   <span class="token comment"># 启动agent端</span>
+systemctl restart zabbix-agent   <span class="token comment"># 重启</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="zabbix服务器上测试-server端"><a href="#zabbix服务器上测试-server端" class="headerlink" title="zabbix服务器上测试(server端)"></a>zabbix服务器上测试(server端)</h2><p>需要下载 zabbix-get</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> zabbix-get <span class="token parameter variable">-y</span>
+zabbix_get <span class="token parameter variable">-s</span> <span class="token number">192.168</span>.1.220 <span class="token parameter variable">-p</span> <span class="token number">10050</span> <span class="token parameter variable">-k</span> prod.redis   <span class="token comment"># 显示数值 代表成功  </span>
+<span class="token number">1</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="zabbix后台配置监控项-后台"><a href="#zabbix后台配置监控项-后台" class="headerlink" title="zabbix后台配置监控项(后台)"></a>zabbix后台配置监控项(后台)</h2><p>创建群组<br><img src="/medias/img/zabbix/13.png"><br>设置组名<br><img src="/medias/img/zabbix/14.png"><br><img src="/medias/img/zabbix/15.png"><br>创建主机<br><img src="/medias/img/zabbix/16.png"><br><img src="/medias/img/zabbix/18.png"><br><img src="/medias/img/zabbix/19.png"><br><img src="/medias/img/zabbix/20.png"><br><img src="/medias/img/zabbix/21.png"><br>创建监控项<br><img src="/medias/img/zabbix/22.png"><br><img src="/medias/img/zabbix/23.png"><br><img src="/medias/img/zabbix/24.png"><br>创建触发器<br><img src="/medias/img/zabbix/25.png"><br><img src="/medias/img/zabbix/26.png"><br><img src="/medias/img/zabbix/27.png"><br><img src="/medias/img/zabbix/28.png"><br>可以在最新数据查看当前值<br><img src="/medias/img/zabbix/29.png"><br><img src="/medias/img/zabbix/30.png"><br>修改状态测试<br><img src="/medias/img/zabbix/31.png"><br><img src="/medias/img/zabbix/32.png"><br><img src="/medias/img/zabbix/33.png"><br><img src="/medias/img/zabbix/34.png"><br>至此监控配置完成,下面需要配置邮件服务,当有服务宕机发邮件告警</p>
+<h2 id="配置媒介邮件-server端"><a href="#配置媒介邮件-server端" class="headerlink" title="配置媒介邮件(server端)"></a>配置媒介邮件(server端)</h2><p>首先需要在邮件获取授权码<br><img src="/medias/img/zabbix/40.png"><br><img src="/medias/img/zabbix/41.png"><br><img src="/medias/img/zabbix/42.png"></p>
+<p>本次测试使用mailx服务</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 关闭当前postfix邮件</span>
+<span class="token function">sudo</span>  systemctl stop postfix
+<span class="token function">chkconfig</span>  postfix  off
+<span class="token comment"># 安装mailx</span>
+<span class="token function">sudo</span> yum <span class="token function">install</span> mailx  <span class="token parameter variable">-y</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>配置邮件服务</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span>  <span class="token function">vim</span> /etc/mail.rc
+
+    <span class="token comment"># 发件人地址</span>
+    <span class="token builtin class-name">set</span> <span class="token assign-left variable">from</span><span class="token operator">=</span>xxxxxx@qq.com <span class="token assign-left variable">smtp</span><span class="token operator">=</span>smtp.qq.com  
+
+    <span class="token comment"># 收件人地址                       授权码(邮箱IMAP/SMTP服务的授权码)</span>
+    <span class="token builtin class-name">set</span> smtp-auth-user<span class="token operator">=</span>xxxxxx@qq.com smtp-auth-password<span class="token operator">=</span>xxxxxx    
+
+    <span class="token builtin class-name">set</span> smtp-auth<span class="token operator">=</span>login<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试发送邮件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"zabbix test mail"</span> <span class="token operator">|</span>mail <span class="token parameter variable">-s</span> <span class="token string">"zabbix"</span> xxxxxx@qq.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="配置发送邮件-后台"><a href="#配置发送邮件-后台" class="headerlink" title="配置发送邮件(后台)"></a>配置发送邮件(后台)</h2><p>管理—示警介类型—创建媒体类型<br>创建报警媒介类型 (脚本参数分别对应：收件人地址、主题、详细内容)<br><img src="/medias/img/zabbix/50.png"><br>配置用户 选择admin用户<br><img src="/medias/img/zabbix/51.png"><br>添加报警媒介<br><img src="/medias/img/zabbix/52.png"><br>创建报警动作 配置-动作-创建动作,新建动作<br><img src="/medias/img/zabbix/53.png"><br>新建操作<br><img src="/medias/img/zabbix/54.png"><br><img src="/medias/img/zabbix/55.png"><br>添加恢复操作<br><img src="/medias/img/zabbix/56.png"></p>
+<p>配置完成后测试(修改触发器或者关闭进程)<br><img src="/medias/img/zabbix/57.png"><br><img src="/medias/img/zabbix/58.png"><br><img src="/medias/img/zabbix/59.png"><br><img src="/medias/img/zabbix/60.png"><br><img src="/medias/img/zabbix/61.png"><br><img src="/medias/img/zabbix/62.png"><br>邮件内容以及在动作日志中查看发送记录<br><img src="/medias/img/zabbix/63.png"></p>
+<hr>
+<h2 id="首先需要申请一个企业号"><a href="#首先需要申请一个企业号" class="headerlink" title="首先需要申请一个企业号"></a>首先需要申请一个企业号</h2><p>申请企业号，需要一个绑定你本人开户银行卡的微信号。<br>申请网址 <a target="_blank" rel="noopener" href="https://qy.weixin.qq.com/">https://qy.weixin.qq.com/</a><br>点击“立即注册”。<br>根据提示注册企业号，到“选择类型”时，选择最右边的企业号。<br>注意：企业描述中：“报警”是敏感词不能使用。<br>登录之后，可以看到如下页面<br><img src="/medias/img/zabbix/1/1.png"><br>按照下图依次点击。<br><img src="/medias/img/zabbix/1/2.png"><br><img src="/medias/img/zabbix/1/3.png"><br><img src="/medias/img/zabbix/1/4.png"></p>
+<h2 id="关注企业号的方法"><a href="#关注企业号的方法" class="headerlink" title="关注企业号的方法"></a>关注企业号的方法</h2><p>点击左侧的“设置”-二维码，使用微信扫一扫扫描二维码<br><img src="/medias/img/zabbix/1/5.png"><br>点击左侧列的“应用中心”，点击“我的应用”下面的加号<br><img src="/medias/img/zabbix/1/6.png"><br>填写应用名称，描述。一切正常的话，点击进入刚才创建的应用<br><img src="/medias/img/zabbix/1/7.png"><br>这里的应用 id 号需要记住。后面需要填写</p>
+<h2 id="设置管理员"><a href="#设置管理员" class="headerlink" title="设置管理员"></a>设置管理员</h2><p>设置-功能设置-权限管理-新建管理组<br><img src="/medias/img/zabbix/1/8.png"><br><img src="/medias/img/zabbix/1/9.png"><br><img src="/medias/img/zabbix/1/10.png"><br>注意：这里要记录下来下面的 CorpID 和 Secret。</p>
+<h2 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h2><p>在/usr/lib/zabbix/alertscripts目录(配置文件定义)下新建一个名为 wechat.sh 的脚本文件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token assign-left variable">CropID</span><span class="token operator">=</span><span class="token string">'ww13d3c1c55e5d3414'</span>   <span class="token comment"># 企业id-在网页应用管理可以查到</span>
+<span class="token assign-left variable">Secret</span><span class="token operator">=</span><span class="token string">'-qo7YckISjsL11u8kI5PF0gGJrjYKlk0ISF2ftAPuzQ'</span>   <span class="token comment"># SecretID-在网页应用管理可以查到</span>
+<span class="token assign-left variable">GURL</span><span class="token operator">=</span><span class="token string">"https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=<span class="token variable">$CropID</span>&amp;corpsecret=<span class="token variable">$Secret</span>"</span>
+<span class="token assign-left variable">Gtoken</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span>/usr/bin/curl <span class="token parameter variable">-s</span> <span class="token parameter variable">-G</span> $GURL <span class="token operator">|</span> <span class="token function">awk</span> -F<span class="token string">'access_token":"'</span> <span class="token string">'&#123;print $2&#125;'</span><span class="token operator">|</span><span class="token function">awk</span> -F<span class="token string">'"'</span> <span class="token string">'&#123;print $1&#125;'</span> <span class="token variable">`</span></span>
+<span class="token assign-left variable">PURL</span><span class="token operator">=</span><span class="token string">"https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=<span class="token variable">$Gtoken</span>"</span>
+<span class="token keyword">function</span> <span class="token function-name function">body</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token builtin class-name">local</span> int <span class="token assign-left variable">AppID</span><span class="token operator">=</span><span class="token number">1000002</span>  <span class="token comment"># 应用id-在网页应用管理可以查到</span>
+<span class="token builtin class-name">local</span> <span class="token assign-left variable">UserID</span><span class="token operator">=</span><span class="token variable">$1</span>
+<span class="token builtin class-name">local</span> <span class="token assign-left variable">PartyID</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token builtin class-name">local</span> <span class="token assign-left variable">Msg</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$@</span>"</span> <span class="token operator">|</span> <span class="token function">cut</span> -d<span class="token string">" "</span> -f3-<span class="token variable">)</span></span>
+<span class="token builtin class-name">printf</span> <span class="token string">'&#123;\n'</span>
+<span class="token builtin class-name">printf</span> <span class="token string">'\t"touser": "'</span>"<span class="token variable">$User</span><span class="token string">"<span class="token entity" title="\&quot;">\"</span>"</span>,<span class="token punctuation">\</span>n<span class="token string">"
+printf '<span class="token entity" title="\t">\t</span>"</span>toparty<span class="token string">": "</span><span class="token string">'"$PartyID"\"",\n"
+printf '</span><span class="token punctuation">\</span>t<span class="token string">"msgtype"</span><span class="token builtin class-name">:</span> <span class="token string">"text"</span>,<span class="token punctuation">\</span>n<span class="token string">'
+printf '</span><span class="token punctuation">\</span>t<span class="token string">"agentid"</span><span class="token builtin class-name">:</span> <span class="token string">"'"</span> <span class="token variable">$AppID</span> <span class="token string">"<span class="token entity" title="\&quot;">\"</span>"</span>,<span class="token punctuation">\</span>n<span class="token string">"
+printf '<span class="token entity" title="\t">\t</span>"</span>text<span class="token string">": &#123;<span class="token entity" title="\n">\n</span>'
+printf '<span class="token entity" title="\t">\t</span><span class="token entity" title="\t">\t</span>"</span>content<span class="token string">": "</span><span class="token string">'"$Msg"\""\n"
+printf '</span><span class="token punctuation">\</span>t<span class="token punctuation">&#125;</span>,<span class="token punctuation">\</span>n<span class="token string">'
+printf '</span><span class="token punctuation">\</span>t<span class="token string">"safe"</span><span class="token builtin class-name">:</span><span class="token string">"0"</span><span class="token punctuation">\</span>n<span class="token string">'
+printf '</span><span class="token punctuation">&#125;</span><span class="token punctuation">\</span>n'
+<span class="token punctuation">&#125;</span>
+/usr/bin/curl --data-ascii <span class="token string">"<span class="token variable"><span class="token variable">$(</span>body $1 $2 $3<span class="token variable">)</span></span>"</span> <span class="token variable">$PURL</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>需要设置权限不然调用的时候会报错没有权限</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span>  <span class="token function">chown</span> zabbix:zabbix   wechat.sh  <span class="token parameter variable">-R</span> 
+<span class="token function">sudo</span>  <span class="token function">chmod</span> +x     wechat.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>执行./wechat.sh 1 1 test 看自己微信是否能收到信息，如果能的话，继续下一步。反之检查上面有什么问题。</p>
+<h2 id="zabbix后台配置"><a href="#zabbix后台配置" class="headerlink" title="zabbix后台配置"></a>zabbix后台配置</h2><p>管理—示警介类型—创建媒体类型<br>创建报警媒介类型 (脚本参数分别对应：收件人地址、主题、详细内容)<br><img src="/medias/img/zabbix/1/21.png"><br>配置用户 选择admin用户<br><img src="/medias/img/zabbix/1/22.png"><br>添加报警媒介<br><img src="/medias/img/zabbix/1/23.png"><br>创建报警动作 配置-动作-创建动作,新建动作<br><img src="/medias/img/zabbix/1/24.png"><br>新建操作<br><img src="/medias/img/zabbix/1/25.png"><br><img src="/medias/img/zabbix/1/26.png"></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">操作
+
+    故障<span class="token punctuation">&#123;</span>TRIGGER.STATUS<span class="token punctuation">&#125;</span>,服务器:<span class="token punctuation">&#123;</span>HOSTNAME1<span class="token punctuation">&#125;</span>发生: <span class="token punctuation">&#123;</span>TRIGGER.NAME<span class="token punctuation">&#125;</span>故障<span class="token operator">!</span>
+  
+
+    告警主机:<span class="token punctuation">&#123;</span>HOSTNAME1<span class="token punctuation">&#125;</span>
+    告警时间:<span class="token punctuation">&#123;</span>EVENT.DATE<span class="token punctuation">&#125;</span> <span class="token punctuation">&#123;</span>EVENT.TIME<span class="token punctuation">&#125;</span>
+    告警等级:<span class="token punctuation">&#123;</span>TRIGGER.SEVERITY<span class="token punctuation">&#125;</span>
+    告警信息: <span class="token punctuation">&#123;</span>TRIGGER.NAME<span class="token punctuation">&#125;</span>
+    告警项目:<span class="token punctuation">&#123;</span>TRIGGER.KEY1<span class="token punctuation">&#125;</span>
+    问题详情:<span class="token punctuation">&#123;</span>ITEM.NAME<span class="token punctuation">&#125;</span>:<span class="token punctuation">&#123;</span>ITEM.VALUE<span class="token punctuation">&#125;</span>
+    当前状态:<span class="token punctuation">&#123;</span>TRIGGER.STATUS<span class="token punctuation">&#125;</span>:<span class="token punctuation">&#123;</span>ITEM.VALUE1<span class="token punctuation">&#125;</span>
+    事件 ID:<span class="token punctuation">&#123;</span>EVENT.ID<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>添加恢复操作<br><img src="/medias/img/zabbix/1/27.png"></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">恢复操作
+
+    恢复<span class="token punctuation">&#123;</span>TRIGGER.STATUS<span class="token punctuation">&#125;</span>, 服务器:<span class="token punctuation">&#123;</span>HOSTNAME1<span class="token punctuation">&#125;</span>: <span class="token punctuation">&#123;</span>TRIGGER.NAME<span class="token punctuation">&#125;</span>已恢复<span class="token operator">!</span>
+  
+
+    告警主机:<span class="token punctuation">&#123;</span>HOSTNAME1<span class="token punctuation">&#125;</span>
+    告警时间:<span class="token punctuation">&#123;</span>EVENT.DATE<span class="token punctuation">&#125;</span> <span class="token punctuation">&#123;</span>EVENT.TIME<span class="token punctuation">&#125;</span>
+    告警等级:<span class="token punctuation">&#123;</span>TRIGGER.SEVERITY<span class="token punctuation">&#125;</span>
+    告警信息: <span class="token punctuation">&#123;</span>TRIGGER.NAME<span class="token punctuation">&#125;</span>
+    告警项目:<span class="token punctuation">&#123;</span>TRIGGER.KEY1<span class="token punctuation">&#125;</span>
+    问题详情:<span class="token punctuation">&#123;</span>ITEM.NAME<span class="token punctuation">&#125;</span>:<span class="token punctuation">&#123;</span>ITEM.VALUE<span class="token punctuation">&#125;</span>
+    当前状态:<span class="token punctuation">&#123;</span>TRIGGER.STATUS<span class="token punctuation">&#125;</span>:<span class="token punctuation">&#123;</span>ITEM.VALUE1<span class="token punctuation">&#125;</span>
+    事件 ID:<span class="token punctuation">&#123;</span>EVENT.ID<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>配置完成后测试(修改触发器或者关闭进程)<br><img src="/medias/img/zabbix/1/28.png"><br><img src="/medias/img/zabbix/1/29.png"><br><img src="/medias/img/zabbix/1/30.png"></p>
+<h2 id="邮件内容以及在动作日志中查看发送记录"><a href="#邮件内容以及在动作日志中查看发送记录" class="headerlink" title="邮件内容以及在动作日志中查看发送记录"></a>邮件内容以及在动作日志中查看发送记录</h2><p><img src="/medias/img/zabbix/1/35.png"></p>
+<hr>
+<h2 id="下载yum源报错"><a href="#下载yum源报错" class="headerlink" title="下载yum源报错"></a>下载yum源报错</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>sgsm@localhost yum.repos.d<span class="token punctuation">]</span>$ <span class="token function">sudo</span>  <span class="token function">rpm</span> <span class="token parameter variable">-ivh</span> http://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-release-4.0-1.el7.noarch.rpm 
+    获取http://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-release-4.0-1.el7.noarch.rpm
+    准备中<span class="token punctuation">..</span>.                          <span class="token comment">################################# [100%]</span>
+        <span class="token function">file</span> /etc/yum.repos.d/zabbix.repo from <span class="token function">install</span> of zabbix-release-4.0-1.el7.noarch conflicts with <span class="token function">file</span> from package zabbix-release-3.2-1.el7.noarch<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这是因为服务器上已经部署了zabbix,卸载原来的zabbix就可以了 </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum  remove   zabbix-release-3.2-1.el7.noarch   <span class="token parameter variable">-y</span>    
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="后台登录密码忘记"><a href="#后台登录密码忘记" class="headerlink" title="后台登录密码忘记"></a>后台登录密码忘记</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mysql<span class="token operator">></span> use zabbix
+    Reading table information <span class="token keyword">for</span> completion of table and <span class="token function">column</span> names
+    You can turn off this feature to get a quicker startup with <span class="token parameter variable">-A</span>
+
+    Database changed
+mysql<span class="token operator">></span> update <span class="token function">users</span> <span class="token builtin class-name">set</span> <span class="token assign-left variable">passwd</span><span class="token operator">=</span><span class="token string">'5fce1b3e34b520afeffb37ce08c7cd66'</span> where <span class="token assign-left variable">userid</span><span class="token operator">=</span><span class="token string">'1'</span><span class="token punctuation">;</span>
+    Query OK, <span class="token number">1</span> row affected <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
+    Rows matched: <span class="token number">1</span>  Changed: <span class="token number">1</span>  Warnings: <span class="token number">0</span>
+      
+
+<span class="token comment"># 由于密码是md5加密的，我们可以查看默认的zabbix密码的md5</span>
+mysql<span class="token operator">></span> use zabbix<span class="token punctuation">;</span>
+
+mysql<span class="token operator">></span> update <span class="token function">users</span> <span class="token builtin class-name">set</span> <span class="token assign-left variable">passwd</span><span class="token operator">=</span><span class="token string">'5fce1b3e34b520afeffb37ce08c7cd66'</span> where <span class="token assign-left variable">userid</span><span class="token operator">=</span><span class="token string">'1'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>重新设置密码为zabbix,然后重新登陆 用户：Admin   密码：zabbix</p>
+<h2 id="zabbix设置中文出现乱码"><a href="#zabbix设置中文出现乱码" class="headerlink" title="zabbix设置中文出现乱码"></a>zabbix设置中文出现乱码</h2><p>zabbix语言设置为中文后,有乱码如下：<br><img src="/medias/img/zabbix/2/1.png"></p>
+<p>1.从 windows 下控制面板-&gt;字体-&gt;选择一种中文字库例如“楷体”<br><img src="/medias/img/zabbix/2/2.png"><br><img src="/medias/img/zabbix/2/3.png"></p>
+<p>2.将字体上传至/usr/share/zabbix/assets/fonts (根据zabbix的安装位置 可以使用find查找一下路径) 目录下<br><img src="/medias/img/zabbix/2/99.png"><br>注意：查找到zabbix有两个fonts目录 就去配置文件看下使用的那个目录(版本不同 路径就不同)</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>sgsm@localhost fonts<span class="token punctuation">]</span>$ <span class="token function">cat</span> /usr/share/zabbix/include/defines.inc.php <span class="token operator">|</span> <span class="token function">grep</span> path
+define<span class="token punctuation">(</span><span class="token string">'ZBX_FONTPATH'</span>,                          realpath<span class="token punctuation">(</span><span class="token string">'assets/fonts'</span><span class="token punctuation">))</span><span class="token punctuation">;</span> // where to search <span class="token keyword">for</span> font <span class="token punctuation">(</span>GD <span class="token operator">></span> <span class="token number">2.0</span>.18<span class="token punctuation">)</span>
+<span class="token punctuation">[</span>sgsm@localhost fonts<span class="token punctuation">]</span>$ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>使用rz 拉取到服务器<br><img src="/medias/img/zabbix/2/7.png"></p>
+<p>3.修改 zabbix 页面管理的中文字体设置</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@zabbix-server zabbix-2.4.5<span class="token punctuation">]</span><span class="token comment"># vim /usr/share/zabbix/include/defines.inc.php</span>
+<span class="token comment">#修改如下 2 行</span>
+define<span class="token punctuation">(</span><span class="token string">'ZBX_FONT_NAME'</span>, <span class="token string">'simkai'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+define<span class="token punctuation">(</span><span class="token string">'ZBX_GRAPH_FONT_NAME'</span>, <span class="token string">'simkai'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>修改后的 zabbix 界面<br><img src="/medias/img/zabbix/2/5.png"><br>如果还不行就给字体权限</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span>  <span class="token function">chmod</span>   <span class="token number">777</span>    simkai.ttf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">168.6k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1013 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="NFS, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>NFS | 波亚斯</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/featureimages/21.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">NFS</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/nfs/">
+                                <span class="chip bg-color">nfs</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-07-09
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.1k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="NFS共享服务"><a href="#NFS共享服务" class="headerlink" title="NFS共享服务"></a>NFS共享服务</h1><p>NFS简介：</p>
+<p>NFS：Network FileSystem（网络文件系统）是一种基于TCP/IP传输的网络文件系统协议，最初由SUN公司开发</p>
+<p>作用：通过使用NFS协议，客户机可以挂载NFS共享出来的目录，然后像访问本地目录一样访问远程服务器中的共享资源</p>
+<p>特点及适用范围：NFS没有客户端认证机制，而且数据在网络上明文传输，所以安全性很差，一般只能在局域网中使用</p>
+<p>NFS服务的实现依赖于RPC机制（远程过程调用），以完成远程到本地的映射过程<br>由于nfs各项功能都必须向RPC服务注册一个合法的端口用来给客户端提供服务，所以启动nfs服务时，要先保证RPC服务已经启动，否则nfs服务不能正常提供服务；</p>
+<ol>
+<li><p>客户端会向服务器端的RPC（port 111）发出NFS服务请求</p>
+</li>
+<li><p>服务器端找到对应的已注册的NFS daemon端口后，会回报给客户端</p>
+</li>
+<li><p>客户端知道正确的端口后，就可以直接与NFS daemon服务连线（daemon守护进程）</p>
+</li>
+</ol>
+<p>在CentOS6系统中，需要安装nfs-utils,rpcbind软件包来提供NFS共享服务，前者用于NFS共享发布和访问，后者用于RPC支持</p>
+<h2 id="使用NFS发布共享资源："><a href="#使用NFS发布共享资源：" class="headerlink" title="使用NFS发布共享资源："></a>使用NFS发布共享资源：</h2><h3 id="安装nfs-utils、rpcbind软件包"><a href="#安装nfs-utils、rpcbind软件包" class="headerlink" title="安装nfs-utils、rpcbind软件包"></a>安装nfs-utils、rpcbind软件包</h3><p><code>yum -y install nfs-utils rpcbind</code><br>手动加载NFS共享服务时，应该先启动rpcbind 再启动nfs</p>
+<h3 id="设置共享目录"><a href="#设置共享目录" class="headerlink" title="设置共享目录"></a>设置共享目录</h3><p>NFS的配置文件为<code>/etc/exports</code><br>在exports文件中设置共享资源时，记录格式为：</p>
+<p><code>目录路径（绝对路径）  客户机地址（权限选项）</code><br>（客户机地址可以是主机名、IP地址、网段地址、可以使用”通配符”）</p>
+<p>例如：</p>
+<p><code>/testdir/dir   192.168.0.0/24(rw,sync,no_root_squash)</code> </p>
+<p>权限选项的含义：</p>
+<p><code>rw</code>：读写</p>
+<p><code>ro</code>：只读</p>
+<p><code>sync</code>：同步写进内存和磁盘</p>
+<p><code>async</code>：先写进内存再写进磁盘</p>
+<p><code>no_root_squash</code>：表示当客户机以<code>root</code>身份访问时赋予本地<code>root</code>权限</p>
+<p>（默认是<code>root_squash</code>，将作为<code>nfsnobody</code>用户降权对待）</p>
+<p>当需要将同一个目录共享给不同的客户机，且分配不同的特权时，只要以空格分割指定多个”客户机（特权选项）”即可</p>
+<h3 id="启动NFS服务程序"><a href="#启动NFS服务程序" class="headerlink" title="启动NFS服务程序"></a>启动NFS服务程序</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl start rpcbind
+systemctl start nfs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="查看NFS的启动状况"><a href="#查看NFS的启动状况" class="headerlink" title="查看NFS的启动状况"></a>查看NFS的启动状况</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">rpcinfo  <span class="token parameter variable">-p</span>  localhost <span class="token operator">|</span> <span class="token function">grep</span> nfs
+ss -anptl<span class="token operator">|</span><span class="token function">grep</span> rpcind<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><img src="/medias/img/nfs/0.gif"><br>NFS服务使用的111和2049端口是固定的，mountd端口是动态的，需要固定，然后在防火墙放行。</p>
+<p><em>防火墙关闭就不必执行了</em></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 固定端口</span>
+<span class="token function">tee</span> <span class="token operator">>></span> /etc/sysconfig/nfs <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+RQUOTAD_PORT=30001
+LOCKD_TCPPORT=30002
+LOCKD_UDPPORT=30002
+MOUNTD_PORT=30003
+STATD_PORT=30004
+EOF</span>
+<span class="token comment"># 重启nfs和rpcbind：</span>
+systemctl restart rpcbind
+systemctl restart nfs
+<span class="token comment"># （端口并未修改，reboot系统后才修改）</span>
+<span class="token comment"># 防火墙放行端口</span>
+<span class="token comment"># 查看防火墙是否开启：</span>
+firewall-cmd <span class="token parameter variable">--state</span>
+<span class="token comment"># 设置防火墙</span>
+firewall-cmd <span class="token parameter variable">--permanent</span> --add-port<span class="token operator">=</span><span class="token number">2049</span>/tcp
+firewall-cmd <span class="token parameter variable">--permanent</span> --add-port<span class="token operator">=</span><span class="token number">2049</span>/udp
+firewall-cmd <span class="token parameter variable">--permanent</span> --add-port<span class="token operator">=</span><span class="token number">111</span>/tcp
+firewall-cmd <span class="token parameter variable">--permanent</span> --add-port<span class="token operator">=</span><span class="token number">111</span>/udp
+
+firewall-cmd <span class="token parameter variable">--permanent</span> --add-port<span class="token operator">=</span><span class="token string">"30001-30004"</span>/udp
+firewall-cmd <span class="token parameter variable">--permanent</span> --add-port<span class="token operator">=</span><span class="token string">"30001-30004"</span>/tcp
+
+firewall-cmd <span class="token parameter variable">--reload</span>   <span class="token comment"># 加载规则生效</span>
+
+firewall-cmd <span class="token parameter variable">--zone</span><span class="token operator">=</span>public --list-ports   <span class="token comment"># 列出所有规则</span>
+<span class="token comment"># 2049/tcp 2049/udp 111/tcp 111/udp 30001-30004/udp 30001-30004/tcp</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="查看本机发布的NFS共享目录"><a href="#查看本机发布的NFS共享目录" class="headerlink" title="查看本机发布的NFS共享目录"></a>查看本机发布的NFS共享目录</h3><p><code>showmount -e IP地址（localhost）</code></p>
+<p>exportfs如果修改了<code>/etc/exports</code>文件后，不需要重新启动nfs服务，只需要重新扫描一次<code>/etc/exports</code>文件夹，并重新加载即可</p>
+<blockquote>
+<p>exportfs命令</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-a加载exportfs文件中的设置</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-r重新挂载文件中的设置</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-u卸载某一目录</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-v详细信息</p>
+</blockquote>
+</blockquote>
+<h2 id="在客户机中访问NFS共享资源"><a href="#在客户机中访问NFS共享资源" class="headerlink" title="在客户机中访问NFS共享资源"></a>在客户机中访问NFS共享资源</h2><h3 id="安装rpcbind软件包，并启动rpcbind服务"><a href="#安装rpcbind软件包，并启动rpcbind服务" class="headerlink" title="安装rpcbind软件包，并启动rpcbind服务"></a>安装rpcbind软件包，并启动rpcbind服务</h3><p>如果已经安装了<code>nfs-utils</code>软件包，则客户机也可以使用<code>showmount</code>查看NFS服务器共享了哪些目录，查看格式为：</p>
+<p><code>showmount -e 服务器ip地址</code> </p>
+<h3 id="手动挂载NFS共享目录"><a href="#手动挂载NFS共享目录" class="headerlink" title="手动挂载NFS共享目录"></a>手动挂载NFS共享目录</h3><p>将NFS服务器共享的 目录 挂载到本地 目录</p>
+<p>查看：</p>
+<p><code>mount 或 tail -1 /etc/mtab</code><br><img src="/medias/img/nfs/1.gif"></p>
+<h3 id="fstab自动挂载设置"><a href="#fstab自动挂载设置" class="headerlink" title="fstab自动挂载设置"></a>fstab自动挂载设置</h3><p>注意将文件系统类型设置为nfs，挂载参数建议添加<code>_netdev</code>（设备需要网络）</p>
+<p><code>vi /etc/fstab</code><br>添加：</p>
+<p><code>192.168.0.123:/共享目录 /挂载点 nfs default,_netdev 0 0</code> </p>
+<p>多台客户机都可以访问同一个挂载目录，但不允许修改同一文件</p>
+<h1 id="附录："><a href="#附录：" class="headerlink" title="附录："></a>附录：</h1><p><code>/etc/fstab</code>是用来存放文件系统的静态信息的文件。<code>less /etc/fstab</code>查看，<code>vi /etc/fstab</code>修改。</p>
+<p>当系统启动的时候，系统会自动地从这个文件读取信息，并且会自动将此文件中指定的文件系统挂载到指定的目录。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># &lt;file system>        &lt;dir>         &lt;type>    &lt;options>             &lt;dump> &lt;pass></span>
+tmpfs                  /tmp          tmpfs     nodev,nosuid          <span class="token number">0</span>      <span class="token number">0</span>
+/dev/sda1              /             ext4      defaults,noatime      <span class="token number">0</span>      <span class="token number">1</span>
+/dev/sda2              none          swap      defaults              <span class="token number">0</span>      <span class="token number">0</span>
+/dev/sda3              /home         ext4      defaults,noatime      <span class="token number">0</span>      <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>字段定义</p>
+<p><code>&lt;file system&gt;    &lt;dir&gt;    &lt;type&gt;    &lt;options&gt;    &lt;dump&gt;    &lt;pass&gt;</code><br><code>&lt;file systems&gt;</code>：要挂载的分区或存储设备.</p>
+<p><code>&lt;dir&gt;</code>：<code>&lt;file systems&gt;</code>的挂载位置。</p>
+<p><code>&lt;type&gt;</code>：要挂载设备或是分区的文件系统类型，支持许多种不同的文件系统：<code>ext2</code>,<code>ext3</code>,<code>ext4</code>,<code>reiserfs</code>,<code>xfs</code>,<code>jfs</code>,<code>smbfs</code>,<code>iso9660</code>,<code>vfat</code>,<code>ntfs</code>,<code>swap</code>及<code>auto</code>。 设置成<code>auto</code>类型，<code>mount</code>命令会猜测使用的文件系统类型，对<code>CDROM</code>和<code>DVD</code>等移动设备是非常有用的。</p>
+<p><code>&lt;options&gt;</code>：挂载时使用的参数，注意有些<code>mount</code>参数是特定文件系统才有的。一些比较常用的参数有：</p>
+<p>-<code>auto</code>：在启动时或键入了<code>mount -a</code>命令时自动挂载。</p>
+<p>-<code>noauto</code>：只在你的命令下被挂载。</p>
+<p>-<code>exec</code>：允许执行此分区的二进制文件。</p>
+<p>-<code>noexec</code>：不允许执行此文件系统上的二进制文件。</p>
+<p>-<code>ro</code>：以只读模式挂载文件系统。</p>
+<p>-<code>rw</code>：以读写模式挂载文件系统。</p>
+<p>-<code>user</code>：允许任意用户挂载此文件系统，若无显示定义，隐含启用<code>noexec</code>,<code>nosuid</code>,<code>nodev</code>参数。</p>
+<p>-<code>users</code>：允许所有<code>users</code>组中的用户挂载文件系统.</p>
+<p>-<code>nouser</code>：只能被<code>root</code>挂载。</p>
+<p>-<code>owner</code>：允许设备所有者挂载.</p>
+<p>-<code>sync</code>：I/O 同步进行。</p>
+<p>-<code>async</code>：I/O 异步进行。</p>
+<p>-<code>dev</code>：解析文件系统上的块特殊设备。</p>
+<p>-<code>nodev</code>：不解析文件系统上的块特殊设备。</p>
+<p>-<code>suid</code>：允许<code>suid</code>操作和设定<code>sgid</code>位。这一参数通常用于一些特殊任务，使一般用户运行程序时临时提升权限。</p>
+<p>-<code>nosuid</code>：禁止<code>suid</code>操作和设定<code>sgid</code>位。</p>
+<p>-<code>noatime</code>：不更新文件系统上<code>inode</code>访问记录，可以提升性能(参见<code>atime</code>参数)。</p>
+<p>-<code>nodiratime</code>：不更新文件系统上的目录<code>inode</code>访问记录，可以提升性能(参见<code>atime</code>参数)。</p>
+<p>-<code>relatime</code>：实时更新<code>inode</code> <code>access</code>记录。只有在记录中的访问时间早于当前访问才会被更新。（与<code>noatime</code>相似，但不会打断如<code>mutt</code>或其它程序探测文件在上次访问后是否被修改的进程。），可以提升性能(参见<code>atime</code>参数)。</p>
+<p>-<code>flush</code>：<code>vfat</code>的选项，更频繁的刷新数据，复制对话框或进度条在全部数据都写入后才消失。</p>
+<p>-<code>defaults</code>：使用文件系统的默认挂载参数，例如<code>ext4</code>的默认参数为:<code>rw</code>,<code>suid</code>,<code>dev</code>,<code>exec</code>,<code>auto</code>,<code>nouser</code>,<code>async</code>.</p>
+<p><code>&lt;dump&gt;</code>：<code>dump</code>工具通过它决定何时作备份.<code>dump</code>会检查其内容，并用数字来决定是否对这个文件系统进行备份。 允许的数字是<code>0</code>和<code>1</code>。<code>0</code>表示忽略，<code>1</code>则进行备份。大部分的用户是没有安装<code>dump</code>的，对他们而言<code>&lt;dump&gt;</code>应设为<code>0</code>。</p>
+<p><code>&lt;pass&gt;</code>：<code>fsck</code>读取<code>&lt;pass&gt;</code>的数值来决定需要检查的文件系统的检查顺序。允许的数字是<code>0</code>,<code>1</code>,和<code>2</code>。根目录应当获得最高的优先权<code>1</code>,其它所有需要被检查的设备设置为<code>2</code>.<code>0</code>表示设备不会被<code>fsck</code>所检查。</p>
+<p>文件系统标识</p>
+<p>在<code>/etc/fstab</code>配置文件中你可以以三种不同的方法表示文件系统：内核名称、<code>UUID</code>或者<code>label</code>。使用<code>UUID</code>或是<code>label</code>的好处在于它们与磁盘顺序无关。如果你在<code>BIOS</code>中改变了你的存储设备顺序，或是重新拔插了存储设备，或是因为一些<code>BIOS</code>可能会随机地改变存储设备的顺序，那么用<code>UUID</code>或是<code>label</code>来表示将更有效。参见 持久化块设备名称 。</p>
+<p>要显示分区的基本信息请运行：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ lsblk <span class="token parameter variable">-f</span>
+NAME   FSTYPE LABEL      UUID                                 MOUNTPOINT
+sda                                                       
+
+├─sda1 ext4   Arch_Linux 978e3e81-8048-4ae1-8a06-aa727458e8ff /
+├─sda2 ntfs   Windows    6C1093E61093B594                   
+
+└─sda3 ext4   Storage    f838b24e-3a66-4d02-86f4-a2e73e454336 /media/Storage
+sdb                                                         
+
+├─sdb1 ntfs   Games      9E68F00568EFD9D3                   
+
+└─sdb2 ext4   Backup     14d50a6c-e083-42f2-b9c4-bc8bae38d274 /media/Backup
+sdc                                                         
+
+└─sdc1 vfat   Camera     47FA-4071                            /media/Camera<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>内核名称</p>
+<p>你可以使用<code>fdisk -l</code>来获得内核名称，前缀是<code>dev</code>.</p>
+<p>标签</p>
+<p>注意: 使用这一方法，每一个标签必须是唯一的.</p>
+<p>要显示所有设备的标签，可以使用<code>lsblk -f</code>命令。在<code>/etc/fstab</code>中使用<code>LABEL=</code>作为设备名的开头:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># &lt;file system>        &lt;dir>         &lt;type>    &lt;options>             &lt;dump> &lt;pass></span>
+tmpfs                  /tmp          tmpfs     nodev,nosuid   <span class="token number">0</span>      <span class="token number">0</span>
+<span class="token assign-left variable">LABEL</span><span class="token operator">=</span>Arch_Linux       /             ext4      defaults,noatime      <span class="token number">0</span>      <span class="token number">1</span>
+<span class="token assign-left variable">LABEL</span><span class="token operator">=</span>Arch_Swap        none          swap      defaults              <span class="token number">0</span>      <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>UUID</p>
+<p>所有分区和设备都有唯一的 UUID。它们由文件系统生成工具<code>(mkfs.*)</code>在创建文件系统时生成。</p>
+<p><code>lsblk -f</code>命令将显示所有设备的 UUID 值。<code>/etc/fstab</code>中使用<code>UUID=</code>前缀:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># &lt;file system>                           &lt;dir>         &lt;type>    &lt;options>             &lt;dump> &lt;pass></span>
+tmpfs                                     /tmp          tmpfs     nodev,nosuid          <span class="token number">0</span>      <span class="token number">0</span>
+<span class="token assign-left variable">UUID</span><span class="token operator">=</span>24f28fc6-717e-4bcd-a5f7-32b959024e26 /     ext4              defaults,noatime      <span class="token number">0</span>      <span class="token number">1</span>
+<span class="token assign-left variable">UUID</span><span class="token operator">=</span>03ec5dd3-45c0-4f95-a363-61ff321a09ff /home ext4              defaults,noatime      <span class="token number">0</span>      <span class="token number">2</span>
+<span class="token assign-left variable">UUID</span><span class="token operator">=</span>4209c845-f495-4c43-8a03-5363dd433153 none  swap              defaults              <span class="token number">0</span>      <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>自动挂载</p>
+<p>如果<code>/home</code>分区较大，可以让不依赖<code>/home</code>分区的服务先启动。把下面的参数添加到<code>/etc/fstab</code>文件中<code>/home</code>项目的参数部分即可：</p>
+<p><code>noauto,x-systemd.automount</code><br>这样<code>/home</code>分区只有需要访问时才会被挂载。内核会缓存所有的文件操作，直到<code>/home</code>分区准备完成。</p>
+<p>注意: 这样做会使<code>/home</code>的文件系统类型被识别为<code>autofs</code>，造成<code>mlocate</code>查询时忽略该目录。实际加速效果因配置而异，所以请自己权衡是否需要。</p>
+<p>挂载远程文件系统也是同理。如果你仅想在需要的时候才挂载，也可以添加<code>noauto,x-systemd.automount</code>参数。另外，可以设置<code>x-systemd.device-timeout=#</code>参数，设置超时时间，以防止网络资源不能访问的时候浪费时间。</p>
+<p>如果你的加密文件系统需要密钥，则需要添加<code>noauto</code>参数到<code>/etc/crypttab</code>文件中的对应位置。systemd 开机的时候就不会打开这个加密设备，会一直等待到设备被访问时再使用密钥文件挂载。比如在使用加密RAID设备的时候可以节省一定的时间，因为 systemd 不必等到设备可用后才能访问。例如：<code>/etc/crypttab</code><br><code>data /dev/md0 /root/key noauto</code> </p>
+<p>交换分区 UUID</p>
+<p>如果交换分区没有 UUID，可以手动加入。如果使用<code>lsblk -f</code>命令没有列出交换分区的 UUID 就说明发生了这种情况。下面是为交换分区指定 UUID 的步骤：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 确定交换分区：</span>
+
+<span class="token function">swapon</span> <span class="token parameter variable">-s</span>
+<span class="token comment"># 禁用交换分区：</span>
+swapoff /dev/sda7
+<span class="token comment"># 用新 UUID 重新创建交换分区：</span>
+<span class="token function">mkswap</span> <span class="token parameter variable">-U</span> random /dev/sda7
+<span class="token comment"># 激活交换分区:</span>
+<span class="token function">swapon</span> /dev/sda7<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>路径名有空格</p>
+<p>如果挂载的路径中有空格，可以使用<code>\040</code>转义字符来表示空格（以三位八进制数来进行表示）</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/etc/fstab
+<span class="token assign-left variable">UUID</span><span class="token operator">=</span>47FA-4071     /home/username/Camera<span class="token punctuation">\</span>040Pictures   vfat  defaults,noatime      <span class="token number">0</span>  <span class="token number">2</span>
+/dev/sda7          /media/100<span class="token punctuation">\</span>040GB<span class="token punctuation">\</span>040<span class="token punctuation">(</span>Storage<span class="token punctuation">)</span>       ext4  defaults,noatime,user  <span class="token number">0</span>  <span class="token number">0</span>
+<span class="token punctuation">..</span><span class="token punctuation">..</span>.<span class="token operator">&lt;</span>/nowiki<span class="token operator">></span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>外部设备</p>
+<p>外部设备在插入时挂载，在未插入时忽略。这需要 nofail 选项，可以在启动时若设备不存在直接忽略它而不报错.</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/etc/fstab
+ /dev/sdg1    /media/backup    jfs    defaults,nofail    <span class="token number">0</span>  <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><code>atime</code>参数</p>
+<p>使用<code>noatime</code>,<code>nodiratime</code>或<code>relatime</code>可以提升<code>ext2</code>，<code>ext3</code>及<code>ext4</code>格式磁盘的性能。<code>Linux</code>在默认情况下使用<code>atime</code>选项，每次在磁盘上读取（或写入）数据时都会产生一个记录。这是为服务器设计的，在桌面使用中意义不大。默认的<code>atime</code>选项最大的问题在于即使从页面缓存读取文件(从内存而不是磁盘读取)，也会产生磁盘写操作！</p>
+<p>使用<code>noatime</code>选项阻止了读文件时的写操作。大部分应用程序都能很好工作。只有少数程序如<code>Mutt</code>需要这些信息。<code>Mutt</code>的用户应该使用<code>relatime</code>选项。使用<code>relatime</code>选项后，只有文件被修改时才会产生文件访问时间写操作。<code>nodiratime</code>选项仅对目录禁用了文件访问时间。<code>relatime</code>是比较好的折衷，<code>Mutt</code>等程序还能工作，但是仍然能够通过减少访问时间更新提升系统性能。</p>
+<p>注意:<code>noatime</code>已经包含了<code>nodiratime</code>。不需要同时指定。</p>
+<p><code>tmpfs</code><br><code>tmpfs</code>是一个临时文件系统，驻留于你的交换分区或是内存中（取决于你的使用情况）。使用它可以提高文件访问速度，并能保证重启时会自动清除这些文件。</p>
+<p>经常使用<code>tmpfs</code>的目录有<code>/tmp</code>,<code>/var/lock</code>and<code>/var/run</code>. 不要将之使用于<code>/var/tmp</code>, 因为这一目录中的临时文件在重启过程中需要被保留。使用<code>tmpfs</code> <code>/run</code>目录，<code>/var/run</code>和<code>/var/lock</code>是为了兼容老版本建立的链接。默认<code>/etc/fstab</code>中的的<code>/tmp</code>也是<code>tmpfs</code>.</p>
+<p>默认情况下，<code>tmpfs</code>分区被设置为你总的内存的一半，当然你可以自由设定这一值。注意实际中内存和交换分区的使用情况取决于你的使用情况，而<code>tmpfs</code>分区在其真正使用前是不会占用存储空间的。</p>
+<p>要将<code>/tmp</code>放到<code>tmpfs</code>，将下行加入<code>/etc/fstab</code>：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/etc/fstab
+<span class="token punctuation">..</span><span class="token punctuation">..</span>.
+tmpfs /tmp      tmpfs nodev,nosuid                 <span class="token number">0</span> <span class="token number">0</span>
+<span class="token punctuation">..</span><span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>可以指定大小，但不要修改<code>mode</code>选项，以保证文件具有正确的访问权限<code>1777</code>。在上例中<code>/tmp</code>将最多使用一半内存，要指定最大空间，使用<code>size</code>挂载选项：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/etc/fstab
+<span class="token punctuation">..</span><span class="token punctuation">..</span>.
+tmpfs /tmp      tmpfs nodev,nosuid,size<span class="token operator">=</span>2G          <span class="token number">0</span> <span class="token number">0</span>
+<span class="token punctuation">..</span><span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里有一个更高级的例子，展示如何为用户添加<code>tmpfs</code>挂载。这对于网站、<code>mysql</code>临时文件,<code>~/.vim/</code>, 和其他情况很有用。尝试并获得理想的挂载选项来完成目标是很重要的。目标是尽量采用安全的策略来防止滥用。限制大小，同时指定<code>uid</code>和<code>gid</code>加上<code>mode</code>是非常安全的。更多信息.</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># /etc/fstab</span>
+tmpfs /www/cache tmpfs rw,size<span class="token operator">=</span>1G,nr_inodes<span class="token operator">=</span>5k,noexec,nodev,nosuid,uid<span class="token operator">=</span><span class="token number">648</span>,gid<span class="token operator">=</span><span class="token number">648</span>,mode<span class="token operator">=</span><span class="token number">1700</span> <span class="token number">0</span> <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>重启后方能生效。注意不要直接执行<code>mount -a</code>命令，因为可能造成无法访问当前目录中的文件（比如你应该保证<code>lockfiles</code>的正常存在）。然而，如果它们都是空的，那么就可以直接执行<code>mount -a</code>而不必重启电脑。</p>
+<p>应用更改后，可以通过<code>findmnt</code>检查是否生效：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ findmnt <span class="token parameter variable">--target</span> /tmp
+TARGET SOURCE FSTYPE OPTIONS
+/tmp   tmpfs  tmpfs  rw,nosuid,nodev,relatime<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>使用</p>
+<p>一般需要大量读写操作的程序在使用<code>tmpfs</code>时都会提升性能。有些程序把共享内存放到<code>tmpfs</code>上时性能会大幅提升，例如将 Firefox Profile 文件夹放到内存后，Firefox 性能大幅提升。</p>
+<p><code>Note</code>:<code>tmpfs</code>目录<code>/tmp</code>挂载时需要去掉<code>noexec</code>参数，否则有些编译程序无法执行，此外，<code>tmpfs</code>的默认大小是内存的一般，可能会产生空间不够的问题。</p>
+<p>下面命令可以让<code>makepkg</code>在<code>tmpfs</code>目录进行编辑，也可以在在<code>/etc/makepkg.conf</code>中进行设置:<code>BUILDDIR=/tmp/makepkg makepkg</code> </p>
+<p>普通用户读写<code>FAT32</code><br>为了取得对<code>FAT32</code>分区的写权限，你必须修改<code>/etc/fstab</code>文件。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/etc/fstab
+/dev/sdxY    /mnt/some_folder  vfat   user,rw,umask<span class="token operator">=</span>000              <span class="token number">0</span>  <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><code>users</code>标签的意思是任何用户（甚至非 root 用户）都可以挂载或卸载分区<code>/dev/sdX</code>。”rw”标签则分配读写的使用权。<code>umask</code>是权限掩码命令<code>umask=000</code>指任何人没有特权，且权限为<code>777</code>，即所有人都可以读、写、执行。</p>
+<p>比如你的<code>FAT32</code>分区在<code>/dev/sda9</code>，你想将其挂载到<code>/mnt/fat32</code>，那么你需要输入并运行</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/etc/fstab
+/dev/sda9    /mnt/fat32        vfat   user,rw,umask<span class="token operator">=</span><span class="token number">111</span>,dmask<span class="token operator">=</span>000    <span class="token number">0</span>  <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="../linux-command-1.16.0/nfsstat">nfsstat查看状态</a><br><a href="../linux-command-1.16.0/showmount">showmount显示信息</a><br><a href="../linux-command-1.16.0/exportfs">exportfs管理工具</a></p>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">168.6k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

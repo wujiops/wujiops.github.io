@@ -1,0 +1,1029 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="python学习笔记(十一), Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>python学习笔记(十一) | 波亚斯</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/featureimages/5.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">python学习笔记(十一)</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%97%AD%E5%8C%85/">
+                                <span class="chip bg-color">闭包</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/">
+                                <span class="chip bg-color">函数式编程</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%9E%9A%E4%B8%BE/">
+                                <span class="chip bg-color">枚举</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Python/" class="post-category">
+                                Python
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-04-15
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.5k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h1><h2 id="枚举的意义在于它的标签，不在于它的取值"><a href="#枚举的意义在于它的标签，不在于它的取值" class="headerlink" title="枚举的意义在于它的标签，不在于它的取值"></a>枚举的意义在于它的标签，不在于它的取值</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+
+<span class="token keyword">from</span> enum <span class="token keyword">import</span> Enum
+<span class="token keyword">class</span> <span class="token class-name">VIP</span><span class="token punctuation">(</span>Enum<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    YELLOW <span class="token operator">=</span> <span class="token number">1</span>
+    GREEN <span class="token operator">=</span> <span class="token number">2</span>
+    BLACK <span class="token operator">=</span> <span class="token number">3</span>
+    RED <span class="token operator">=</span> <span class="token number">4</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>VIP<span class="token punctuation">.</span>YELLOW<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="实现枚举的功能"><a href="#实现枚举的功能" class="headerlink" title="实现枚举的功能"></a>实现枚举的功能</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+
+yellow <span class="token operator">=</span> <span class="token number">1</span>
+green <span class="token operator">=</span> <span class="token number">2</span>
+
+<span class="token punctuation">&#123;</span><span class="token string">'yellow'</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'green'</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">&#125;</span>   <span class="token comment"># 最贴近枚举</span>
+
+<span class="token keyword">class</span> <span class="token class-name">TypeDiamond</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    yellow <span class="token operator">=</span> <span class="token number">1</span>
+    green <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token comment"># 缺点：可变、没有防止相同标签的功能</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="枚举的类型、枚举的值、枚举的名字"><a href="#枚举的类型、枚举的值、枚举的名字" class="headerlink" title="枚举的类型、枚举的值、枚举的名字"></a>枚举的类型、枚举的值、枚举的名字</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+
+<span class="token keyword">from</span> enum <span class="token keyword">import</span> Enum
+<span class="token keyword">class</span> <span class="token class-name">VIP</span><span class="token punctuation">(</span>Enum<span class="token punctuation">)</span><span class="token punctuation">:</span>     <span class="token comment"># 枚举类型VIP</span>
+    YELLOW <span class="token operator">=</span> <span class="token number">1</span>   <span class="token comment"># 枚举标签 = 枚举值</span>
+    GREEN <span class="token operator">=</span> <span class="token number">2</span>
+    BLACK <span class="token operator">=</span> <span class="token number">3</span>
+    RED <span class="token operator">=</span> <span class="token number">4</span>
+    <span class="token comment"># RED = 5   相同标签</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>VIP<span class="token punctuation">.</span>YELLOW<span class="token punctuation">)</span>
+<span class="token comment"># VIP.YELLOW = 5    对YELLOW赋值，改变YELLOW</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>VIP<span class="token punctuation">.</span>GREEN<span class="token punctuation">.</span>value<span class="token punctuation">)</span>    <span class="token comment"># 打印标签的值</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>VIP<span class="token punctuation">.</span>GREEN<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment"># 这是一个字符串</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>VIP<span class="token punctuation">.</span>GREEN<span class="token punctuation">.</span>name<span class="token punctuation">)</span>   <span class="token comment"># 标签的名字</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>VIP<span class="token punctuation">.</span>GREEN<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>VIP<span class="token punctuation">.</span>GREEN<span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment"># 这是enum的类型（枚举类型）</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>VIP<span class="token punctuation">[</span><span class="token string">'GREEN'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>   <span class="token comment"># 枚举类['枚举名称']，打印具体的枚举的类型VIP.GREEN</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="枚举的遍历，for循环"><a href="#枚举的遍历，for循环" class="headerlink" title="枚举的遍历，for循环"></a>枚举的遍历，for循环</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+
+<span class="token keyword">from</span> enum <span class="token keyword">import</span> Enum
+<span class="token keyword">class</span> <span class="token class-name">VIP</span><span class="token punctuation">(</span>Enum<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    YELLOW <span class="token operator">=</span> <span class="token number">1</span>
+    GREEN <span class="token operator">=</span> <span class="token number">2</span>
+    BLACK <span class="token operator">=</span> <span class="token number">3</span>
+    RED <span class="token operator">=</span> <span class="token number">4</span>
+<span class="token keyword">for</span> v <span class="token keyword">in</span> VIP<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="枚举之间的比较"><a href="#枚举之间的比较" class="headerlink" title="枚举之间的比较"></a>枚举之间的比较</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+
+<span class="token keyword">from</span> enum <span class="token keyword">import</span> Enum
+<span class="token keyword">class</span> <span class="token class-name">VIP</span><span class="token punctuation">(</span>Enum<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    YELLOW <span class="token operator">=</span> <span class="token number">1</span>
+    GREEN <span class="token operator">=</span> <span class="token number">2</span>
+    BLACK <span class="token operator">=</span> <span class="token number">3</span>
+    RED <span class="token operator">=</span> <span class="token number">4</span>
+<span class="token keyword">class</span> <span class="token class-name">VIP1</span><span class="token punctuation">(</span>Enum<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    YELLOW <span class="token operator">=</span> <span class="token number">1</span>
+    GREEN <span class="token operator">=</span> <span class="token number">2</span>
+    BLACK <span class="token operator">=</span> <span class="token number">3</span>
+    RED <span class="token operator">=</span> <span class="token number">4</span>
+result <span class="token operator">=</span> VIP<span class="token punctuation">.</span>GREEN <span class="token operator">==</span> VIP<span class="token punctuation">.</span>RED     <span class="token comment"># 枚举之间比较返回bool值</span>
+result1 <span class="token operator">=</span> VIP<span class="token punctuation">.</span>GREEN <span class="token operator">==</span> VIP<span class="token punctuation">.</span>GREEN
+<span class="token comment"># result2 = VIP.GREEN > VIP.RED   # 不可以这样比较</span>
+result3 <span class="token operator">=</span> VIP<span class="token punctuation">.</span>GREEN <span class="token operator">==</span> <span class="token number">2</span>   <span class="token comment"># 等值比较</span>
+result4 <span class="token operator">=</span> VIP<span class="token punctuation">.</span>GREEN <span class="token keyword">is</span> VIP<span class="token punctuation">.</span>GREEN   <span class="token comment"># 枚举之间可以进行身份比较</span>
+result5 <span class="token operator">=</span> VIP<span class="token punctuation">.</span>GREEN <span class="token operator">==</span> VIP1<span class="token punctuation">.</span>GREEN   <span class="token comment"># 不同枚举类型不能比较</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="枚举的注意事项"><a href="#枚举的注意事项" class="headerlink" title="枚举的注意事项"></a>枚举的注意事项</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+
+<span class="token keyword">from</span> enum <span class="token keyword">import</span> Enum
+<span class="token keyword">class</span> <span class="token class-name">VIP</span><span class="token punctuation">(</span>Enum<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    YELLOW <span class="token operator">=</span> <span class="token number">1</span>
+    GREEN <span class="token operator">=</span> <span class="token number">1</span>    <span class="token comment"># 这里GREEN是YELLOW的别名，GREEN最好更改为YELLOW_ALIAS。在使用for遍历的时候，此行不会出现。</span>
+    BLACK <span class="token operator">=</span> <span class="token number">3</span>
+    RED <span class="token operator">=</span> <span class="token number">4</span>
+<span class="token comment"># print(VIP.GREEN)   # 这里结果为VIP.YELLOW</span>
+<span class="token keyword">for</span> v <span class="token keyword">in</span> VIP<span class="token punctuation">:</span>    <span class="token comment">#遍历不会打印出GREEN。</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span>
+<span class="token comment"># 想要遍历GREEN的方法：</span>
+<span class="token comment"># for v in VIP.__members__.items():   # 调用items方法，会打印出一个元组，是包括GREEN的</span>
+    <span class="token comment"># print(v)</span>
+<span class="token comment"># for v in VIP.__members__:    # 不想要元组，可以不用items方法，这样的结果为枚举的标签的名称。</span>
+    <span class="token comment"># print(v)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>平常使用枚举经常遇到的问题</p>
+<ol>
+<li><p>在数据库里存储数值表示枚举类型，和存储标签名表示枚举类型。</p>
+</li>
+<li><p>建议使用数字表示（简洁，占空间小）</p>
+</li>
+<li><p>在代码里面用数字代表枚举类型，不建议。</p>
+</li>
+<li><p>建议在代码里面显式的定义一个枚举类，用枚举类下面的每一个枚举类型来对应数据库的每一个数值</p>
+</li>
+</ol>
+<p><strong>例如：</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> a<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span>   <span class="token comment">#不建议</span>
+    <span class="token keyword">pass</span>
+<span class="token keyword">if</span> a<span class="token operator">==</span><span class="token number">2</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+<span class="token keyword">if</span> a<span class="token operator">==</span>VIP<span class="token punctuation">.</span>YELLOW<span class="token punctuation">:</span>   <span class="token comment">#建议这样</span>
+    <span class="token keyword">pass</span>
+<span class="token keyword">if</span> a<span class="token operator">==</span>VIP<span class="token punctuation">.</span>BLACK<span class="token punctuation">:</span>
+    <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="如何把数字转换成枚举类型"><a href="#如何把数字转换成枚举类型" class="headerlink" title="如何把数字转换成枚举类型"></a>如何把数字转换成枚举类型</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+
+<span class="token keyword">from</span> enum <span class="token keyword">import</span> Enum
+<span class="token keyword">class</span> <span class="token class-name">VIP</span><span class="token punctuation">(</span>Enum<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    YELLOW <span class="token operator">=</span> <span class="token number">1</span>
+    GREEN <span class="token operator">=</span> <span class="token number">2</span>
+    BLACK <span class="token operator">=</span> <span class="token number">3</span>
+    RED <span class="token operator">=</span> <span class="token number">4</span>
+<span class="token keyword">class</span> <span class="token class-name">Common</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    YELLOW <span class="token operator">=</span> <span class="token number">1</span>
+a <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>VIP<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="枚举-1"><a href="#枚举-1" class="headerlink" title="枚举"></a>枚举</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+
+<span class="token keyword">from</span> enum <span class="token keyword">import</span> IntEnum<span class="token punctuation">,</span>unique   <span class="token comment"># IntEnum要求必须是整型，Enum没有限制</span>
+<span class="token keyword">from</span> enum <span class="token keyword">import</span> Enum
+<span class="token decorator annotation punctuation">@unique</span>    <span class="token comment"># 引入uniqe使用IntEnum的时候，不同标签的值不同会报错。</span>
+<span class="token keyword">class</span> <span class="token class-name">VIP</span><span class="token punctuation">(</span>IntEnum<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    YELLOW <span class="token operator">=</span> <span class="token number">1</span>
+    GREEN <span class="token operator">=</span> <span class="token number">1</span>
+    BLACK <span class="token operator">=</span> <span class="token number">3</span>
+    RED <span class="token operator">=</span> <span class="token number">4</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>枚举类型在python中实现的是一种单例模式，也就是说对枚举类型是不能实例化的，对枚举实例化没有意义</p>
+<p>23种设计模式  单例模式</p>
+<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><blockquote>
+<p>函数：在python中是对象，在其它语言只是一段可执行的代码</p>
+</blockquote>
+<blockquote>
+<p>python：一切皆对象</p>
+</blockquote>
+<blockquote>
+<p>python可以把函数当作一个参数，传递给另一个函数里。</p>
+</blockquote>
+<blockquote>
+<p>也可以把一个函数，当作另外一个函数的返回结果</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">1</span>
+b <span class="token operator">=</span> <span class="token string">'2'</span>
+c <span class="token operator">=</span> <span class="token string">'def'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">curve_pre</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>   <span class="token comment"># 定义curve_pre函数</span>
+    <span class="token keyword">def</span> <span class="token function">curve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>   <span class="token comment"># 定义curve函数</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'This is a function'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> curve   <span class="token comment"># 在curve_pre函数中调用curve函数</span>
+f <span class="token operator">=</span> curve_pre<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment"># 调用curve_pre函数（直接写curve_pre是没有内容的，因为函数没有被调用）</span>
+f<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment"># 调用f函数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>闭包：函数在定义时候的由外部环境变量所构成的整体，不会受外部函数的影响</p>
+<p>闭包 = 函数 + 环境变量</p>
+<p>环境变量一定是在定义在函数的外部（这里是在curve外部），也不能是全局变量（不能在curve_pre上面）。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+
+<span class="token keyword">def</span> <span class="token function">curve_pre</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    a <span class="token operator">=</span> <span class="token number">25</span>
+    <span class="token keyword">def</span> <span class="token function">curve</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token comment"># 函数接受参数x</span>
+        <span class="token keyword">return</span> a<span class="token operator">*</span>x<span class="token operator">*</span>x
+    <span class="token keyword">return</span> curve
+a <span class="token operator">=</span> <span class="token number">10</span>
+f <span class="token operator">=</span> curve_pre<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>__closure__<span class="token punctuation">)</span>   <span class="token comment"># 闭包的环境变量，保存在closure里面</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>__closure__<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>cell_contents<span class="token punctuation">)</span>   <span class="token comment"># 取出闭包的环境变量</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="闭包的意义：保存的是一个环境。"><a href="#闭包的意义：保存的是一个环境。" class="headerlink" title="闭包的意义：保存的是一个环境。"></a>闭包的意义：保存的是一个环境。</h2><p>他把函数调用的现场保存起来了</p>
+<p>单一的函数是不能决定运行结果的，还需要环境变量</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+
+<span class="token keyword">def</span> <span class="token function">curve_pre</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    a <span class="token operator">=</span> <span class="token number">25</span>
+    <span class="token keyword">def</span> <span class="token function">curve</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> a<span class="token operator">*</span>x<span class="token operator">*</span>x
+    <span class="token keyword">return</span> curve
+<span class="token keyword">def</span> <span class="token function">curve_pre1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>   <span class="token comment"># 不同的闭包</span>
+    a <span class="token operator">=</span> <span class="token number">25</span>
+    <span class="token keyword">def</span> <span class="token function">curve1</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> a<span class="token operator">*</span>x<span class="token operator">*</span>x
+    <span class="token keyword">return</span> curve1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+
+<span class="token keyword">def</span> <span class="token function">f1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    a <span class="token operator">=</span> <span class="token number">10</span>
+    <span class="token keyword">def</span> <span class="token function">f2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        a <span class="token operator">=</span> <span class="token number">20</span>   <span class="token comment"># 这里a会被python认为局部变量，不叫作闭包</span>
+        <span class="token comment"># c = 20 * a   # 这里是引用上面的变量a，所以才是闭包。（关键在于这里的a是引用的上面的环境变量）</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>   <span class="token comment"># 从外往里，这里a=10，f2函数没有被调用</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>   <span class="token comment"># 这里a=20，是f2函数被调用了</span>
+    f2<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>   <span class="token comment"># 这里a=10，是调用的f1函数</span>
+f1<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># f = f1()</span>
+<span class="token comment"># print(f)</span>
+<span class="token comment"># print(f.__closure__)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="全局变量编程"><a href="#全局变量编程" class="headerlink" title="全局变量编程"></a>全局变量编程</h2><p>不建议，因为不能保证其它函数改变全局变量</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+
+origin <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">def</span> <span class="token function">go</span><span class="token punctuation">(</span>step<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">global</span> origin   <span class="token comment"># global声明全局变量，表示这是一个全局变量，而不是局部变量</span>
+    new_pos <span class="token operator">=</span> origin <span class="token operator">+</span> step
+    origin <span class="token operator">=</span> new_pos
+    <span class="token keyword">return</span> new_pos
+<span class="token keyword">print</span><span class="token punctuation">(</span>go<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>go<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>go<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h2><p>保护现场功能，记忆了上一次调用的状态</p>
+<h1 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h1><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+
+origin <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">def</span> <span class="token function">factory</span><span class="token punctuation">(</span>pos<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">go</span><span class="token punctuation">(</span>step<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">nonlocal</span> pos   <span class="token comment"># 声明变量在整个闭包中都有效</span>
+        new_pos <span class="token operator">=</span> pos <span class="token operator">+</span> step
+        pos <span class="token operator">=</span> new_pos
+        <span class="token keyword">return</span> new_pos
+    <span class="token keyword">return</span> go
+tourist <span class="token operator">=</span> factory<span class="token punctuation">(</span>origin<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>tourist<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span>   <span class="token comment"># 这样验证全局变量没有被改变。</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>tourist<span class="token punctuation">.</span>__closure__<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>cell_contents<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>tourist<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>tourist<span class="token punctuation">.</span>__closure__<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>cell_contents<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>tourist<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>tourist<span class="token punctuation">.</span>__closure__<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>cell_contents<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>闭包问题，容易造成内存泄漏，如果是JS页面有大量闭包，会造成浏览器卡顿(因为闭包的变量是存储在内存里面)</p>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">168.6k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

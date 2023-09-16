@@ -1,0 +1,1099 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="gdb命令, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>gdb命令 | 波亚斯</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/featureimages/15.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">gdb命令</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/">
+                                <span class="chip bg-color"></span>
+                            </a>
+                        
+                            <a href="/">
+                                <span class="chip bg-color"></span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/" class="post-category">
+                                
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-06-29
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-07-06
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h2><p><strong>gdb命令</strong> 包含在GNU的gcc开发套件中，是功能强大的程序调试器。GDB中的命令固然很多，但我们只需掌握其中十个左右的命令，就大致可以完成日常的基本的程序调试工作。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">gdb<span class="token punctuation">(</span>选项<span class="token punctuation">)</span><span class="token punctuation">(</span>参数<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-cd：设置工作目录；
+-q：安静模式，不打印介绍信息和版本信息；
+-d：添加文件查找路径；
+-x：从指定文件中执行GDB指令；
+-s：设置读取的符号表文件。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>解释</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>file &lt;文件名&gt;</td>
+<td>加载被调试的可执行程序文件。<br /> 因为一般都在被调试程序所在目录下执行GDB，因而文本名不需要带路径。</td>
+<td>(gdb) file gdb-sample</td>
+</tr>
+<tr>
+<td>r</td>
+<td>Run的简写，运行被调试的程序。<br /> 如果此前没有下过断点，则执行完整个程序；如果有断点，则程序暂停在第一个可用断点处。</td>
+<td>(gdb) r</td>
+</tr>
+<tr>
+<td>c</td>
+<td>Continue的简写，继续执行被调试程序，直至下一个断点或程序结束。</td>
+<td>(gdb) c</td>
+</tr>
+<tr>
+<td>b &lt;行号&gt;<br />b &lt;函数名称&gt;<br />b *&lt;函数名称&gt;<br />b *&lt;代码地址&gt; d [编号]</td>
+<td>b: Breakpoint的简写，设置断点。两可以使用“行号”“函数名称”“执行地址”等方式指定断点位置。 <br /> 其中在函数名称前面加“*”符号表示将断点设置在“由编译器生成的prolog代码处”。如果不了解汇编，可以不予理会此用法。 d: Delete breakpoint的简写，删除指定编号的某个断点，或删除所有断点。断点编号从1开始递增。</td>
+<td>(gdb) b 8(gdb) b main <br /> (gdb) b *main <br /> (gdb) b *0x804835c (gdb) d</td>
+</tr>
+<tr>
+<td>s, n</td>
+<td>s: 执行一行源程序代码，如果此行代码中有函数调用，则进入该函数；<br /> n: 执行一行源程序代码，此行代码中的函数调用也一并执行。 s 相当于其它调试器中的“Step Into (单步跟踪进入)”；<br /> n 相当于其它调试器中的“Step Over (单步跟踪)”。 这两个命令必须在有源代码调试信息的情况下才可以使用（GCC编译时使用“-g”参数）。</td>
+<td>(gdb) s <br /> (gdb) n</td>
+</tr>
+<tr>
+<td>si, ni</td>
+<td>si命令类似于s命令，ni命令类似于n命令。所不同的是，这两个命令（si/ni）所针对的是汇编指令，而s/n针对的是源代码。</td>
+<td>(gdb) si <br />(gdb) ni</td>
+</tr>
+<tr>
+<td>p &lt;变量名称&gt;</td>
+<td>Print的简写，显示指定变量（临时变量或全局变量）的值。</td>
+<td>(gdb) p i <br /> (gdb) p nGlobalVar</td>
+</tr>
+<tr>
+<td>display … undisplay &lt;编号&gt;</td>
+<td>display，设置程序中断后欲显示的数据及其格式。 <br /> 例如，如果希望每次程序中断后可以看到即将被执行的下一条汇编指令，可以使用命令 <br /> “display /i $pc” <br /> 其中 $pc 代表当前汇编指令，/i 表示以十六进行显示。当需要关心汇编代码时，此命令相当有用。 undispaly，取消先前的display设置，编号从1开始递增。</td>
+<td>(gdb) display /i $pc (gdb) undisplay 1</td>
+</tr>
+<tr>
+<td>i</td>
+<td>info的简写，用于显示各类信息，详情请查阅“help i”。</td>
+<td>(gdb) i r</td>
+</tr>
+<tr>
+<td>q</td>
+<td>Quit的简写，退出GDB调试环境。</td>
+<td>(gdb) q</td>
+</tr>
+<tr>
+<td>help [命令名称]</td>
+<td>GDB帮助命令，提供对GDB名种命令的解释说明。<br /> 如果指定了“命令名称”参数，则显示该命令的详细说明；如果没有指定参数，则分类显示所有GDB命令，供用户进一步浏览和查询。</td>
+<td>(gdb) help</td>
+</tr>
+</tbody></table>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>文件：二进制可执行程序。</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>以下是linux下dgb调试的一个实例，先给出一个示例用的小程序，C语言代码：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#include &lt;stdio.h></span>
+int nGlobalVar <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+int tempFunction<span class="token punctuation">(</span>int a, int b<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    printf<span class="token punctuation">(</span><span class="token string">"tempFunction is called, a = %d, b = %d /n"</span>, a, b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token builtin class-name">return</span> <span class="token punctuation">(</span>a + b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+int <span class="token function-name function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    int n<span class="token punctuation">;</span>
+        n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        n++<span class="token punctuation">;</span>
+        n--<span class="token punctuation">;</span>
+
+        nGlobalVar <span class="token operator">+=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+        nGlobalVar -<span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span>
+
+    printf<span class="token punctuation">(</span><span class="token string">"n = %d, nGlobalVar = %d /n"</span>, n, nGlobalVar<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        n <span class="token operator">=</span> tempFunction<span class="token punctuation">(</span><span class="token number">1</span>, <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    printf<span class="token punctuation">(</span><span class="token string">"n = %d"</span>, n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token builtin class-name">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>请将此代码复制出来并保存到文件 gdb-sample.c 中，然后切换到此文件所在目录，用GCC编译之：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">gcc gdb-sample.c <span class="token parameter variable">-o</span> gdb-sample <span class="token parameter variable">-g</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>在上面的命令行中，使用 -o 参数指定了编译生成的可执行文件名为 gdb-sample，使用参数 -g 表示将源代码信息编译到可执行文件中。如果不使用参数 -g，会给后面的GDB调试造成不便。当然，如果我们没有程序的源代码，自然也无从使用 -g 参数，调试/跟踪时也只能是汇编代码级别的调试/跟踪。</p>
+<p>下面“gdb”命令启动GDB，将首先显示GDB说明，不管它：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">GNU gdb Red Hat Linux <span class="token punctuation">(</span><span class="token number">5</span>.3post-0.20021129.18rh<span class="token punctuation">)</span>
+Copyright <span class="token number">2003</span> <span class="token function">free</span> Software Foundation, Inc.
+GDB is <span class="token function">free</span> software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+<span class="token builtin class-name">type</span> <span class="token string">"show copying"</span> to see the conditions.
+There is absolutely no warranty <span class="token keyword">for</span> GDB. Type <span class="token string">"show warranty"</span> <span class="token keyword">for</span> details.
+This GDB was configured as <span class="token string">"i386-redhat-linux-gnu"</span><span class="token builtin class-name">.</span>
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>上面最后一行“(gdb)”为GDB内部命令引导符，等待用户输入GDB命令。</p>
+<p>下面使用“file”命令载入被调试程序 gdb-sample（这里的 gdb-sample 即前面 GCC 编译输出的可执行文件）：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> <span class="token function">file</span> gdb-sample
+Reading symbols from gdb-sample<span class="token punctuation">..</span>.done.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>上面最后一行提示已经加载成功。</p>
+<p>下面使用“r”命令执行（Run）被调试文件，因为尚未设置任何断点，将直接执行到程序结束：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> r
+Starting program: /home/liigo/temp/test_jmp/test_jmp/gdb-sample
+n <span class="token operator">=</span> <span class="token number">1</span>, nGlobalVar <span class="token operator">=</span> <span class="token number">88</span>
+tempFunction is called, a <span class="token operator">=</span> <span class="token number">1</span>, b <span class="token operator">=</span> <span class="token number">2</span>
+n <span class="token operator">=</span> <span class="token number">3</span>
+Program exited normally.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>下面使用“b”命令在 main 函数开头设置一个断点（Breakpoint）：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> b main
+Breakpoint <span class="token number">1</span> at 0x804835c: <span class="token function">file</span> gdb-sample.c, line <span class="token number">19</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>上面最后一行提示已经成功设置断点，并给出了该断点信息：在源文件 gdb-sample.c 第19行处设置断点；这是本程序的第一个断点（序号为1）；断点处的代码地址为 0x804835c（此值可能仅在本次调试过程中有效）。回过头去看源代码，第19行中的代码为“n = 1”，恰好是 main 函数中的第一个可执行语句（前面的“int n;”为变量定义语句，并非可执行语句）。</p>
+<p>再次使用“r”命令执行（Run）被调试程序：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> r
+Starting program: /home/liigo/temp/gdb-sample
+
+Breakpoint <span class="token number">1</span>, main <span class="token punctuation">(</span><span class="token punctuation">)</span> at gdb-sample.c:19
+<span class="token number">19</span> n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>程序中断在gdb-sample.c第19行处，即main函数是第一个可执行语句处。</p>
+<p>上面最后一行信息为：下一条将要执行的源代码为“n = 1;”，它是源代码文件gdb-sample.c中的第19行。</p>
+<p>下面使用“s”命令（Step）执行下一行代码（即第19行“n = 1;”）：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> s
+<span class="token number">20</span> n++<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>上面的信息表示已经执行完“n = 1;”，并显示下一条要执行的代码为第20行的“n++;”。</p>
+<p>既然已经执行了“n = 1;”，即给变量 n 赋值为 1，那我们用“p”命令（Print）看一下变量 n 的值是不是 1 ：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> p n
+<span class="token variable">$1</span> <span class="token operator">=</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>果然是 1。（$1大致是表示这是第一次使用“p”命令——再次执行“p n”将显示“$2 = 1”——此信息应该没有什么用处。）</p>
+<p>下面我们分别在第26行、tempFunction 函数开头各设置一个断点（分别使用命令“b 26”“b tempFunction”）：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> b <span class="token number">26</span>
+Breakpoint <span class="token number">2</span> at 0x804837b: <span class="token function">file</span> gdb-sample.c, line <span class="token number">26</span>.
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> b tempFunction
+Breakpoint <span class="token number">3</span> at 0x804832e: <span class="token function">file</span> gdb-sample.c, line <span class="token number">12</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用“c”命令继续（Continue）执行被调试程序，程序将中断在第二 个断点（26行），此时全局变量 nGlobalVar 的值应该是 88；再一次执行“c”命令，程序将中断于第三个断点（12行，tempFunction 函数开头处），此时tempFunction 函数的两个参数 a、b 的值应分别是 1 和 2：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> c
+Continuing.
+
+Breakpoint <span class="token number">2</span>, main <span class="token punctuation">(</span><span class="token punctuation">)</span> at gdb-sample.c:26
+<span class="token number">26</span> printf<span class="token punctuation">(</span><span class="token string">"n = %d, nGlobalVar = %d /n"</span>, n, nGlobalVar<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> p nGlobalVar
+<span class="token variable">$2</span> <span class="token operator">=</span> <span class="token number">88</span>
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> c
+Continuing.
+n <span class="token operator">=</span> <span class="token number">1</span>, nGlobalVar <span class="token operator">=</span> <span class="token number">88</span>
+
+Breakpoint <span class="token number">3</span>, tempFunction <span class="token punctuation">(</span>a<span class="token operator">=</span><span class="token number">1</span>, <span class="token assign-left variable">b</span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span> at gdb-sample.c:12
+<span class="token number">12</span> printf<span class="token punctuation">(</span><span class="token string">"tempFunction is called, a = %d, b = %d /n"</span>, a, b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> p a
+<span class="token variable">$3</span> <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> p b
+<span class="token variable">$4</span> <span class="token operator">=</span> <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>上面反馈的信息一切都在我们预料之中~~</p>
+<p>再一次执行“c”命令（Continue），因为后面再也没有其它断点，程序将一直执行到结束：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> c
+Continuing.
+tempFunction is called, a <span class="token operator">=</span> <span class="token number">1</span>, b <span class="token operator">=</span> <span class="token number">2</span>
+n <span class="token operator">=</span> <span class="token number">3</span>
+Program exited normally.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>有时候需要看到编译器生成的汇编代码，以进行汇编级的调试或跟踪，又该如何操作呢？</p>
+<p>这就要用到display命令“display /i $pc”了（此命令前面已有详细解释）：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> display /i <span class="token variable">$pc</span>
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>此后程序再中断时，就可以显示出汇编代码了：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> r
+Starting program: /home/liigo/temp/test_jmp/test_jmp/gdb-sample
+
+Breakpoint <span class="token number">1</span>, main <span class="token punctuation">(</span><span class="token punctuation">)</span> at gdb-sample.c:19
+<span class="token number">19</span> n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token number">1</span>: x/i <span class="token variable">$pc</span> 0x804835c <span class="token operator">&lt;</span>main+1<span class="token operator"><span class="token file-descriptor important">6</span>></span>: movl <span class="token variable">$0x1</span>,0xfffffffc<span class="token punctuation">(</span>%ebp<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>看到了汇编代码，“n = 1;”对应的汇编代码是“movl $0x1,0xfffffffc(%ebp)”。</p>
+<p>并且以后程序每次中断都将显示下一条汇编指定（“si”命令用于执行一条汇编代码——区别于“s”执行一行C代码）：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> si
+<span class="token number">20</span> n++<span class="token punctuation">;</span>
+<span class="token number">1</span>: x/i <span class="token variable">$pc</span> 0x8048363 <span class="token operator">&lt;</span>main+2<span class="token operator"><span class="token file-descriptor important">3</span>></span>: lea 0xfffffffc<span class="token punctuation">(</span>%ebp<span class="token punctuation">)</span>,%eax
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> si
+0x08048366 <span class="token number">20</span> n++<span class="token punctuation">;</span>
+<span class="token number">1</span>: x/i <span class="token variable">$pc</span> 0x8048366 <span class="token operator">&lt;</span>main+2<span class="token operator"><span class="token file-descriptor important">6</span>></span>: incl <span class="token punctuation">(</span>%eax<span class="token punctuation">)</span>
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> si
+<span class="token number">21</span> n--<span class="token punctuation">;</span>
+<span class="token number">1</span>: x/i <span class="token variable">$pc</span> 0x8048368 <span class="token operator">&lt;</span>main+2<span class="token operator"><span class="token file-descriptor important">8</span>></span>: lea 0xfffffffc<span class="token punctuation">(</span>%ebp<span class="token punctuation">)</span>,%eax
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> si
+0x0804836b <span class="token number">21</span> n--<span class="token punctuation">;</span>
+<span class="token number">1</span>: x/i <span class="token variable">$pc</span> 0x804836b <span class="token operator">&lt;</span>main+3<span class="token operator"><span class="token file-descriptor important">1</span>></span>: decl <span class="token punctuation">(</span>%eax<span class="token punctuation">)</span>
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> si
+<span class="token number">23</span> nGlobalVar <span class="token operator">+=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+<span class="token number">1</span>: x/i <span class="token variable">$pc</span> 0x804836d <span class="token operator">&lt;</span>main+3<span class="token operator"><span class="token file-descriptor important">3</span>></span>: addl <span class="token variable">$0x64</span>,0x80494fc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>接下来我们试一下命令“b *&lt;函数名称&gt;”。</p>
+<p>为了更简明，有必要先删除目前所有断点（使用“d”命令——Delete breakpoint）：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> d
+Delete all breakpoints? <span class="token punctuation">(</span>y or n<span class="token punctuation">)</span> y
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>当被询问是否删除所有断点时，输入“y”并按回车键即可。</p>
+<p>下面使用命令“b *main”在 main 函数的 prolog 代码处设置断点（prolog、epilog，分别表示编译器在每个函数的开头和结尾自行插入的代码）：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> b *main
+Breakpoint <span class="token number">4</span> at 0x804834c: <span class="token function">file</span> gdb-sample.c, line <span class="token number">17</span>.
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> r
+The program being debugged has been started already.
+Start it from the beginning? <span class="token punctuation">(</span>y or n<span class="token punctuation">)</span> y
+Starting program: /home/liigo/temp/test_jmp/test_jmp/gdb-sample
+
+Breakpoint <span class="token number">4</span>, main <span class="token punctuation">(</span><span class="token punctuation">)</span> at gdb-sample.c:17
+<span class="token number">17</span> <span class="token punctuation">&#123;</span>
+<span class="token number">1</span>: x/i <span class="token variable">$pc</span> 0x804834c <span class="token operator">&lt;</span>main<span class="token operator">></span>: push %ebp
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> si
+0x0804834d <span class="token number">17</span> <span class="token punctuation">&#123;</span>
+<span class="token number">1</span>: x/i <span class="token variable">$pc</span> 0x804834d <span class="token operator">&lt;</span>main+<span class="token operator"><span class="token file-descriptor important">1</span>></span>: mov %esp,%ebp
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> si
+0x0804834f <span class="token keyword">in</span> main <span class="token punctuation">(</span><span class="token punctuation">)</span> at gdb-sample.c:17
+<span class="token number">17</span> <span class="token punctuation">&#123;</span>
+<span class="token number">1</span>: x/i <span class="token variable">$pc</span> 0x804834f <span class="token operator">&lt;</span>main+<span class="token operator"><span class="token file-descriptor important">3</span>></span>: sub <span class="token variable">$0x8</span>,%esp
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> si
+0x08048352 <span class="token number">17</span> <span class="token punctuation">&#123;</span>
+<span class="token number">1</span>: x/i <span class="token variable">$pc</span> 0x8048352 <span class="token operator">&lt;</span>main+<span class="token operator"><span class="token file-descriptor important">6</span>></span>: and <span class="token variable">$0xfffffff0</span>,%esp
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> si
+0x08048355 <span class="token number">17</span> <span class="token punctuation">&#123;</span>
+<span class="token number">1</span>: x/i <span class="token variable">$pc</span> 0x8048355 <span class="token operator">&lt;</span>main+<span class="token operator"><span class="token file-descriptor important">9</span>></span>: mov <span class="token variable">$0x0</span>,%eax
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> si
+0x0804835a <span class="token number">17</span> <span class="token punctuation">&#123;</span>
+<span class="token number">1</span>: x/i <span class="token variable">$pc</span> 0x804835a <span class="token operator">&lt;</span>main+1<span class="token operator"><span class="token file-descriptor important">4</span>></span>: sub %eax,%esp
+<span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> si
+<span class="token number">19</span> n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token number">1</span>: x/i <span class="token variable">$pc</span> 0x804835c <span class="token operator">&lt;</span>main+1<span class="token operator"><span class="token file-descriptor important">6</span>></span>: movl <span class="token variable">$0x1</span>,0xfffffffc<span class="token punctuation">(</span>%ebp<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>此时可以使用“i r”命令显示寄存器中的当前值———“i r”即“Infomation Register”：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> i r
+eax 0xbffff6a4 <span class="token parameter variable">-1073744220</span>
+ecx 0x42015554 <span class="token number">1107383636</span>
+edx 0x40016bc8 <span class="token number">1073834952</span>
+ebx 0x42130a14 <span class="token number">1108544020</span>
+esp 0xbffff6a0 0xbffff6a0
+ebp 0xbffff6a8 0xbffff6a8
+esi 0x40015360 <span class="token number">1073828704</span>
+edi 0x80483f0 <span class="token number">134513648</span>
+eip 0x8048366 0x8048366
+eflags 0x386 <span class="token number">902</span>
+cs 0x23 <span class="token number">35</span>
+ss 0x2b <span class="token number">43</span>
+ds 0x2b <span class="token number">43</span>
+es 0x2b <span class="token number">43</span>
+fs 0x0 <span class="token number">0</span>
+gs 0x33 <span class="token number">51</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当然也可以显示任意一个指定的寄存器值：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> i r eax
+eax 0xbffff6a4 <span class="token parameter variable">-1073744220</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>最后一个要介绍的命令是“q”，退出（Quit）GDB调试环境：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">(</span>gdb<span class="token punctuation">)</span> q
+The program is running. <span class="token builtin class-name">exit</span> anyway? <span class="token punctuation">(</span>y or n<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><blockquote>
+<p>gdb 教程：<a target="_blank" rel="noopener" href="http://www.imooc.com/learn/394">慕课网-Linux C语言指针与内存-第三章</a></p>
+</blockquote>
+<p>如果删除源代码, 就无法显示行号等辅助信息了</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">gcc <span class="token parameter variable">-g</span> gdb.c <span class="token parameter variable">-o</span> gdb.out <span class="token comment"># -g 支持gdb调试; -o 输出, 默认为 a.out</span>
+
+gdb gdb.out <span class="token comment"># 进入 gdb 调试环境</span>
+enter <span class="token comment"># 继续执行上条命令</span>
+l <span class="token comment"># 列出源代码, 默认 10 行, 按 l 继续</span>
+
+start <span class="token comment"># 开始单步调试, 默认 main() 第一行</span>
+p a <span class="token comment"># 查看 a 变量的值</span>
+n <span class="token comment"># 继续到下一行</span>
+s <span class="token comment"># 进入子函数</span>
+bt <span class="token comment"># 查看函数栈</span>
+f <span class="token number">1</span> <span class="token comment"># 切换函数栈</span>
+
+q 退出调试<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>测试用代码</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+
+<span class="token keyword">void</span> <span class="token function">change</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> tmp<span class="token operator">=</span>a<span class="token punctuation">;</span>
+    a<span class="token operator">=</span>b<span class="token punctuation">;</span> b<span class="token operator">=</span>tmp<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">void</span> <span class="token function">change2</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>a<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>b<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> tmp<span class="token operator">=</span><span class="token operator">*</span>a<span class="token punctuation">;</span>
+    <span class="token operator">*</span>a<span class="token operator">=</span><span class="token operator">*</span>b<span class="token punctuation">;</span> <span class="token operator">*</span>b<span class="token operator">=</span>tmp<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> a<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span>b<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
+    <span class="token function">change</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"change:\na=%d\nb=%d\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">change2</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>a<span class="token punctuation">,</span><span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"change2:\na=%d\nb=%d\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">168.6k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

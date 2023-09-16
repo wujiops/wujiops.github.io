@@ -1,0 +1,1427 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Open LDAP, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>Open LDAP | 波亚斯</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/featureimages/1.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Open LDAP</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/tools/">
+                                <span class="chip bg-color">tools</span>
+                            </a>
+                        
+                            <a href="/tags/openldap/">
+                                <span class="chip bg-color">openldap</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Server/" class="post-category">
+                                Server
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-09-01
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-09-16
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="系统-amp-安装"><a href="#系统-amp-安装" class="headerlink" title="系统 &amp; 安装"></a>系统 &amp; 安装</h3><blockquote>
+<p>系统：<code>Anolis OS 8.8</code>，<code>EPEL-8</code> 源。</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装软件</span>
+dnf <span class="token parameter variable">-y</span> <span class="token function">install</span> openldap openldap-clients openldap-servers openldap-devel
+<span class="token comment"># 启动</span>
+systemctl start slapd
+systemctl <span class="token builtin class-name">enable</span> slapd
+systemctl status slapd<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="管理员密码-amp-配置文件"><a href="#管理员密码-amp-配置文件" class="headerlink" title="管理员密码 &amp; 配置文件"></a>管理员密码 &amp; 配置文件</h4><blockquote>
+<p>生成管理员密码</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># slappasswd -s password   # 免交互生成hash密码</span>
+<span class="token comment"># 记住这个密码下面会用到</span>
+slappasswd
+
+New password: 
+Re-enter new password: 
+<span class="token punctuation">&#123;</span>SSHA<span class="token punctuation">&#125;</span>E1eXXXXXXXXXXXXXXXXXXXXXXXXXXgSy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>配置文件目录</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@waf ~<span class="token punctuation">]</span><span class="token comment"># cd /etc/openldap/slapd.d/cn=config</span>
+<span class="token punctuation">[</span>root@waf <span class="token assign-left variable">cn</span><span class="token operator">=</span>config<span class="token punctuation">]</span><span class="token comment"># ll</span>
+总用量 <span class="token number">20</span>
+drwxr-x--- <span class="token number">2</span> ldap ldap  <span class="token number">29</span> <span class="token number">9</span>月   <span class="token number">1</span> 09:34 <span class="token string">'cn=schema'</span>
+-rw------- <span class="token number">1</span> ldap ldap <span class="token number">378</span> <span class="token number">9</span>月   <span class="token number">1</span> 09:34 <span class="token string">'cn=schema.ldif'</span>
+-rw------- <span class="token number">1</span> ldap ldap <span class="token number">513</span> <span class="token number">9</span>月   <span class="token number">1</span> 09:34 <span class="token string">'olcDatabase=&#123;0&#125;config.ldif'</span>
+-rw------- <span class="token number">1</span> ldap ldap <span class="token number">412</span> <span class="token number">9</span>月   <span class="token number">1</span> 09:34 <span class="token string">'olcDatabase=&#123;-1&#125;frontend.ldif'</span>
+-rw------- <span class="token number">1</span> ldap ldap <span class="token number">562</span> <span class="token number">9</span>月   <span class="token number">1</span> 09:34 <span class="token string">'olcDatabase=&#123;1&#125;monitor.ldif'</span>
+-rw------- <span class="token number">1</span> ldap ldap <span class="token number">609</span> <span class="token number">9</span>月   <span class="token number">1</span> 09:34 <span class="token string">'olcDatabase=&#123;2&#125;mdb.ldif'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="动态配置规则"><a href="#动态配置规则" class="headerlink" title="动态配置规则"></a>动态配置规则</h4><blockquote>
+<p>创建配置目录并进入</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@waf <span class="token assign-left variable">cn</span><span class="token operator">=</span>config<span class="token punctuation">]</span><span class="token comment"># mkdir /home/ldap</span>
+<span class="token punctuation">[</span>root@waf <span class="token assign-left variable">cn</span><span class="token operator">=</span>config<span class="token punctuation">]</span><span class="token comment"># cd /home/ldap/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>配置脚本</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 设置管理员密码</span>
+<span class="token builtin class-name">printf</span> <span class="token string">"dn: olcDatabase=&#123;0&#125;config,cn=config
+changetype: modify
+add: olcRootPW
+olcRootPW: &#123;SSHA&#125;E1eXXXXXXXXXXXXXXXXXXXXXXXXXXgSy
+"</span> <span class="token operator">|</span> <span class="token function">tee</span> /home/ldap/chrootpw.ldif
+
+<span class="token comment"># 动态导入服务器</span>
+ldapmodify <span class="token parameter variable">-Y</span> EXTERNAL <span class="token parameter variable">-H</span> ldapi:/// <span class="token parameter variable">-f</span> chrootpw.ldif
+
+<span class="token comment"># 导入基本 schema 这里导入了全部</span>
+<span class="token function">ls</span> /etc/openldap/schema/*.ldif <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token parameter variable">-I</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> ldapadd <span class="token parameter variable">-Y</span> EXTERNAL <span class="token parameter variable">-H</span> ldapi:/// <span class="token parameter variable">-f</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+
+<span class="token comment"># 修改域并创建域管理账户</span>
+<span class="token comment"># dc=abcd,dc=cloud 这个字段可以自定义修改</span>
+<span class="token builtin class-name">printf</span> <span class="token string">"dn: olcDatabase=&#123;1&#125;monitor,cn=config
+changetype: modify
+replace: olcAccess
+olcAccess: &#123;0&#125;to *
+   by dn.base=<span class="token entity" title="\&quot;">\"</span>gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth<span class="token entity" title="\&quot;">\"</span> read
+   by dn.base=<span class="token entity" title="\&quot;">\"</span>cn=admin,dc=abcd,dc=cloud<span class="token entity" title="\&quot;">\"</span> read
+   by * none
+
+dn: olcDatabase=&#123;2&#125;mdb,cn=config
+changetype: modify
+replace: olcSuffix
+olcSuffix: dc=abcd,dc=cloud
+
+dn: olcDatabase=&#123;2&#125;mdb,cn=config
+changetype: modify
+replace: olcRootDN
+olcRootDN: cn=admin,dc=abcd,dc=cloud
+
+dn: olcDatabase=&#123;2&#125;mdb,cn=config
+changetype: modify
+replace: olcRootPW
+olcRootPW: &#123;SSHA&#125;E1eXXXXXXXXXXXXXXXXXXgSy
+
+dn: olcDatabase=&#123;2&#125;mdb,cn=config
+changetype: modify
+add: olcAccess
+olcAccess: &#123;0&#125;to attrs=userPassword,shadowLastChange
+   by dn=<span class="token entity" title="\&quot;">\"</span>cn=admin,dc=abcd,dc=cloud<span class="token entity" title="\&quot;">\"</span> write
+   by anonymous auth
+   by self write
+   by * none
+olcAccess: &#123;1&#125;to dn.base="</span>" by * <span class="token builtin class-name">read</span>
+olcAccess: <span class="token punctuation">&#123;</span><span class="token number">2</span><span class="token punctuation">&#125;</span>to *
+   by <span class="token assign-left variable">dn</span><span class="token operator">=</span><span class="token punctuation">\</span>"cn<span class="token operator">=</span>admin,dc<span class="token operator">=</span>abcd,dc<span class="token operator">=</span>cloud<span class="token punctuation">\</span>" <span class="token function">write</span>
+   by * <span class="token builtin class-name">read</span><span class="token string">" | tee /home/ldap/chdomain.ldif
+
+# 启用 memberof 模块
+# 这个模块的作用是当你建一个组的时候，把一些用户添加到这个组里去，它会自动给这些用户添加一个 memberOf 属性，有很多应用需要检查这个属性。
+printf "</span>dn: <span class="token assign-left variable">cn</span><span class="token operator">=</span>module<span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">&#125;</span>,cn<span class="token operator">=</span>config
+cn: modulle<span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">&#125;</span>
+objectClass: olcModuleList
+objectclass: <span class="token function">top</span>
+olcModuleload: memberof.la
+olcModulePath: /usr/lib64/openldap
+
+dn: <span class="token assign-left variable">olcOverlay</span><span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">&#125;</span>memberof,olcDatabase<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token number">2</span><span class="token punctuation">&#125;</span>mdb,cn<span class="token operator">=</span>config
+objectClass: olcConfig
+objectClass: olcMemberOf
+objectClass: olcOverlayConfig
+objectClass: <span class="token function">top</span>
+olcOverlay: memberof
+olcMemberOfDangling: ignore
+olcMemberOfRefInt: TRUE
+olcMemberOfGroupOC: groupOfUniqueNames
+olcMemberOfMemberAD: uniqueMember
+olcMemberOfMemberOfAD: memberOf<span class="token string">" | tee /home/ldap/add_memberof.ldif
+
+printf "</span>dn: <span class="token assign-left variable">cn</span><span class="token operator">=</span>module<span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">&#125;</span>,cn<span class="token operator">=</span>config
+add: olcmoduleload
+olcmoduleload: refint<span class="token string">" | tee /home/ldap/refint1.ldif
+
+printf "</span>dn: <span class="token assign-left variable">olcOverlay</span><span class="token operator">=</span>refint,olcDatabase<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token number">2</span><span class="token punctuation">&#125;</span>mdb,cn<span class="token operator">=</span>config
+objectClass: olcConfig
+objectClass: olcOverlayConfig
+objectClass: olcRefintConfig
+objectClass: <span class="token function">top</span>
+olcOverlay: refint
+olcRefintAttribute: memberof uniqueMember  manager owner<span class="token string">" | tee /home/ldap/refint2.ldif
+
+# 创建组织及管理角色
+# 在上述基础上，我们来创建一个叫做 HiQing(可以自定义) 的组织，并在其下创建一个 admin 的组织角色（该组织角色内的用户具有管理整个 LDAP 的权限）和 People 和 Group 两个组织单元
+printf "</span>dn: <span class="token assign-left variable">dc</span><span class="token operator">=</span>abcd,dc<span class="token operator">=</span>cloud
+objectClass: <span class="token function">top</span>
+objectClass: dcObject
+objectClass: organization
+o: HiQing Company
+dc: abcd
+
+dn: <span class="token assign-left variable">cn</span><span class="token operator">=</span>admin,dc<span class="token operator">=</span>abcd,dc<span class="token operator">=</span>cloud
+objectClass: organizationalRole
+cn: admin
+
+dn: <span class="token assign-left variable">ou</span><span class="token operator">=</span>People,dc<span class="token operator">=</span>abcd,dc<span class="token operator">=</span>cloud
+objectClass: organizationalUnit
+ou: People
+
+dn: <span class="token assign-left variable">ou</span><span class="token operator">=</span>Group,dc<span class="token operator">=</span>abcd,dc<span class="token operator">=</span>cloud
+objectClass: organizationalRole
+cn: Group<span class="token string">" | tee /home/ldap/wsorg.ldif
+
+# 关闭匿名访问
+printf "</span>dn: <span class="token assign-left variable">cn</span><span class="token operator">=</span>config
+changetype: modify
+add: olcDisallows
+olcDisallows: bind_anon
+
+dn: <span class="token assign-left variable">cn</span><span class="token operator">=</span>config
+changetype: modify
+add: olcRequires
+olcRequires: authc
+
+dn: <span class="token assign-left variable">olcDatabase</span><span class="token operator">=</span><span class="token punctuation">&#123;</span>-1<span class="token punctuation">&#125;</span>frontend,cn<span class="token operator">=</span>config
+changetype: modify
+add: olcRequires
+olcRequires: authc" <span class="token operator">|</span> <span class="token function">tee</span> /home/ldap/disabled_anon.ldif<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="动态载入"><a href="#动态载入" class="headerlink" title="动态载入"></a>动态载入</h4><blockquote>
+<p>将配置中的操作动态载入 LDAP 服务器</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ldapmodify <span class="token parameter variable">-Y</span> EXTERNAL <span class="token parameter variable">-H</span> ldapi:/// <span class="token parameter variable">-f</span> chdomain.ldif
+ldapadd <span class="token parameter variable">-Q</span> <span class="token parameter variable">-Y</span> EXTERNAL <span class="token parameter variable">-H</span> ldapi:/// <span class="token parameter variable">-f</span> add_memberof.ldif
+ldapmodify <span class="token parameter variable">-Q</span> <span class="token parameter variable">-Y</span> EXTERNAL <span class="token parameter variable">-H</span> ldapi:/// <span class="token parameter variable">-f</span> refint1.ldif
+ldapadd <span class="token parameter variable">-Q</span> <span class="token parameter variable">-Y</span> EXTERNAL <span class="token parameter variable">-H</span> ldapi:/// <span class="token parameter variable">-f</span> refint2.ldif
+ldapadd <span class="token parameter variable">-x</span> <span class="token parameter variable">-D</span> <span class="token assign-left variable">cn</span><span class="token operator">=</span>admin,dc<span class="token operator">=</span>abcd,dc<span class="token operator">=</span>cloud <span class="token parameter variable">-W</span> <span class="token parameter variable">-f</span> wsorg.ldif   <span class="token comment"># 注意这里改成自己的dc=，提示输入密码是执行 slappasswd 命令输入的密码</span>
+ldapadd <span class="token parameter variable">-Y</span> EXTERNAL <span class="token parameter variable">-H</span> ldapi:/// <span class="token parameter variable">-f</span> disabled_anon.ldif<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>执行效果：</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># ldapmodify -Y EXTERNAL -H ldapi:/// -f chrootpw.ldif</span>
+SASL/EXTERNAL authentication started
+SASL username: <span class="token assign-left variable">gidNumber</span><span class="token operator">=</span><span class="token number">0</span>+uidNumber<span class="token operator">=</span><span class="token number">0</span>,cn<span class="token operator">=</span>peercred,cn<span class="token operator">=</span>external,cn<span class="token operator">=</span>auth
+SASL SSF: <span class="token number">0</span>
+modifying entry <span class="token string">"olcDatabase=&#123;0&#125;config,cn=config"</span>
+<span class="token comment"># ls /etc/openldap/schema/*.ldif | xargs -I &#123;&#125; ldapadd -Y EXTERNAL -H ldapi:/// -f &#123;&#125;</span>
+SASL/EXTERNAL authentication started
+SASL username: <span class="token assign-left variable">gidNumber</span><span class="token operator">=</span><span class="token number">0</span>+uidNumber<span class="token operator">=</span><span class="token number">0</span>,cn<span class="token operator">=</span>peercred,cn<span class="token operator">=</span>external,cn<span class="token operator">=</span>auth
+SASL SSF: <span class="token number">0</span>
+adding new entry <span class="token string">"cn=collective,cn=schema,cn=config"</span>
+
+SASL/EXTERNAL authentication started
+SASL username: <span class="token assign-left variable">gidNumber</span><span class="token operator">=</span><span class="token number">0</span>+uidNumber<span class="token operator">=</span><span class="token number">0</span>,cn<span class="token operator">=</span>peercred,cn<span class="token operator">=</span>external,cn<span class="token operator">=</span>auth
+SASL SSF: <span class="token number">0</span>
+adding new entry <span class="token string">"cn=corba,cn=schema,cn=config"</span>
+
+SASL/EXTERNAL authentication started
+SASL username: <span class="token assign-left variable">gidNumber</span><span class="token operator">=</span><span class="token number">0</span>+uidNumber<span class="token operator">=</span><span class="token number">0</span>,cn<span class="token operator">=</span>peercred,cn<span class="token operator">=</span>external,cn<span class="token operator">=</span>auth
+SASL SSF: <span class="token number">0</span>
+adding new entry <span class="token string">"cn=core,cn=schema,cn=config"</span>
+ldap_add: Other <span class="token punctuation">(</span>e.g., implementation specific<span class="token punctuation">)</span> error <span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">)</span>
+	additional info: olcAttributeTypes: Duplicate attributeType: <span class="token string">"2.5.4.2"</span>
+
+SASL/EXTERNAL authentication started
+SASL username: <span class="token assign-left variable">gidNumber</span><span class="token operator">=</span><span class="token number">0</span>+uidNumber<span class="token operator">=</span><span class="token number">0</span>,cn<span class="token operator">=</span>peercred,cn<span class="token operator">=</span>external,cn<span class="token operator">=</span>auth
+SASL SSF: <span class="token number">0</span>
+adding new entry <span class="token string">"cn=cosine,cn=schema,cn=config"</span>
+
+SASL/EXTERNAL authentication started
+SASL username: <span class="token assign-left variable">gidNumber</span><span class="token operator">=</span><span class="token number">0</span>+uidNumber<span class="token operator">=</span><span class="token number">0</span>,cn<span class="token operator">=</span>peercred,cn<span class="token operator">=</span>external,cn<span class="token operator">=</span>auth
+SASL SSF: <span class="token number">0</span>
+adding new entry <span class="token string">"cn=duaconf,cn=schema,cn=config"</span>
+
+SASL/EXTERNAL authentication started
+SASL username: <span class="token assign-left variable">gidNumber</span><span class="token operator">=</span><span class="token number">0</span>+uidNumber<span class="token operator">=</span><span class="token number">0</span>,cn<span class="token operator">=</span>peercred,cn<span class="token operator">=</span>external,cn<span class="token operator">=</span>auth
+SASL SSF: <span class="token number">0</span>
+adding new entry <span class="token string">"cn=dyngroup,cn=schema,cn=config"</span>
+
+SASL/EXTERNAL authentication started
+SASL username: <span class="token assign-left variable">gidNumber</span><span class="token operator">=</span><span class="token number">0</span>+uidNumber<span class="token operator">=</span><span class="token number">0</span>,cn<span class="token operator">=</span>peercred,cn<span class="token operator">=</span>external,cn<span class="token operator">=</span>auth
+SASL SSF: <span class="token number">0</span>
+adding new entry <span class="token string">"cn=inetorgperson,cn=schema,cn=config"</span>
+
+SASL/EXTERNAL authentication started
+SASL username: <span class="token assign-left variable">gidNumber</span><span class="token operator">=</span><span class="token number">0</span>+uidNumber<span class="token operator">=</span><span class="token number">0</span>,cn<span class="token operator">=</span>peercred,cn<span class="token operator">=</span>external,cn<span class="token operator">=</span>auth
+SASL SSF: <span class="token number">0</span>
+adding new entry <span class="token string">"cn=java,cn=schema,cn=config"</span>
+
+SASL/EXTERNAL authentication started
+SASL username: <span class="token assign-left variable">gidNumber</span><span class="token operator">=</span><span class="token number">0</span>+uidNumber<span class="token operator">=</span><span class="token number">0</span>,cn<span class="token operator">=</span>peercred,cn<span class="token operator">=</span>external,cn<span class="token operator">=</span>auth
+SASL SSF: <span class="token number">0</span>
+adding new entry <span class="token string">"cn=misc,cn=schema,cn=config"</span>
+
+SASL/EXTERNAL authentication started
+SASL username: <span class="token assign-left variable">gidNumber</span><span class="token operator">=</span><span class="token number">0</span>+uidNumber<span class="token operator">=</span><span class="token number">0</span>,cn<span class="token operator">=</span>peercred,cn<span class="token operator">=</span>external,cn<span class="token operator">=</span>auth
+SASL SSF: <span class="token number">0</span>
+adding new entry <span class="token string">"cn=nis,cn=schema,cn=config"</span>
+
+SASL/EXTERNAL authentication started
+SASL username: <span class="token assign-left variable">gidNumber</span><span class="token operator">=</span><span class="token number">0</span>+uidNumber<span class="token operator">=</span><span class="token number">0</span>,cn<span class="token operator">=</span>peercred,cn<span class="token operator">=</span>external,cn<span class="token operator">=</span>auth
+SASL SSF: <span class="token number">0</span>
+adding new entry <span class="token string">"cn=openldap,cn=schema,cn=config"</span>
+
+SASL/EXTERNAL authentication started
+SASL username: <span class="token assign-left variable">gidNumber</span><span class="token operator">=</span><span class="token number">0</span>+uidNumber<span class="token operator">=</span><span class="token number">0</span>,cn<span class="token operator">=</span>peercred,cn<span class="token operator">=</span>external,cn<span class="token operator">=</span>auth
+SASL SSF: <span class="token number">0</span>
+adding new entry <span class="token string">"cn=pmi,cn=schema,cn=config"</span>
+
+SASL/EXTERNAL authentication started
+SASL username: <span class="token assign-left variable">gidNumber</span><span class="token operator">=</span><span class="token number">0</span>+uidNumber<span class="token operator">=</span><span class="token number">0</span>,cn<span class="token operator">=</span>peercred,cn<span class="token operator">=</span>external,cn<span class="token operator">=</span>auth
+SASL SSF: <span class="token number">0</span>
+adding new entry <span class="token string">"cn=ppolicy,cn=schema,cn=config"</span>
+
+<span class="token comment"># ldapmodify -Y EXTERNAL -H ldapi:/// -f chdomain.ldif</span>
+SASL/EXTERNAL authentication started
+SASL username: <span class="token assign-left variable">gidNumber</span><span class="token operator">=</span><span class="token number">0</span>+uidNumber<span class="token operator">=</span><span class="token number">0</span>,cn<span class="token operator">=</span>peercred,cn<span class="token operator">=</span>external,cn<span class="token operator">=</span>auth
+SASL SSF: <span class="token number">0</span>
+modifying entry <span class="token string">"olcDatabase=&#123;1&#125;monitor,cn=config"</span>
+
+modifying entry <span class="token string">"olcDatabase=&#123;2&#125;mdb,cn=config"</span>
+
+modifying entry <span class="token string">"olcDatabase=&#123;2&#125;mdb,cn=config"</span>
+
+modifying entry <span class="token string">"olcDatabase=&#123;2&#125;mdb,cn=config"</span>
+
+modifying entry <span class="token string">"olcDatabase=&#123;2&#125;mdb,cn=config"</span>
+
+<span class="token comment"># ldapadd -Q -Y EXTERNAL -H ldapi:/// -f add_memberof.ldif</span>
+adding new entry <span class="token string">"cn=module&#123;0&#125;,cn=config"</span>
+
+adding new entry <span class="token string">"olcOverlay=&#123;0&#125;memberof,olcDatabase=&#123;2&#125;mdb,cn=config"</span>
+<span class="token comment"># ldapmodify -Q -Y EXTERNAL -H ldapi:/// -f refint1.ldif</span>
+modifying entry <span class="token string">"cn=module&#123;0&#125;,cn=config"</span>
+
+<span class="token comment"># ldapadd -Q -Y EXTERNAL -H ldapi:/// -f refint2.ldif</span>
+adding new entry <span class="token string">"olcOverlay=refint,olcDatabase=&#123;2&#125;mdb,cn=config"</span>
+
+<span class="token comment"># ldapadd -x -D cn=admin,dc=abcd,dc=cloud -W -f wsorg.ldif</span>
+Enter LDAP Password: 
+adding new entry <span class="token string">"dc=abcd,dc=cloud"</span>
+
+adding new entry <span class="token string">"cn=admin,dc=abcd,dc=cloud"</span>
+
+adding new entry <span class="token string">"ou=People,dc=abcd,dc=cloud"</span>
+
+adding new entry <span class="token string">"ou=Group,dc=abcd,dc=cloud"</span>
+
+<span class="token comment"># ldapadd -Y EXTERNAL -H ldapi:/// -f disabled_anon.ldif</span>
+SASL/EXTERNAL authentication started
+SASL username: <span class="token assign-left variable">gidNumber</span><span class="token operator">=</span><span class="token number">0</span>+uidNumber<span class="token operator">=</span><span class="token number">0</span>,cn<span class="token operator">=</span>peercred,cn<span class="token operator">=</span>external,cn<span class="token operator">=</span>auth
+SASL SSF: <span class="token number">0</span>
+modifying entry <span class="token string">"cn=config"</span>
+
+modifying entry <span class="token string">"cn=config"</span>
+
+modifying entry <span class="token string">"olcDatabase=&#123;-1&#125;frontend,cn=config"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="phpLDAPadmin-安装"><a href="#phpLDAPadmin-安装" class="headerlink" title="phpLDAPadmin 安装"></a>phpLDAPadmin 安装</h3><blockquote>
+<p>安装 phpLDAPadmin</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">dnf module <span class="token builtin class-name">enable</span> php:8.0
+dnf <span class="token parameter variable">-y</span> <span class="token function">install</span> httpd php php-ldap php-gd php-mbstring php-pear php-bcmath php-xml phpldapadmin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>修改<code>/etc/phpldapadmin/config.php</code><br>注释 <code>$servers-&gt;setValue(&#39;login&#39;,&#39;attr&#39;,&#39;uid&#39;);</code></p>
+<p>并新增一行 <code>$servers-&gt;setValue(&#39;login&#39;,&#39;attr&#39;,&#39;dn&#39;);</code><br>修改 <code>/etc/httpd/conf.d/phpldapadmin.conf</code></p>
+<p>注释 <code>Require local</code><br>新增一行 <code>Require all granted</code></p>
+<p>修改 <code>/etc/httpd/conf/httpd.conf</code><br>修改 <code>Listen 80</code> 为 <code>Listen 180</code> ，因为我的这里被占用了。</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 启动httpd</span>
+systemctl <span class="token builtin class-name">enable</span> httpd
+systemctl start httpd<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>访问地址：<code>http://IP:Port/phpldapadmin/</code> or <code>http://IP:Port/ldapadmin/</code>两个都可以，<br>由此<code>/etc/httpd/conf.d/phpldapadmin.conf</code>配置文件设置。<br>账户为：<code>cn=admin,dc=abcd,dc=cloud</code> — 这里要改成自己的<br>密码就是执行 slappasswd 命令输入的密码。</p>
+</blockquote>
+<blockquote>
+<p>修改内容如下</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@waf ldap<span class="token punctuation">]</span><span class="token comment"># grep -rn -B 1 "servers->setValue('login','attr','uid');" /etc/phpldapadmin/config.php</span>
+<span class="token number">453</span>-<span class="token variable">$servers</span>-<span class="token operator">></span>setValue<span class="token punctuation">(</span><span class="token string">'login'</span>,<span class="token string">'attr'</span>,<span class="token string">'dn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token number">454</span>:// <span class="token variable">$servers</span>-<span class="token operator">></span>setValue<span class="token punctuation">(</span><span class="token string">'login'</span>,<span class="token string">'attr'</span>,<span class="token string">'uid'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span>root@waf ldap<span class="token punctuation">]</span><span class="token comment"># grep -n Require /etc/httpd/conf.d/phpldapadmin.conf</span>
+<span class="token number">10</span>:    Require all granted
+<span class="token number">11</span>:    <span class="token comment"># Require local</span>
+<span class="token punctuation">[</span>root@waf ldap<span class="token punctuation">]</span><span class="token comment"># grep -n Listen /etc/httpd/conf/httpd.conf</span>
+<span class="token number">37</span>:<span class="token comment"># Listen: Allows you to bind Apache to specific IP addresses and/or</span>
+<span class="token number">41</span>:<span class="token comment"># Change this to Listen on specific IP addresses as shown below to </span>
+<span class="token number">44</span>:<span class="token comment">#Listen 12.34.56.78:80</span>
+<span class="token number">45</span>:Listen <span class="token number">180</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><blockquote>
+<p>先创建用户组，—&gt; 选择 <code>创建新条目</code> 我这里创建的是<code>default</code></p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230901191435379.png"></p>
+<blockquote>
+<p>输入<code>组名</code>，点击<code>创建对象</code></p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230901191634367.png"></p>
+<blockquote>
+<p>点击创建好的组名可以预览组的相关信息</p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230901191740903.png"></p>
+<blockquote>
+<p>创建用户，和组一样点击<code>创建新条目</code></p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230901192209670.png"></p>
+<blockquote>
+<p>填写用户基本信息，用户名只填最后一个名字即可<br>注意<code>Common Name</code>前面有一个<code>空格</code>记得删除<br>密码我这里选择的是md5<br><code>GID号</code>就是刚才创建的组<br>点击<code>创建对象</code>即可</p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230901192550960.png"></p>
+<blockquote>
+<p>点击刚才创建好用户名可以预览用户信息<br>可以 <code>增加新的属性</code> 我这里新增了<code>mobile</code>和<code>mail</code>两条新的属性<br>注意这里每次只能增加一条属性</p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230901192841013.png"></p>
+<blockquote>
+<p>添加后点击<code>Update Object</code>提交，再次点击确认更改。</p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230901193245546.png"></p>
+<blockquote>
+<p>修改<code>sn</code>的值，一般设置为中文名</p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230901192944285.png"></p>
+<h3 id="修改admin密码"><a href="#修改admin密码" class="headerlink" title="修改admin密码"></a>修改admin密码</h3><blockquote>
+<p>使用<code>slappasswd</code>重新生成密码</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 生成新的SSHA</span>
+slappasswd <span class="token parameter variable">-s</span> 88XXXXXXXXXXXXUX
+<span class="token comment"># 新增changepwd.ldif文件</span>
+<span class="token builtin class-name">printf</span> <span class="token string">"dn: olcDatabase=&#123;0&#125;config,cn=config
+changetype: modify
+replace: olcRootPW
+olcRootPW: &#123;SSHA&#125;SFaXXXXXXXXXXXXXXXXXXXXXXXXXXIz8"</span> <span class="token operator">|</span> <span class="token function">tee</span> changepwd.ldif
+<span class="token comment"># 修改密码</span>
+ldapadd <span class="token parameter variable">-Y</span> EXTERNAL <span class="token parameter variable">-H</span> ldapi:/// <span class="token parameter variable">-f</span> changepwd.ldif<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="问题处理"><a href="#问题处理" class="headerlink" title="问题处理"></a>问题处理</h3><blockquote>
+<p>ldap_bind: Invalid credentials (49)</p>
+<p>密码粘贴错误，我这里只能手动输入。</p>
+</blockquote>
+<blockquote>
+<p>重装openldap</p>
+<p>systemctl stop slapd</p>
+<p>dnf -y remove openldap-servers openldap-clients</p>
+<p>rm -rf /var/lib/ldap /etc/openldap</p>
+<p>dnf -y install openldap-servers openldap-clients</p>
+<p>systemctl start slapd</p>
+</blockquote>
+<blockquote>
+<p>LDAP said: Already exists …</p>
+<p>你可能需要查看报错详细信息，将<code>add</code>改为<code>replace</code></p>
+</blockquote>
+<blockquote>
+<p>登录phpldapadmin报错This base cannot be created with PLA.</p>
+<p>意味着你需要执行<code>ldapadd -x -D cn=admin,dc=abcd,dc=cloud -W -f wsorg.ldif</code>并输入正确的密码。不要直接复制，修改成你自己的cn、dc。</p>
+</blockquote>
+<h3 id="用户密码找回"><a href="#用户密码找回" class="headerlink" title="用户密码找回"></a>用户密码找回</h3><blockquote>
+<p>使用<code>docker compose</code>运行<code>tiredofit/self-service-password</code></p>
+<p>更多参数设置，参考GitHub说明</p>
+<p>Github地址：<a target="_blank" rel="noopener" href="https://github.com/tiredofit/docker-self-service-password">https://github.com/tiredofit/docker-self-service-password</a></p>
+</blockquote>
+<blockquote>
+<p>编辑 <code>docker-compose.yml</code></p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">version: <span class="token string">"3"</span>
+services:
+  self-service-password:
+    container_name: self-service-password
+    image: tiredofit/self-service-password:latest
+    restart: always
+    ports:
+      - <span class="token number">1800</span>:80
+    environment:
+      <span class="token comment"># LDAP 信息</span>
+      - <span class="token assign-left variable">LDAP_SERVER</span><span class="token operator">=</span>ldap://192.168.1.6:389
+      - <span class="token assign-left variable">LDAP_BINDDN</span><span class="token operator">=</span>cn<span class="token operator">=</span>admin,dc<span class="token operator">=</span>abcd,dc<span class="token operator">=</span>cloud
+      - <span class="token assign-left variable">LDAP_BINDPASS</span><span class="token operator">=</span>88XXXXXXXXXXXXUX
+      - <span class="token assign-left variable">LDAP_BASE_SEARCH</span><span class="token operator">=</span>OU<span class="token operator">=</span>People,DC<span class="token operator">=</span>abcd,DC<span class="token operator">=</span>cloud
+      - <span class="token assign-left variable">LDAP_LOGIN_ATTRIBUTE</span><span class="token operator">=</span>cn
+      <span class="token comment"># 设置接收重置密码邮箱为ldap邮箱</span>
+      - <span class="token assign-left variable">MAIL_USE_LDAP</span><span class="token operator">=</span>true
+      - <span class="token assign-left variable">MAIL_FROM</span><span class="token operator">=</span>admin@XXXXXXXXXXXX.work
+      - <span class="token assign-left variable">SMTP_DEBUG</span><span class="token operator">=</span><span class="token number">0</span>
+      - <span class="token assign-left variable">SMTP_HOST</span><span class="token operator">=</span>smtp.exmail.qq.com
+      - <span class="token assign-left variable">SMTP_USER</span><span class="token operator">=</span>admin@XXXXXXXXXXXX.work
+      - <span class="token assign-left variable">SMTP_PASS</span><span class="token operator">=</span>6VXXXXXXXXXXXXRx
+      - <span class="token assign-left variable">SMTP_PORT</span><span class="token operator">=</span><span class="token number">465</span>
+      - <span class="token assign-left variable">SMTP_SECURE_TYPE</span><span class="token operator">=</span>ssl
+      - <span class="token assign-left variable">SMTP_AUTH_ON</span><span class="token operator">=</span>true
+      <span class="token comment"># 随时通知用户更改密码</span>
+      - <span class="token assign-left variable">NOTIFY_ON_CHANGE</span><span class="token operator">=</span>true
+      <span class="token comment"># 加密方法</span>
+      - <span class="token assign-left variable">PASSWORD_HASH</span><span class="token operator">=</span>MD5
+      <span class="token comment"># 最少8字符</span>
+      - <span class="token assign-left variable">PASSWORD_MIN_LENGTH</span><span class="token operator">=</span><span class="token number">8</span>
+      <span class="token comment"># 最多16字符</span>
+      - <span class="token assign-left variable">PASSWORD_MAX_LENGTH</span><span class="token operator">=</span><span class="token number">16</span>
+      <span class="token comment"># 最少1个大写字母</span>
+      - <span class="token assign-left variable">PASSWORD_MIN_UPPERCASE</span><span class="token operator">=</span><span class="token number">1</span>
+      <span class="token comment"># 最少1个小写字母</span>
+      - <span class="token assign-left variable">PASSWORD_MIN_LOWERCASE</span><span class="token operator">=</span><span class="token number">1</span>
+      <span class="token comment"># 最少1个数字</span>
+      - <span class="token assign-left variable">PASSWORD_MIN_DIGIT</span><span class="token operator">=</span><span class="token number">1</span>
+      <span class="token comment"># 最少1个符号</span>
+      - <span class="token assign-left variable">PASSWORD_MIN_SPECIAL</span><span class="token operator">=</span><span class="token number">1</span>
+      <span class="token comment"># 不要重复使用与当前相同的密码</span>
+      - <span class="token assign-left variable">PASSWORD_NO_REUSE</span><span class="token operator">=</span>true
+      <span class="token comment"># 定义特殊字符</span>
+      - <span class="token assign-left variable">PASSWORD_SPECIAL_CHARACTERS</span><span class="token operator">=</span>^a-zA-Z0-9
+      <span class="token comment"># 密码应该不同于登录名</span>
+      - <span class="token assign-left variable">PASSWORD_DIFFERENT_LOGIN</span><span class="token operator">=</span>true
+      - <span class="token assign-left variable">PASSWORD_SHOW_POLICY_POSITION</span><span class="token operator">=</span>above
+      <span class="token comment"># 显示策略约束消息</span>
+      - <span class="token assign-left variable">PASSWORD_SHOW_POLICY</span><span class="token operator">=</span>always
+      - <span class="token assign-left variable">DEFAULT_ACTION</span><span class="token operator">=</span>change
+      <span class="token comment"># 自动获取http头部，否则邮件显示https://:80/index.php</span>
+      - <span class="token assign-left variable">IS_BEHIND_PROXY</span><span class="token operator">=</span>true
+      <span class="token comment"># 背景图和logo</span>
+      - <span class="token assign-left variable">BACKGROUND_IMAGE</span><span class="token operator">=</span>images/bk.jpeg
+      - <span class="token assign-left variable">LOGO</span><span class="token operator">=</span>images/logo.png
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - /home/ldap/self-service-password/htdocs:/www/ssp
+      - /home/ldap/self-service-password/logs:/www/logs
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 512M<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>运行<code>docker compose up -d</code></p>
+<p>这里的<code>docker-compose</code>和<code>docker compose</code>可自行选择</p>
+<p>我安装的是<code>docker-compose-plugin</code>使用的是<code>docker compose</code></p>
+</blockquote>
+<blockquote>
+<p>修改背景图bk和logo，自己提前准备好图片。</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cp</span> logo.png /home/ldap/self-service-password/htdocs/images/
+<span class="token function">cp</span> bk.jpeg /home/ldap/self-service-password/htdocs/images/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>访问：IP:PORT</p>
+<p>这里有两个按钮，一个是输入用户名和旧密码来进行修改密码</p>
+<p>一个是输入用户名来修改密码</p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230902102956491.png"></p>
+<blockquote>
+<p>邮箱找回密码示例：填写用户名后提交即可，邮件会发送到个人邮箱。</p>
+<p>测试gmail无法收到信息。</p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230902102911097.png"></p>
+<blockquote>
+<p>遇到的问题：</p>
+<p>不能访问 LDAP 服务器。这个是LDAP配置错误，按照个人的实际情况修改LDAP部分即可。</p>
+<p>邮箱不匹配的问题，未开启<code>MAIL_USE_LDAP=true</code>，对应的<code>/home/ldap/self-service-password/htdocs/conf/config.inc.php</code>配置文件中<code>$mail_address_use_ldap = true;</code>这时候修改密码就需要输入邮箱地址，输入的邮箱和LDAP中的<code>mail</code>字段中的邮箱地址不一样就会报错。</p>
+</blockquote>
+<h3 id="备份恢复"><a href="#备份恢复" class="headerlink" title="备份恢复"></a>备份恢复</h3><blockquote>
+<p>备份命令</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ldapsearch <span class="token parameter variable">-x</span> <span class="token parameter variable">-D</span> <span class="token string">"cn=admin,dc=abcd,dc=cloud"</span> <span class="token punctuation">\</span>
+<span class="token parameter variable">-w</span> <span class="token string">"88XXXXXXXXXXXXUX"</span> <span class="token parameter variable">-b</span> <span class="token string">'dc=abcd,dc=cloud'</span> <span class="token punctuation">\</span>
+<span class="token parameter variable">-LLL</span> <span class="token parameter variable">-H</span> ldap://127.0.0.1:389 <span class="token operator">></span> openldap.ldif<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>恢复命令</p>
+<p>恢复openldap数据，一定是在原来openldap服务所在的服务器上</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 模拟数据丢失</span>
+<span class="token comment"># 获取所有用户配置条目</span>
+ldapsearch <span class="token parameter variable">-x</span> <span class="token parameter variable">-Z</span> <span class="token parameter variable">-LLL</span> <span class="token parameter variable">-H</span> ldap://127.0.0.1:389  <span class="token parameter variable">-b</span> <span class="token string">'ou=People,dc=abcd,dc=cloud'</span> <span class="token operator">|</span> <span class="token function">wc</span> <span class="token parameter variable">-l</span>
+<span class="token comment"># 清空所有所有条目</span>
+ldapdelete <span class="token parameter variable">-x</span> <span class="token parameter variable">-D</span> <span class="token string">"cn=admin,dc=abcd,dc=cloud"</span> <span class="token parameter variable">-w</span> <span class="token string">"88XXXXXXXXXXXXUX"</span> <span class="token parameter variable">-r</span> <span class="token string">"dc=abcd,dc=cloud"</span>
+<span class="token comment"># 确认条目</span>
+ldapsearch <span class="token parameter variable">-x</span> <span class="token parameter variable">-Z</span> <span class="token parameter variable">-LLL</span> <span class="token parameter variable">-H</span> ldap://127.0.0.1:389 <span class="token parameter variable">-b</span> <span class="token string">'ou=People,dc=laoshiren,dc=com'</span> <span class="token operator">|</span> <span class="token function">wc</span> <span class="token parameter variable">-l</span>
+
+<span class="token comment"># 还原数据</span>
+systemctl stop slapd <span class="token operator">&amp;&amp;</span> systemctl status slapd
+<span class="token comment"># 清空原openldap数据</span>
+<span class="token function">rm</span> <span class="token parameter variable">-fr</span> /var/lib/ldap/*
+slapadd <span class="token parameter variable">-l</span> openldap.ldif
+
+<span class="token comment"># 拷贝备份的数据配置文件</span>
+<span class="token comment"># 赋权</span>
+<span class="token function">chown</span> ldap:ldap <span class="token parameter variable">-R</span> /var/lib/ldap/
+
+<span class="token comment"># 启动 slapd</span>
+systemctl start slapd <span class="token operator">&amp;&amp;</span> systemctl status slapd
+
+<span class="token comment"># 验证</span>
+ldapsearch <span class="token parameter variable">-x</span> <span class="token parameter variable">-Z</span> <span class="token parameter variable">-LLL</span> <span class="token parameter variable">-H</span> ldap://127.0.0.1:389 <span class="token parameter variable">-b</span> <span class="token string">'ou=People,dc=abcd,dc=cloud'</span> <span class="token operator">|</span> <span class="token function">wc</span> <span class="token parameter variable">-l</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="对接gitlab"><a href="#对接gitlab" class="headerlink" title="对接gitlab"></a>对接gitlab</h3><blockquote>
+<p>在原有gitlab.rb配置文件的基础上新增：</p>
+<p>更多详情<a target="_blank" rel="noopener" href="https://docs.gitlab.cn/jh/administration/auth/ldap/#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE">点击</a></p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">gitlab_rails<span class="token punctuation">[</span><span class="token string">'ldap_enabled'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'ldap_servers'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token string">'main'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token string">'label'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'LDAP'</span>,
+    <span class="token string">'host'</span> <span class="token operator">=</span><span class="token operator">></span>  <span class="token string">'192.168.1.6'</span>,
+    <span class="token string">'port'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token number">389</span>,
+    <span class="token string">'uid'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'cn'</span>,
+    <span class="token string">'encryption'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'plain'</span>,
+    <span class="token string">'base'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'OU=People,DC=abcd,DC=cloud'</span>,
+    <span class="token string">'group_base'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'OU=Group,DC=abcd,DC=cloud'</span>,
+    <span class="token string">'bind_dn'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'cn=admin,dc=abcd,dc=cloud'</span>,
+    <span class="token string">'password'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'88XXXXXXXXXXXXUX'</span>,
+    <span class="token string">'attributes'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span><span class="token string">'username'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'uid'</span>, <span class="token string">'email'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span><span class="token string">'mail'</span>, <span class="token string">'email'</span><span class="token punctuation">]</span>, <span class="token string">'name'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'sn'</span><span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>重启gitlab</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">gitlab-ctl reconfigure
+gitlab-ctl restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>执行检查</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@gitlab ~<span class="token punctuation">]</span><span class="token comment"># gitlab-rake gitlab:ldap:check</span>
+Checking LDAP <span class="token punctuation">..</span>.
+
+LDAP: <span class="token punctuation">..</span>. Server: ldapmain
+LDAP authentication<span class="token punctuation">..</span>. Success
+LDAP <span class="token function">users</span> with access to your GitLab server <span class="token punctuation">(</span>only showing the first <span class="token number">100</span> results<span class="token punctuation">)</span>
+	DN: <span class="token assign-left variable">cn</span><span class="token operator">=</span>test,ou<span class="token operator">=</span>people,dc<span class="token operator">=</span>abcd,dc<span class="token operator">=</span>cloud	 cn: <span class="token builtin class-name">test</span>
+
+Checking LDAP <span class="token punctuation">..</span>. Finished<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>使用LDAP中新建的账号登录即可，</p>
+<p>注意第一次登录可能会提示：等待LDAP同步，稍后刷新。</p>
+<p>注意第一次登录可能会提示：选择职位/用途等等。</p>
+<p>刷新即可，选择的管理员权限是没用的，ldap不能越权。</p>
+<p>实际新用户均为无授权的普通用户</p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230902003225251.png"></p>
+<blockquote>
+<p>遇到的问题：</p>
+<p>无法通过 Ldapmain 对您进行身份验证,原因:”Ssl connect syscall returned=5 errn…</p>
+<p>通过修改gitlab.rb文件解决。上文中的gitlab.rb文件就是修改好的。</p>
+</blockquote>
+<h3 id="对接Jenkins"><a href="#对接Jenkins" class="headerlink" title="对接Jenkins"></a>对接Jenkins</h3><blockquote>
+<p>确认<code>ldap</code>插件和<code>Role-based Authorization Strategy</code>插件已经安装</p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230902103110569.png"></p>
+<blockquote>
+<p><code>Dashboard </code>—&gt; <code>Manage Jenkins</code> —&gt; <code>Security</code> 填写LDAP相关信息</p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230902105010465.png"></p>
+<blockquote>
+<p>这里设置了怎样获取用户和组，LDAP的结构参考下文说明 @<a href="LDAP%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">LDAP目录结构</a></p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230902183012596.png"></p>
+<p><img src="/medias/img/openldap/image-20230902105119190.png"></p>
+<blockquote>
+<p>填写好LDAP信息之后可以点击<code>Test LDAP settings</code>输入用户名密码测试登录。</p>
+<p>密码策略选择<code>Role-Based Strategy</code></p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230902170557097.png"></p>
+<blockquote>
+<p>开始配置权限，<code>Dashboard</code> —&gt; <code>Manage Jenkins</code> —&gt; <code>Manage and Assign Roles</code> —&gt; <code>Manage Roles</code></p>
+<p>我这里分配了3个权限，admin、开发规则组、运维规则组。根据实际分配即可</p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230902182450915.png"></p>
+<blockquote>
+<p>对<code>Item</code>流水线项目授权</p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230902182531665.png"></p>
+<blockquote>
+<p><code>Assign Roles</code>授权，注意<strong>竖列</strong>是刚才创建的<code>Mangage Roles</code> —&gt; <code>Global roles</code></p>
+<p><strong>横行</strong>是add增加的<strong>LDAP的用户和组</strong></p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230902182622148.png"></p>
+<blockquote>
+<p>注意<strong>竖列</strong>是刚才创建的<code>Item</code>项目授权</p>
+<p><strong>横行</strong>就是add <strong>ldap的用户/组</strong>，对项目有权限</p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230902182823172.png"></p>
+<h4 id="LDAP目录结构"><a href="#LDAP目录结构" class="headerlink" title="LDAP目录结构"></a>LDAP目录结构</h4><blockquote>
+<p>我的LDAP的示例树结构，可以在新建组的时候可以勾选用户，也可以在组里面新增属性<code>memberUid</code>输入用户名即可，可以看到<code>ywgroup</code>组只有一个用户，可以在<code>memberUid</code>中选择赋值，就可以往组里添加更多的用户了。</p>
+</blockquote>
+<p><img src="/medias/img/openldap/20230902174950.png"></p>
+<blockquote>
+<p>我这里分别登录devtest和ywtest、ywroot用户确认权限是否正确。测试通过✅</p>
+</blockquote>
+<blockquote>
+<p>遇到的问题：</p>
+<p>权限授权不对，导致登录用户无任何权限。</p>
+<p>配置LDAP之后，权限配置好之前，不要退出登录，因为Jenkins自带的admin用户和使用Jenkins创建的用户都不可用了，一定要对LDAP中的一个用户授予admin权限。再重启或者退出登录</p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230902164102216.png"></p>
+<blockquote>
+<p>解决：编辑<code>/var/lib/jenkins/config.xml</code>配置文件，将<code>&lt;useSecurity&gt;true&lt;/useSecurity&gt;</code>改为<code>&lt;useSecurity&gt;false&lt;/useSecurity&gt;</code>，重启Jenkins，匿名用户就有管理员权限了。相应的ldap配置会清空。需要重新配置</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sed</span> <span class="token parameter variable">-i.bak</span> <span class="token string">'s@&lt;useSecurity>true&lt;/useSecurity>@&lt;useSecurity>false&lt;/useSecurity>@g'</span> /var/lib/jenkins/config.xml
+systemctl restart jenkins.service<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="对接禅道"><a href="#对接禅道" class="headerlink" title="对接禅道"></a>对接禅道</h3><blockquote>
+<p>ERR: 开源版本禅道已不支持LDAP，需要付费企业版才支持</p>
+</blockquote>
+<h3 id="对接jumpserver"><a href="#对接jumpserver" class="headerlink" title="对接jumpserver"></a>对接jumpserver</h3><blockquote>
+<p>jumpserver对接LDAP很简单，在认证设置中填写：LDAP服务器的相关信息即可</p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230902200551854.png"></p>
+<blockquote>
+<p>配置完提交即可</p>
+</blockquote>
+<p><img src="/medias/img/openldap/image-20230902200625090.png"></p>
+<blockquote>
+<p>问题：先提交再测试，我这里配置完测试连接OK，测试登录一直失败，提交之后就可以了。之后就可以导入用户，配置权限了。</p>
+</blockquote>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">168.6k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

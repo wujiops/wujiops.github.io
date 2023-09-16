@@ -1,0 +1,930 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="网络, Linux Python Shell Devops Kubernetes Hadoop">
+    <meta name="description" content="任何值的拥有的都是值得等待的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>网络 | 波亚斯</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">波亚斯</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/project" class="waves-effect waves-light">
+      
+      <i class="fas fa-folder-tree" style="zoom: 0.6;"></i>
+      
+      <span>项目</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">波亚斯</div>
+        <div class="logo-desc">
+            
+            任何值的拥有的都是值得等待的
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+      
+        <a href="/" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-home"></i>
+            
+            首页
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/tags" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-tags"></i>
+            
+            标签
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/categories" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-bookmark"></i>
+            
+            分类
+        </a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+      
+        <a href="/project" class="waves-effect waves-light">
+            
+                <i class="fa-fw fas fa-folder-tree"></i>
+            
+            项目
+        </a>
+          
+        </li>
+        
+
+    </ul>
+</div>
+
+
+        </div>
+
+    </nav>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3F6WTHxhAYXUUJoc",ck:"3F6WTHxhAYXUUJoc",autoTrack:true,hashMode:true})</script>
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/featureimages/19.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">网络</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #3C8FFF;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #3C8FFF;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/network/">
+                                <span class="chip bg-color">network</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-05-30
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.3k
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/prism/prism.css">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="查看及测试网络"><a href="#查看及测试网络" class="headerlink" title="查看及测试网络"></a>查看及测试网络</h1><h2 id="查看网络："><a href="#查看网络：" class="headerlink" title="查看网络："></a>查看网络：</h2><p>使用ifconfig命令查看网络接口</p>
+<p>（1）查看活动的网络接口信息（<code>ifconfig</code>）</p>
+<p>（2）查看所有的网络接口信息（<code>ifconfig -a</code>）</p>
+<p>（3） 查看指定网络接口信息（<code>ifconfig 网络接口名</code>）</p>
+<p>直接使用ifconfig命令，查询出的是已激活的网卡列表信息，参数</p>
+<p>eth0：第一块网卡</p>
+<p>lo：回环，用于某些服务的测试</p>
+<p>Hwaddr：网络接口的物理地址（MAC地址）</p>
+<p>inet addr：网络接口的ip地址</p>
+<p>Bacast：网络接口所在网络的广播地址</p>
+<p>Mask：网络接口的子网掩码</p>
+<p>使用<code>ip</code>/<code>ethtool</code>命令查看网络接口</p>
+<p>（1）查看所有网络接口的数据链路层信息</p>
+<p>（2）查看所有网络接口的网络层信息</p>
+<p>（3）查看指定网络接口的速率、模式等信息</p>
+<p><code>ip link</code>查看网络接口信息，不显示ip地址</p>
+<p><code>ip addr</code>查看网络接口的详细信息，可以加show选项，查看指定网络接口信息</p>
+<p><code>ethtool网络接口名</code>：查看指定网络接口的速率、模式等信息</p>
+<h2 id="route命令"><a href="#route命令" class="headerlink" title="route命令"></a>route命令</h2><p>使用route命令查看路由表条目</p>
+<p>linux系统中的路由表决定着本机向其他主机或其他网络发送数据的去向，是排除网络故障的关键信息</p>
+<p>直接执行route命令</p>
+<p>查看主机的路由表信息：</p>
+<p>目标网段的地址</p>
+<p>Gateway：下一跳路由的地址</p>
+<p>Genmask：子网掩码</p>
+<p>Flags：标记当前网络节点状态</p>
+<p>Metric：路由距离、跳数（linux内核中没有使用）</p>
+<p>Ref：路由项引用次数（linux内核中没有使用）</p>
+<p>Use：该路由被使用的次数，可以粗略估计通向指定网络地址的网络流量</p>
+<p>Iface：发送数据的网络接口，如eth0</p>
+<p>当目标网段为“Default”时，表示此行时默认网关记录；当下一跳为“*”时，表示目标网段与本机相连的时候，不需要路由器</p>
+<p>选项：</p>
+<p><code>-n</code>：可以将路由记录中的地址显示为数字形式，这样可以跳过解析主机名的过程，在路由表条目较多时能够加快执行速度。</p>
+<h2 id="netstat命令"><a href="#netstat命令" class="headerlink" title="netstat命令"></a>netstat命令</h2><p>使用<code>netstat</code>命令查看网络连接情况</p>
+<p>选项：</p>
+<p><code>-a</code>显示当前主机中所有活动的网络连接信息</p>
+<p><code>-n</code>以数字形式显示相关信息</p>
+<p><code>-r</code>显示路由表信息</p>
+<p><code>-t</code>显示TCP协议相关信息</p>
+<p><code>-u</code>显示UDP协议相关信息</p>
+<p><code>-p</code>显示与网络连接相关的进程号、进程名称信息（要root权限）</p>
+<p><code>-l</code>显示处于监听状态的网络连接及端口信息</p>
+<p>常用组合：</p>
+<p><code>-anpt</code>以数字形式显示当前系统中的所有的TCP连接信息，同时显示对应的进程号</p>
+<p>查看某一个服务，使用grep过滤</p>
+<p><code>netstat -anpt|grep sshd</code>（可以是服务名或进程号）</p>
+<p>查询结果中各项的意思：</p>
+<p>proto：协议</p>
+<p>Recv-Q：接收的包的个数</p>
+<p>Send-Q：发送的包的个数</p>
+<p>local Address：本地ip地址</p>
+<p>Foreign Address：远端ip地址</p>
+<p>state：状态</p>
+<p>PID/program name：PID号/进程名称</p>
+<p>在state列中：    </p>
+<p>LISTEN：监听状态</p>
+<p>BSTABLISHED：已连接状态</p>
+<h2 id="ss命令"><a href="#ss命令" class="headerlink" title="ss命令"></a>ss命令</h2><p><code>ss</code>命令：类似<code>netstat</code></p>
+<p>常见用法：</p>
+<p><code>-l</code>显示本地打开的所有端口</p>
+<p><code>-pl</code>显示每个进程打开的socket</p>
+<p><code>-atu</code>显示所有的TCP、UDP协议的socket</p>
+<p><code>-atpl</code>显示所有处于监听状态的TCP协议socket</p>
+<p>（补充：n以数字格式显示，p显示端口）</p>
+<h2 id="测试网络连接"><a href="#测试网络连接" class="headerlink" title="测试网络连接"></a>测试网络连接</h2><p>traceroute命令的格式</p>
+<p><code>traceroute ip|网址</code></p>
+<p>nslookup命令的格式</p>
+<p><code>nslookup 网址</code> [DNS服务器地址]</p>
+<h1 id="设置网络地址参数"><a href="#设置网络地址参数" class="headerlink" title="设置网络地址参数"></a>设置网络地址参数</h1><h2 id="使用ifconfig命令修改网卡的地址、状态"><a href="#使用ifconfig命令修改网卡的地址、状态" class="headerlink" title="使用ifconfig命令修改网卡的地址、状态"></a>使用ifconfig命令修改网卡的地址、状态</h2><p>在linux主机中，手动修改网络配置包括两种最基本的方法：</p>
+<p>临时修改：通过命令行直接修改当前正在使用的网络地址，修改后立即生效，这种方式简单快捷，一般在调试网络的过程中使用，但由于所做的修改并没有固定的存放在静态的文件中，因此当重启network服务或重启主机后将失效</p>
+<p><code>ifconfig eth0 192.168.0.1/24</code>（或<code>ifconfig eth0 192.168.0.4 netmask 255.255.255.0</code>）</p>
+<p><code>ifconfig eth0 up</code> 开启eth0（ifdown eth0）</p>
+<p><code>ifconfig eth0 down</code> 关闭eth0（ifup eth0）</p>
+<p><code>ifconfig eth0:0 192.168.0.2</code> 为网卡绑定虚拟接口（多用于调试）</p>
+<p>固定配置：通过配置文件来存放固定的各种网络地址，需要重启network服务或重启主机后才会生效，这种方式是永久配置，一般在需要为服务器设置固定的网络地址时使用</p>
+<h2 id="使用route命令添加、删除静态路由"><a href="#使用route命令添加、删除静态路由" class="headerlink" title="使用route命令添加、删除静态路由"></a>使用route命令添加、删除静态路由</h2><p>通过route add操作可以添加路由记录，结合“-net”选项指定目标网段的地址，结合“gw”选项指定下一跳路由器的ip地址</p>
+<p>添加格式：route add -net 目标网段地址 gw 下一跳路由ip/本机跳出ip</p>
+<p>例如：<code>route add -net 172.18.16.0/24 gw 192.168.0.2</code></p>
+<p>删除格式：route del -net 目标网段地址</p>
+<p>例如：<code>route del -net 172.18.16.0/24</code></p>
+<p>添加、删除默认网关记录（默认网关是一条特殊的静态路由）</p>
+<p>与添加、删除静态路由类似，但指定目标网段时只需要简单的使用“default”表示即可，无须再使用“-net”选项指明网段地址</p>
+<p>格式：<code>route|grep default</code>先查看原路由表中的默认网关地址</p>
+<p>删除：<code>route del default [gw 192.168.0.1]</code>（或<code>route del -net 192.168.0.1</code>）</p>
+<p>网络接口的配置文件默认位于<code>/etc/sysconfig/network-srcipts/</code>目录中，文件名命名方式为“ifcfg-xxx”其中“xxx”是网络接口的名称</p>
+<p>例如：网卡eth0的配置文件是“ifcfg-eth0”，回环接口lo的配置文件是“ifcfg-lo”</p>
+<p>ifcfg-xxx文件中常用配置项的含义及作用</p>
+<p>DEVICE：设置网络接口的名称</p>
+<p>ONBOOT：设置网络接口是否在linux系统启动时激活</p>
+<p>BOOTPROTO：设置网络接口的配置方式，分为“static（静态）”和“dhcp（动态）”</p>
+<p>IPADDR：设置网络接口的ip地址</p>
+<p>NETMASK：设置网络接口的子网掩码</p>
+<p>GATEWAY：设置网络接口的默认网关地址</p>
+<p>UUID：网关的UUID编号</p>
+<p>HWADDR：网卡的MAC地址</p>
+<p>设置完重启网卡</p>
+<p>启用、禁用网络接口配置：</p>
+<p>重启network服务使新的配置生效</p>
+<p>如果只禁用某一个网络接口</p>
+<p><code>ifup 网卡名</code></p>
+<p><code>ifdown 网卡名</code></p>
+<p>主机名称配置文件</p>
+<p>若要修改主机名可以使用<code>hostname</code>命令，临时修改，重启失效</p>
+<p>永久配置，修改配置文件</p>
+<p><code>/etc/sysconfig/network</code></p>
+<p>NETWORKING：用于设置IPV4网络默认启用状态</p>
+<p>HOSTNAME：用于设置主机名</p>
+<p>域名解析配置文件</p>
+<p>（1）指定为本机提供DNS解析的服务器地址的文件</p>
+<p>编辑<code>/etc/resolv.conf</code>文件，指定三个不同的DNS服务器，优先使用第一个DNS服务器</p>
+<p>添加<code>nameserver 114.114.114.114</code></p>
+<p>（2）本地主机映射文件</p>
+<p><code>/etc/hosts</code>文件中记录着一份主机名与ip地址的映射关系表，当访问一个未知域名时，先查询hosts文件中是否有相应的映射记录，如果有就使用，没有再去找DNS服务器进行查询（省去去DNS服务器解析域名）</p>
+<p>设置方式：</p>
+<p>打开<code>/etc/hosts</code>文件，添加：<code>123.125.114.144 www.baidu.com</code></p>
+<p>（域名可以设置别名）</p>
+<h2 id="网卡接口配置：bonding"><a href="#网卡接口配置：bonding" class="headerlink" title="网卡接口配置：bonding"></a>网卡接口配置：bonding</h2><p>bonding是一种linux系统下的网卡绑定技术，可以把服务器上n个物理网卡在系统内部抽象成一个逻辑上的网卡，能够提升网络吞吐量、实现网络冗余、负载等功能，有很多优势。</p>
+<p>bonding技术是是linux系统内核层面实现的，它是一个内核模块（驱动）。使用它需要系统有这个模块。</p>
+<p><code>modinfo bonding</code>查看bonding的信</p>
+<p><code>modprobe bonding</code>将bonding模块加载到linux内核</p>
+<p>bonding的工作模式：</p>
+<p>mode0</p>
+<p>轮转，从头到尾的顺序在每一个slave接口上发送数据包（bond的网卡有一个损坏，bond就损坏）</p>
+<p>mode1</p>
+<p>主备，bond的所有网卡中，只有一个slave被激活（被激活的slave损坏，下一个slave顶上）</p>
+<p>mode3</p>
+<p>广播，在所有的slave接口上传送所有的报文。有容错能力</p>
+<p>bonding配置</p>
+<p>1、添加bonding模块（xshell连接不上虚拟机，需要执行<code>modprobe -r bonding</code>将bonding模块移除）</p>
+<p><code>modprobe bonding</code></p>
+<p>2、关闭NetworkManager服务</p>
+<p><code>service NetworkManager stop</code></p>
+<p>3、创建bond0</p>
+<p><code>vim /etc/sysconfig/network-scripts/ifcfg-bond0</code></p>
+<p>（miimon是用来进行链路检测的，如果miimon=100，那么系统每100ms检测一次链路连接状态，如果有一条线路不通就转入另一条线路）</p>
+<p>4、配置真实网卡 <code>eth0</code> <code>eth1</code> 添加以下内容</p>
+<pre class="line-numbers language-none"><code class="language-none">DEVICE&#x3D;eth0
+TYPE&#x3D;Ethernet
+ONBOOT&#x3D;yes
+BOOTPROTO&#x3D;none
+MASTER&#x3D;bond0
+SLAVE&#x3D;yes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">DEVICE&#x3D;eth1
+TYPE&#x3D;Ethernet
+ONBOOT&#x3D;yes
+BOOTPROTO&#x3D;none
+MASTER&#x3D;bond0
+SLAVE&#x3D;yes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>5、添加网卡驱动</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/modprobe.d/bonding.conf
+<span class="token builtin class-name">alias</span> bond0 bonding<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>6、启动网络服务</p>
+<p><code>service network start</code></p>
+<p>删除bond0</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ifconfig</span> bond0 down
+rmmod bonding<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="../linux-command-1.16.0/iftop">iftop实时流量监控</a><br><a href="../linux-command-1.16.0/nmcli">nmcli网络管理客户端</a></p>
+
+
+            </div>
+            <hr/>
+
+            
+
+
+
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <footer class="page-footer bg-color">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+
+            
+                <span id="icp"><img src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2023001682号</a>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            <span <i class="fas fa-desktop"></i> </span>
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "8";
+                        var startDate = "1";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = 'Poyais站点已安全运行 ' + diffDays + ' 天 ' + diffHours + ' 小时 ' + diffMinutes + ' 分钟 ' + diffSeconds + ' 秒🎊';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                    }
+
+                    setInterval(siteTime, 1000);
+                </script>
+            <br>
+            
+
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_uv">
+                <i class="fas fa-users"></i>&nbsp;总浏览:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>人🎉&nbsp;
+            </span>
+            
+            
+                <span id="busuanzi_container_site_pv">
+                <i class="far fa-eye"></i>&nbsp;总点击:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>次🎉&nbsp;
+            </span>
+            
+            
+                <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
+                    class="white-color">168.6k</span>千字🎉
+            
+            
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wujiops" class="tooltipped" target="_blank" data-tooltip="访问我的Git仓库" data-position="top" data-delay="50">
+        <i class="fab fa-git"></i>
+    </a>
+
+
+
+    <a href="mailto:158970251@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=158970251" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 158970251" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/js/matery.js"></script>
+    
+    
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a4c9204df4c3cec280b566bca80a32d5";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wujiops/wujiops.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
