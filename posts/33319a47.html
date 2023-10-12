@@ -255,14 +255,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-09-16
+                    2023-10-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    996
+                    995
                 </div>
                 
 
@@ -300,7 +300,7 @@
 <span class="token function">docker</span> run <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token parameter variable">--name</span> pgdb <span class="token parameter variable">-e</span> <span class="token assign-left variable">POSTGRES_USER</span><span class="token operator">=</span>sonar <span class="token parameter variable">-e</span> <span class="token assign-left variable">POSTGRES_PASSWORD</span><span class="token operator">=</span>sonar <span class="token parameter variable">-e</span> <span class="token assign-left variable">POSTGRES_DB</span><span class="token operator">=</span>sonar <span class="token parameter variable">-p</span> <span class="token number">5432</span>:5432 <span class="token parameter variable">-v</span> /home/sonarqube/postgresql:/var/lib/postgresql <span class="token parameter variable">-d</span> postgres
 
 <span class="token comment"># 安装最新的SonarQube</span>
-<span class="token function">docker</span> run <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token parameter variable">--name</span> sonarqube <span class="token parameter variable">--link</span> pgdb <span class="token parameter variable">-e</span> <span class="token assign-left variable">SONAR_JDBC_USERNAME</span><span class="token operator">=</span>sonar <span class="token parameter variable">-e</span> <span class="token assign-left variable">SONAR_JDBC_PASSWORD</span><span class="token operator">=</span>sonar <span class="token parameter variable">-e</span> <span class="token assign-left variable">SONAR_JDBC_URL</span><span class="token operator">=</span>jdbc:postgresql://pgdb:5432/sonar <span class="token parameter variable">-p</span> <span class="token number">19000</span>:9000 <span class="token parameter variable">-v</span> /home/sonarqube/sonarqube/data:/opt/sonarqube/data <span class="token parameter variable">-v</span> /home/sonarqube/sonarqube/extensions:/opt/sonarqube/extensions <span class="token parameter variable">-v</span> /home/sonarqube/sonarqube/logs:/opt/sonarqube/logs <span class="token parameter variable">-d</span> sonarqube:lts-community
+<span class="token function">docker</span> run <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token parameter variable">--name</span> sonarqube <span class="token parameter variable">--link</span> pgdb <span class="token parameter variable">-e</span> <span class="token assign-left variable">SONAR_JDBC_USERNAME</span><span class="token operator">=</span>sonar <span class="token parameter variable">-e</span> <span class="token assign-left variable">SONAR_JDBC_PASSWORD</span><span class="token operator">=</span>sonar <span class="token parameter variable">-e</span> <span class="token assign-left variable">SONAR_JDBC_URL</span><span class="token operator">=</span>jdbc:postgresql://pgdb:5432/sonar <span class="token parameter variable">-p</span> <span class="token number">19000</span>:9000 <span class="token parameter variable">-v</span> /home/sonarqube/sonarqube/data:/opt/sonarqube/data <span class="token parameter variable">-v</span> /home/sonarqube/sonarqube/extensions:/opt/sonarqube/extensions <span class="token parameter variable">-v</span> /home/sonarqube/sonarqube/logs:/opt/sonarqube/logs <span class="token parameter variable">-d</span> sonarqube:community
 
 <span class="token comment"># 忘记使用 --restart=always 的话可以使用</span>
 <span class="token comment"># docker update --restart=always sonarqube</span>
@@ -517,7 +517,7 @@ INFO: Linux <span class="token number">5.10</span>.134-15.an8.x86_64 amd64
             
             
                 <i class="fas fa-chart-area"></i>&nbsp;总字数:&nbsp;<span
-                    class="white-color">168.7k</span>千字🎉
+                    class="white-color">168.9k</span>千字🎉
             
             
 
